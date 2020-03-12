@@ -1,0 +1,43 @@
+{
+  "success": true,
+  "data": {
+    "archived": true,
+    "oid": "sayisal_archived_20090117",
+    "hafta": 636,
+    "cekilisTarihi": "17/01/2009",
+    "cekilisTuru": "SAYISAL_LOTO",
+    "rakamlar": "16#20#24#36#41#42",
+    "rakamlarNumaraSirasi": "16 - 20 - 24 - 36 - 41 - 42",
+    "bilenKisiler": [
+      {
+        "oid": "sayisal_20090117_results_3",
+        "kisiBasinaDusenIkramiye": 3.3,
+        "kisiSayisi": 357317,
+        "tur": "$3_BILEN"
+      },
+      {
+        "oid": "sayisal_20090117_results_4",
+        "kisiBasinaDusenIkramiye": 20.3,
+        "kisiSayisi": 19159,
+        "tur": "$4_BILEN"
+      },
+      {
+        "oid": "sayisal_20090117_results_5",
+        "kisiBasinaDusenIkramiye": 2107.85,
+        "kisiSayisi": 319,
+        "tur": "$5_BILEN"
+      },
+      {
+        "oid": "sayisal_20090117_results_6",
+        "kisiBasinaDusenIkramiye": 1493655.55,
+        "kisiSayisi": 0,
+        "tur": "$6_BILEN"
+      }
+    ],
+    "devretti": true,
+    "devirSayisi": null,
+    "devirTutari": 0,
+    "buyukIkramiye": 1493655.55,
+    "buyukIkrKazananIlIlceler": null
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "success": true,
+  "data": {
+    "archived": true,
+    "oid": "onnumara_archived_20060116",
+    "hafta": 180,
+    "cekilisTarihi": "16/01/2006",
+    "cekilisTuru": "ON_NUMARA",
+    "rakamlar": "03#04#06#09#10#12#16#18#25#26#37#48#50#52#58#59#65#67#76#77#78#79",
+    "rakamlarNumaraSirasi": "03 - 04 - 06 - 09 - 10 - 12 - 16 - 18 - 25 - 26 - 37 - 48 - 50 - 52 - 58 - 59 - 65 - 67 - 76 - 77 - 78 - 79",
+    "bilenKisiler": [
+      {
+        "oid": "onnumara_20060116_results_HIC",
+        "kisiBasinaDusenIkramiye": 1.05,
+        "kisiSayisi": 136322,
+        "tur": "$HIC"
+      },
+      {
+        "oid": "onnumara_20060116_results_6",
+        "kisiBasinaDusenIkramiye": 1.65,
+        "kisiSayisi": 64332,
+        "tur": "$6_BILEN"
+      },
+      {
+        "oid": "onnumara_20060116_results_7",
+        "kisiBasinaDusenIkramiye": 12,
+        "kisiSayisi": 10312,
+        "tur": "$7_BILEN"
+      },
+      {
+        "oid": "onnumara_20060116_results_8",
+        "kisiBasinaDusenIkramiye": 103.95,
+        "kisiSayisi": 1041,
+        "tur": "$8_BILEN"
+      },
+      {
+        "oid": "onnumara_20060116_results_9",
+        "kisiBasinaDusenIkramiye": 2199.35,
+        "kisiSayisi": 49,
+        "tur": "$9_BILEN"
+      },
+      {
+        "oid": "onnumara_20060116_results_10",
+        "kisiBasinaDusenIkramiye": 64648.65,
+        "kisiSayisi": 2,
+        "tur": "$10_BILEN"
+      }
+    ],
+    "devretti": false,
+    "devirSayisi": null,
+    "devirTutari": 0,
+    "buyukIkramiye": 129297.3,
+    "buyukIkrKazananIlIlceler": null
+  }
+}

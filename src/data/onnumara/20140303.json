@@ -1,0 +1,55 @@
+{
+  "success": true,
+  "data": {
+    "archived": true,
+    "oid": "onnumara_archived_20140303",
+    "hafta": 604,
+    "cekilisTarihi": "03/03/2014",
+    "cekilisTuru": "ON_NUMARA",
+    "rakamlar": "02#14#15#16#17#18#19#29#31#34#35#41#46#49#51#54#63#65#68#72#76#77",
+    "rakamlarNumaraSirasi": "02 - 14 - 15 - 16 - 17 - 18 - 19 - 29 - 31 - 34 - 35 - 41 - 46 - 49 - 51 - 54 - 63 - 65 - 68 - 72 - 76 - 77",
+    "bilenKisiler": [
+      {
+        "oid": "onnumara_20140303_results_HIC",
+        "kisiBasinaDusenIkramiye": 2.3,
+        "kisiSayisi": 193496,
+        "tur": "$HIC"
+      },
+      {
+        "oid": "onnumara_20140303_results_6",
+        "kisiBasinaDusenIkramiye": 3.3,
+        "kisiSayisi": 106373,
+        "tur": "$6_BILEN"
+      },
+      {
+        "oid": "onnumara_20140303_results_7",
+        "kisiBasinaDusenIkramiye": 19.15,
+        "kisiSayisi": 17216,
+        "tur": "$7_BILEN"
+      },
+      {
+        "oid": "onnumara_20140303_results_8",
+        "kisiBasinaDusenIkramiye": 103.15,
+        "kisiSayisi": 1685,
+        "tur": "$8_BILEN"
+      },
+      {
+        "oid": "onnumara_20140303_results_9",
+        "kisiBasinaDusenIkramiye": 2063.85,
+        "kisiSayisi": 84,
+        "tur": "$9_BILEN"
+      },
+      {
+        "oid": "onnumara_20140303_results_10",
+        "kisiBasinaDusenIkramiye": 259931.49,
+        "kisiSayisi": 0,
+        "tur": "$10_BILEN"
+      }
+    ],
+    "devretti": true,
+    "devirSayisi": null,
+    "devirTutari": 0,
+    "buyukIkramiye": 259931.49,
+    "buyukIkrKazananIlIlceler": null
+  }
+}

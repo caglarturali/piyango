@@ -1,0 +1,58 @@
+{
+  "success": true,
+  "data": {
+    "oid": "3z3f7ijoiwge4300",
+    "hafta": 578,
+    "buyukIkramiyeKazananIl": "",
+    "cekilisTarihi": "15/11/2018",
+    "cekilisTuru": "SUPER_LOTO",
+    "rakamlar": "48#37#34#31#39#50",
+    "rakamlarNumaraSirasi": "31 - 34 - 37 - 39 - 48 - 50",
+    "devretti": false,
+    "devirSayisi": 0,
+    "bilenKisiler": [
+      {
+        "oid": "3zu6q4joiwge3y03",
+        "kisiBasinaDusenIkramiye": 17.25,
+        "kisiSayisi": 63885,
+        "tur": "$3_BILEN"
+      },
+      {
+        "oid": "3zu6q4joiwge3y02",
+        "kisiBasinaDusenIkramiye": 218.2,
+        "kisiSayisi": 2926,
+        "tur": "$4_BILEN"
+      },
+      {
+        "oid": "3zu6q4joiwge3y01",
+        "kisiBasinaDusenIkramiye": 10429.15,
+        "kisiSayisi": 57,
+        "tur": "$5_BILEN"
+      },
+      {
+        "oid": "3zu6q4joiwge3y00",
+        "kisiBasinaDusenIkramiye": 5381907.55,
+        "kisiSayisi": 1,
+        "tur": "$6_BILEN"
+      }
+    ],
+    "buyukIkrKazananIlIlceler": [
+      {
+        "il": "34",
+        "ilView": "İSTANBUL",
+        "ilce": "03427",
+        "ilceView": "BAĞCILAR"
+      }
+    ],
+    "kibrisHasilati": 48384,
+    "devirTutari": 3471507.64,
+    "kolonSayisi": 5561746,
+    "kdv": 1689423.25,
+    "toplamHasilat": 11123492,
+    "hasilat": 9434068.75,
+    "sov": 943406.88,
+    "ikramiyeEH": 8490661.87,
+    "buyukIkramiye": 1910398.92,
+    "haftayaDevredenTutar": 0.02
+  }
+}

@@ -1,0 +1,181 @@
+{
+  "success": true,
+  "data": {
+    "cekilisAdi": "29/07/2018 BİLET KONTROL ŞUBE MÜDÜRLÜĞÜ",
+    "cekilisTarihi": "29/07/2018",
+    "haneSayisi": 6,
+    "sonuclar": [
+      {
+        "haneSayisi": 6,
+        "tip": "$6_RAKAM",
+        "ikramiye": 2500000,
+        "numaralar": ["179604"]
+      },
+      {
+        "haneSayisi": 6,
+        "tip": "$6_RAKAM",
+        "ikramiye": 200000,
+        "numaralar": ["215698"]
+      },
+      {
+        "haneSayisi": 6,
+        "tip": "$6_RAKAM",
+        "ikramiye": 20000,
+        "numaralar": ["291223"]
+      },
+      {
+        "haneSayisi": 6,
+        "tip": "$6_RAKAM",
+        "ikramiye": 10000,
+        "numaralar": ["114307", "209237"]
+      },
+      {
+        "haneSayisi": 6,
+        "tip": "$6_RAKAM",
+        "ikramiye": 5000,
+        "numaralar": ["353373", "200584", "328539"]
+      },
+      {
+        "haneSayisi": 5,
+        "tip": "SON_BES_RAKAM",
+        "ikramiye": 400,
+        "numaralar": [
+          "72432",
+          "50720",
+          "74284",
+          "15378",
+          "78630",
+          "01861",
+          "79132",
+          "73345",
+          "77085",
+          "71777"
+        ]
+      },
+      {
+        "haneSayisi": 4,
+        "tip": "SON_DORT_RAKAM",
+        "ikramiye": 200,
+        "numaralar": [
+          "4010",
+          "7714",
+          "3517",
+          "8520",
+          "5265",
+          "4012",
+          "9634",
+          "8258",
+          "6909",
+          "0777"
+        ]
+      },
+      {
+        "haneSayisi": 3,
+        "tip": "SON_UC_RAKAM",
+        "ikramiye": 100,
+        "numaralar": [
+          "201",
+          "884",
+          "861",
+          "753",
+          "466",
+          "418",
+          "433",
+          "603",
+          "582",
+          "152"
+        ]
+      },
+      {
+        "haneSayisi": 2,
+        "tip": "SON_IKI_RAKAM",
+        "ikramiye": 48,
+        "numaralar": ["39", "93", "89", "69", "24", "01", "86", "64"]
+      },
+      {
+        "haneSayisi": 1,
+        "tip": "AMORTI",
+        "ikramiye": 24,
+        "numaralar": ["7", "4"]
+      },
+      {
+        "haneSayisi": 0,
+        "tip": "TESELLI",
+        "ikramiye": 2500,
+        "numaralar": [
+          "179504",
+          "179602",
+          "179304",
+          "079604",
+          "129604",
+          "169604",
+          "178604",
+          "179606",
+          "179603",
+          "189604",
+          "174604",
+          "170604",
+          "279604",
+          "177604",
+          "179704",
+          "173604",
+          "175604",
+          "199604",
+          "179204",
+          "179404",
+          "149604",
+          "179609",
+          "179104",
+          "179644",
+          "179614",
+          "179804",
+          "179608",
+          "179634",
+          "139604",
+          "479604",
+          "172604",
+          "171604",
+          "109604",
+          "179904",
+          "179607",
+          "179004",
+          "379604",
+          "179605",
+          "176604",
+          "179694",
+          "179654",
+          "179664",
+          "179674",
+          "179600",
+          "179624",
+          "179684",
+          "179601",
+          "159604",
+          "119604"
+        ]
+      }
+    ],
+    "buyukIkrKazananIlIlceler": [
+      {
+        "il": "06",
+        "ilView": "SAYISAL SİSTEM (HATAY)",
+        "ilce": "00600",
+        "ilceView": ""
+      },
+      { "il": "09", "ilView": "AYDIN", "ilce": "00900", "ilceView": "MERKEZ" },
+      {
+        "il": "34",
+        "ilView": "İSTANBUL",
+        "ilce": "03400",
+        "ilceView": "MERKEZ"
+      },
+      {
+        "il": "34",
+        "ilView": "İSTANBUL",
+        "ilce": "03400",
+        "ilceView": "MERKEZ"
+      }
+    ],
+    "cekilisTarihiOld": "20180729"
+  }
+}

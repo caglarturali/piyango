@@ -1,0 +1,84 @@
+{
+  "success": true,
+  "data": {
+    "oid": "3z3f7ijoom7t5r00",
+    "hafta": 850,
+    "buyukIkramiyeKazananIl": "",
+    "cekilisTarihi": "19/11/2018",
+    "cekilisTuru": "ON_NUMARA",
+    "rakamlar": "16#12#08#37#51#38#35#41#36#19#14#57#32#04#73#63#54#23#42#31#64#17",
+    "rakamlarNumaraSirasi": "04 - 08 - 12 - 14 - 16 - 17 - 19 - 23 - 31 - 32 - 35 - 36 - 37 - 38 - 41 - 42 - 51 - 54 - 57 - 63 - 64 - 73",
+    "devretti": false,
+    "devirSayisi": 0,
+    "bilenKisiler": [
+      {
+        "oid": "3zu6q4joom7t5l05",
+        "kisiBasinaDusenIkramiye": 3.35,
+        "kisiSayisi": 174499,
+        "tur": "$HIC"
+      },
+      {
+        "oid": "3zu6q4joom7t5l04",
+        "kisiBasinaDusenIkramiye": 3.6,
+        "kisiSayisi": 126259,
+        "tur": "$6_BILEN"
+      },
+      {
+        "oid": "3zu6q4joom7t5l03",
+        "kisiBasinaDusenIkramiye": 20.7,
+        "kisiSayisi": 20917,
+        "tur": "$7_BILEN"
+      },
+      {
+        "oid": "3zu6q4joom7t5l02",
+        "kisiBasinaDusenIkramiye": 108.75,
+        "kisiSayisi": 2092,
+        "tur": "$8_BILEN"
+      },
+      {
+        "oid": "3zu6q4joom7t5l01",
+        "kisiBasinaDusenIkramiye": 2079.55,
+        "kisiSayisi": 109,
+        "tur": "$9_BILEN"
+      },
+      {
+        "oid": "3zu6q4joom7t5l00",
+        "kisiBasinaDusenIkramiye": 67986.5,
+        "kisiSayisi": 5,
+        "tur": "$10_BILEN"
+      }
+    ],
+    "buyukIkrKazananIlIlceler": [
+      {
+        "il": "07",
+        "ilView": "ANTALYA",
+        "ilce": "00716",
+        "ilceView": "DÖŞEMEALTI"
+      },
+      { "il": "16", "ilView": "BURSA", "ilce": "01601", "ilceView": "GEMLİK" },
+      { "il": "16", "ilView": "BURSA", "ilce": "01615", "ilceView": "NİLÜFER" },
+      {
+        "il": "34",
+        "ilView": "İSTANBUL",
+        "ilce": "03408",
+        "ilceView": "FATİH"
+      },
+      {
+        "il": "34",
+        "ilView": "İSTANBUL",
+        "ilce": "03427",
+        "ilceView": "BAĞCILAR"
+      }
+    ],
+    "kibrisHasilati": 17418,
+    "devirTutari": 0.09,
+    "kolonSayisi": 5939330,
+    "kdv": 903342.51,
+    "toplamHasilat": 5939330,
+    "hasilat": 5035987.49,
+    "sov": 503598.75,
+    "ikramiyeEH": 4532388.74,
+    "buyukIkramiye": 339929.16,
+    "haftayaDevredenTutar": 0.06
+  }
+}

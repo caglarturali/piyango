@@ -1,0 +1,58 @@
+{
+  "success": true,
+  "data": {
+    "oid": "3zjgoujvttjymh00",
+    "hafta": 1219,
+    "buyukIkramiyeKazananIl": "",
+    "cekilisTarihi": "18/05/2019",
+    "cekilisTuru": "SAYISAL_LOTO",
+    "rakamlar": "45#21#48#26#42#16",
+    "rakamlarNumaraSirasi": "16 - 21 - 26 - 42 - 45 - 48",
+    "devretti": false,
+    "devirSayisi": 0,
+    "bilenKisiler": [
+      {
+        "oid": "3zb0q4jvttjymc03",
+        "kisiBasinaDusenIkramiye": 11.35,
+        "kisiSayisi": 120945,
+        "tur": "$3_BILEN"
+      },
+      {
+        "oid": "3zb0q4jvttjymc02",
+        "kisiBasinaDusenIkramiye": 74.35,
+        "kisiSayisi": 6518,
+        "tur": "$4_BILEN"
+      },
+      {
+        "oid": "3zb0q4jvttjymc01",
+        "kisiBasinaDusenIkramiye": 3822.9,
+        "kisiSayisi": 169,
+        "tur": "$5_BILEN"
+      },
+      {
+        "oid": "3zb0q4jvttjymc00",
+        "kisiBasinaDusenIkramiye": 4654360,
+        "kisiSayisi": 1,
+        "tur": "$6_BILEN"
+      }
+    ],
+    "buyukIkrKazananIlIlceler": [
+      {
+        "il": "44",
+        "ilView": "MALATYA",
+        "ilce": "04405",
+        "ilceView": "DOĞANŞEHİR"
+      }
+    ],
+    "kibrisHasilati": 49333.5,
+    "devirTutari": 3120001.55,
+    "kolonSayisi": 7052696,
+    "kdv": 1606227.03,
+    "toplamHasilat": 10579044,
+    "hasilat": 8972816.97,
+    "sov": 897281.7,
+    "ikramiyeEH": 8075535.2700000005,
+    "buyukIkramiye": 1534351.7,
+    "haftayaDevredenTutar": 0.03
+  }
+}

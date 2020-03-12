@@ -1,0 +1,67 @@
+{
+  "success": true,
+  "data": {
+    "archived": true,
+    "oid": "sanstopu_archived_20101103",
+    "hafta": 490,
+    "cekilisTarihi": "03/11/2010",
+    "cekilisTuru": "SANS_TOPU",
+    "rakamlar": "05#09#24#25#31#05",
+    "rakamlarNumaraSirasi": "05 - 09 - 24 - 25 - 31 - 05",
+    "bilenKisiler": [
+      {
+        "oid": "sanstopu_20101103_results_1_1",
+        "kisiBasinaDusenIkramiye": 1.2,
+        "kisiSayisi": 318053,
+        "tur": "$1_1_BILEN"
+      },
+      {
+        "oid": "sanstopu_20101103_results_2_1",
+        "kisiBasinaDusenIkramiye": 2.15,
+        "kisiSayisi": 109913,
+        "tur": "$2_1_BILEN"
+      },
+      {
+        "oid": "sanstopu_20101103_results_3",
+        "kisiBasinaDusenIkramiye": 1.9,
+        "kisiSayisi": 118405,
+        "tur": "$3_BILEN"
+      },
+      {
+        "oid": "sanstopu_20101103_results_3_1",
+        "kisiBasinaDusenIkramiye": 6.65,
+        "kisiSayisi": 12803,
+        "tur": "$3_1_BILEN"
+      },
+      {
+        "oid": "sanstopu_20101103_results_4",
+        "kisiBasinaDusenIkramiye": 16.25,
+        "kisiSayisi": 4025,
+        "tur": "$4_BILEN"
+      },
+      {
+        "oid": "sanstopu_20101103_results_4_1",
+        "kisiBasinaDusenIkramiye": 98.7,
+        "kisiSayisi": 495,
+        "tur": "$4_1_BILEN"
+      },
+      {
+        "oid": "sanstopu_20101103_results_5",
+        "kisiBasinaDusenIkramiye": 2221.6,
+        "kisiSayisi": 22,
+        "tur": "$5_BILEN"
+      },
+      {
+        "oid": "sanstopu_20101103_results_5_1",
+        "kisiBasinaDusenIkramiye": 537469.75,
+        "kisiSayisi": 1,
+        "tur": "$5_1_BILEN"
+      }
+    ],
+    "devretti": false,
+    "devirSayisi": null,
+    "devirTutari": 0,
+    "buyukIkramiye": 537469.75,
+    "buyukIkrKazananIlIlceler": null
+  }
+}

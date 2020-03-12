@@ -1,0 +1,43 @@
+{
+  "success": true,
+  "data": {
+    "archived": true,
+    "oid": "sayisal_archived_20150606",
+    "hafta": 969,
+    "cekilisTarihi": "06/06/2015",
+    "cekilisTuru": "SAYISAL_LOTO",
+    "rakamlar": "03#08#11#18#33#40",
+    "rakamlarNumaraSirasi": "03 - 08 - 11 - 18 - 33 - 40",
+    "bilenKisiler": [
+      {
+        "oid": "sayisal_20150606_results_3",
+        "kisiBasinaDusenIkramiye": 6.75,
+        "kisiSayisi": 195692,
+        "tur": "$3_BILEN"
+      },
+      {
+        "oid": "sayisal_20150606_results_4",
+        "kisiBasinaDusenIkramiye": 41.55,
+        "kisiSayisi": 11505,
+        "tur": "$4_BILEN"
+      },
+      {
+        "oid": "sayisal_20150606_results_5",
+        "kisiBasinaDusenIkramiye": 2819.6,
+        "kisiSayisi": 222,
+        "tur": "$5_BILEN"
+      },
+      {
+        "oid": "sayisal_20150606_results_6",
+        "kisiBasinaDusenIkramiye": 1486237.67,
+        "kisiSayisi": 0,
+        "tur": "$6_BILEN"
+      }
+    ],
+    "devretti": true,
+    "devirSayisi": null,
+    "devirTutari": 0,
+    "buyukIkramiye": 1486237.67,
+    "buyukIkrKazananIlIlceler": null
+  }
+}

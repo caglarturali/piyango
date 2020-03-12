@@ -1,0 +1,70 @@
+{
+  "success": true,
+  "data": {
+    "oid": "3zw96gjwxtti7v00",
+    "hafta": 1227,
+    "buyukIkramiyeKazananIl": "",
+    "cekilisTarihi": "15/06/2019",
+    "cekilisTuru": "SAYISAL_LOTO",
+    "rakamlar": "29#25#03#01#40#43",
+    "rakamlarNumaraSirasi": "01 - 03 - 25 - 29 - 40 - 43",
+    "devretti": false,
+    "devirSayisi": 0,
+    "bilenKisiler": [
+      {
+        "oid": "3zjp5sjwxtti7q03",
+        "kisiBasinaDusenIkramiye": 13.65,
+        "kisiSayisi": 121049,
+        "tur": "$3_BILEN"
+      },
+      {
+        "oid": "3zjp5sjwxtti7q02",
+        "kisiBasinaDusenIkramiye": 98.5,
+        "kisiSayisi": 6324,
+        "tur": "$4_BILEN"
+      },
+      {
+        "oid": "3zjp5sjwxtti7q01",
+        "kisiBasinaDusenIkramiye": 7733.75,
+        "kisiSayisi": 107,
+        "tur": "$5_BILEN"
+      },
+      {
+        "oid": "3zjp5sjwxtti7q00",
+        "kisiBasinaDusenIkramiye": 1964016.25,
+        "kisiSayisi": 3,
+        "tur": "$6_BILEN"
+      }
+    ],
+    "buyukIkrKazananIlIlceler": [
+      {
+        "il": "06",
+        "ilView": "ANKARA",
+        "ilce": "00627",
+        "ilceView": "ETİMESGUT"
+      },
+      {
+        "il": "26",
+        "ilView": "ESKİŞEHİR",
+        "ilce": "02613",
+        "ilceView": "ODUNPAZARI"
+      },
+      {
+        "il": "46",
+        "ilView": "KAHRAMANMARAŞ",
+        "ilce": "04621",
+        "ilceView": "ONİKİŞUBAT"
+      }
+    ],
+    "kibrisHasilati": 50211,
+    "devirTutari": 3823544.7,
+    "kolonSayisi": 7527398,
+    "kdv": 1714711.42,
+    "toplamHasilat": 11291097,
+    "hasilat": 9576385.58,
+    "sov": 957638.56,
+    "ikramiyeEH": 8618747.02,
+    "buyukIkramiye": 2068499.28,
+    "haftayaDevredenTutar": 0.06
+  }
+}

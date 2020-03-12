@@ -1,0 +1,76 @@
+{
+  "success": true,
+  "data": {
+    "oid": "3z3f7ijoem4vx100",
+    "hafta": 849,
+    "buyukIkramiyeKazananIl": "",
+    "cekilisTarihi": "12/11/2018",
+    "cekilisTuru": "ON_NUMARA",
+    "rakamlar": "63#59#07#32#20#74#69#13#23#53#79#34#62#70#76#42#41#38#29#46#77#44",
+    "rakamlarNumaraSirasi": "07 - 13 - 20 - 23 - 29 - 32 - 34 - 38 - 41 - 42 - 44 - 46 - 53 - 59 - 62 - 63 - 69 - 70 - 74 - 76 - 77 - 79",
+    "devretti": false,
+    "devirSayisi": 0,
+    "bilenKisiler": [
+      {
+        "oid": "3zu6q4joem4vwx05",
+        "kisiBasinaDusenIkramiye": 3.05,
+        "kisiSayisi": 194966,
+        "tur": "$HIC"
+      },
+      {
+        "oid": "3zu6q4joem4vwx04",
+        "kisiBasinaDusenIkramiye": 3.95,
+        "kisiSayisi": 117426,
+        "tur": "$6_BILEN"
+      },
+      {
+        "oid": "3zu6q4joem4vwx03",
+        "kisiBasinaDusenIkramiye": 22.25,
+        "kisiSayisi": 19853,
+        "tur": "$7_BILEN"
+      },
+      {
+        "oid": "3zu6q4joem4vwx02",
+        "kisiBasinaDusenIkramiye": 110.35,
+        "kisiSayisi": 2094,
+        "tur": "$8_BILEN"
+      },
+      {
+        "oid": "3zu6q4joem4vwx01",
+        "kisiBasinaDusenIkramiye": 1877.05,
+        "kisiSayisi": 123,
+        "tur": "$9_BILEN"
+      },
+      {
+        "oid": "3zu6q4joem4vwx00",
+        "kisiBasinaDusenIkramiye": 173134.15,
+        "kisiSayisi": 2,
+        "tur": "$10_BILEN"
+      }
+    ],
+    "buyukIkrKazananIlIlceler": [
+      {
+        "il": "34",
+        "ilView": "İSTANBUL",
+        "ilce": "03412",
+        "ilceView": "ŞİŞLİ"
+      },
+      {
+        "il": "34",
+        "ilView": "İSTANBUL",
+        "ilce": "03439",
+        "ilceView": "ESENYURT"
+      }
+    ],
+    "kibrisHasilati": 17351,
+    "devirTutari": 0.23,
+    "kolonSayisi": 6050084,
+    "kdv": 920247.41,
+    "toplamHasilat": 6050084,
+    "hasilat": 5129836.59,
+    "sov": 512983.66,
+    "ikramiyeEH": 4616852.93,
+    "buyukIkramiye": 346263.97,
+    "haftayaDevredenTutar": 0.09
+  }
+}

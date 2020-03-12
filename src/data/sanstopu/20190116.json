@@ -1,0 +1,75 @@
+{
+  "success": true,
+  "data": {
+    "oid": "3zm577jqzhrhhu00",
+    "hafta": 918,
+    "buyukIkramiyeKazananIl": "",
+    "cekilisTarihi": "16/01/2019",
+    "cekilisTuru": "SANS_TOPU",
+    "rakamlar": "18#23#12#09#20#01",
+    "rakamlarNumaraSirasi": "09 - 12 - 18 - 20 - 23 - <b>01</b>",
+    "devretti": true,
+    "devirSayisi": 1,
+    "bilenKisiler": [
+      {
+        "oid": "3zveddjqzhrhhp07",
+        "kisiBasinaDusenIkramiye": 4,
+        "kisiSayisi": 144313,
+        "tur": "$1_1_BILEN"
+      },
+      {
+        "oid": "3zveddjqzhrhhp06",
+        "kisiBasinaDusenIkramiye": 6.7,
+        "kisiSayisi": 45358,
+        "tur": "$2_1_BILEN"
+      },
+      {
+        "oid": "3zveddjqzhrhhp05",
+        "kisiBasinaDusenIkramiye": 3.35,
+        "kisiSayisi": 89128,
+        "tur": "$3_BILEN"
+      },
+      {
+        "oid": "3zveddjqzhrhhp04",
+        "kisiBasinaDusenIkramiye": 21.55,
+        "kisiSayisi": 5161,
+        "tur": "$3_1_BILEN"
+      },
+      {
+        "oid": "3zveddjqzhrhhp03",
+        "kisiBasinaDusenIkramiye": 24.05,
+        "kisiSayisi": 3575,
+        "tur": "$4_BILEN"
+      },
+      {
+        "oid": "3zveddjqzhrhhp02",
+        "kisiBasinaDusenIkramiye": 314.15,
+        "kisiSayisi": 206,
+        "tur": "$4_1_BILEN"
+      },
+      {
+        "oid": "3zveddjqzhrhhp01",
+        "kisiBasinaDusenIkramiye": 3074,
+        "kisiSayisi": 21,
+        "tur": "$5_BILEN"
+      },
+      {
+        "oid": "3zveddjqzhrhhp00",
+        "kisiBasinaDusenIkramiye": 645514.1500000001,
+        "kisiSayisi": 0,
+        "tur": "$5_1_BILEN"
+      }
+    ],
+    "buyukIkrKazananIlIlceler": [],
+    "kibrisHasilati": 18314,
+    "devirTutari": 0.09,
+    "kolonSayisi": 5638967,
+    "kdv": 857387.75,
+    "toplamHasilat": 5638967,
+    "hasilat": 4781579.25,
+    "sov": 478157.93,
+    "ikramiyeEH": 4303421.32,
+    "buyukIkramiye": 645513.2,
+    "haftayaDevredenTutar": 645514.15
+  }
+}

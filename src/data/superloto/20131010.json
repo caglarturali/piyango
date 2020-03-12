@@ -1,0 +1,43 @@
+{
+  "success": true,
+  "data": {
+    "archived": true,
+    "oid": "superloto_archived_20131010",
+    "hafta": 312,
+    "cekilisTarihi": "10/10/2013",
+    "cekilisTuru": "SUPER_LOTO",
+    "rakamlar": "01#03#04#08#14#50",
+    "rakamlarNumaraSirasi": "01 - 03 - 04 - 08 - 14 - 50",
+    "bilenKisiler": [
+      {
+        "oid": "superloto_20131010_results_3",
+        "kisiBasinaDusenIkramiye": 7.6,
+        "kisiSayisi": 88110,
+        "tur": "$3_BILEN"
+      },
+      {
+        "oid": "superloto_20131010_results_4",
+        "kisiBasinaDusenIkramiye": 89.75,
+        "kisiSayisi": 4319,
+        "tur": "$4_BILEN"
+      },
+      {
+        "oid": "superloto_20131010_results_5",
+        "kisiBasinaDusenIkramiye": 4692.3,
+        "kisiSayisi": 77,
+        "tur": "$5_BILEN"
+      },
+      {
+        "oid": "superloto_20131010_results_6",
+        "kisiBasinaDusenIkramiye": 1160651.23,
+        "kisiSayisi": 0,
+        "tur": "$6_BILEN"
+      }
+    ],
+    "devretti": true,
+    "devirSayisi": null,
+    "devirTutari": 0,
+    "buyukIkramiye": 1160651.23,
+    "buyukIkrKazananIlIlceler": null
+  }
+}

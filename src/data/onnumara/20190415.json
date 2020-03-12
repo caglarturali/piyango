@@ -1,0 +1,131 @@
+{
+  "success": true,
+  "data": {
+    "oid": "3ztzzsjuinypx300",
+    "hafta": 871,
+    "buyukIkramiyeKazananIl": "",
+    "cekilisTarihi": "15/04/2019",
+    "cekilisTuru": "ON_NUMARA",
+    "rakamlar": "34#41#51#67#06#01#23#14#36#02#11#29#26#08#69#58#12#77#27#79#54#42",
+    "rakamlarNumaraSirasi": "01 - 02 - 06 - 08 - 11 - 12 - 14 - 23 - 26 - 27 - 29 - 34 - 36 - 41 - 42 - 51 - 54 - 58 - 67 - 69 - 77 - 79",
+    "devretti": false,
+    "devirSayisi": 0,
+    "bilenKisiler": [
+      {
+        "oid": "3zvccbjuinypx005",
+        "kisiBasinaDusenIkramiye": 3.25,
+        "kisiSayisi": 178474,
+        "tur": "$HIC"
+      },
+      {
+        "oid": "3zvccbjuinypx004",
+        "kisiBasinaDusenIkramiye": 3.75,
+        "kisiSayisi": 120870,
+        "tur": "$6_BILEN"
+      },
+      {
+        "oid": "3zvccbjuinypx003",
+        "kisiBasinaDusenIkramiye": 21.1,
+        "kisiSayisi": 20327,
+        "tur": "$7_BILEN"
+      },
+      {
+        "oid": "3zvccbjuinypx002",
+        "kisiBasinaDusenIkramiye": 108.9,
+        "kisiSayisi": 2069,
+        "tur": "$8_BILEN"
+      },
+      {
+        "oid": "3zvccbjuinypx001",
+        "kisiBasinaDusenIkramiye": 1563.25,
+        "kisiSayisi": 144,
+        "tur": "$9_BILEN"
+      },
+      {
+        "oid": "3zvccbjuinypx000",
+        "kisiBasinaDusenIkramiye": 28127.25,
+        "kisiSayisi": 12,
+        "tur": "$10_BILEN"
+      }
+    ],
+    "buyukIkrKazananIlIlceler": [
+      { "il": "01", "ilView": "ADANA", "ilce": "00117", "ilceView": "YÜREĞİR" },
+      {
+        "il": "16",
+        "ilView": "BURSA",
+        "ilce": "01604",
+        "ilceView": "KARACABEY"
+      },
+      {
+        "il": "16",
+        "ilView": "BURSA",
+        "ilce": "01604",
+        "ilceView": "KARACABEY"
+      },
+      {
+        "il": "16",
+        "ilView": "BURSA",
+        "ilce": "01604",
+        "ilceView": "KARACABEY"
+      },
+      {
+        "il": "16",
+        "ilView": "BURSA",
+        "ilce": "01604",
+        "ilceView": "KARACABEY"
+      },
+      {
+        "il": "16",
+        "ilView": "BURSA",
+        "ilce": "01604",
+        "ilceView": "KARACABEY"
+      },
+      {
+        "il": "16",
+        "ilView": "BURSA",
+        "ilce": "01604",
+        "ilceView": "KARACABEY"
+      },
+      {
+        "il": "16",
+        "ilView": "BURSA",
+        "ilce": "01604",
+        "ilceView": "KARACABEY"
+      },
+      {
+        "il": "16",
+        "ilView": "BURSA",
+        "ilce": "01604",
+        "ilceView": "KARACABEY"
+      },
+      {
+        "il": "34",
+        "ilView": "İSTANBUL",
+        "ilce": "03408",
+        "ilceView": "FATİH"
+      },
+      {
+        "il": "34",
+        "ilView": "İSTANBUL",
+        "ilce": "03410",
+        "ilceView": "KADIKÖY"
+      },
+      {
+        "il": "34",
+        "ilView": "İSTANBUL",
+        "ilce": "03428",
+        "ilceView": "BAHÇELİEVLER"
+      }
+    ],
+    "kibrisHasilati": 18746,
+    "devirTutari": 0.03,
+    "kolonSayisi": 5897025,
+    "kdv": 896686.63,
+    "toplamHasilat": 5897025,
+    "hasilat": 5000338.37,
+    "sov": 500033.84,
+    "ikramiyeEH": 4500304.53,
+    "buyukIkramiye": 337522.84,
+    "haftayaDevredenTutar": 0.49
+  }
+}

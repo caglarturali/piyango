@@ -1,0 +1,53 @@
+{
+  "success": true,
+  "data": {
+    "oid": "3z3f7ijovrgisn00",
+    "hafta": 1169,
+    "buyukIkramiyeKazananIl": "",
+    "cekilisTarihi": "24/11/2018",
+    "cekilisTuru": "SAYISAL_LOTO",
+    "rakamlar": "14#11#01#30#44#20",
+    "rakamlarNumaraSirasi": "01 - 11 - 14 - 20 - 30 - 44",
+    "devretti": false,
+    "devirSayisi": 0,
+    "bilenKisiler": [
+      {
+        "oid": "3zu6q4jovrgisi03",
+        "kisiBasinaDusenIkramiye": 11.15,
+        "kisiSayisi": 139781,
+        "tur": "$3_BILEN"
+      },
+      {
+        "oid": "3zu6q4jovrgisi02",
+        "kisiBasinaDusenIkramiye": 73.6,
+        "kisiSayisi": 7552,
+        "tur": "$4_BILEN"
+      },
+      {
+        "oid": "3zu6q4jovrgisi01",
+        "kisiBasinaDusenIkramiye": 5840.05,
+        "kisiSayisi": 126,
+        "tur": "$5_BILEN"
+      },
+      {
+        "oid": "3zu6q4jovrgisi00",
+        "kisiBasinaDusenIkramiye": 1746921.4,
+        "kisiSayisi": 1,
+        "tur": "$6_BILEN"
+      }
+    ],
+    "buyukIkrKazananIlIlceler": [
+      { "il": "01", "ilView": "ADANA", "ilce": "00118", "ilceView": "ÇUKUROVA" }
+    ],
+    "kibrisHasilati": 47863.5,
+    "devirTutari": 0,
+    "kolonSayisi": 8030761,
+    "kdv": 1830245.8,
+    "toplamHasilat": 12046141.5,
+    "hasilat": 10215895.7,
+    "sov": 1021589.57,
+    "ikramiyeEH": 9194306.129999999,
+    "buyukIkramiye": 1746918.16,
+    "haftayaDevredenTutar": 0.01
+  }
+}

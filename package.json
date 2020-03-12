@@ -1,0 +1,31 @@
+{
+  "name": "piyango-api",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "dev": "now dev",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "tslint -c tslint.json \"api/**/*.{ts}\" \"src/**/*.{ts}\"",
+    "lint:fix": "npm run lint -- --fix",
+    "prod": "now --prod"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint:fix",
+      "pre-push": "echo $HUSKY_GIT_PARAMS",
+      "commit-msg": "echo $HUSKY_GIT_PARAMS"
+    }
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@now/node": "^1.4.1"
+  },
+  "devDependencies": {
+    "@types/node": "^13.9.0",
+    "husky": "^4.2.3",
+    "tslint": "^6.1.0",
+    "typescript": "^3.8.3"
+  }
+}

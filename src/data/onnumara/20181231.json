@@ -1,0 +1,76 @@
+{
+  "success": true,
+  "data": {
+    "oid": "3zhhtxjqcmrcow00",
+    "hafta": 856,
+    "buyukIkramiyeKazananIl": "",
+    "cekilisTarihi": "31/12/2018",
+    "cekilisTuru": "ON_NUMARA",
+    "rakamlar": "47#20#77#56#61#16#18#70#34#37#02#43#73#39#11#04#80#32#01#03#25#72",
+    "rakamlarNumaraSirasi": "01 - 02 - 03 - 04 - 11 - 16 - 18 - 20 - 25 - 32 - 34 - 37 - 39 - 43 - 47 - 56 - 61 - 70 - 72 - 73 - 77 - 80",
+    "devretti": false,
+    "devirSayisi": 0,
+    "bilenKisiler": [
+      {
+        "oid": "3zxhzgjqcmrcor05",
+        "kisiBasinaDusenIkramiye": 3.05,
+        "kisiSayisi": 201954,
+        "tur": "$HIC"
+      },
+      {
+        "oid": "3zxhzgjqcmrcor04",
+        "kisiBasinaDusenIkramiye": 4.3,
+        "kisiSayisi": 112359,
+        "tur": "$6_BILEN"
+      },
+      {
+        "oid": "3zxhzgjqcmrcor03",
+        "kisiBasinaDusenIkramiye": 24.4,
+        "kisiSayisi": 18666,
+        "tur": "$7_BILEN"
+      },
+      {
+        "oid": "3zxhzgjqcmrcor02",
+        "kisiBasinaDusenIkramiye": 128.25,
+        "kisiSayisi": 1871,
+        "tur": "$8_BILEN"
+      },
+      {
+        "oid": "3zxhzgjqcmrcor01",
+        "kisiBasinaDusenIkramiye": 2601.8,
+        "kisiSayisi": 92,
+        "tur": "$9_BILEN"
+      },
+      {
+        "oid": "3zxhzgjqcmrcor00",
+        "kisiBasinaDusenIkramiye": 179461.05,
+        "kisiSayisi": 2,
+        "tur": "$10_BILEN"
+      }
+    ],
+    "buyukIkrKazananIlIlceler": [
+      {
+        "il": "07",
+        "ilView": "ANTALYA",
+        "ilce": "00702",
+        "ilceView": "ALANYA"
+      },
+      {
+        "il": "34",
+        "ilView": "İSTANBUL",
+        "ilce": "03402",
+        "ilceView": "BAKIRKÖY"
+      }
+    ],
+    "kibrisHasilati": 18429,
+    "devirTutari": 0.01,
+    "kolonSayisi": 6271129,
+    "kdv": 953801.69,
+    "toplamHasilat": 6271129,
+    "hasilat": 5317327.31,
+    "sov": 531732.73,
+    "ikramiyeEH": 4785594.58,
+    "buyukIkramiye": 358919.59,
+    "haftayaDevredenTutar": 0.05
+  }
+}

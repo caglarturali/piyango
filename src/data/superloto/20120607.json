@@ -1,0 +1,43 @@
+{
+  "success": true,
+  "data": {
+    "archived": true,
+    "oid": "superloto_archived_20120607",
+    "hafta": 242,
+    "cekilisTarihi": "07/06/2012",
+    "cekilisTuru": "SUPER_LOTO",
+    "rakamlar": "21#22#36#43#48#54",
+    "rakamlarNumaraSirasi": "21 - 22 - 36 - 43 - 48 - 54",
+    "bilenKisiler": [
+      {
+        "oid": "superloto_20120607_results_3",
+        "kisiBasinaDusenIkramiye": 7.55,
+        "kisiSayisi": 199979,
+        "tur": "$3_BILEN"
+      },
+      {
+        "oid": "superloto_20120607_results_4",
+        "kisiBasinaDusenIkramiye": 89.7,
+        "kisiSayisi": 9760,
+        "tur": "$4_BILEN"
+      },
+      {
+        "oid": "superloto_20120607_results_5",
+        "kisiBasinaDusenIkramiye": 5289.35,
+        "kisiSayisi": 154,
+        "tur": "$5_BILEN"
+      },
+      {
+        "oid": "superloto_20120607_results_6",
+        "kisiBasinaDusenIkramiye": 6678153.9,
+        "kisiSayisi": 2,
+        "tur": "$6_BILEN"
+      }
+    ],
+    "devretti": false,
+    "devirSayisi": null,
+    "devirTutari": 0,
+    "buyukIkramiye": 13356307.8,
+    "buyukIkrKazananIlIlceler": null
+  }
+}

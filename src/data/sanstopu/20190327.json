@@ -1,0 +1,78 @@
+{
+  "success": true,
+  "data": {
+    "oid": "3zt21ljtrimwkm00",
+    "hafta": 928,
+    "buyukIkramiyeKazananIl": "",
+    "cekilisTarihi": "27/03/2019",
+    "cekilisTuru": "SANS_TOPU",
+    "rakamlar": "33#08#25#30#01#13",
+    "rakamlarNumaraSirasi": "01 - 08 - 25 - 30 - 33 - <b>13</b>",
+    "devretti": false,
+    "devirSayisi": 0,
+    "bilenKisiler": [
+      {
+        "oid": "3z4yhujtrimwkf07",
+        "kisiBasinaDusenIkramiye": 3.8,
+        "kisiSayisi": 161989,
+        "tur": "$1_1_BILEN"
+      },
+      {
+        "oid": "3z4yhujtrimwkf06",
+        "kisiBasinaDusenIkramiye": 6.8,
+        "kisiSayisi": 47719,
+        "tur": "$2_1_BILEN"
+      },
+      {
+        "oid": "3z4yhujtrimwkf05",
+        "kisiBasinaDusenIkramiye": 4.4,
+        "kisiSayisi": 72957,
+        "tur": "$3_BILEN"
+      },
+      {
+        "oid": "3z4yhujtrimwkf04",
+        "kisiBasinaDusenIkramiye": 22.35,
+        "kisiSayisi": 5186,
+        "tur": "$3_1_BILEN"
+      },
+      {
+        "oid": "3z4yhujtrimwkf03",
+        "kisiBasinaDusenIkramiye": 39.9,
+        "kisiSayisi": 2299,
+        "tur": "$4_BILEN"
+      },
+      {
+        "oid": "3z4yhujtrimwkf02",
+        "kisiBasinaDusenIkramiye": 405.6,
+        "kisiSayisi": 170,
+        "tur": "$4_1_BILEN"
+      },
+      {
+        "oid": "3z4yhujtrimwkf01",
+        "kisiBasinaDusenIkramiye": 6885.1,
+        "kisiSayisi": 10,
+        "tur": "$5_BILEN"
+      },
+      {
+        "oid": "3z4yhujtrimwkf00",
+        "kisiBasinaDusenIkramiye": 344249.9,
+        "kisiSayisi": 2,
+        "tur": "$5_1_BILEN"
+      }
+    ],
+    "buyukIkrKazananIlIlceler": [
+      { "il": "43", "ilView": "KÜTAHYA", "ilce": "04305", "ilceView": "SİMAV" },
+      { "il": "48", "ilView": "MUĞLA", "ilce": "04844", "ilceView": "MENTEŞE" }
+    ],
+    "kibrisHasilati": 19547,
+    "devirTutari": 0,
+    "kolonSayisi": 6014477,
+    "kdv": 914480.85,
+    "toplamHasilat": 6014477,
+    "hasilat": 5099996.15,
+    "sov": 509999.62,
+    "ikramiyeEH": 4589996.53,
+    "buyukIkramiye": 688499.48,
+    "haftayaDevredenTutar": 0.06
+  }
+}

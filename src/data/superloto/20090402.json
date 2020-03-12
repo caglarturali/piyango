@@ -1,0 +1,43 @@
+{
+  "success": true,
+  "data": {
+    "archived": true,
+    "oid": "superloto_archived_20090402",
+    "hafta": 76,
+    "cekilisTarihi": "02/04/2009",
+    "cekilisTuru": "SUPER_LOTO",
+    "rakamlar": "03#14#20#29#40#54",
+    "rakamlarNumaraSirasi": "03 - 14 - 20 - 29 - 40 - 54",
+    "bilenKisiler": [
+      {
+        "oid": "superloto_20090402_results_3",
+        "kisiBasinaDusenIkramiye": 7.3,
+        "kisiSayisi": 100888,
+        "tur": "$3_BILEN"
+      },
+      {
+        "oid": "superloto_20090402_results_4",
+        "kisiBasinaDusenIkramiye": 88.15,
+        "kisiSayisi": 5094,
+        "tur": "$4_BILEN"
+      },
+      {
+        "oid": "superloto_20090402_results_5",
+        "kisiBasinaDusenIkramiye": 5633.45,
+        "kisiSayisi": 74,
+        "tur": "$5_BILEN"
+      },
+      {
+        "oid": "superloto_20090402_results_6",
+        "kisiBasinaDusenIkramiye": 4614593.06,
+        "kisiSayisi": 0,
+        "tur": "$6_BILEN"
+      }
+    ],
+    "devretti": true,
+    "devirSayisi": null,
+    "devirTutari": 0,
+    "buyukIkramiye": 4614593.06,
+    "buyukIkrKazananIlIlceler": null
+  }
+}

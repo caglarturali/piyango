@@ -1,0 +1,72 @@
+{
+  "success": true,
+  "data": {
+    "oid": "3zbqy9jsunfnzq00",
+    "hafta": 865,
+    "buyukIkramiyeKazananIl": "",
+    "cekilisTarihi": "04/03/2019",
+    "cekilisTuru": "ON_NUMARA",
+    "rakamlar": "56#75#24#48#39#45#58#09#20#51#10#42#01#36#72#13#63#14#73#27#28#70",
+    "rakamlarNumaraSirasi": "01 - 09 - 10 - 13 - 14 - 20 - 24 - 27 - 28 - 36 - 39 - 42 - 45 - 48 - 51 - 56 - 58 - 63 - 70 - 72 - 73 - 75",
+    "devretti": false,
+    "devirSayisi": 0,
+    "bilenKisiler": [
+      {
+        "oid": "3z2l4zjsunfnzm05",
+        "kisiBasinaDusenIkramiye": 3.1,
+        "kisiSayisi": 193357,
+        "tur": "$HIC"
+      },
+      {
+        "oid": "3z2l4zjsunfnzm04",
+        "kisiBasinaDusenIkramiye": 4.3,
+        "kisiSayisi": 107720,
+        "tur": "$6_BILEN"
+      },
+      {
+        "oid": "3z2l4zjsunfnzm03",
+        "kisiBasinaDusenIkramiye": 25.15,
+        "kisiSayisi": 17556,
+        "tur": "$7_BILEN"
+      },
+      {
+        "oid": "3z2l4zjsunfnzm02",
+        "kisiBasinaDusenIkramiye": 133.4,
+        "kisiSayisi": 1741,
+        "tur": "$8_BILEN"
+      },
+      {
+        "oid": "3z2l4zjsunfnzm01",
+        "kisiBasinaDusenIkramiye": 2692.6,
+        "kisiSayisi": 86,
+        "tur": "$9_BILEN"
+      },
+      {
+        "oid": "3z2l4zjsunfnzm00",
+        "kisiBasinaDusenIkramiye": 115762.45,
+        "kisiSayisi": 3,
+        "tur": "$10_BILEN"
+      }
+    ],
+    "buyukIkrKazananIlIlceler": [
+      {
+        "il": "25",
+        "ilView": "ERZURUM",
+        "ilce": "02520",
+        "ilceView": "YAKUTİYE"
+      },
+      { "il": "31", "ilView": "HATAY", "ilce": "03100", "ilceView": "ANTAKYA" },
+      { "il": "35", "ilView": "İZMİR", "ilce": "03524", "ilceView": "BALÇOVA" }
+    ],
+    "kibrisHasilati": 19564,
+    "devirTutari": 0,
+    "kolonSayisi": 6067543,
+    "kdv": 922573.07,
+    "toplamHasilat": 6067543,
+    "hasilat": 5144969.93,
+    "sov": 514496.99,
+    "ikramiyeEH": 4630472.9399999995,
+    "buyukIkramiye": 347285.47,
+    "haftayaDevredenTutar": 0.01
+  }
+}

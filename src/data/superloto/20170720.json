@@ -1,0 +1,43 @@
+{
+  "success": true,
+  "data": {
+    "archived": true,
+    "oid": "superloto_archived_20170720",
+    "hafta": 509,
+    "cekilisTarihi": "20/07/2017",
+    "cekilisTuru": "SUPER_LOTO",
+    "rakamlar": "02#03#27#51#53#54",
+    "rakamlarNumaraSirasi": "02 - 03 - 27 - 51 - 53 - 54",
+    "bilenKisiler": [
+      {
+        "oid": "superloto_20170720_results_3",
+        "kisiBasinaDusenIkramiye": 16.55,
+        "kisiSayisi": 59166,
+        "tur": "$3_BILEN"
+      },
+      {
+        "oid": "superloto_20170720_results_4",
+        "kisiBasinaDusenIkramiye": 175.8,
+        "kisiSayisi": 3233,
+        "tur": "$4_BILEN"
+      },
+      {
+        "oid": "superloto_20170720_results_5",
+        "kisiBasinaDusenIkramiye": 8391.25,
+        "kisiSayisi": 63,
+        "tur": "$5_BILEN"
+      },
+      {
+        "oid": "superloto_20170720_results_6",
+        "kisiBasinaDusenIkramiye": 3137715.01,
+        "kisiSayisi": 0,
+        "tur": "$6_BILEN"
+      }
+    ],
+    "devretti": true,
+    "devirSayisi": null,
+    "devirTutari": 0,
+    "buyukIkramiye": 3137715.01,
+    "buyukIkrKazananIlIlceler": null
+  }
+}

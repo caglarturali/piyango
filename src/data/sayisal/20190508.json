@@ -1,0 +1,51 @@
+{
+  "success": true,
+  "data": {
+    "oid": "3zjgoujvfja0mc00",
+    "hafta": 1216,
+    "buyukIkramiyeKazananIl": "",
+    "cekilisTarihi": "08/05/2019",
+    "cekilisTuru": "SAYISAL_LOTO",
+    "rakamlar": "37#32#31#13#15#08",
+    "rakamlarNumaraSirasi": "08 - 13 - 15 - 31 - 32 - 37",
+    "devretti": true,
+    "devirSayisi": 1,
+    "bilenKisiler": [
+      {
+        "oid": "3zb0q4jvfja0m703",
+        "kisiBasinaDusenIkramiye": 10.6,
+        "kisiSayisi": 65123,
+        "tur": "$3_BILEN"
+      },
+      {
+        "oid": "3zb0q4jvfja0m702",
+        "kisiBasinaDusenIkramiye": 70.55,
+        "kisiSayisi": 3477,
+        "tur": "$4_BILEN"
+      },
+      {
+        "oid": "3zb0q4jvfja0m701",
+        "kisiBasinaDusenIkramiye": 5811.35,
+        "kisiSayisi": 56,
+        "tur": "$5_BILEN"
+      },
+      {
+        "oid": "3zb0q4jvfja0m700",
+        "kisiBasinaDusenIkramiye": 772899.89,
+        "kisiSayisi": 0,
+        "tur": "$6_BILEN"
+      }
+    ],
+    "buyukIkrKazananIlIlceler": [],
+    "kibrisHasilati": 36676.5,
+    "devirTutari": 0.08,
+    "kolonSayisi": 3551230,
+    "kdv": 806974.86,
+    "toplamHasilat": 5326845,
+    "hasilat": 4519870.14,
+    "sov": 451987.01,
+    "ikramiyeEH": 4067883.13,
+    "buyukIkramiye": 772897.79,
+    "haftayaDevredenTutar": 772899.89
+  }
+}

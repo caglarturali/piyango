@@ -1,0 +1,82 @@
+{
+  "success": true,
+  "data": {
+    "oid": "3zw96gjvzj922m00",
+    "hafta": 936,
+    "buyukIkramiyeKazananIl": "",
+    "cekilisTarihi": "22/05/2019",
+    "cekilisTuru": "SANS_TOPU",
+    "rakamlar": "02#23#13#33#19#11",
+    "rakamlarNumaraSirasi": "02 - 13 - 19 - 23 - 33 - <b>11</b>",
+    "devretti": false,
+    "devirSayisi": 0,
+    "bilenKisiler": [
+      {
+        "oid": "3zjp5sjvzj922h07",
+        "kisiBasinaDusenIkramiye": 3.75,
+        "kisiSayisi": 166461,
+        "tur": "$1_1_BILEN"
+      },
+      {
+        "oid": "3zjp5sjvzj922h06",
+        "kisiBasinaDusenIkramiye": 6.35,
+        "kisiSayisi": 52156,
+        "tur": "$2_1_BILEN"
+      },
+      {
+        "oid": "3zjp5sjvzj922h05",
+        "kisiBasinaDusenIkramiye": 4.1,
+        "kisiSayisi": 79364,
+        "tur": "$3_BILEN"
+      },
+      {
+        "oid": "3zjp5sjvzj922h04",
+        "kisiBasinaDusenIkramiye": 25.05,
+        "kisiSayisi": 6153,
+        "tur": "$3_1_BILEN"
+      },
+      {
+        "oid": "3zjp5sjvzj922h03",
+        "kisiBasinaDusenIkramiye": 39.5,
+        "kisiSayisi": 3188,
+        "tur": "$4_BILEN"
+      },
+      {
+        "oid": "3zjp5sjvzj922h02",
+        "kisiBasinaDusenIkramiye": 401.8,
+        "kisiSayisi": 251,
+        "tur": "$4_1_BILEN"
+      },
+      {
+        "oid": "3zjp5sjvzj922h01",
+        "kisiBasinaDusenIkramiye": 2041.45,
+        "kisiSayisi": 37,
+        "tur": "$5_BILEN"
+      },
+      {
+        "oid": "3zjp5sjvzj922h00",
+        "kisiBasinaDusenIkramiye": 780507.7,
+        "kisiSayisi": 1,
+        "tur": "$5_1_BILEN"
+      }
+    ],
+    "buyukIkrKazananIlIlceler": [
+      {
+        "il": "34",
+        "ilView": "İSTANBUL",
+        "ilce": "03441",
+        "ilceView": "SULTANGAZİ"
+      }
+    ],
+    "kibrisHasilati": 17820,
+    "devirTutari": 0.04,
+    "kolonSayisi": 5498572,
+    "kdv": 836046.92,
+    "toplamHasilat": 5498572,
+    "hasilat": 4662525.08,
+    "sov": 466252.51,
+    "ikramiyeEH": 4196272.57,
+    "buyukIkramiye": 780506.7,
+    "haftayaDevredenTutar": 0.03
+  }
+}

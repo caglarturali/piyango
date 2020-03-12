@@ -1,0 +1,43 @@
+{
+  "success": true,
+  "data": {
+    "archived": true,
+    "oid": "sayisal_archived_20130727",
+    "hafta": 872,
+    "cekilisTarihi": "27/07/2013",
+    "cekilisTuru": "SAYISAL_LOTO",
+    "rakamlar": "14#21#25#26#32#43",
+    "rakamlarNumaraSirasi": "14 - 21 - 25 - 26 - 32 - 43",
+    "bilenKisiler": [
+      {
+        "oid": "sayisal_20130727_results_3",
+        "kisiBasinaDusenIkramiye": 4.75,
+        "kisiSayisi": 258372,
+        "tur": "$3_BILEN"
+      },
+      {
+        "oid": "sayisal_20130727_results_4",
+        "kisiBasinaDusenIkramiye": 25.5,
+        "kisiSayisi": 17277,
+        "tur": "$4_BILEN"
+      },
+      {
+        "oid": "sayisal_20130727_results_5",
+        "kisiBasinaDusenIkramiye": 1209.55,
+        "kisiSayisi": 480,
+        "tur": "$5_BILEN"
+      },
+      {
+        "oid": "sayisal_20130727_results_6",
+        "kisiBasinaDusenIkramiye": 1378092.2,
+        "kisiSayisi": 1,
+        "tur": "$6_BILEN"
+      }
+    ],
+    "devretti": false,
+    "devirSayisi": null,
+    "devirTutari": 0,
+    "buyukIkramiye": 1378092.2,
+    "buyukIkrKazananIlIlceler": null
+  }
+}

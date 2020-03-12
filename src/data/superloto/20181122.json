@@ -1,0 +1,51 @@
+{
+  "success": true,
+  "data": {
+    "oid": "3z3f7ijoswl5hd00",
+    "hafta": 579,
+    "buyukIkramiyeKazananIl": "",
+    "cekilisTarihi": "22/11/2018",
+    "cekilisTuru": "SUPER_LOTO",
+    "rakamlar": "01#24#47#04#39#51",
+    "rakamlarNumaraSirasi": "01 - 04 - 24 - 39 - 47 - 51",
+    "devretti": true,
+    "devirSayisi": 1,
+    "bilenKisiler": [
+      {
+        "oid": "3zu6q4joswl5h603",
+        "kisiBasinaDusenIkramiye": 16.9,
+        "kisiSayisi": 55753,
+        "tur": "$3_BILEN"
+      },
+      {
+        "oid": "3zu6q4joswl5h602",
+        "kisiBasinaDusenIkramiye": 215.3,
+        "kisiSayisi": 2529,
+        "tur": "$4_BILEN"
+      },
+      {
+        "oid": "3zu6q4joswl5h601",
+        "kisiBasinaDusenIkramiye": 12692.05,
+        "kisiSayisi": 40,
+        "tur": "$5_BILEN"
+      },
+      {
+        "oid": "3zu6q4joswl5h600",
+        "kisiBasinaDusenIkramiye": 1631786.2400000002,
+        "kisiSayisi": 0,
+        "tur": "$6_BILEN"
+      }
+    ],
+    "buyukIkrKazananIlIlceler": [],
+    "kibrisHasilati": 45432,
+    "devirTutari": 0.02,
+    "kolonSayisi": 4750246,
+    "kdv": 1442297.29,
+    "toplamHasilat": 9500492,
+    "hasilat": 8058194.71,
+    "sov": 805819.47,
+    "ikramiyeEH": 7252375.24,
+    "buyukIkramiye": 1631784.43,
+    "haftayaDevredenTutar": 1631786.24
+  }
+}

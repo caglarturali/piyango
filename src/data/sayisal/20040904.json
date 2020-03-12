@@ -1,0 +1,43 @@
+{
+  "success": true,
+  "data": {
+    "archived": true,
+    "oid": "sayisal_archived_20040904",
+    "hafta": 408,
+    "cekilisTarihi": "04/09/2004",
+    "cekilisTuru": "SAYISAL_LOTO",
+    "rakamlar": "12#17#25#26#38#47",
+    "rakamlarNumaraSirasi": "12 - 17 - 25 - 26 - 38 - 47",
+    "bilenKisiler": [
+      {
+        "oid": "sayisal_20040904_results_3",
+        "kisiBasinaDusenIkramiye": 1.75,
+        "kisiSayisi": 433180,
+        "tur": "$3_BILEN"
+      },
+      {
+        "oid": "sayisal_20040904_results_4",
+        "kisiBasinaDusenIkramiye": 11.25,
+        "kisiSayisi": 24782,
+        "tur": "$4_BILEN"
+      },
+      {
+        "oid": "sayisal_20040904_results_5",
+        "kisiBasinaDusenIkramiye": 1419.75,
+        "kisiSayisi": 423,
+        "tur": "$5_BILEN"
+      },
+      {
+        "oid": "sayisal_20040904_results_6",
+        "kisiBasinaDusenIkramiye": 1091620.03,
+        "kisiSayisi": 0,
+        "tur": "$6_BILEN"
+      }
+    ],
+    "devretti": true,
+    "devirSayisi": null,
+    "devirTutari": 0,
+    "buyukIkramiye": 1091620.03,
+    "buyukIkrKazananIlIlceler": null
+  }
+}

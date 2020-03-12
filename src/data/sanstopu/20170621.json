@@ -1,0 +1,67 @@
+{
+  "success": true,
+  "data": {
+    "archived": true,
+    "oid": "sanstopu_archived_20170621",
+    "hafta": 836,
+    "cekilisTarihi": "21/06/2017",
+    "cekilisTuru": "SANS_TOPU",
+    "rakamlar": "03#04#17#19#33#10",
+    "rakamlarNumaraSirasi": "03 - 04 - 17 - 19 - 33 - 10",
+    "bilenKisiler": [
+      {
+        "oid": "sanstopu_20170621_results_1_1",
+        "kisiBasinaDusenIkramiye": 3.3,
+        "kisiSayisi": 196347,
+        "tur": "$1_1_BILEN"
+      },
+      {
+        "oid": "sanstopu_20170621_results_2_1",
+        "kisiBasinaDusenIkramiye": 5.55,
+        "kisiSayisi": 61734,
+        "tur": "$2_1_BILEN"
+      },
+      {
+        "oid": "sanstopu_20170621_results_3",
+        "kisiBasinaDusenIkramiye": 3.85,
+        "kisiSayisi": 88046,
+        "tur": "$3_BILEN"
+      },
+      {
+        "oid": "sanstopu_20170621_results_3_1",
+        "kisiBasinaDusenIkramiye": 18.85,
+        "kisiSayisi": 6472,
+        "tur": "$3_1_BILEN"
+      },
+      {
+        "oid": "sanstopu_20170621_results_4",
+        "kisiBasinaDusenIkramiye": 33.35,
+        "kisiSayisi": 2904,
+        "tur": "$4_BILEN"
+      },
+      {
+        "oid": "sanstopu_20170621_results_4_1",
+        "kisiBasinaDusenIkramiye": 324.55,
+        "kisiSayisi": 224,
+        "tur": "$4_1_BILEN"
+      },
+      {
+        "oid": "sanstopu_20170621_results_5",
+        "kisiBasinaDusenIkramiye": 3024.75,
+        "kisiSayisi": 24,
+        "tur": "$5_BILEN"
+      },
+      {
+        "oid": "sanstopu_20170621_results_5_1",
+        "kisiBasinaDusenIkramiye": 1393179.15,
+        "kisiSayisi": 1,
+        "tur": "$5_1_BILEN"
+      }
+    ],
+    "devretti": false,
+    "devirSayisi": null,
+    "devirTutari": 0,
+    "buyukIkramiye": 1393179.15,
+    "buyukIkrKazananIlIlceler": null
+  }
+}

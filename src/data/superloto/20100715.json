@@ -1,0 +1,43 @@
+{
+  "success": true,
+  "data": {
+    "archived": true,
+    "oid": "superloto_archived_20100715",
+    "hafta": 143,
+    "cekilisTarihi": "15/07/2010",
+    "cekilisTuru": "SUPER_LOTO",
+    "rakamlar": "01#02#14#18#36#38",
+    "rakamlarNumaraSirasi": "01 - 02 - 14 - 18 - 36 - 38",
+    "bilenKisiler": [
+      {
+        "oid": "superloto_20100715_results_3",
+        "kisiBasinaDusenIkramiye": 6.35,
+        "kisiSayisi": 72727,
+        "tur": "$3_BILEN"
+      },
+      {
+        "oid": "superloto_20100715_results_4",
+        "kisiBasinaDusenIkramiye": 86.9,
+        "kisiSayisi": 3290,
+        "tur": "$4_BILEN"
+      },
+      {
+        "oid": "superloto_20100715_results_5",
+        "kisiBasinaDusenIkramiye": 5152.85,
+        "kisiSayisi": 51,
+        "tur": "$5_BILEN"
+      },
+      {
+        "oid": "superloto_20100715_results_6",
+        "kisiBasinaDusenIkramiye": 1923787.1,
+        "kisiSayisi": 1,
+        "tur": "$6_BILEN"
+      }
+    ],
+    "devretti": false,
+    "devirSayisi": null,
+    "devirTutari": 0,
+    "buyukIkramiye": 1923787.1,
+    "buyukIkrKazananIlIlceler": null
+  }
+}
