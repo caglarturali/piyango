@@ -1,3 +1,5 @@
+import _ from 'lodash';
+
 /**
  * Base class for an API response.
  */
@@ -49,6 +51,17 @@ export default class ApiResponse<T> {
    */
   hasData() {
     return this.data && this.data.count > 0;
+  }
+
+  /**
+   * Returns true if item is found in the results, otherwise false.
+   * @param item Item to check.
+   */
+  hasItem(item: T) {
+    if (!this.data) {
+      return false;
+    }
+    return this.data.results.some((d) => _.isEqual(d, item));
   }
 
   /**
