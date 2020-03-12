@@ -6,20 +6,23 @@ import apiconfig from '../../src/apiconfig';
 export default async (req: NowRequest, res: NowResponse) => {
   const {
     method,
-    query: { game, limit, order },
+    query: { game, limit, skip, order },
   } = req;
 
   const gameArg = game.toString().toLowerCase();
   const limitArg = limit
     ? parseInt(limit.toString()) // tslint:disable-line: radix
-    : apiconfig.limits.drawdates;
+    : apiconfig.drawdates.limit;
+  const skipArg = skip
+    ? parseInt(skip.toString()) // tslint:disable-line: radix
+    : apiconfig.drawdates.skip;
   const orderArg = (order
     ? order.toString().toLowerCase()
-    : apiconfig.order.drawdates) as SortOrder;
+    : apiconfig.drawdates.order) as SortOrder;
 
   switch (method) {
     case 'GET': {
-      const result = await getDrawDates(gameArg, limitArg, orderArg);
+      const result = await getDrawDates(gameArg, limitArg, skipArg, orderArg);
       res.status(result.statusCode).json(result);
       break;
     }

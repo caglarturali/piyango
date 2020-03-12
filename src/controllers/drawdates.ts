@@ -29,11 +29,13 @@ const buildDrawDatesUrl = (gameId: string) => {
  * Returns draw dates listing for specified game.
  * @param gameId Game ID
  * @param limit Limit to be applied
+ * @param skip Count of entries to skip
  * @param order Sorting order of the results
  */
 export const getDrawDates = async (
   gameId: string,
   limit: number,
+  skip: number,
   order: SortOrder,
 ): Promise<ApiResponse<DrawListing>> => {
   const apiResponse = new ApiResponse<DrawListing>();
@@ -94,9 +96,9 @@ export const getDrawDates = async (
     return order === SortOrder.ASC ? aDate - bDate : bDate - aDate;
   });
 
-  // Apply limit if it has a legit value.
+  // Paginate results if limit has a legit value.
   if (limit && limit > 0) {
-    apiResponse.applyLimit(limit);
+    apiResponse.paginate(limit, skip);
   }
 
   return apiResponse;

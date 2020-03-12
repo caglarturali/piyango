@@ -65,12 +65,13 @@ export default class ApiResponse<T> {
   }
 
   /**
-   * Applies specified limit to the results.
+   * "Paginates" results based on limit and skip values.
    * @param limit Limit
+   * @param skip Count of entries to skip
    */
-  applyLimit(limit: number) {
+  paginate(limit: number, skip: number) {
     if (this.data) {
-      this.data.results = this.data.results.slice(0, limit);
+      this.data.results = this.data.results.slice(skip, skip + limit);
       this.data.count = this.data.results.length;
     }
   }
