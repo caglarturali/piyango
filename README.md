@@ -12,6 +12,10 @@ File-based proxy server for Turkey's national lottery games.
 - `superloto`
 - `piyango`
 
+`N`: Indicates that a numerical value should be supplied.
+
+`(x | y)`: Indicates that either of the values should be supplied.
+
 ## Endpoints
 
 - ### Root endpoint.
@@ -32,9 +36,10 @@ File-based proxy server for Turkey's national lottery games.
 
     The following query parameters are allowed:
 
-    - `limit`: Defaults to `104`. Supply `0` for unlimited results.
+    - `limit`: Defaults to `104` (approximately 2 years worth of draw data). Provide `0` for unlimited results.
+    - `skip`: Defaults to `0`. Use it in conjunction with `limit` to **paginate results**.
     - `order`: Defaults to `desc`. Should be one of these two: `asc` | `desc`.
 
-      `https://piyango-api.now.sh/api/drawdates/[gameId]?limit=10&order=asc`
+      `https://piyango-api.now.sh/api/drawdates/[gameId]?limit=[N]&skip=[N]&order=(asc|desc)`
 
-      e.g. https://piyango-api.now.sh/api/drawdates/sayisal?limit=10&order=asc
+      e.g. https://piyango-api.now.sh/api/drawdates/sayisal?limit=10&skip=10&order=asc returns the results for draws 11 through 20.
