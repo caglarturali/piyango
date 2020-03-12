@@ -12,7 +12,7 @@ File-based proxy server for Turkey's national lottery games.
 - `superloto`
 - `piyango`
 
-`N`: Indicates that a numerical value should be supplied.
+`N`: Indicates that an integer value should be supplied.
 
 `(x | y)`: Indicates that either of the values should be supplied.
 
