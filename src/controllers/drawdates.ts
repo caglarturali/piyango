@@ -48,8 +48,8 @@ export const getDrawDates = async (
 
   try {
     const data: DrawListing[] = JSON.parse(stripBom(response.data));
-    data.forEach((drawResult: DrawListing) => {
-      apiResponse.addData(drawResult);
+    data.forEach((drawListing: DrawListing) => {
+      apiResponse.addData(drawListing);
     });
 
     if (!apiResponse.hasData()) {
