@@ -8,6 +8,7 @@ import moment from 'moment';
 import stripBom from 'strip-bom';
 import ApiResponse from '../models/ApiResponse';
 import DrawListing from '../models/DrawListing';
+import { SortOrder } from '../models/SortOrder';
 import {
   DATE_FORMAT,
   DATE_FORMAT_FRIENDLY,
@@ -27,10 +28,13 @@ const buildDrawDatesUrl = (gameId: string) => {
 /**
  * Returns draw dates listing for specified game.
  * @param gameId Game ID
+ * @param limit Limit to be applied
+ * @param order Sorting order of the results
  */
 export const getDrawDates = async (
   gameId: string,
   limit: number,
+  order: SortOrder,
 ): Promise<ApiResponse<DrawListing>> => {
   const apiResponse = new ApiResponse<DrawListing>();
 
@@ -82,11 +86,12 @@ export const getDrawDates = async (
     }
   });
 
-  // Sort entries descending.
+  // Sort entries based on order arg.
   apiResponse.sortData((a: DrawListing, b: DrawListing) => {
-    return (
-      moment(b.tarih, DATE_FORMAT).unix() - moment(a.tarih, DATE_FORMAT).unix()
-    );
+    const aDate = moment(a.tarih, DATE_FORMAT).unix();
+    const bDate = moment(b.tarih, DATE_FORMAT).unix();
+
+    return order === SortOrder.ASC ? aDate - bDate : bDate - aDate;
   });
 
   // Apply limit if it has a legit value.
