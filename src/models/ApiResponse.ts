@@ -65,6 +65,17 @@ export default class ApiResponse<T> {
   }
 
   /**
+   * Applies specified limit to the results.
+   * @param limit Limit
+   */
+  applyLimit(limit: number) {
+    if (this.data) {
+      this.data.results = this.data.results.slice(0, limit);
+      this.data.count = this.data.results.length;
+    }
+  }
+
+  /**
    * Sets up a failed response.
    * @param {String} message Error message
    * @param {String} statusCode HTTP status code

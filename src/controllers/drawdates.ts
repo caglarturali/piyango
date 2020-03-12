@@ -30,6 +30,7 @@ const buildDrawDatesUrl = (gameId: string) => {
  */
 export const getDrawDates = async (
   gameId: string,
+  limit: number,
 ): Promise<ApiResponse<DrawListing>> => {
   const apiResponse = new ApiResponse<DrawListing>();
 
@@ -87,6 +88,11 @@ export const getDrawDates = async (
       moment(b.tarih, DATE_FORMAT).unix() - moment(a.tarih, DATE_FORMAT).unix()
     );
   });
+
+  // Apply limit if it has a legit value.
+  if (limit && limit > 0) {
+    apiResponse.applyLimit(limit);
+  }
 
   return apiResponse;
 };
