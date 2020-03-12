@@ -1,3 +1,5 @@
+import path from 'path';
+
 /**
  * Base url for MPI web service.
  */
@@ -18,3 +20,8 @@ export const GAMES = [
  * API date format.
  */
 export const API_DATE_FORMAT = 'YYYYMMDD';
+
+/**
+ * Base path for static data.
+ */
+export const STATIC_DATA_PATH = path.join(__dirname, 'data');
