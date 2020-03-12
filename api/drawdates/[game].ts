@@ -1,5 +1,5 @@
 import { NowRequest, NowResponse } from '@now/node';
-import { getDrawDates } from '../../src/controllers/drawdates';
+import { getDrawDates } from '../../src/controllers';
 
 export default async (req: NowRequest, res: NowResponse) => {
   const {
