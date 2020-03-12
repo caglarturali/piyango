@@ -19,7 +19,12 @@ export const GAMES = [
 /**
  * API date format.
  */
-export const API_DATE_FORMAT = 'YYYYMMDD';
+export const DATE_FORMAT = 'YYYYMMDD';
+
+/**
+ * API date format in human-readable form.
+ */
+export const DATE_FORMAT_FRIENDLY = 'DD-MM-YYYY';
 
 /**
  * Base path for static data.
