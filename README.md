@@ -4,7 +4,7 @@ File-based proxy server for Turkey's national lottery games.
 
 ## Definitions and variables
 
-`gameId:` The generic term used throughout the document to refer to one of the following constants:
+`gameId`: The generic term used throughout the document to refer to one of the following constants:
 
 - `sayisal`
 - `sanstopu`
