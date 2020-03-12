@@ -6,7 +6,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "tslint -c tslint.json \"api/**/*.{ts}\" \"src/**/*.{ts}\"",
     "lint:fix": "npm run lint -- --fix",
-    "prod": "now --prod"
+    "prod": "now --prod",
+    "rmtmp": "rm -rf /tmp/zeit-fun-*"
   },
   "husky": {
     "hooks": {
