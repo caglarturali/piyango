@@ -1,5 +1,17 @@
 import { NowRequest, NowResponse } from '@now/node';
 
 export default (req: NowRequest, res: NowResponse) => {
-  res.json({ name: 'John', email: 'john@example.com' });
+  const { method } = req;
+
+  switch (method) {
+    case 'GET': {
+      res.status(200).json({ name: 'John', email: 'john@example.com' });
+      break;
+    }
+
+    default:
+      res.setHeader('Allow', ['GET']);
+      res.status(405).end(`Method ${method} Not Allowed`);
+      break;
+  }
 };
