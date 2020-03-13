@@ -24,10 +24,7 @@
         "Content-Type": "application/json"
       },
       "continue": true
-    },
-    {
-      "src": "/draws/(?<gameid>[^/]*)/(?<date>[0-9]{8})",
-      "dest": "/draws/$gameid/($date).json"
     }
-  ]
+  ],
+  "cleanUrls": true
 }
