@@ -27,7 +27,7 @@
     },
     {
       "src": "/draws/(?<gameid>[^/]*)/(?<date>[0-9]{8})",
-      "dest": "/draws/$gameid/{$date}.json"
+      "dest": "/draws/$gameid/($date).json"
     }
   ]
 }
