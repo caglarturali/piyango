@@ -27,6 +27,7 @@ const buildResourceNames = (gameId: string, drawDate: string): string[] => {
   const resourceNames = [];
   resourceNames.push(`${drawDate}.json`);
 
+  // Edge case that needs to be covered!
   if (gameId.toLowerCase() === 'sayisal') {
     resourceNames.push(`SAY_${drawDate}.json`);
   }
@@ -39,7 +40,7 @@ const buildResourceNames = (gameId: string, drawDate: string): string[] => {
  * @param {String} drawDate Draw date in YYYYMMDD format
  * @returns {String[]} Draw details urls
  */
-const buildDrawDetailsUrl = (gameId: string, drawDate: string): string[] => {
+const buildDrawDetailsUrls = (gameId: string, drawDate: string): string[] => {
   const resourceNames = buildResourceNames(gameId, drawDate);
   return resourceNames.map(
     (rName) => `${MPI_BASE}/cekilisler/${gameId}/${rName}`,
@@ -126,7 +127,7 @@ export const getDrawDetails = async (gameId: string, drawDate: string) => {
   const drawDetailsPromises: any[] = [];
 
   // Build promises array with urls.
-  const urls = buildDrawDetailsUrl(gameId, drawDate);
+  const urls = buildDrawDetailsUrls(gameId, drawDate);
   urls.forEach((url) => {
     drawDetailsPromises.push(getDrawDetailsPromise(gameId, url));
   });
