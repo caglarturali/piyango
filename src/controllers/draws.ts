@@ -68,7 +68,7 @@ const getDrawDetailsPromise = (
         const data = JSON.parse(stripBom(resText));
 
         // Necessary for piyango.
-        if (gameId === 'piyango') {
+        if (gameId === GameID.piyango) {
           const dateOriginal = data.cekilisTarihi;
           const dateNew = moment(dateOriginal, DATE_FORMAT).format(
             DATE_FORMAT_FRIENDLY,
@@ -129,9 +129,9 @@ export const getDrawDetails = async (gameId: GameID, drawDate: string) => {
   /**
    * Fetch results from the web service.
    */
-  const drawDetailsPromises: any[] = [];
 
   // Build promises array with urls.
+  const drawDetailsPromises: any[] = [];
   const urls = buildDrawDetailsUrls(gameId, drawDate);
   urls.forEach((url) => {
     drawDetailsPromises.push(getDrawDetailsPromise(gameId, url));
