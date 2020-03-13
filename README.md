@@ -2,66 +2,69 @@
 
 File-based proxy server for Turkey's national lottery games.
 
-## Definitions and variables
+## Types
 
-`gameId`: The generic term used throughout the document to refer to one of the following constants:
+The following is a list of the types of data used within the Piyango API:
 
-- `sayisal`
-- `sanstopu`
-- `onnumara`
-- `superloto`
-- `piyango`
-
-`N`: Indicates that an integer value should be supplied.
-
-`(x | y)`: Indicates that either of the values should be supplied.
-
-`YYYYMMDD`: The date format that the API expects.
+| Name    | Definition                                                   | Example      |
+| ------- | ------------------------------------------------------------ | ------------ |
+| ID      | A unique value used to identify resources (mostly games).    | `q1w2e3r4t5` |
+| String  | A string is a sequence of characters used to represent text. | `"JACKPOT"`  |
+| Integer | An integer is a number without decimals.                     | `12345`      |
+| Enum    | An Enum is a String with only a few possible valid values.   | `"X" | "Y"`  |
+| Date    | A date string in the form of YYYYMMDD.                       | `20200311`   |
 
 ## Endpoints
 
 - ### Root endpoint.
 
-  `https://piyango.now.sh/api`
+  `GET https://piyango.now.sh/api`
 
 - ### Draw dates endpoint.
 
-  Lists the draw dates for given game.
+  Get draw dates for given game.
 
-  `https://piyango.now.sh/api/drawdates`
+  `GET https://piyango.now.sh/api/drawdates/:gameId`
 
-  - #### Usage:
+  - #### URL Parameters
 
-    `https://piyango.now.sh/api/drawdates/[gameId]`
+    | Key    | Type | Required | Description                                                                                                                      |
+    | ------ | ---- | -------- | -------------------------------------------------------------------------------------------------------------------------------- |
+    | gameId | ID   | Yes      | A unique value used to identify games. Should be one of the following: `sayisal`, `sanstopu`, `onnumara`, `superloto`, `piyango` |
 
-    e.g. https://piyango.now.sh/api/drawdates/sayisal
+    #### Example Request
 
-  - #### Query parameters:
+    https://piyango.now.sh/api/drawdates/sayisal
+
+    #### Query parameters
 
     The following query parameters are allowed:
 
-    | Query param | Required | Default value                       | Description                                                                                            |
-    | ----------- | -------- | ----------------------------------- | ------------------------------------------------------------------------------------------------------ |
-    | `limit`     | No       | `104` (~2 years worth of draw data) | Provide `0` for unlimited results.                                                                     |
-    | `skip`      | No       | `0`                                 | Use it in conjunction with `limit` to **paginate results**.                                            |
-    | `order`     | No       | `desc`                              | Specifies the order in which the results will be returned. Should be one of these two: `asc` - `desc`. |
+    | Query param | Type    | Required | Default value                       | Description                                                                                              |
+    | ----------- | ------- | -------- | ----------------------------------- | -------------------------------------------------------------------------------------------------------- |
+    | `limit`     | Integer | No       | `104` (~2 years worth of draw data) | Limit the number of results returned. Provide `0` for unlimited results.                                 |
+    | `skip`      | String  | No       | `0`                                 | Use it in conjunction with `limit` to **paginate results**.                                              |
+    | `order`     | Enum    | No       | `desc`                              | Specifies the order in which the results will be returned. Should be one of these two: `"asc" | "desc"`. |
 
-    `https://piyango.now.sh/api/drawdates/[gameId]?limit=[N]&skip=[N]&order=(asc|desc)`
+    #### Example Request
 
-    e.g. https://piyango.now.sh/api/drawdates/sayisal?limit=10&skip=10&order=asc returns the results for draws 11 through 20.
+    The following request returns the results for draws 11 through 20 for the game `sayisal`.
+
+    https://piyango.now.sh/api/drawdates/sayisal?limit=10&skip=10&order=asc
 
 - ### Draws endpoint.
 
-  Returns the draw result for given game and the date.
+  Get the information for a specific draw by passing both `gameId` and `date` strings.
 
-  `https://piyango.now.sh/api/draws/[gameId]?date=[YYYYMMDD]`
+  `GET https://piyango.now.sh/api/draws/:gameId/:date`
 
-  - #### Query parameters:
+  - #### URL Parameters
 
-    The following query parameters are allowed:
+    | Key    | Type | Required | Description                                                                                                                      |
+    | ------ | ---- | -------- | -------------------------------------------------------------------------------------------------------------------------------- |
+    | gameId | ID   | Yes      | A unique value used to identify games. Should be one of the following: `sayisal`, `sanstopu`, `onnumara`, `superloto`, `piyango` |
+    | date   | Date | Yes      | The date of the draw in `YYYYMMDD` format.                                                                                       |
 
-    | Query param | Required | Default value | Description                                        |
-    | ----------- | -------- | ------------- | -------------------------------------------------- |
-    | `date`      | Yes      | -             | Provide the date of the draw in `YYYYMMDD` format. |
+    #### Example Request
 
-    e.g. https://piyango.now.sh/api/draws/sayisal?date=20200311
+    https://piyango.now.sh/api/draws/sayisal/20200311
