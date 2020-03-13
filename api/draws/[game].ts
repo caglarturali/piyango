@@ -1,5 +1,6 @@
 import { NowRequest, NowResponse } from '@now/node';
 import { getDrawDetails } from '../../src/controllers';
+import { GameID } from '../../src/models/GameID';
 
 export default async (req: NowRequest, res: NowResponse) => {
   const {
@@ -7,7 +8,7 @@ export default async (req: NowRequest, res: NowResponse) => {
     query: { game, date },
   } = req;
 
-  const gameArg = game.toString().toLowerCase();
+  const gameArg = game.toString().toLowerCase() as GameID;
   const dateArg = date.toString();
 
   switch (method) {

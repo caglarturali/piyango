@@ -10,6 +10,9 @@ import {
 } from '../constants';
 import ApiResponse from '../models/ApiResponse';
 import PromiseResult from '../models/PromiseResult';
+import RegularGame from '../models/RegularGame';
+import LotteryGame from '../models/LotteryGame';
+import { GameID } from '../models/GameID';
 import {
   buildStaticResourcePath,
   isDateValid,
@@ -19,16 +22,16 @@ import {
 
 /**
  * Builds resource names array based on game id and draw data.
- * @param {String} gameId Game ID
+ * @param {GameID} gameId Game ID
  * @param {String} drawDate Draw date in YYYYMMDD format
  * @returns {String[]} Resource names
  */
-const buildResourceNames = (gameId: string, drawDate: string): string[] => {
+const buildResourceNames = (gameId: GameID, drawDate: string): string[] => {
   const resourceNames = [];
   resourceNames.push(`${drawDate}.json`);
 
   // Edge case that needs to be covered!
-  if (gameId.toLowerCase() === 'sayisal') {
+  if (gameId === GameID.sayisal) {
     resourceNames.push(`SAY_${drawDate}.json`);
   }
   return resourceNames;
@@ -36,11 +39,11 @@ const buildResourceNames = (gameId: string, drawDate: string): string[] => {
 
 /**
  * Builds the urls for draw details resource.
- * @param {String} gameId Game ID
+ * @param {GameID} gameId Game ID
  * @param {String} drawDate Draw date in YYYYMMDD format
  * @returns {String[]} Draw details urls
  */
-const buildDrawDetailsUrls = (gameId: string, drawDate: string): string[] => {
+const buildDrawDetailsUrls = (gameId: GameID, drawDate: string): string[] => {
   const resourceNames = buildResourceNames(gameId, drawDate);
   return resourceNames.map(
     (rName) => `${MPI_BASE}/cekilisler/${gameId}/${rName}`,
@@ -49,12 +52,12 @@ const buildDrawDetailsUrls = (gameId: string, drawDate: string): string[] => {
 
 /**
  * Fetches draw details based on given credentials.
- * @param {String} gameId Game ID
+ * @param {GameID} gameId Game ID
  * @param {String} url Draw details endpoint
  * @returns {Promise<PromiseResult>} Draw details
  */
 const getDrawDetailsPromise = (
-  gameId: string,
+  gameId: GameID,
   url: string,
 ): Promise<PromiseResult> => {
   return new Promise((resolve, reject) => {
@@ -92,11 +95,14 @@ const getDrawDetailsPromise = (
 
 /**
  * Returns draw details for given game and given date.
- * @param {String} gameId Game ID
+ * @param {GameID} gameId Game ID
  * @param {String} drawDate Draw date in YYYYMMDD format
  */
-export const getDrawDetails = async (gameId: string, drawDate: string) => {
-  const apiResponse = new ApiResponse<any>();
+export const getDrawDetails = async (gameId: GameID, drawDate: string) => {
+  const apiResponse =
+    gameId === GameID.piyango
+      ? new ApiResponse<LotteryGame>()
+      : new ApiResponse<RegularGame>();
 
   // Check gameId.
   if (!GAMES.some((game) => game === gameId)) {
