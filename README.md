@@ -20,17 +20,17 @@ File-based proxy server for Turkey's national lottery games.
 
 - ### Root endpoint.
 
-  `https://piyango-api.now.sh/api`
+  `https://piyango.now.sh/api`
 
 - ### Draw dates endpoint.
 
-  `https://piyango-api.now.sh/api/drawdates`
+  `https://piyango.now.sh/api/drawdates`
 
   - #### Usage:
 
-    `https://piyango-api.now.sh/api/drawdates/[gameId]`
+    `https://piyango.now.sh/api/drawdates/[gameId]`
 
-    e.g. https://piyango-api.now.sh/api/drawdates/sayisal
+    e.g. https://piyango.now.sh/api/drawdates/sayisal
 
   - #### Query parameters:
 
@@ -40,6 +40,6 @@ File-based proxy server for Turkey's national lottery games.
     - `skip`: Defaults to `0`. Use it in conjunction with `limit` to **paginate results**.
     - `order`: Defaults to `desc`. Should be one of these two: `asc` | `desc`.
 
-      `https://piyango-api.now.sh/api/drawdates/[gameId]?limit=[N]&skip=[N]&order=(asc|desc)`
+      `https://piyango.now.sh/api/drawdates/[gameId]?limit=[N]&skip=[N]&order=(asc|desc)`
 
-      e.g. https://piyango-api.now.sh/api/drawdates/sayisal?limit=10&skip=10&order=asc returns the results for draws 11 through 20.
+      e.g. https://piyango.now.sh/api/drawdates/sayisal?limit=10&skip=10&order=asc returns the results for draws 11 through 20.
