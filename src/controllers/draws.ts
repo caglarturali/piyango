@@ -94,7 +94,6 @@ const getDrawDetailsPromise = (
  * Returns draw details for given game and given date.
  * @param {String} gameId Game ID
  * @param {String} drawDate Draw date in YYYYMMDD format
- * @param {Object} callback Callback function
  */
 export const getDrawDetails = async (gameId: string, drawDate: string) => {
   const apiResponse = new ApiResponse<any>();
