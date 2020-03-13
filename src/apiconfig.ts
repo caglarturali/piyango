@@ -7,6 +7,6 @@ export default {
   drawdates: {
     limit: 104,
     skip: 0,
-    order: SortOrder.DESC,
+    sort: SortOrder.DESC,
   },
 };
