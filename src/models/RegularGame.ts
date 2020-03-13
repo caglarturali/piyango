@@ -1,3 +1,5 @@
+import LuckyProvince from './LuckyProvince';
+
 export enum DrawType {
   SAYISAL_LOTO = 'SAYISAL_LOTO',
   SANS_TOPU = 'SANS_TOPU',
@@ -5,7 +7,7 @@ export enum DrawType {
   SUPER_LOTO = 'SUPER_LOTO',
 }
 
-export enum MatchType {
+export enum MatchTypeRegular {
   $HIC = '$HIC',
   $1_1_BILEN = '$1_1_BILEN',
   $2_1_BILEN = '$2_1_BILEN',
@@ -26,14 +28,7 @@ export interface LuckyPerson {
   oid: string;
   kisiBasinaDusenIkramiye: number;
   kisiSayisi: number;
-  tur: MatchType;
-}
-
-export interface LuckyProvince {
-  il: string;
-  ilView: string;
-  ilce: string;
-  ilceView: string;
+  tur: MatchTypeRegular;
 }
 
 export default interface RegularGame {
