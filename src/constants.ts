@@ -29,4 +29,4 @@ export const DATE_FORMAT_FRIENDLY = 'DD-MM-YYYY';
 /**
  * Base path for static data.
  */
-export const STATIC_DATA_PATH = path.join(__dirname, '..', 'data');
+export const STATIC_DATA_PATH = path.join(__dirname, '..', 'draws');
