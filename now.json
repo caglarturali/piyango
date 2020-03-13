@@ -20,11 +20,14 @@
     {
       "src": "/draws.*",
       "headers": {
-        "Cache-Control": "s-maxage=31536000",
+        "Cache-Control": "maxage=31536000",
         "Content-Type": "application/json"
       },
       "continue": true
+    },
+    {
+      "src": "/draws/(?<gameid>[^/]+)/(?<date>[0-9]{8})$",
+      "dest": "/draws/$gameid/$date.json"
     }
-  ],
-  "cleanUrls": true
+  ]
 }
