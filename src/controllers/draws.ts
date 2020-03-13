@@ -53,7 +53,7 @@ const buildDrawDetailsUrls = (gameId: GameID, drawDate: string): string[] => {
 /**
  * Fetches draw details based on given credentials.
  * @param {GameID} gameId Game ID
- * @param {String} url Draw details endpoint
+ * @param {String} url Draw details WEB service url
  * @returns {Promise<PromiseResult>} Draw details
  */
 const getDrawDetailsPromise = (
@@ -148,7 +148,14 @@ export const getDrawDetails = async (gameId: GameID, drawDate: string) => {
   });
 
   if (finalData) {
-    apiResponse.addData(finalData);
+    if (gameId === GameID.piyango) {
+      // Return it as is.
+      apiResponse.addData(finalData);
+    } else {
+      // Return only "data" field.
+      // TODO: Find a better solution!
+      apiResponse.addData(finalData['data']); // tslint:disable-line: no-string-literal
+    }
   } else if (finalError) {
     apiResponse.setFailed(finalError, 500);
   } else {
