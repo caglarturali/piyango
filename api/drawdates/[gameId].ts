@@ -6,10 +6,10 @@ import apiconfig from '../../src/apiconfig';
 export default async (req: NowRequest, res: NowResponse) => {
   const {
     method,
-    query: { game, limit, skip, order },
+    query: { gameId, limit, skip, order },
   } = req;
 
-  const gameArg = game.toString().toLowerCase();
+  const gameArg = gameId.toString().toLowerCase();
   const limitArg = limit
     ? parseInt(limit.toString()) // tslint:disable-line: radix
     : apiconfig.drawdates.limit;
