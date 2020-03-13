@@ -1,6 +1,5 @@
 dependencies:
   '@now/node': 1.4.1
-  axios: 0.19.2
   lodash: 4.17.15
   moment: 2.24.0
   node-fetch: 2.6.0
@@ -93,12 +92,6 @@ packages:
     dev: true
     resolution:
       integrity: sha1-x57Zf380y48robyXkLzDZkdLS3k=
-  /axios/0.19.2:
-    dependencies:
-      follow-redirects: 1.5.10
-    dev: false
-    resolution:
-      integrity: sha512-fjgm5MvRHLhx+osE2xoekY70AhARk3a6hkN+3Io1jc00jtquGvxYlKlsFUhmUET0V5te6CcZI7lcv2Ym61mjHA==
   /balanced-match/1.0.0:
     dev: true
     resolution:
@@ -199,12 +192,6 @@ packages:
       node: '>=8'
     resolution:
       integrity: sha512-xb3ZL6+L8b9JLLCx3ZdoZy4+2ECphCMo2PwqgP1tlfVq6M6YReyzBJtvWWtbDSpNr9hn96pkCiZqUcFEc+54Qg==
-  /debug/3.1.0:
-    dependencies:
-      ms: 2.0.0
-    dev: false
-    resolution:
-      integrity: sha512-OX8XqP7/1a9cqkxYw2yXss15f26NKWBpDXQd0/uK/KPqdQhxbPa994hnzjcE2VqQpDslf55723cKPUOGSmMY3g==
   /delayed-stream/1.0.0:
     dev: true
     engines:
@@ -259,14 +246,6 @@ packages:
       node: '>=6'
     resolution:
       integrity: sha512-P8WRou2S+oe222TOCHitLy8zj+SIsVJh52VP4lvXkaFVnOFFdoWv1H1Jjvel1aI6NCFOAaeAVm8qrI0odiLcww==
-  /follow-redirects/1.5.10:
-    dependencies:
-      debug: 3.1.0
-    dev: false
-    engines:
-      node: '>=4.0'
-    resolution:
-      integrity: sha512-0V5l4Cizzvqt5D44aTXbFZz+FtyXV1vrDN6qrelxtfYQKW0KO0W2T/hkE8xvGa/540LkZlkaUjO4ailYTFtHVQ==
   /form-data/3.0.0:
     dependencies:
       asynckit: 0.4.0
@@ -414,10 +393,6 @@ packages:
     dev: false
     resolution:
       integrity: sha512-bV7f+6l2QigeBBZSM/6yTNq4P2fNpSWj/0e7jQcy87A8e7o2nAfP/34/2ky5Vw4B9S446EtIhodAzkFCcR4dQg==
-  /ms/2.0.0:
-    dev: false
-    resolution:
-      integrity: sha1-VgiurfwAvmwpAd9fmGF4jeDVl8g=
   /node-fetch/2.6.0:
     dev: false
     engines:
@@ -640,7 +615,6 @@ specifiers:
   '@types/lodash': ^4.14.149
   '@types/node': ^13.9.0
   '@types/node-fetch': ^2.5.5
-  axios: ^0.19.2
   husky: ^4.2.3
   lodash: ^4.17.15
   moment: ^2.24.0

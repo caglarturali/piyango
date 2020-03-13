@@ -3,7 +3,7 @@
  */
 import fs from 'fs';
 import path from 'path';
-import axios from 'axios';
+import fetch from 'node-fetch';
 import moment from 'moment';
 import stripBom from 'strip-bom';
 import ApiResponse from '../models/ApiResponse';
@@ -46,15 +46,16 @@ export const getDrawDates = async (
     return apiResponse;
   }
 
-  const response = await axios.get(buildDrawDatesUrl(gameId));
+  const response = await fetch(buildDrawDatesUrl(gameId), { method: 'GET' });
 
-  if (response.status !== 200) {
+  if (!response.ok) {
     apiResponse.setFailed('Unable to fetch data', response.status);
     return apiResponse;
   }
 
   try {
-    const data: DrawListing[] = JSON.parse(stripBom(response.data));
+    const body = await response.text();
+    const data: DrawListing[] = JSON.parse(stripBom(body));
     data.forEach((drawListing: DrawListing) => {
       apiResponse.addData(drawListing);
     });
