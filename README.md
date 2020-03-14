@@ -69,6 +69,23 @@ The following is a list of the types of data used within the Piyango API:
 
     https://piyango.now.sh/v1/draws/sayisal/20200311
 
+- ### Luck history endpoint.
+
+  Get the luck history of the date. If no parameters are provided, it returns the dates of all possible draws for all games that match the current day and month. Providing `date` and `gameId` further filters the results.
+
+  `GET https://piyango.now.sh/v1/luckhistory/?:date/?:gameId`
+
+  - #### URL Parameters
+
+    | Key    | Type | Required | Description                                                                                                                      |
+    | ------ | ---- | -------- | -------------------------------------------------------------------------------------------------------------------------------- |
+    | date   | Date | No       | The date string in `YYYYMMDD` format.                                                                                            |
+    | gameId | ID   | No       | A unique value used to identify games. Should be one of the following: `sayisal`, `sanstopu`, `onnumara`, `superloto`, `piyango` |
+
+    #### Example Request
+
+    https://piyango.now.sh/v1/luckhistory/20200310
+
 * ### Server time endpoint.
 
   Get the time of the server as a [moment object](https://momentjs.com/docs/#/displaying/as-object/).
