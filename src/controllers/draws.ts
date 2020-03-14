@@ -27,8 +27,7 @@ import {
  * @returns {String[]} Resource names
  */
 const buildResourceNames = (gameId: GameID, drawDate: string): string[] => {
-  const resourceNames = [];
-  resourceNames.push(`${drawDate}.json`);
+  const resourceNames = [`${drawDate}.json`];
 
   // Edge case that needs to be covered!
   if (gameId === GameID.sayisal) {
