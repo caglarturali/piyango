@@ -1,3 +1,6 @@
+/**
+ * Draws controller.
+ */
 import fs from 'fs';
 import fetch, { Response } from 'node-fetch';
 import moment from 'moment';

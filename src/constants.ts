@@ -32,6 +32,11 @@ export const DATE_FORMAT_VIEW = 'DD-MM-YYYY';
 export const DATE_FORMAT_FRIENDLY = 'DD/MM/YYYY';
 
 /**
+ * Date format used for luckhistory endpoint.
+ */
+export const DATE_FORMAT_SHORT = 'MMDD';
+
+/**
  * Base path for static data.
  */
 export const STATIC_DATA_PATH = path.join(__dirname, '..', 'draws');
