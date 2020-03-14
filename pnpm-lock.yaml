@@ -2,10 +2,12 @@ dependencies:
   '@now/node': 1.4.1
   lodash: 4.17.15
   moment: 2.24.0
+  moment-timezone: 0.5.28
   node-fetch: 2.6.0
   strip-bom: 4.0.0
 devDependencies:
   '@types/lodash': 4.14.149
+  '@types/moment-timezone': 0.5.12
   '@types/node': 13.9.0
   '@types/node-fetch': 2.5.5
   husky: 4.2.3
@@ -48,6 +50,12 @@ packages:
     dev: true
     resolution:
       integrity: sha512-ijGqzZt/b7BfzcK9vTrS6MFljQRPn5BFWOx8oE0GYxribu6uV+aA9zZuXI1zc/etK9E8nrgdoF2+LgUw7+9tJQ==
+  /@types/moment-timezone/0.5.12:
+    dependencies:
+      moment: 2.24.0
+    dev: true
+    resolution:
+      integrity: sha512-hnHH2+Efg2vExr/dSz+IX860nSiyk9Sk4pJF2EmS11lRpMcNXeB4KBW5xcgw2QPsb9amTXdsVNEe5IoJXiT0uw==
   /@types/node-fetch/2.5.5:
     dependencies:
       '@types/node': 13.9.1
@@ -402,8 +410,13 @@ packages:
     hasBin: true
     resolution:
       integrity: sha1-MAV0OOrGz3+MR2fzhkjWaX11yQM=
-  /moment/2.24.0:
+  /moment-timezone/0.5.28:
+    dependencies:
+      moment: 2.24.0
     dev: false
+    resolution:
+      integrity: sha512-TDJkZvAyKIVWg5EtVqRzU97w0Rb0YVbfpqyjgu6GwXCAohVRqwZjf4fOzDE6p1Ch98Sro/8hQQi65WDXW5STPw==
+  /moment/2.24.0:
     resolution:
       integrity: sha512-bV7f+6l2QigeBBZSM/6yTNq4P2fNpSWj/0e7jQcy87A8e7o2nAfP/34/2ky5Vw4B9S446EtIhodAzkFCcR4dQg==
   /node-fetch/2.6.0:
@@ -661,11 +674,13 @@ packages:
 specifiers:
   '@now/node': ^1.4.1
   '@types/lodash': ^4.14.149
+  '@types/moment-timezone': ^0.5.12
   '@types/node': ^13.9.0
   '@types/node-fetch': ^2.5.5
   husky: ^4.2.3
   lodash: ^4.17.15
   moment: ^2.24.0
+  moment-timezone: ^0.5.28
   node-fetch: ^2.6.0
   strip-bom: ^4.0.0
   ts-node: ^8.6.2

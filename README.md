@@ -68,3 +68,13 @@ The following is a list of the types of data used within the Piyango API:
     #### Example Request
 
     https://piyango.now.sh/v1/draws/sayisal/20200311
+
+* ### Server time endpoint.
+
+  Get the time of the server as a [moment object](https://momentjs.com/docs/#/displaying/as-object/).
+
+  `GET https://piyango.now.sh/v1/time`
+
+  #### Example Request
+
+  https://piyango.now.sh/v1/time

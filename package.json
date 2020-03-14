@@ -25,11 +25,13 @@
     "@now/node": "^1.4.1",
     "lodash": "^4.17.15",
     "moment": "^2.24.0",
+    "moment-timezone": "^0.5.28",
     "node-fetch": "^2.6.0",
     "strip-bom": "^4.0.0"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.149",
+    "@types/moment-timezone": "^0.5.12",
     "@types/node": "^13.9.0",
     "@types/node-fetch": "^2.5.5",
     "husky": "^4.2.3",
