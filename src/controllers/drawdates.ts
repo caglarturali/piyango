@@ -9,6 +9,7 @@ import stripBom from 'strip-bom';
 import ApiResponse from '../models/ApiResponse';
 import DrawListing from '../models/DrawListing';
 import { SortOrder } from '../models/SortOrder';
+import { GameID } from '../models/GameID';
 import {
   DATE_FORMAT,
   DATE_FORMAT_FRIENDLY,
@@ -19,9 +20,9 @@ import {
 
 /**
  * Builds draw dates url.
- * @param {String} gameId Game ID
+ * @param {GameID} gameId Game ID
  */
-const buildDrawDatesUrl = (gameId: string) => {
+const buildDrawDatesUrl = (gameId: GameID) => {
   return `${MPI_BASE}/listCekilisleriTarihleri.php?tur=${gameId}`;
 };
 
@@ -33,7 +34,7 @@ const buildDrawDatesUrl = (gameId: string) => {
  * @param sort Sorting order of the results
  */
 export const getDrawDates = async (
-  gameId: string,
+  gameId: GameID,
   limit: number,
   skip: number,
   sort: SortOrder,
