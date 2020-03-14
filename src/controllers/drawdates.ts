@@ -12,7 +12,7 @@ import { SortOrder } from '../models/SortOrder';
 import { GameID } from '../models/GameID';
 import {
   DATE_FORMAT,
-  DATE_FORMAT_FRIENDLY,
+  DATE_FORMAT_VIEW,
   GAMES,
   MPI_BASE,
   STATIC_DATA_PATH,
@@ -81,7 +81,7 @@ export const getDrawDates = async (
 
     const tempListing: DrawListing = {
       tarih: fileName,
-      tarihView: moment(fileName, DATE_FORMAT).format(DATE_FORMAT_FRIENDLY),
+      tarihView: moment(fileName, DATE_FORMAT).format(DATE_FORMAT_VIEW),
     };
 
     // Add record if not already found.

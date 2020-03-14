@@ -75,7 +75,7 @@ const getDrawDetailsPromise = (
 
           // Append new fields.
           data.cekilisTarihi = dateNew;
-          data.cekilisTarihiOld = dateOriginal;
+          data.cekilisTarihiRaw = dateOriginal;
         }
 
         resolve({
