@@ -5,11 +5,11 @@ import { GameID } from '../../../src/models/GameID';
 export default async (req: NowRequest, res: NowResponse) => {
   const {
     method,
-    query: { gameId, date },
+    query: { gameId, drawDate },
   } = req;
 
   const gameArg = gameId.toString().toLowerCase() as GameID;
-  const dateArg = date.toString();
+  const dateArg = drawDate.toString();
 
   switch (method) {
     case 'GET': {
