@@ -17,7 +17,7 @@ export default async (req: NowRequest, res: NowResponse) => {
   const limitArg = limit ? parseInt(limit.toString()) : apiLimit;
   const skipArg = skip ? parseInt(skip.toString()) : apiSkip;
   const sortArg = (sort ? sort.toString().toLowerCase() : apiSort) as SortOrder;
-  // tslint:ensable: radix
+  // tslint:enable: radix
 
   switch (method) {
     case 'GET': {
