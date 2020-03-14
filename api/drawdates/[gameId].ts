@@ -1,5 +1,6 @@
 import { NowRequest, NowResponse } from '@now/node';
 import { getDrawDates } from '../../src/controllers';
+import { GameID } from '../../src/models/GameID';
 import { SortOrder } from '../../src/models/SortOrder';
 import apiconfig from '../../src/apiconfig';
 
@@ -9,16 +10,14 @@ export default async (req: NowRequest, res: NowResponse) => {
     query: { gameId, limit, skip, sort },
   } = req;
 
-  const gameArg = gameId.toString().toLowerCase();
-  const limitArg = limit
-    ? parseInt(limit.toString()) // tslint:disable-line: radix
-    : apiconfig.drawdates.limit;
-  const skipArg = skip
-    ? parseInt(skip.toString()) // tslint:disable-line: radix
-    : apiconfig.drawdates.skip;
-  const sortArg = (sort
-    ? sort.toString().toLowerCase()
-    : apiconfig.drawdates.sort) as SortOrder;
+  const { limit: apiLimit, skip: apiSkip, sort: apiSort } = apiconfig.drawdates;
+
+  // tslint:disable: radix
+  const gameArg = gameId.toString().toLowerCase() as GameID;
+  const limitArg = limit ? parseInt(limit.toString()) : apiLimit;
+  const skipArg = skip ? parseInt(skip.toString()) : apiSkip;
+  const sortArg = (sort ? sort.toString().toLowerCase() : apiSort) as SortOrder;
+  // tslint:ensable: radix
 
   switch (method) {
     case 'GET': {
