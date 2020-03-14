@@ -18,13 +18,13 @@ The following is a list of the types of data used within the Piyango API:
 
 - ### Root endpoint.
 
-  `GET https://piyango.now.sh/api`
+  `GET https://piyango.now.sh/v1/`
 
 - ### Draw dates endpoint.
 
   Get draw dates for given game.
 
-  `GET https://piyango.now.sh/api/drawdates/:gameId`
+  `GET https://piyango.now.sh/v1/drawdates/:gameId`
 
   - #### URL Parameters
 
@@ -34,7 +34,7 @@ The following is a list of the types of data used within the Piyango API:
 
     #### Example Request
 
-    https://piyango.now.sh/api/drawdates/sayisal
+    https://piyango.now.sh/v1/drawdates/sayisal
 
     #### Query parameters
 
@@ -50,13 +50,13 @@ The following is a list of the types of data used within the Piyango API:
 
     The following request returns the results for draws 11 through 20 for the game `sayisal`.
 
-    https://piyango.now.sh/api/drawdates/sayisal?limit=10&skip=10&sort=asc
+    https://piyango.now.sh/v1/drawdates/sayisal?limit=10&skip=10&sort=asc
 
 - ### Draws endpoint.
 
   Get the information for a specific draw by passing both `gameId` and `drawDate` strings.
 
-  `GET https://piyango.now.sh/api/draws/:gameId/:drawDate`
+  `GET https://piyango.now.sh/v1/draws/:gameId/:drawDate`
 
   - #### URL Parameters
 
@@ -67,4 +67,4 @@ The following is a list of the types of data used within the Piyango API:
 
     #### Example Request
 
-    https://piyango.now.sh/api/draws/sayisal/20200311
+    https://piyango.now.sh/v1/draws/sayisal/20200311
