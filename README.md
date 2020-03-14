@@ -16,11 +16,11 @@ The following is a list of the types of data used within the Piyango API:
 
 ## Endpoints
 
-- ### Root endpoint.
+- ### Root
 
   `GET https://piyango.now.sh/v1/`
 
-- ### Draw dates endpoint.
+- ### Draw Dates
 
   Get draw dates for given game.
 
@@ -30,7 +30,7 @@ The following is a list of the types of data used within the Piyango API:
 
     | Key    | Type | Required | Description                                                                                                                      |
     | ------ | ---- | -------- | -------------------------------------------------------------------------------------------------------------------------------- |
-    | gameId | ID   | Yes      | A unique value used to identify games. Should be one of the following: `sayisal`, `sanstopu`, `onnumara`, `superloto`, `piyango` |
+    | gameId | Enum | Yes      | A unique value used to identify games. Should be one of the following: `sayisal`, `sanstopu`, `onnumara`, `superloto`, `piyango` |
 
     #### Example Request
 
@@ -52,7 +52,7 @@ The following is a list of the types of data used within the Piyango API:
 
     https://piyango.now.sh/v1/drawdates/sayisal?limit=10&skip=10&sort=asc
 
-- ### Draws endpoint.
+- ### Draws
 
   Get the information for a specific draw by passing both `gameId` and `drawDate` strings.
 
@@ -62,14 +62,14 @@ The following is a list of the types of data used within the Piyango API:
 
     | Key      | Type | Required | Description                                                                                                                      |
     | -------- | ---- | -------- | -------------------------------------------------------------------------------------------------------------------------------- |
-    | gameId   | ID   | Yes      | A unique value used to identify games. Should be one of the following: `sayisal`, `sanstopu`, `onnumara`, `superloto`, `piyango` |
+    | gameId   | Enum | Yes      | A unique value used to identify games. Should be one of the following: `sayisal`, `sanstopu`, `onnumara`, `superloto`, `piyango` |
     | drawDate | Date | Yes      | The date of the draw in `YYYYMMDD` format.                                                                                       |
 
     #### Example Request
 
     https://piyango.now.sh/v1/draws/sayisal/20200311
 
-- ### Luck history endpoint.
+- ### Luck History
 
   Get the luck history of the date. If no parameters are provided, it returns the dates of all possible draws for all games that match the current day and month. Providing `date` and `gameId` further filters the results.
 
@@ -80,13 +80,13 @@ The following is a list of the types of data used within the Piyango API:
     | Key    | Type | Required | Description                                                                                                                      |
     | ------ | ---- | -------- | -------------------------------------------------------------------------------------------------------------------------------- |
     | date   | Date | No       | The date string in `YYYYMMDD` format.                                                                                            |
-    | gameId | ID   | No       | A unique value used to identify games. Should be one of the following: `sayisal`, `sanstopu`, `onnumara`, `superloto`, `piyango` |
+    | gameId | Enum | No       | A unique value used to identify games. Should be one of the following: `sayisal`, `sanstopu`, `onnumara`, `superloto`, `piyango` |
 
     #### Example Request
 
     https://piyango.now.sh/v1/luckhistory/20200310
 
-* ### Server time endpoint.
+* ### Server Time
 
   Get the time of the server as a [moment object](https://momentjs.com/docs/#/displaying/as-object/).
 
