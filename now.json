@@ -18,6 +18,11 @@
       "continue": true
     },
     {
+      "src": "/v1/(.*)",
+      "headers": { "Cache-Control": "s-maxage=86400" },
+      "dest": "/api/$1"
+    },
+    {
       "src": "/draws.*",
       "headers": {
         "Cache-Control": "maxage=31536000",
