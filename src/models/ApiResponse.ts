@@ -6,11 +6,8 @@ import _ from 'lodash';
 export default class ApiResponse<T> {
   statusCode: number;
   success: boolean;
-  data: {
-    count: number;
-    results: T[];
-  } | null;
-  error: { message: string } | null;
+  data: T[];
+  error: string | null;
 
   /**
    * Creates an API response object.
@@ -20,10 +17,7 @@ export default class ApiResponse<T> {
   constructor(statusCode: number = 200, success: boolean = true) {
     this.statusCode = statusCode;
     this.success = success;
-    this.data = {
-      count: 0,
-      results: [],
-    };
+    this.data = [];
     this.error = null;
   }
 
@@ -32,10 +26,7 @@ export default class ApiResponse<T> {
    * @param {T} data Data to be added
    */
   addData(data: T) {
-    if (this.data) {
-      this.data.results.push(data);
-      this.data.count += 1;
-    }
+    this.data.push(data);
   }
 
   /**
@@ -43,14 +34,14 @@ export default class ApiResponse<T> {
    * @param {Function} comperator Comperator function
    */
   sortData(comperator: (a: T, b: T) => number) {
-    if (this.data) this.data.results.sort(comperator);
+    this.data.sort(comperator);
   }
 
   /**
    * Returns true if results data is available, otherwise false.
    */
   hasData() {
-    return this.data && this.data.count > 0;
+    return this.data && this.data.length > 0;
   }
 
   /**
@@ -58,10 +49,7 @@ export default class ApiResponse<T> {
    * @param item Item to check.
    */
   hasItem(item: T) {
-    if (!this.data) {
-      return false;
-    }
-    return this.data.results.some((d) => _.isEqual(d, item));
+    return this.data.some((d) => _.isEqual(d, item));
   }
 
   /**
@@ -70,10 +58,7 @@ export default class ApiResponse<T> {
    * @param skip Count of entries to skip
    */
   paginate(limit: number, skip: number) {
-    if (this.data) {
-      this.data.results = this.data.results.slice(skip, skip + limit);
-      this.data.count = this.data.results.length;
-    }
+    this.data = this.data.slice(skip, skip + limit);
   }
 
   /**
@@ -84,9 +69,7 @@ export default class ApiResponse<T> {
   setFailed(message: string, statusCode: number) {
     this.statusCode = statusCode || 500;
     this.success = false;
-    this.error = {
-      message,
-    };
-    this.data = null;
+    this.error = message;
+    this.data = [];
   }
 }
