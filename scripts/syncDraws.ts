@@ -53,12 +53,12 @@ const getDrawDatesPromise = (gameId: GameID): Promise<DrawDatesPromise> => {
         return resolve({
           gameId,
           drawDates: null,
-          error: response.error.message,
+          error: response.error,
         });
       }
       resolve({
         gameId,
-        drawDates: response.data?.results,
+        drawDates: response.data,
         error: null,
       });
     });
@@ -95,7 +95,7 @@ const getDrawDetailsPromise = (
           gameId,
           drawDate,
           drawDetails: null,
-          error: response.error.message,
+          error: response.error,
           message: null,
           skip: true,
         });
@@ -104,7 +104,7 @@ const getDrawDetailsPromise = (
       resolve({
         gameId,
         drawDate,
-        drawDetails: response.data?.results[0],
+        drawDetails: response.data[0],
         message: `Record added for: ${gameId} - ${drawDate}`,
         error: null,
         skip: false,
