@@ -22,6 +22,8 @@ import {
   rejectHandler,
   resolveHandler,
 } from '../utils';
+import { getDrawDates } from './drawdates';
+import { SortOrder } from '../models/SortOrder';
 
 /**
  * Builds resource names array based on game id and draw data.
@@ -93,6 +95,20 @@ const getDrawDetailsPromise = (
         } as PromiseResult);
       });
   });
+};
+
+/**
+ * Returns the details of the last draw for given game.
+ * @param gameId Game ID
+ */
+export const getDrawDetailsForLastDraw = async (gameId: GameID) => {
+  const drawDatesResp = await getDrawDates(gameId, 1, 0, SortOrder.DESC);
+  if (drawDatesResp.error) {
+    return drawDatesResp;
+  }
+  const { tarih: lastDraw } = drawDatesResp.data[0];
+  const lastDrawDetailsResp = await getDrawDetails(gameId, lastDraw);
+  return lastDrawDetailsResp;
 };
 
 /**

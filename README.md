@@ -54,18 +54,20 @@ The following is a list of the types of data used within the Piyango API:
 
 - ### Draws
 
-  Get the information for a specific draw by passing both `gameId` and `drawDate` strings.
+  Get the information for a specific draw. Returns the details of the **last draw** if `drawDate` is omitted.
 
-  `GET https://piyango.now.sh/v1/draws/:gameId/:drawDate`
+  `GET https://piyango.now.sh/v1/draws/:gameId/?:drawDate`
 
   - #### URL Parameters
 
     | Key      | Type | Required | Description                                                                                                                      |
     | -------- | ---- | -------- | -------------------------------------------------------------------------------------------------------------------------------- |
     | gameId   | Enum | Yes      | A unique value used to identify games. Should be one of the following: `sayisal`, `sanstopu`, `onnumara`, `superloto`, `piyango` |
-    | drawDate | Date | Yes      | The date of the draw in `YYYYMMDD` format.                                                                                       |
+    | drawDate | Date | No       | The date of the draw in `YYYYMMDD` format.                                                                                       |
 
-    #### Example Request
+    #### Example Requests
+
+    https://piyango.now.sh/v1/draws/superloto
 
     https://piyango.now.sh/v1/draws/sayisal/20200311
 
