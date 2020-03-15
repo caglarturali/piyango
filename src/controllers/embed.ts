@@ -2,7 +2,7 @@ import fetch from 'node-fetch';
 import moment from 'moment';
 import EmbedResult from '../models/EmbedResult';
 import { GameID } from '../models/GameID';
-import { DATE_FORMAT, DATE_FORMAT_EMBED } from '../constants';
+import { DATE_FORMAT, DATE_FORMAT_EMBED, STREAM_URL } from '../constants';
 
 /**
  * Returns an embeddable stream of the draw (if found).
@@ -29,17 +29,17 @@ export const getEmbeddableStream = async (
   const streamId = `${gameStr}_${dateStr}_hls`;
 
   // Try actual stream first.
-  let streamBaseUrl = `http://mtvfcntomsvod.mediatriple.net/${streamId}`;
-  let streamPlaylistUrl = `${streamBaseUrl}/playlist.m3u8`;
+  let streamBaseUrl = `${STREAM_URL.base.url}/${streamId}`;
+  let streamFileUrl = `${streamBaseUrl}/${STREAM_URL.base.file}`;
 
-  let response = await fetch(streamPlaylistUrl, { method: 'GET' });
+  let response = await fetch(streamFileUrl, { method: 'GET' });
 
   if (!response.ok) {
     // Try to respond with a dummy stream instead.
-    streamBaseUrl = 'http://devimages.apple.com/iphone/samples/bipbop';
-    streamPlaylistUrl = `${streamBaseUrl}/bipbopall.m3u8`;
+    streamBaseUrl = STREAM_URL.dummy.url;
+    streamFileUrl = `${streamBaseUrl}/${STREAM_URL.dummy.file}`;
 
-    response = await fetch(streamPlaylistUrl, { method: 'GET' });
+    response = await fetch(streamFileUrl, { method: 'GET' });
 
     if (!response.ok) {
       return {
