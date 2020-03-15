@@ -18,13 +18,13 @@ The following is a list of the types of data used within the Piyango API:
 
 - ### Root
 
-  `GET https://piyango.now.sh/v1/`
+  `GET https://piyango.now.sh/api/`
 
 - ### Draw Dates
 
   Get draw dates for given game.
 
-  `GET https://piyango.now.sh/v1/drawdates/:gameId`
+  `GET https://piyango.now.sh/api/drawdates/:gameId`
 
   - #### URL Parameters
 
@@ -34,7 +34,7 @@ The following is a list of the types of data used within the Piyango API:
 
     #### Example Request
 
-    https://piyango.now.sh/v1/drawdates/sayisal
+    https://piyango.now.sh/api/drawdates/sayisal
 
     #### Query parameters
 
@@ -50,13 +50,13 @@ The following is a list of the types of data used within the Piyango API:
 
     The following request returns the results for draws 11 through 20 for the game `sayisal`.
 
-    https://piyango.now.sh/v1/drawdates/sayisal?limit=10&skip=10&sort=asc
+    https://piyango.now.sh/api/drawdates/sayisal?limit=10&skip=10&sort=asc
 
 - ### Draws
 
   Get the information for a specific draw. Returns the details of the **last draw** if `drawDate` is omitted.
 
-  `GET https://piyango.now.sh/v1/draws/:gameId/?:drawDate`
+  `GET https://piyango.now.sh/api/draws/:gameId/?:drawDate`
 
   - #### URL Parameters
 
@@ -67,15 +67,15 @@ The following is a list of the types of data used within the Piyango API:
 
     #### Example Requests
 
-    https://piyango.now.sh/v1/draws/superloto
+    https://piyango.now.sh/api/draws/superloto
 
-    https://piyango.now.sh/v1/draws/sayisal/20200311
+    https://piyango.now.sh/api/draws/sayisal/20200311
 
 - ### Luck History
 
   Get the luck history of the date. If no parameters are provided, it returns the dates of all possible draws for all games that match the current day and month. Providing `date` and `gameId` further filters the results.
 
-  `GET https://piyango.now.sh/v1/luckhistory/?:date/?:gameId`
+  `GET https://piyango.now.sh/api/luckhistory/?:date/?:gameId`
 
   - #### URL Parameters
 
@@ -86,14 +86,14 @@ The following is a list of the types of data used within the Piyango API:
 
     #### Example Request
 
-    https://piyango.now.sh/v1/luckhistory/20200310
+    https://piyango.now.sh/api/luckhistory/20200310
 
 * ### Server Time
 
   Get the time of the server as a [moment object](https://momentjs.com/docs/#/displaying/as-object/).
 
-  `GET https://piyango.now.sh/v1/time`
+  `GET https://piyango.now.sh/api/time`
 
   #### Example Request
 
-  https://piyango.now.sh/v1/time
+  https://piyango.now.sh/api/time
