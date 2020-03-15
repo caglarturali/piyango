@@ -37,6 +37,11 @@ export const DATE_FORMAT_FRIENDLY = 'DD/MM/YYYY';
 export const DATE_FORMAT_SHORT = 'MMDD';
 
 /**
+ * Format string for embeddable stream resources.
+ */
+export const DATE_FORMAT_EMBED = 'DD_MM_YYYY';
+
+/**
  * Base path for static data.
  */
 export const STATIC_DATA_PATH = path.join(__dirname, '..', 'draws');

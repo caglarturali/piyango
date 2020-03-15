@@ -88,6 +88,23 @@ The following is a list of the types of data used within the Piyango API:
 
     https://piyango.now.sh/api/luckhistory/20200310
 
+- ### Embed
+
+  Get embeddable HLS stream of the draw. Returns dummy stream if the requested stream is not found.
+
+  `GET https://piyango.now.sh/api/embed/:gameId/:drawDate`
+
+  - #### URL Parameters
+
+    | Key      | Type | Required | Description                                                                                                                      |
+    | -------- | ---- | -------- | -------------------------------------------------------------------------------------------------------------------------------- |
+    | gameId   | Enum | Yes      | A unique value used to identify games. Should be one of the following: `sayisal`, `sanstopu`, `onnumara`, `superloto`, `piyango` |
+    | drawDate | Date | Yes      | The date of the draw in `YYYYMMDD` format.                                                                                       |
+
+    #### Example Request
+
+    https://piyango.now.sh/api/embed/sayisal/20200314
+
 * ### Server Time
 
   Get the time of the server as a [moment object](https://momentjs.com/docs/#/displaying/as-object/).
