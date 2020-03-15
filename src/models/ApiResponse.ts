@@ -72,4 +72,13 @@ export default class ApiResponse<T> {
     this.error = message;
     this.data = [];
   }
+
+  /**
+   * Returns the pure object representation
+   * of the instance, without statusCode field!
+   */
+  toObject() {
+    const { data, error, success } = this;
+    return { success, data, error };
+  }
 }
