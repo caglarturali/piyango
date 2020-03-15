@@ -14,19 +14,22 @@ export const getEmbeddableStream = async (
   gameId: GameID,
   drawDate: string,
 ): Promise<EmbedResult> => {
-  let streamId = gameId.toString();
+  let gameStr: string;
 
   if (gameId === GameID.sayisal) {
-    streamId = 'sayisalloto';
+    gameStr = 'sayisalloto';
   } else if (gameId === GameID.piyango) {
-    streamId = 'millipiyango';
+    gameStr = 'millipiyango';
+  } else {
+    gameStr = gameId.toString();
   }
 
+  // Build stream id.
   const dateStr = moment(drawDate, DATE_FORMAT).format(DATE_FORMAT_EMBED);
-  streamId += `_${dateStr}`;
+  const streamId = `${gameStr}_${dateStr}_hls`;
 
   // Try actual stream first.
-  let streamBaseUrl = `http://mtvfcntomsvod.mediatriple.net/${streamId}_hls`;
+  let streamBaseUrl = `http://mtvfcntomsvod.mediatriple.net/${streamId}`;
   let streamPlaylistUrl = `${streamBaseUrl}/playlist.m3u8`;
 
   let response = await fetch(streamPlaylistUrl, { method: 'GET' });
