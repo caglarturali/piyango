@@ -16,7 +16,7 @@ export default async (req: NowRequest, res: NowResponse) => {
         .format(DATE_FORMAT);
 
       const result = await getLuckHistory(today);
-      res.status(result.statusCode).json(result);
+      res.status(result.statusCode).json(result.toObject());
       break;
     }
 

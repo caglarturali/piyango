@@ -22,7 +22,7 @@ export default async (req: NowRequest, res: NowResponse) => {
   switch (method) {
     case 'GET': {
       const result = await getDrawDates(gameArg, limitArg, skipArg, sortArg);
-      res.status(result.statusCode).json(result);
+      res.status(result.statusCode).json(result.toObject());
       break;
     }
 
