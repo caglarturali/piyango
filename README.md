@@ -43,7 +43,7 @@ The following is a list of the types of data used within the Piyango API:
     | Query param | Type    | Required | Default value                       | Description                                                                                                      |
     | ----------- | ------- | -------- | ----------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
     | `limit`     | Integer | No       | `104` (~2 years worth of draw data) | Limit the number of results returned. Provide `0` for unlimited results.                                         |
-    | `skip`      | String  | No       | `0`                                 | Use it in conjunction with `limit` to **paginate results**.                                                      |
+    | `skip`      | Integer | No       | `0`                                 | Use it in conjunction with `limit` to **paginate results**.                                                      |
     | `sort`      | Enum    | No       | `desc`                              | Specifies the sorting order in which the results will be returned. Should be one of these two: `"asc" | "desc"`. |
 
     #### Example Request
