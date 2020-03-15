@@ -1,21 +1,20 @@
 /**
- * /luckhistory
+ * /drawhistory/:date
  */
 import { NowRequest, NowResponse } from '@now/node';
-import momentTZ from 'moment-timezone';
-import { getLuckHistory } from '../../src/controllers';
-import { DATE_FORMAT } from '../../src/constants';
+import { getDrawHistory } from '../../../src/controllers';
 
 export default async (req: NowRequest, res: NowResponse) => {
-  const { method } = req;
+  const {
+    method,
+    query: { date },
+  } = req;
+
+  const dateArg = date.toString();
 
   switch (method) {
     case 'GET': {
-      const today = momentTZ()
-        .tz('Europe/Istanbul')
-        .format(DATE_FORMAT);
-
-      const result = await getLuckHistory(today);
+      const result = await getDrawHistory(dateArg);
       res.status(result.statusCode).json(result.toObject());
       break;
     }

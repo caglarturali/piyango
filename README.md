@@ -71,11 +71,11 @@ The following is a list of the types of data used within the Piyango API:
 
     https://piyango.now.sh/api/draws/sayisal/20200311
 
-- ### Luck History
+- ### Draw History
 
-  Get the luck history of the date. If no parameters are provided, it returns the dates of all possible draws for all games that match the current day and month. Providing `date` and `gameId` further filters the results.
+  Get the draw history of the date. If no parameters are provided, it returns the dates of all possible draws for all games that match the current day and month. Providing `date` and `gameId` further filters the results.
 
-  `GET https://piyango.now.sh/api/luckhistory/?:date/?:gameId`
+  `GET https://piyango.now.sh/api/drawhistory/?:date/?:gameId`
 
   - #### URL Parameters
 
@@ -86,7 +86,7 @@ The following is a list of the types of data used within the Piyango API:
 
     #### Example Request
 
-    https://piyango.now.sh/api/luckhistory/20200310
+    https://piyango.now.sh/api/drawhistory/20200310
 
 - ### Embed
 

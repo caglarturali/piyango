@@ -7,7 +7,7 @@ import ApiResponse from '../models/ApiResponse';
 import { GameID } from '../models/GameID';
 import { isDateValid } from '../utils';
 import { DATE_FORMAT, DATE_FORMAT_SHORT, GAMES } from '../constants';
-import LuckHistory from '../models/LuckHistory';
+import DrawHistory from '../models/DrawHistory';
 import { SortOrder } from '../models/SortOrder';
 
 /**
@@ -16,12 +16,12 @@ import { SortOrder } from '../models/SortOrder';
  * @param date Date string
  * @param gameId Game Id
  */
-const luckHistoryPromise = (
+const drawHistoryPromise = (
   date: string,
   gameId: GameID,
-): Promise<LuckHistory> => {
+): Promise<DrawHistory> => {
   return new Promise((resolve, reject) => {
-    getLuckHistoryForGame(date, gameId)
+    getDrawHistoryForGame(date, gameId)
       .then((response) => {
         if (response.error) {
           throw new Error(response.error);
@@ -42,11 +42,11 @@ const luckHistoryPromise = (
 };
 
 /**
- * Returns luck history of the date.
+ * Returns draw history of the date.
  * @param date Date string in YYYYMMDD form
  */
-export const getLuckHistory = async (date: string) => {
-  const apiResponse = new ApiResponse<LuckHistory>();
+export const getDrawHistory = async (date: string) => {
+  const apiResponse = new ApiResponse<DrawHistory>();
 
   // Check date.
   if (!isDateValid(date)) {
@@ -54,9 +54,9 @@ export const getLuckHistory = async (date: string) => {
     return apiResponse;
   }
 
-  const promises: Promise<LuckHistory>[] = [];
+  const promises: Promise<DrawHistory>[] = [];
   GAMES.forEach((game) => {
-    promises.push(luckHistoryPromise(date, game as GameID));
+    promises.push(drawHistoryPromise(date, game as GameID));
   });
 
   const results = await Promise.all(promises);
@@ -71,11 +71,11 @@ export const getLuckHistory = async (date: string) => {
 };
 
 /**
- * Returns luck history of the date for given game.
+ * Returns draw history of the date for given game.
  * @param date Date string
  * @param gameId Game Id
  */
-export const getLuckHistoryForGame = async (date: string, gameId: GameID) => {
+export const getDrawHistoryForGame = async (date: string, gameId: GameID) => {
   const apiResponse = new ApiResponse<string>();
 
   // Check gameId.

@@ -1,8 +1,8 @@
 /**
- * /luckhistory/:date/:gameId
+ * /drawhistory/:date/:gameId
  */
 import { NowRequest, NowResponse } from '@now/node';
-import { getLuckHistoryForGame } from '../../../src/controllers';
+import { getDrawHistoryForGame } from '../../../src/controllers';
 import { GameID } from '../../../src/models/GameID';
 
 export default async (req: NowRequest, res: NowResponse) => {
@@ -16,7 +16,7 @@ export default async (req: NowRequest, res: NowResponse) => {
 
   switch (method) {
     case 'GET': {
-      const result = await getLuckHistoryForGame(dateArg, gameArg);
+      const result = await getDrawHistoryForGame(dateArg, gameArg);
       res.status(result.statusCode).json(result.toObject());
       break;
     }
