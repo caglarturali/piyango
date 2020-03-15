@@ -14,12 +14,12 @@
     },
     {
       "src": "/api.*",
-      "headers": { "Cache-Control": "max-age=3600" },
+      "headers": { "Cache-Control": "max-age=0, s-maxage=3600" },
       "continue": true
     },
     {
       "src": "/v1/(.*)",
-      "headers": { "Cache-Control": "max-age=3600" },
+      "headers": { "Cache-Control": "max-age=0, s-maxage=3600" },
       "dest": "/api/$1"
     },
     {
