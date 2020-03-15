@@ -18,13 +18,13 @@ The following is a list of the types of data used within the Piyango API:
 
 - ### Root
 
-  `GET https://piyango.now.sh/api/`
+  `GET https://dev.piyango.online/api/`
 
 - ### Draw Dates
 
   Get draw dates for given game.
 
-  `GET https://piyango.now.sh/api/drawdates/:gameId`
+  `GET https://dev.piyango.online/api/drawdates/:gameId`
 
   - #### URL Parameters
 
@@ -34,7 +34,7 @@ The following is a list of the types of data used within the Piyango API:
 
     #### Example Request
 
-    https://piyango.now.sh/api/drawdates/sayisal
+    https://dev.piyango.online/api/drawdates/sayisal
 
     #### Query parameters
 
@@ -50,13 +50,13 @@ The following is a list of the types of data used within the Piyango API:
 
     The following request returns the results for draws 11 through 20 for the game `sayisal`.
 
-    https://piyango.now.sh/api/drawdates/sayisal?limit=10&skip=10&sort=asc
+    https://dev.piyango.online/api/drawdates/sayisal?limit=10&skip=10&sort=asc
 
 - ### Draws
 
   Get the information for a specific draw. Returns the details of the **last draw** if `drawDate` is omitted.
 
-  `GET https://piyango.now.sh/api/draws/:gameId/?:drawDate`
+  `GET https://dev.piyango.online/api/draws/:gameId/?:drawDate`
 
   - #### URL Parameters
 
@@ -67,15 +67,15 @@ The following is a list of the types of data used within the Piyango API:
 
     #### Example Requests
 
-    https://piyango.now.sh/api/draws/superloto
+    https://dev.piyango.online/api/draws/superloto
 
-    https://piyango.now.sh/api/draws/sayisal/20200311
+    https://dev.piyango.online/api/draws/sayisal/20200311
 
 - ### Draw History
 
   Get the draw history of the date. If no parameters are provided, it returns the dates of all possible draws for all games that match the current day and month. Providing `date` and `gameId` further filters the results.
 
-  `GET https://piyango.now.sh/api/drawhistory/?:date/?:gameId`
+  `GET https://dev.piyango.online/api/drawhistory/?:date/?:gameId`
 
   - #### URL Parameters
 
@@ -86,13 +86,13 @@ The following is a list of the types of data used within the Piyango API:
 
     #### Example Request
 
-    https://piyango.now.sh/api/drawhistory/20200310
+    https://dev.piyango.online/api/drawhistory/20200310
 
 - ### Embed
 
   Get embeddable HLS stream of the draw. Returns dummy stream if the requested stream is not found.
 
-  `GET https://piyango.now.sh/api/embed/:gameId/:drawDate`
+  `GET https://dev.piyango.online/api/embed/:gameId/:drawDate`
 
   - #### URL Parameters
 
@@ -103,14 +103,14 @@ The following is a list of the types of data used within the Piyango API:
 
     #### Example Request
 
-    https://piyango.now.sh/api/embed/sayisal/20200314
+    https://dev.piyango.online/api/embed/sayisal/20200314
 
 * ### Server Time
 
   Get the time of the server as a [moment object](https://momentjs.com/docs/#/displaying/as-object/).
 
-  `GET https://piyango.now.sh/api/time`
+  `GET https://dev.piyango.online/api/time`
 
   #### Example Request
 
-  https://piyango.now.sh/api/time
+  https://dev.piyango.online/api/time
