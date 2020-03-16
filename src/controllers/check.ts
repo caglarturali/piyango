@@ -20,7 +20,7 @@ export const checkNumbersAgainstDraw = async (
   if (!validGameId(apiResponse, gameId)) return apiResponse;
   if (!validDate(apiResponse, drawDate)) return apiResponse;
 
-  // TODO: Validate the length of the numbers (coupon sizes)
+  const game = GAMES.find((g) => g.id === gameId);
 
   const { statusCode, success, error, data } = await getDrawDetails(
     gameId,
@@ -51,6 +51,19 @@ export const checkNumbersAgainstDraw = async (
           .map((numStr) => parseInt(numStr, 10))
           .sort((a, b) => a - b),
       );
+
+      // Validate the length of the numbers (column sizes)
+      let columnsValid = true;
+      numbersArray.forEach((column) => {
+        if (game && game.pool && column.length !== game.pool[0].select) {
+          columnsValid = false;
+        }
+      });
+
+      if (!columnsValid) {
+        apiResponse.setFailed('Incorrect column size', 400);
+        break;
+      }
 
       interface MatchResult {
         type: MatchTypeRegular | null;
