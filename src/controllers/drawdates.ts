@@ -9,7 +9,7 @@ import stripBom from 'strip-bom';
 import ApiResponse from '../models/ApiResponse';
 import DrawListing from '../models/DrawListing';
 import { SortOrder } from '../models/SortOrder';
-import { GameID } from '../models/GameID';
+import { GameID } from '../models/Game';
 import {
   DATE_FORMAT,
   DATE_FORMAT_VIEW,

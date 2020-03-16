@@ -2,7 +2,7 @@
  * Check numbers controller.
  */
 
-import { GameID } from '../models/GameID';
+import { GameID } from '../models/Game';
 import { GAMES } from '../constants';
 import ApiResponse from '../models/ApiResponse';
 import { getDrawDetails } from './draws';
@@ -19,6 +19,8 @@ export const checkNumbersAgainstDraw = async (
   // Validate gameId and date.
   if (!validGameId(apiResponse, gameId)) return apiResponse;
   if (!validDate(apiResponse, drawDate)) return apiResponse;
+
+  // TODO: Validate the length of the numbers (coupon sizes)
 
   const { statusCode, success, error, data } = await getDrawDetails(
     gameId,

@@ -1,5 +1,5 @@
 import { DATE_FORMAT, GAMES } from '../constants';
-import { GameID } from '../models/GameID';
+import { GameID } from '../models/Game';
 import ApiResponse from '../models/ApiResponse';
 import { isDateValid } from '../utils';
 
@@ -12,7 +12,7 @@ export const validGameId = (
   apiResponse: ApiResponse<any>,
   gameId: GameID,
 ): boolean => {
-  if (!GAMES.some((game) => game === gameId)) {
+  if (!GAMES.some((game) => game.id === gameId)) {
     apiResponse.setFailed('Game ID is not valid', 400);
     return false;
   }

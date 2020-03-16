@@ -4,7 +4,7 @@
 import moment from 'moment';
 import { getDrawDates } from '.';
 import ApiResponse from '../models/ApiResponse';
-import { GameID } from '../models/GameID';
+import { GameID } from '../models/Game';
 import { DATE_FORMAT, DATE_FORMAT_SHORT, GAMES } from '../constants';
 import DrawHistory from '../models/DrawHistory';
 import { SortOrder } from '../models/SortOrder';
@@ -53,7 +53,7 @@ export const getDrawHistory = async (date: string) => {
 
   const promises: Promise<DrawHistory>[] = [];
   GAMES.forEach((game) => {
-    promises.push(drawHistoryPromise(date, game as GameID));
+    promises.push(drawHistoryPromise(date, game.id as GameID));
   });
 
   const results = await Promise.all(promises);

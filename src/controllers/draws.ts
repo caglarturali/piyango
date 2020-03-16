@@ -15,7 +15,7 @@ import ApiResponse from '../models/ApiResponse';
 import PromiseResult from '../models/PromiseResult';
 import RegularGame from '../models/RegularGame';
 import LotteryGame from '../models/LotteryGame';
-import { GameID } from '../models/GameID';
+import { GameID } from '../models/Game';
 import {
   buildStaticResourcePath,
   rejectHandler,

@@ -1,4 +1,4 @@
-import { GameID } from './GameID';
+import { GameID } from './Game';
 
 export default interface DrawHistory {
   gameId: GameID;

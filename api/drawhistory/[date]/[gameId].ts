@@ -3,7 +3,7 @@
  */
 import { NowRequest, NowResponse } from '@now/node';
 import { getDrawHistoryForGame } from '../../../src/controllers';
-import { GameID } from '../../../src/models/GameID';
+import { GameID } from '../../../src/models/Game';
 
 export default async (req: NowRequest, res: NowResponse) => {
   const {

@@ -1,8 +1,13 @@
 import fetch from 'node-fetch';
 import moment from 'moment';
 import EmbedResponse from '../models/EmbedResponse';
-import { GameID } from '../models/GameID';
-import { DATE_FORMAT, DATE_FORMAT_EMBED, STREAM_URL } from '../constants';
+import { GameID } from '../models/Game';
+import {
+  DATE_FORMAT,
+  DATE_FORMAT_EMBED,
+  GAMES,
+  STREAM_URL,
+} from '../constants';
 
 /**
  * Returns an embeddable stream of the draw (if found).
@@ -14,15 +19,8 @@ export const getEmbeddableStream = async (
   gameId: GameID,
   drawDate: string,
 ): Promise<EmbedResponse> => {
-  let gameStr: string;
-
-  if (gameId === GameID.sayisal) {
-    gameStr = 'sayisalloto';
-  } else if (gameId === GameID.piyango) {
-    gameStr = 'millipiyango';
-  } else {
-    gameStr = gameId.toString();
-  }
+  const game = GAMES.find((g) => g.id === gameId);
+  const gameStr = game?.embedSlug ? game.embedSlug : game?.id;
 
   // Build stream id.
   const dateStr = moment(drawDate, DATE_FORMAT).format(DATE_FORMAT_EMBED);

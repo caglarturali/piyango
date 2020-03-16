@@ -1,6 +1,6 @@
 import { NowRequest, NowResponse } from '@now/node';
 import { getDrawDates } from '../../src/controllers';
-import { GameID } from '../../src/models/GameID';
+import { GameID } from '../../src/models/Game';
 import { SortOrder } from '../../src/models/SortOrder';
 import apiconfig from '../../src/apiconfig';
 

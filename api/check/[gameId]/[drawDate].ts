@@ -3,7 +3,7 @@
  */
 import { NowRequest, NowResponse } from '@now/node';
 import { checkNumbersAgainstDraw } from '../../../src/controllers';
-import { GameID } from '../../../src/models/GameID';
+import { GameID } from '../../../src/models/Game';
 import CheckBody from '../../../src/models/CheckBody';
 
 export default async (req: NowRequest, res: NowResponse) => {

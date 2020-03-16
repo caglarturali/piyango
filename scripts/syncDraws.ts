@@ -12,7 +12,7 @@ import {
   getDrawDetailsPromise,
 } from '../src/utils';
 import { GAMES } from '../src/constants';
-import { GameID } from '../src/models/GameID';
+import { GameID } from '../src/models/Game';
 
 /**
  * Prints beautified text.
@@ -29,7 +29,7 @@ const printMsg = (text: string, isError: boolean = false) => {
 printMsg('Building draw dates promises array');
 const drawDatesPromises: Promise<DrawDatesPromise>[] = [];
 GAMES.forEach((game) => {
-  const gameId = game as GameID;
+  const gameId = game.id as GameID;
   drawDatesPromises.push(getDrawDatesPromise(gameId));
 });
 

@@ -1,5 +1,5 @@
 import fs from 'fs';
-import { GameID } from '../models/GameID';
+import { GameID } from '../models/Game';
 import DrawListing from '../models/DrawListing';
 import { SortOrder } from '../models/SortOrder';
 import { getDrawDates, getDrawDetails } from '../controllers';
