@@ -12,12 +12,10 @@ export default async (req: NowRequest, res: NowResponse) => {
 
   const { limit: apiLimit, skip: apiSkip, sort: apiSort } = apiconfig.drawdates;
 
-  // tslint:disable: radix
   const gameArg = gameId.toString().toLowerCase() as GameID;
-  const limitArg = limit ? parseInt(limit.toString()) : apiLimit;
-  const skipArg = skip ? parseInt(skip.toString()) : apiSkip;
+  const limitArg = limit ? parseInt(limit.toString(), 10) : apiLimit;
+  const skipArg = skip ? parseInt(skip.toString(), 10) : apiSkip;
   const sortArg = (sort ? sort.toString().toLowerCase() : apiSort) as SortOrder;
-  // tslint:enable: radix
 
   switch (method) {
     case 'GET': {
