@@ -1,4 +1,4 @@
-# Piyango API
+# <img src="https://piyango.online/images/icons/icon-192.png" alt="Logo" width="32" height="32" /> Piyango API
 
 File-based proxy server for Turkey's national lottery games.
 
