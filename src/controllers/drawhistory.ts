@@ -1,14 +1,14 @@
 /**
- * Luck history controller.
+ * Draw history controller.
  */
 import moment from 'moment';
 import { getDrawDates } from '.';
 import ApiResponse from '../models/ApiResponse';
 import { GameID } from '../models/GameID';
-import { isDateValid } from '../utils';
 import { DATE_FORMAT, DATE_FORMAT_SHORT, GAMES } from '../constants';
 import DrawHistory from '../models/DrawHistory';
 import { SortOrder } from '../models/SortOrder';
+import { validDate, validGameId } from './_validate';
 
 /**
  * Creates an always resolving promise for
@@ -48,11 +48,8 @@ const drawHistoryPromise = (
 export const getDrawHistory = async (date: string) => {
   const apiResponse = new ApiResponse<DrawHistory>();
 
-  // Check date.
-  if (!isDateValid(date)) {
-    apiResponse.setFailed('Date is not valid', 400);
-    return apiResponse;
-  }
+  // Validate date.
+  if (!validDate(apiResponse, date)) return apiResponse;
 
   const promises: Promise<DrawHistory>[] = [];
   GAMES.forEach((game) => {
@@ -78,17 +75,9 @@ export const getDrawHistory = async (date: string) => {
 export const getDrawHistoryForGame = async (date: string, gameId: GameID) => {
   const apiResponse = new ApiResponse<string>();
 
-  // Check gameId.
-  if (!GAMES.some((game) => game === gameId)) {
-    apiResponse.setFailed('Game ID is not valid', 400);
-    return apiResponse;
-  }
-
-  // Check date.
-  if (!isDateValid(date)) {
-    apiResponse.setFailed('Date is not valid', 400);
-    return apiResponse;
-  }
+  // Validate gameId and date.
+  if (!validGameId(apiResponse, gameId)) return apiResponse;
+  if (!validDate(apiResponse, date)) return apiResponse;
 
   const refDate = moment(date, DATE_FORMAT).format(DATE_FORMAT_SHORT);
 

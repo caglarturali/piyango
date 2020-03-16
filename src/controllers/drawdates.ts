@@ -13,10 +13,10 @@ import { GameID } from '../models/GameID';
 import {
   DATE_FORMAT,
   DATE_FORMAT_VIEW,
-  GAMES,
   MPI_BASE,
   STATIC_DATA_PATH,
 } from '../constants';
+import { validGameId } from './_validate';
 
 /**
  * Builds draw dates url.
@@ -41,11 +41,8 @@ export const getDrawDates = async (
 ): Promise<ApiResponse<DrawListing>> => {
   const apiResponse = new ApiResponse<DrawListing>();
 
-  // Check gameId.
-  if (!GAMES.some((game) => game === gameId)) {
-    apiResponse.setFailed('Game ID is not valid', 404);
-    return apiResponse;
-  }
+  // Validate gameId.
+  if (!validGameId(apiResponse, gameId)) return apiResponse;
 
   const response = await fetch(buildDrawDatesUrl(gameId), { method: 'GET' });
 

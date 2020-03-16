@@ -18,12 +18,12 @@ import LotteryGame from '../models/LotteryGame';
 import { GameID } from '../models/GameID';
 import {
   buildStaticResourcePath,
-  isDateValid,
   rejectHandler,
   resolveHandler,
 } from '../utils';
 import { getDrawDates } from './drawdates';
 import { SortOrder } from '../models/SortOrder';
+import { validDate, validGameId } from './_validate';
 
 /**
  * Builds resource names array based on game id and draw data.
@@ -122,17 +122,9 @@ export const getDrawDetails = async (gameId: GameID, drawDate: string) => {
       ? new ApiResponse<LotteryGame>()
       : new ApiResponse<RegularGame>();
 
-  // Check gameId.
-  if (!GAMES.some((game) => game === gameId)) {
-    apiResponse.setFailed('Game ID is not valid', 400);
-    return apiResponse;
-  }
-
-  // Check date.
-  if (!isDateValid(drawDate)) {
-    apiResponse.setFailed('Date is not valid', 400);
-    return apiResponse;
-  }
+  // Validate gameId and date.
+  if (!validGameId(apiResponse, gameId)) return apiResponse;
+  if (!validDate(apiResponse, drawDate)) return apiResponse;
 
   /**
    * Return static data if found.
