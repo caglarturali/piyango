@@ -1,6 +1,6 @@
 import fetch from 'node-fetch';
 import moment from 'moment';
-import EmbedResult from '../models/EmbedResult';
+import EmbedResponse from '../models/EmbedResponse';
 import { GameID } from '../models/GameID';
 import { DATE_FORMAT, DATE_FORMAT_EMBED, STREAM_URL } from '../constants';
 
@@ -13,7 +13,7 @@ import { DATE_FORMAT, DATE_FORMAT_EMBED, STREAM_URL } from '../constants';
 export const getEmbeddableStream = async (
   gameId: GameID,
   drawDate: string,
-): Promise<EmbedResult> => {
+): Promise<EmbedResponse> => {
   let gameStr: string;
 
   if (gameId === GameID.sayisal) {
@@ -46,7 +46,7 @@ export const getEmbeddableStream = async (
         status: 404,
         error: 'Resource not found',
         contents: null,
-      } as EmbedResult;
+      } as EmbedResponse;
     }
   }
 
@@ -68,5 +68,5 @@ export const getEmbeddableStream = async (
     status: 200,
     contents: finalText,
     error: null,
-  } as EmbedResult;
+  } as EmbedResponse;
 };
