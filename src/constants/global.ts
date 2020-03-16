@@ -25,7 +25,6 @@ export const GAMES: Game[] = [
         since: '20180718',
       },
     ],
-    lottery: false,
   },
   {
     id: GameID.superloto,
@@ -43,7 +42,6 @@ export const GAMES: Game[] = [
         since: '20180104',
       },
     ],
-    lottery: false,
   },
   {
     id: GameID.sanstopu,
@@ -65,7 +63,6 @@ export const GAMES: Game[] = [
         since: '20180103',
       },
     ],
-    lottery: false,
   },
   {
     id: GameID.onnumara,
@@ -83,7 +80,6 @@ export const GAMES: Game[] = [
         since: '20180101',
       },
     ],
-    lottery: false,
   },
   {
     id: GameID.piyango,
