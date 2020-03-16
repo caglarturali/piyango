@@ -32,26 +32,26 @@ export interface LuckyPerson {
 }
 
 export default interface RegularGame {
-  archived: boolean | null;
+  archived?: boolean;
   oid: string;
   hafta: number;
-  buyukIkramiyeKazananIl: string | null;
+  buyukIkramiyeKazananIl?: string;
   cekilisTarihi: string;
   cekilisTuru: DrawType;
   rakamlar: string;
   rakamlarNumaraSirasi: string;
   devretti: boolean;
-  devirSayisi: number | null;
+  devirSayisi?: number;
   bilenKisiler: LuckyPerson[];
-  buyukIkrKazananIlIlceler: LuckyProvince[] | null;
-  kibrisHasilati: number | null;
+  buyukIkrKazananIlIlceler?: LuckyProvince[];
+  kibrisHasilati?: number;
   devirTutari: number;
-  kolonSayisi: number | null;
-  kdv: number | null;
-  toplamHasilat: number | null;
-  hasilat: number | null;
-  sov: number | null;
-  ikramiyeEH: number | null;
+  kolonSayisi?: number;
+  kdv?: number;
+  toplamHasilat?: number;
+  hasilat?: number;
+  sov?: number;
+  ikramiyeEH?: number;
   buyukIkramiye: number;
-  haftayaDevredenTutar: number | null;
+  haftayaDevredenTutar?: number;
 }

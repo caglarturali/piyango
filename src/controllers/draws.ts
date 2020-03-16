@@ -84,14 +84,12 @@ const getDrawDetailsPromise = (
         }
 
         resolve({
-          error: null,
           data,
         } as PromiseResult);
       })
       .catch((error) => {
         resolve({
           error: { message: error.message, status: error.status },
-          data: null,
         } as PromiseResult);
       });
   });

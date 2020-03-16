@@ -43,7 +43,6 @@ export const getEmbeddableStream = async (
       return {
         status: 404,
         error: 'Resource not found',
-        contents: null,
       } as EmbedResponse;
     }
   }
@@ -65,6 +64,5 @@ export const getEmbeddableStream = async (
   return {
     status: 200,
     contents: finalText,
-    error: null,
   } as EmbedResponse;
 };

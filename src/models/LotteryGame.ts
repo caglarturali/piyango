@@ -22,7 +22,7 @@ export interface LotteryResult {
 export default interface LotteryGame {
   cekilisAdi: string;
   cekilisTarihi: string;
-  cekilisTarihiOld: string | null;
+  cekilisTarihiRaw?: string;
   haneSayisi: number;
   sonuclar: LotteryResult[];
   buyukIkrKazananIlIlceler: LuckyProvince[];
