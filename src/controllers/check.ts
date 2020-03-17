@@ -9,15 +9,22 @@ import RegularDraw, {
   RegularCheckResult,
 } from '../models/RegularDraw';
 import LotteryDraw, { LotteryCheckResult } from '../models/LotteryDraw';
+import CheckBody from '../models/CheckBody';
 import DrawUtils from '../utils/DrawUtils';
 import { getDrawDetails } from './draws';
 import { validDate, validGameId } from './_validate';
 import { GAMES } from '../constants';
 
+/**
+ * Central point for number checking functionality.
+ * @param gameId Game Id
+ * @param drawDate Draw date string
+ * @param checkBody The body of the request
+ */
 export const checkNumbers = async (
   gameId: GameID,
   drawDate: string,
-  numbers: string[],
+  checkBody: CheckBody,
 ) => {
   const apiResponse = new ApiResponse<{}>();
 
@@ -39,10 +46,10 @@ export const checkNumbers = async (
     return apiResponse;
   }
 
+  const { numbers } = checkBody;
+
   if (gameId === GameID.piyango) {
     return await checkNumbersAgainstLotteryDraw(
-      gameId,
-      game,
       drawData as LotteryDraw,
       numbers,
     );
@@ -56,6 +63,13 @@ export const checkNumbers = async (
   );
 };
 
+/**
+ * Checks player's numbers against draw data.
+ * @param gameId Game Id
+ * @param game Game object
+ * @param drawData RegularDraw data
+ * @param numbers Player's numbers
+ */
 const checkNumbersAgainstRegularDraw = async (
   gameId: GameID,
   game: Game,
@@ -149,13 +163,56 @@ const checkNumbersAgainstRegularDraw = async (
   return apiResponse;
 };
 
+/**
+ * Checks player's numbers against lottery results.
+ * @param drawData LotteryDraw data
+ * @param numbers Player's numbers
+ */
 const checkNumbersAgainstLotteryDraw = async (
-  gameId: GameID,
-  game: Game,
   drawData: LotteryDraw,
   numbers: string[],
 ) => {
   const apiResponse = new ApiResponse<LotteryCheckResult>();
+
+  const { sonuclar } = drawData;
+
+  const teselli = sonuclar.find((s) => s.haneSayisi === 0);
+  const rest = sonuclar
+    .filter((s) => s.haneSayisi > 0)
+    .sort((a, b) => a.haneSayisi - b.haneSayisi);
+
+  // Compare numbers against categories.
+  numbers.forEach((num) => {
+    let result: LotteryCheckResult = { type: null, digits: null, prize: 0 };
+
+    // Check "teselli" first.
+    if (teselli?.numaralar.includes(num)) {
+      result = {
+        type: teselli.tip,
+        digits: teselli.haneSayisi,
+        prize: teselli.ikramiye,
+      };
+
+      apiResponse.addData(result);
+    } else {
+      // Check rest.
+      // Keep evaluating categories until the biggest match
+      // is found and only add that match to the response.
+      rest.forEach((category) => {
+        const numToCheck = num.substring(num.length - category.haneSayisi);
+
+        if (category.numaralar.includes(numToCheck)) {
+          result = {
+            type: category.tip,
+            digits: category.haneSayisi,
+            prize: category.ikramiye,
+          };
+        }
+      });
+
+      apiResponse.addData(result);
+    }
+  });
 
   return apiResponse;
 };

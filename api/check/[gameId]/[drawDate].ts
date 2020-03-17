@@ -13,14 +13,14 @@ export default async (req: NowRequest, res: NowResponse) => {
     body,
   }: NowRequest = req;
 
-  const { numbers } = body as CheckBody;
-
   const gameArg = gameId.toString().toLowerCase() as GameID;
   const dateArg = drawDate.toString();
 
+  const checkBody = body as CheckBody;
+
   switch (method) {
     case 'POST': {
-      const result = await checkNumbers(gameArg, dateArg, numbers);
+      const result = await checkNumbers(gameArg, dateArg, checkBody);
       res.status(result.statusCode).json(result.toObject());
       break;
     }

@@ -2,6 +2,6 @@ import { MatchTypeLottery } from '.';
 
 export interface LotteryCheckResult {
   type: MatchTypeLottery | null;
-  match: any;
+  digits: number | null;
   prize: number;
 }
