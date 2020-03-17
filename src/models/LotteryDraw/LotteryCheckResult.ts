@@ -1,6 +1,6 @@
 import { MatchTypeLottery } from '.';
 
-export interface Lottery {
+export interface LotteryCheckResult {
   type: MatchTypeLottery | null;
   match: any;
   prize: number;

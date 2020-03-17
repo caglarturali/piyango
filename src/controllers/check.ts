@@ -8,7 +8,7 @@ import RegularDraw, {
   MatchTypeRegular,
   RegularCheckResult,
 } from '../models/RegularDraw';
-import LotteryDraw from '../models/LotteryDraw';
+import LotteryDraw, { LotteryCheckResult } from '../models/LotteryDraw';
 import DrawUtils from '../utils/DrawUtils';
 import { getDrawDetails } from './draws';
 import { validDate, validGameId } from './_validate';
@@ -155,7 +155,7 @@ const checkNumbersAgainstLotteryDraw = async (
   drawData: LotteryDraw,
   numbers: string[],
 ) => {
-  const apiResponse = new ApiResponse<RegularCheckResult>();
+  const apiResponse = new ApiResponse<LotteryCheckResult>();
 
   return apiResponse;
 };
