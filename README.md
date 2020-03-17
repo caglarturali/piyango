@@ -88,7 +88,39 @@ The following is a list of the types of data used within the Piyango API:
 
     https://dev.piyango.online/api/drawhistory/20200310
 
-- ### Embed
+- ### Check
+
+  Check the numbers against a specific draw. You can use `#`, `-`, `+`, `_` and `,` as the delimiter. Note that in the case of Sans Topu, the **last number must be the bonus (+1) number**. Milli Piyango (National Lottery) ticket numbers must be provided as is, without a delimiter between numbers.
+
+  `POST https://dev.piyango.online/api/check/:gameId/:drawDate`
+
+  - #### URL Parameters
+
+    | Key      | Type | Required | Description                                                                                                                      |
+    | -------- | ---- | -------- | -------------------------------------------------------------------------------------------------------------------------------- |
+    | gameId   | Enum | Yes      | A unique value used to identify games. Should be one of the following: `sayisal`, `sanstopu`, `onnumara`, `superloto`, `piyango` |
+    | drawDate | Date | Yes      | The date of the draw in `YYYYMMDD` format.                                                                                       |
+
+  - #### Request Parameters
+
+    | Key     | Type     | Required | Description                                                                                        |
+    | ------- | -------- | -------- | -------------------------------------------------------------------------------------------------- |
+    | numbers | String[] | Yes      | Array of 'stringified' numbers to be checked, each representing a ticket or a selection of numbers |
+
+    #### Example Request
+
+    ```bash
+    curl -X POST "https://dev.piyango.online/api/check/superloto/20200312" \
+      -H "Content-Type: application/json" \
+      -d '{
+        "numbers": [
+          "05#20#24#25#32#34",
+          "07#24#25#08#10#51"
+        ]
+      }'
+    ```
+
+* ### Embed
 
   Get embeddable HLS stream of the draw. Returns dummy stream if the requested stream is not found.
 
@@ -105,7 +137,7 @@ The following is a list of the types of data used within the Piyango API:
 
     https://dev.piyango.online/api/embed/sayisal/20200314
 
-* ### Server Time
+- ### Server Time
 
   Get the time of the server as a [moment object](https://momentjs.com/docs/#/displaying/as-object/).
 
