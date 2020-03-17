@@ -51,6 +51,7 @@ const checkNumbersAgainstRegularDraw = async (
   const drawDetails = drawData as RegularDraw;
   const { bilenKisiler } = drawDetails;
 
+  // Convert string of numbers to GameColumn objects.
   const userNumbers = numbers.map((numsStr) =>
     DrawUtils.convertNumbersToColumn(gameId, numsStr),
   );
@@ -59,10 +60,6 @@ const checkNumbersAgainstRegularDraw = async (
   // Validate the length of the numbers.
   let columnsValid = true;
   userNumbers.forEach(({ main, plus }) => {
-    // Sort numbers first.
-    main.sort((a, b) => a - b);
-    if (plus) plus.sort((a, b) => a - b);
-
     if (main.length !== game.pool?.main.select) {
       columnsValid = false;
     }
