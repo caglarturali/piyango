@@ -82,24 +82,24 @@ const checkNumbersAgainstRegularDraw = async (
   // Compare numbers againsts winningNumbers.
   const matched: GameColumn[] = [];
   userNumbers.forEach(({ main, plus }) => {
-    const selection: GameColumn = { main: [] };
+    const numsMatch: GameColumn = { main: [] };
 
     main.forEach((num) => {
       if (winningNumbers.main.includes(num)) {
-        selection.main.push(num);
+        numsMatch.main.push(num);
       }
     });
 
     if (gameId === GameID.sanstopu) {
-      selection.plus = [];
+      numsMatch.plus = [];
       plus?.forEach((num) => {
         if (winningNumbers.plus?.includes(num)) {
-          selection.plus?.push(num);
+          numsMatch.plus?.push(num);
         }
       });
     }
 
-    matched.push(selection);
+    matched.push(numsMatch);
   });
 
   matched.forEach((match) => {
