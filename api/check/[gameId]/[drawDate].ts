@@ -2,7 +2,7 @@
  * /check/:gameId/:drawDate
  */
 import { NowRequest, NowResponse } from '@now/node';
-import { checkNumbersAgainstDraw } from '../../../src/controllers';
+import { checkNumbers } from '../../../src/controllers';
 import { GameID } from '../../../src/models/Game';
 import CheckBody from '../../../src/models/CheckBody';
 
@@ -20,7 +20,7 @@ export default async (req: NowRequest, res: NowResponse) => {
 
   switch (method) {
     case 'POST': {
-      const result = await checkNumbersAgainstDraw(gameArg, dateArg, numbers);
+      const result = await checkNumbers(gameArg, dateArg, numbers);
       res.status(result.statusCode).json(result.toObject());
       break;
     }

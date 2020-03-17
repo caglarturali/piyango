@@ -8,13 +8,27 @@ import ApiResponse from '../models/ApiResponse';
 import { getDrawDetails } from './draws';
 import { validDate, validGameId } from './_validate';
 import RegularDraw, { MatchTypeRegular } from '../models/RegularDraw';
+import DrawUtils from '../utils/DrawUtils';
+import { GameColumn } from '../models/GameColumn';
+import { CheckResult } from '../models/CheckResult';
 
-export const checkNumbersAgainstDraw = async (
+export const checkNumbers = async (
   gameId: GameID,
   drawDate: string,
-  numbers: string[],
+  numbers: GameColumn[],
 ) => {
-  const apiResponse = new ApiResponse<{}>();
+  if (gameId !== GameID.piyango) {
+    return await checkNumbersAgainstRegularDraw(gameId, drawDate, numbers);
+  }
+  return new ApiResponse<{}>().setFailed('Not implemented yet', 500);
+};
+
+const checkNumbersAgainstRegularDraw = async (
+  gameId: GameID,
+  drawDate: string,
+  numbers: GameColumn[],
+) => {
+  const apiResponse = new ApiResponse<CheckResult>();
 
   // Validate gameId and date.
   if (!validGameId(apiResponse, gameId)) return apiResponse;
@@ -31,32 +45,28 @@ export const checkNumbersAgainstDraw = async (
     return apiResponse;
   }
 
-  const [draw] = data;
-
-  let numbersArray: number[][] = [];
+  const [drawData] = data;
 
   switch (gameId) {
     case GameID.sayisal:
     case GameID.superloto:
     case GameID.onnumara:
-      const { rakamlar, bilenKisiler } = draw as RegularDraw;
-      const rakamlarOrdered = rakamlar
-        .split('#')
-        .map((n) => parseInt(n, 10))
-        .sort((a, b) => a - b);
+      const drawDetails = drawData as RegularDraw;
+      const { bilenKisiler } = drawDetails;
 
-      numbersArray = numbers.map((couponStr) =>
-        couponStr
-          .split('#')
-          .map((numStr) => parseInt(numStr, 10))
-          .sort((a, b) => a - b),
-      );
+      const winningNumbers = DrawUtils.getWinningNumbers(gameId, drawDetails);
 
-      // Validate the length of the numbers (column sizes)
+      // Validate the length of the numbers
       let columnsValid = true;
-      numbersArray.forEach((column) => {
-        if (game && game.pool && column.length !== game.pool.main.select) {
-          columnsValid = false;
+      numbers.forEach(({ main, plus }) => {
+        // Sort numbers first.
+        main.sort((a, b) => a - b);
+        if (plus) plus.sort((a, b) => a - b);
+
+        if (game && game.pool) {
+          if (main.length !== game.pool.main.select) {
+            columnsValid = false;
+          }
         }
       });
 
@@ -65,42 +75,37 @@ export const checkNumbersAgainstDraw = async (
         break;
       }
 
-      interface MatchResult {
-        type: MatchTypeRegular | null;
-        matched: string[];
-        prize: number;
-      }
+      const matched: GameColumn[] = [];
+      numbers.forEach(({ main }) => {
+        const selection: GameColumn = { main: [] };
 
-      numbersArray.forEach((coupon: number[]) => {
-        const matched: string[] = [];
-
-        coupon.forEach((num) => {
-          if (rakamlarOrdered.includes(num)) {
-            matched.push(num.toString().padStart(2, '0'));
+        main.forEach((num) => {
+          if (winningNumbers.main.includes(num)) {
+            selection.main.push(num);
           }
         });
 
-        const matchTypeStr =
-          matched.length === 0
-            ? MatchTypeRegular.$HIC
-            : `$${matched.length}_BILEN`;
+        matched.push(selection);
+      });
 
-        const luckyPerson = bilenKisiler.find(
-          (lucky) => lucky.tur === matchTypeStr,
-        );
+      matched.forEach((match) => {
+        const matchTypeStr =
+          match.main.length === 0
+            ? MatchTypeRegular.$HIC
+            : `$${match.main.length}_BILEN`;
+
+        const winners = bilenKisiler.find((w) => w.tur === matchTypeStr);
 
         apiResponse.addData({
-          type: luckyPerson ? matchTypeStr : null,
-          matched,
-          prize: luckyPerson ? luckyPerson.kisiBasinaDusenIkramiye : 0,
-        } as MatchResult);
+          type: winners ? matchTypeStr : null,
+          match,
+          prize: winners ? winners.kisiBasinaDusenIkramiye : 0,
+        } as CheckResult);
       });
+
       break;
 
     case GameID.sanstopu:
-      break;
-
-    case GameID.piyango:
       break;
   }
 
