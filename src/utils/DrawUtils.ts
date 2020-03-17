@@ -12,7 +12,7 @@ export default class DrawUtils {
     const column: GameColumn = { main: [] };
 
     // Convert numbers string into array.
-    const numsArray = numsStr.split(/#|-|\+|_/).map((n) => parseInt(n, 10));
+    const numsArray = numsStr.split(/#|-|\+|_|,/).map((n) => parseInt(n, 10));
 
     if (gameId === GameID.sanstopu) {
       const plus = numsArray.pop();
