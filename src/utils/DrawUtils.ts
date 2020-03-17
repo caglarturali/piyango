@@ -19,8 +19,8 @@ export default class DrawUtils {
       column.plus = plus ? [plus] : undefined;
     }
 
-    // Sort the rest of the numbers.
-    column.main = numsArray.sort((a, b) => a - b);
+    // Make sure there are no duplicate numbers and sort them.
+    column.main = Array.from(new Set(numsArray)).sort((a, b) => a - b);
 
     return column;
   }
