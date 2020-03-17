@@ -15,7 +15,7 @@ import { CheckResult } from '../models/CheckResult';
 export const checkNumbers = async (
   gameId: GameID,
   drawDate: string,
-  numbers: GameColumn[],
+  numbers: string[],
 ) => {
   if (gameId !== GameID.piyango) {
     return await checkNumbersAgainstRegularDraw(gameId, drawDate, numbers);
@@ -26,7 +26,7 @@ export const checkNumbers = async (
 const checkNumbersAgainstRegularDraw = async (
   gameId: GameID,
   drawDate: string,
-  numbers: GameColumn[],
+  numbers: string[],
 ) => {
   const apiResponse = new ApiResponse<CheckResult>();
 
@@ -51,11 +51,14 @@ const checkNumbersAgainstRegularDraw = async (
   const drawDetails = drawData as RegularDraw;
   const { bilenKisiler } = drawDetails;
 
+  const userNumbers = numbers.map((numsStr) =>
+    DrawUtils.convertNumbersToColumn(gameId, numsStr),
+  );
   const winningNumbers = DrawUtils.getWinningNumbers(gameId, drawDetails);
 
   // Validate the length of the numbers.
   let columnsValid = true;
-  numbers.forEach(({ main, plus }) => {
+  userNumbers.forEach(({ main, plus }) => {
     // Sort numbers first.
     main.sort((a, b) => a - b);
     if (plus) plus.sort((a, b) => a - b);
@@ -78,7 +81,7 @@ const checkNumbersAgainstRegularDraw = async (
 
   // Compare numbers againsts winningNumbers.
   const matched: GameColumn[] = [];
-  numbers.forEach(({ main, plus }) => {
+  userNumbers.forEach(({ main, plus }) => {
     const selection: GameColumn = { main: [] };
 
     main.forEach((num) => {
