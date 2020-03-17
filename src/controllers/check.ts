@@ -2,7 +2,7 @@
  * Check numbers controller.
  */
 
-import { GameID } from '../models/Game';
+import Game, { GameID } from '../models/Game';
 import { GAMES } from '../constants';
 import ApiResponse from '../models/ApiResponse';
 import { getDrawDetails } from './draws';
@@ -11,24 +11,14 @@ import RegularDraw, { MatchTypeRegular } from '../models/RegularDraw';
 import DrawUtils from '../utils/DrawUtils';
 import { GameColumn } from '../models/GameColumn';
 import { CheckResult } from '../models/CheckResult';
+import LotteryDraw from '../models/LotteryDraw';
 
 export const checkNumbers = async (
   gameId: GameID,
   drawDate: string,
   numbers: string[],
 ) => {
-  if (gameId !== GameID.piyango) {
-    return await checkNumbersAgainstRegularDraw(gameId, drawDate, numbers);
-  }
-  return new ApiResponse<{}>().setFailed('Not implemented yet', 500);
-};
-
-const checkNumbersAgainstRegularDraw = async (
-  gameId: GameID,
-  drawDate: string,
-  numbers: string[],
-) => {
-  const apiResponse = new ApiResponse<CheckResult>();
+  const apiResponse = new ApiResponse<{}>();
 
   const game = GAMES.find((g) => g.id === gameId);
 
@@ -48,14 +38,38 @@ const checkNumbersAgainstRegularDraw = async (
     return apiResponse;
   }
 
-  const drawDetails = drawData as RegularDraw;
-  const { bilenKisiler } = drawDetails;
+  if (gameId === GameID.piyango) {
+    return await checkNumbersAgainstLotteryDraw(
+      gameId,
+      game,
+      drawData as LotteryDraw,
+      numbers,
+    );
+  }
+
+  return await checkNumbersAgainstRegularDraw(
+    gameId,
+    game,
+    drawData as RegularDraw,
+    numbers,
+  );
+};
+
+const checkNumbersAgainstRegularDraw = async (
+  gameId: GameID,
+  game: Game,
+  drawData: RegularDraw,
+  numbers: string[],
+) => {
+  const apiResponse = new ApiResponse<CheckResult>();
+
+  const { bilenKisiler } = drawData;
 
   // Convert string of numbers to GameColumn objects.
   const userNumbers = numbers.map((numsStr) =>
     DrawUtils.convertNumbersToColumn(gameId, numsStr),
   );
-  const winningNumbers = DrawUtils.getWinningNumbers(gameId, drawDetails);
+  const winningNumbers = DrawUtils.getWinningNumbers(gameId, drawData);
 
   // Validate the length of the numbers.
   let columnsValid = true;
@@ -105,6 +119,7 @@ const checkNumbersAgainstRegularDraw = async (
     switch (gameId) {
       case GameID.onnumara:
         if (match.main.length === 0) {
+          // Override!
           matchTypeStr = MatchTypeRegular.$HIC;
         }
         break;
@@ -129,6 +144,17 @@ const checkNumbersAgainstRegularDraw = async (
       prize: winners ? winners.kisiBasinaDusenIkramiye : 0,
     } as CheckResult);
   });
+
+  return apiResponse;
+};
+
+const checkNumbersAgainstLotteryDraw = async (
+  gameId: GameID,
+  game: Game,
+  drawData: LotteryDraw,
+  numbers: string[],
+) => {
+  const apiResponse = new ApiResponse<CheckResult>();
 
   return apiResponse;
 };
