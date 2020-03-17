@@ -9,12 +9,12 @@ export const GAMES: Game[] = [
     name: 'Sayısal LOTO',
     embedSlug: 'sayisalloto',
     columns: 8,
-    pool: [
-      {
+    pool: {
+      main: {
         select: 6,
         from: 49,
       },
-    ],
+    },
     drawDates: [
       {
         weekday: 6,
@@ -30,12 +30,12 @@ export const GAMES: Game[] = [
     id: GameID.superloto,
     name: 'Süper LOTO',
     columns: 6,
-    pool: [
-      {
+    pool: {
+      main: {
         select: 6,
         from: 54,
       },
-    ],
+    },
     drawDates: [
       {
         weekday: 4,
@@ -47,16 +47,16 @@ export const GAMES: Game[] = [
     id: GameID.sanstopu,
     name: 'Şans Topu',
     columns: 5,
-    pool: [
-      {
+    pool: {
+      main: {
         select: 5,
         from: 34,
       },
-      {
+      plus: {
         select: 1,
         from: 14,
       },
-    ],
+    },
     drawDates: [
       {
         weekday: 3,
@@ -68,12 +68,12 @@ export const GAMES: Game[] = [
     id: GameID.onnumara,
     name: 'On Numara',
     columns: 5,
-    pool: [
-      {
+    pool: {
+      main: {
         select: 10,
         from: 80,
       },
-    ],
+    },
     drawDates: [
       {
         weekday: 1,

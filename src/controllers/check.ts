@@ -55,7 +55,7 @@ export const checkNumbersAgainstDraw = async (
       // Validate the length of the numbers (column sizes)
       let columnsValid = true;
       numbersArray.forEach((column) => {
-        if (game && game.pool && column.length !== game.pool[0].select) {
+        if (game && game.pool && column.length !== game.pool.main.select) {
           columnsValid = false;
         }
       });

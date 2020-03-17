@@ -21,7 +21,10 @@ export default interface Game {
   name: string;
   embedSlug?: string;
   columns?: number;
-  pool?: NumbersPool[];
+  pool?: {
+    main: NumbersPool;
+    plus?: NumbersPool;
+  };
   drawDates?: GameDrawDate[];
   lottery?: boolean;
 }
