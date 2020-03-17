@@ -30,84 +30,105 @@ const checkNumbersAgainstRegularDraw = async (
 ) => {
   const apiResponse = new ApiResponse<CheckResult>();
 
-  // Validate gameId and date.
-  if (!validGameId(apiResponse, gameId)) return apiResponse;
-  if (!validDate(apiResponse, drawDate)) return apiResponse;
-
   const game = GAMES.find((g) => g.id === gameId);
 
-  const { statusCode, success, error, data } = await getDrawDetails(
-    gameId,
-    drawDate,
-  );
+  // Validate gameId and date.
+  if (!(validGameId(apiResponse, gameId) && game)) return apiResponse;
+  if (!validDate(apiResponse, drawDate)) return apiResponse;
+
+  const {
+    statusCode,
+    success,
+    error,
+    data: [drawData],
+  } = await getDrawDetails(gameId, drawDate);
+
   if (!success && error) {
     apiResponse.setFailed(error, statusCode);
     return apiResponse;
   }
 
-  const [drawData] = data;
+  const drawDetails = drawData as RegularDraw;
+  const { bilenKisiler } = drawDetails;
 
-  switch (gameId) {
-    case GameID.sayisal:
-    case GameID.superloto:
-    case GameID.onnumara:
-      const drawDetails = drawData as RegularDraw;
-      const { bilenKisiler } = drawDetails;
+  const winningNumbers = DrawUtils.getWinningNumbers(gameId, drawDetails);
 
-      const winningNumbers = DrawUtils.getWinningNumbers(gameId, drawDetails);
+  // Validate the length of the numbers.
+  let columnsValid = true;
+  numbers.forEach(({ main, plus }) => {
+    // Sort numbers first.
+    main.sort((a, b) => a - b);
+    if (plus) plus.sort((a, b) => a - b);
 
-      // Validate the length of the numbers
-      let columnsValid = true;
-      numbers.forEach(({ main, plus }) => {
-        // Sort numbers first.
-        main.sort((a, b) => a - b);
-        if (plus) plus.sort((a, b) => a - b);
+    if (main.length !== game.pool?.main.select) {
+      columnsValid = false;
+    }
+    if (
+      gameId === GameID.sanstopu &&
+      plus?.length !== game.pool?.plus?.select
+    ) {
+      columnsValid = false;
+    }
+  });
 
-        if (game && game.pool) {
-          if (main.length !== game.pool.main.select) {
-            columnsValid = false;
-          }
+  if (!columnsValid) {
+    apiResponse.setFailed('Incorrect column size', 400);
+    return apiResponse;
+  }
+
+  // Compare numbers againsts winningNumbers.
+  const matched: GameColumn[] = [];
+  numbers.forEach(({ main, plus }) => {
+    const selection: GameColumn = { main: [] };
+
+    main.forEach((num) => {
+      if (winningNumbers.main.includes(num)) {
+        selection.main.push(num);
+      }
+    });
+
+    if (gameId === GameID.sanstopu) {
+      selection.plus = [];
+      plus?.forEach((num) => {
+        if (winningNumbers.plus?.includes(num)) {
+          selection.plus?.push(num);
         }
       });
+    }
 
-      if (!columnsValid) {
-        apiResponse.setFailed('Incorrect column size', 400);
+    matched.push(selection);
+  });
+
+  matched.forEach((match) => {
+    let matchTypeStr: string = '$';
+
+    switch (gameId) {
+      case GameID.onnumara:
+        if (match.main.length === 0) {
+          matchTypeStr = MatchTypeRegular.$HIC;
+        }
         break;
-      }
 
-      const matched: GameColumn[] = [];
-      numbers.forEach(({ main }) => {
-        const selection: GameColumn = { main: [] };
+      case GameID.sanstopu:
+        matchTypeStr += `${match.main.length}_`;
+        matchTypeStr += match.plus?.length ? `${match.plus.length}_` : '';
+        matchTypeStr += 'BILEN';
+        break;
 
-        main.forEach((num) => {
-          if (winningNumbers.main.includes(num)) {
-            selection.main.push(num);
-          }
-        });
+      default:
+        matchTypeStr += `${match.main.length}_BILEN`;
+        break;
+    }
 
-        matched.push(selection);
-      });
+    // Try to find a match.
+    const winners = bilenKisiler.find((w) => w.tur === matchTypeStr);
 
-      matched.forEach((match) => {
-        const matchTypeStr =
-          match.main.length === 0
-            ? MatchTypeRegular.$HIC
-            : `$${match.main.length}_BILEN`;
-
-        const winners = bilenKisiler.find((w) => w.tur === matchTypeStr);
-
-        apiResponse.addData({
-          type: winners ? matchTypeStr : null,
-          match,
-          prize: winners ? winners.kisiBasinaDusenIkramiye : 0,
-        } as CheckResult);
-      });
-
-      break;
-
-    case GameID.sanstopu:
-      break;
-  }
+    apiResponse.addData({
+      type: winners ? matchTypeStr : null,
+      match,
+      prize: winners ? winners.kisiBasinaDusenIkramiye : 0,
+    } as CheckResult);
+  });
 
   return apiResponse;
 };
