@@ -3,7 +3,9 @@ import { WinnerCategory } from './WinnerCategory';
 import { DrawType } from './DrawType';
 
 export * from './DrawType';
+export * from './GameColumn';
 export * from './MatchTypeRegular';
+export * from './RegularCheckResult';
 export * from './WinnerCategory';
 
 /**

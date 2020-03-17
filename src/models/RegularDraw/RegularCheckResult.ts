@@ -1,7 +1,7 @@
-import { MatchTypeRegular } from './RegularDraw';
+import { MatchTypeRegular } from '.';
 import { GameColumn } from './GameColumn';
 
-export interface CheckResult {
+export interface RegularCheckResult {
   type: MatchTypeRegular | null;
   match: GameColumn;
   prize: number;

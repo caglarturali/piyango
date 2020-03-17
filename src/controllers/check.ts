@@ -1,17 +1,18 @@
 /**
  * Check numbers controller.
  */
-
-import Game, { GameID } from '../models/Game';
-import { GAMES } from '../constants';
 import ApiResponse from '../models/ApiResponse';
+import Game, { GameID } from '../models/Game';
+import RegularDraw, {
+  GameColumn,
+  MatchTypeRegular,
+  RegularCheckResult,
+} from '../models/RegularDraw';
+import LotteryDraw from '../models/LotteryDraw';
+import DrawUtils from '../utils/DrawUtils';
 import { getDrawDetails } from './draws';
 import { validDate, validGameId } from './_validate';
-import RegularDraw, { MatchTypeRegular } from '../models/RegularDraw';
-import DrawUtils from '../utils/DrawUtils';
-import { GameColumn } from '../models/GameColumn';
-import { CheckResult } from '../models/CheckResult';
-import LotteryDraw from '../models/LotteryDraw';
+import { GAMES } from '../constants';
 
 export const checkNumbers = async (
   gameId: GameID,
@@ -61,7 +62,7 @@ const checkNumbersAgainstRegularDraw = async (
   drawData: RegularDraw,
   numbers: string[],
 ) => {
-  const apiResponse = new ApiResponse<CheckResult>();
+  const apiResponse = new ApiResponse<RegularCheckResult>();
 
   const { bilenKisiler } = drawData;
 
@@ -142,7 +143,7 @@ const checkNumbersAgainstRegularDraw = async (
       type: winners ? matchTypeStr : null,
       match,
       prize: winners ? winners.kisiBasinaDusenIkramiye : 0,
-    } as CheckResult);
+    } as RegularCheckResult);
   });
 
   return apiResponse;
@@ -154,7 +155,7 @@ const checkNumbersAgainstLotteryDraw = async (
   drawData: LotteryDraw,
   numbers: string[],
 ) => {
-  const apiResponse = new ApiResponse<CheckResult>();
+  const apiResponse = new ApiResponse<RegularCheckResult>();
 
   return apiResponse;
 };

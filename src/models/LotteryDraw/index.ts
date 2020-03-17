@@ -2,6 +2,7 @@ import LuckyProvince from '../LuckyProvince';
 import { LotteryCategory } from './LotteryCategory';
 
 export * from './LotteryCategory';
+export * from './LotteryCheckResult';
 export * from './MatchTypeLottery';
 
 /**
