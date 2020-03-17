@@ -19,7 +19,7 @@ export interface LotteryResult {
   numaralar: string[];
 }
 
-export default interface LotteryGame {
+export default interface LotteryDraw {
   cekilisAdi: string;
   cekilisTarihi: string;
   cekilisTarihiRaw?: string;

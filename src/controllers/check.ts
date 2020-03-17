@@ -7,7 +7,7 @@ import { GAMES } from '../constants';
 import ApiResponse from '../models/ApiResponse';
 import { getDrawDetails } from './draws';
 import { validDate, validGameId } from './_validate';
-import RegularGame, { MatchTypeRegular } from '../models/RegularGame';
+import RegularDraw, { MatchTypeRegular } from '../models/RegularDraw';
 
 export const checkNumbersAgainstDraw = async (
   gameId: GameID,
@@ -39,7 +39,7 @@ export const checkNumbersAgainstDraw = async (
     case GameID.sayisal:
     case GameID.superloto:
     case GameID.onnumara:
-      const { rakamlar, bilenKisiler } = draw as RegularGame;
+      const { rakamlar, bilenKisiler } = draw as RegularDraw;
       const rakamlarOrdered = rakamlar
         .split('#')
         .map((n) => parseInt(n, 10))

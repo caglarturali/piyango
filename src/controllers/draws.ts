@@ -13,8 +13,8 @@ import {
 } from '../constants';
 import ApiResponse from '../models/ApiResponse';
 import PromiseResult from '../models/PromiseResult';
-import RegularGame from '../models/RegularGame';
-import LotteryGame from '../models/LotteryGame';
+import RegularDraw from '../models/RegularDraw';
+import LotteryDraw from '../models/LotteryDraw';
 import { GameID } from '../models/Game';
 import {
   buildStaticResourcePath,
@@ -117,8 +117,8 @@ export const getDrawDetailsForLastDraw = async (gameId: GameID) => {
 export const getDrawDetails = async (gameId: GameID, drawDate: string) => {
   const apiResponse =
     gameId === GameID.piyango
-      ? new ApiResponse<LotteryGame>()
-      : new ApiResponse<RegularGame>();
+      ? new ApiResponse<LotteryDraw>()
+      : new ApiResponse<RegularDraw>();
 
   // Validate gameId and date.
   if (!validGameId(apiResponse, gameId)) return apiResponse;

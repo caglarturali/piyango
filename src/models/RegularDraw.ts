@@ -31,7 +31,7 @@ export interface LuckyPerson {
   tur: MatchTypeRegular;
 }
 
-export default interface RegularGame {
+export default interface RegularDraw {
   archived?: boolean;
   oid: string;
   hafta: number;
