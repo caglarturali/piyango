@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --bail --coverage --coverageDirectory=output/coverage/jest",
+    "maj": "majestic",
     "lint": "tslint -c tslint.json \"api/**/*.ts\" \"src/**/*.ts\"",
     "lint:fix": "npm run lint -- --fix",
     "prod": "now --prod",
@@ -15,9 +16,13 @@
   "husky": {
     "hooks": {
       "pre-commit": "npm run lint:fix",
-      "pre-push": "echo $HUSKY_GIT_PARAMS",
+      "pre-push": "npm run test",
       "commit-msg": "echo $HUSKY_GIT_PARAMS"
     }
+  },
+  "majestic": {
+    "args": [],
+    "env": {}
   },
   "keywords": [],
   "author": "",
@@ -31,14 +36,18 @@
     "strip-bom": "^4.0.0"
   },
   "devDependencies": {
+    "@types/jest": "^25.1.4",
     "@types/lodash": "^4.14.149",
     "@types/markdown-it": "^0.0.9",
     "@types/moment-timezone": "^0.5.12",
     "@types/node": "^13.9.0",
     "@types/node-fetch": "^2.5.5",
     "husky": "^4.2.3",
+    "jest": "^25.1.0",
+    "majestic": "^1.6.2",
     "markdown-it": "^10.0.0",
     "prettier": "^1.19.1",
+    "ts-jest": "^25.2.1",
     "ts-node": "^8.6.2",
     "tslint": "^6.1.0",
     "tslint-config-prettier": "^1.18.0",
