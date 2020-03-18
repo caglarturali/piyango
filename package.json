@@ -4,6 +4,7 @@
   "description": "",
   "scripts": {
     "test": "jest --coverage --coverageDirectory=output/coverage/jest",
+    "test:watch": "npm test -- --watch",
     "maj": "majestic",
     "lint": "tslint -c tslint.json \"api/**/*.ts\" \"src/**/*.ts\"",
     "lint:fix": "npm run lint -- --fix",
