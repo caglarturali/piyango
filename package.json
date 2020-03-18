@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "test": "jest --coverage --coverageDirectory=output/coverage/jest",
+    "test": "jest --coverage",
     "test:watch": "npm test -- --watch",
     "maj": "majestic",
     "lint": "tslint -c tslint.json \"api/**/*.ts\" \"src/**/*.ts\"",
