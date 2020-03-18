@@ -11,12 +11,19 @@ export default async (req: NowRequest, res: NowResponse) => {
     method,
     query: { gameId, drawDate },
     body,
+    headers: { 'content-type': contentType },
   }: NowRequest = req;
 
   const gameArg = gameId.toString().toLowerCase() as GameID;
   const dateArg = drawDate.toString();
 
   const checkBody = body as CheckBody;
+
+  if (!(contentType && contentType === 'application/json')) {
+    return res
+      .status(400)
+      .end('Content-Type header must be set to application/json');
+  }
 
   switch (method) {
     case 'POST': {
