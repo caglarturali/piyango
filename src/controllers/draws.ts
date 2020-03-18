@@ -5,12 +5,7 @@ import fs from 'fs';
 import fetch, { Response } from 'node-fetch';
 import moment from 'moment';
 import stripBom from 'strip-bom';
-import {
-  DATE_FORMAT,
-  DATE_FORMAT_FRIENDLY,
-  GAMES,
-  MPI_BASE,
-} from '../constants';
+import { DATE_FORMAT, DATE_FORMAT_FRIENDLY, MPI_BASE } from '../constants';
 import ApiResponse from '../models/ApiResponse';
 import PromiseResult from '../models/PromiseResult';
 import RegularDraw from '../models/RegularDraw';
@@ -31,7 +26,10 @@ import { validDate, validGameId } from './_validate';
  * @param {String} drawDate Draw date in YYYYMMDD format
  * @returns {String[]} Resource names
  */
-const buildResourceNames = (gameId: GameID, drawDate: string): string[] => {
+export const buildResourceNames = (
+  gameId: GameID,
+  drawDate: string,
+): string[] => {
   const resourceNames = [`${drawDate}.json`];
 
   // Edge case that needs to be covered!
@@ -47,7 +45,10 @@ const buildResourceNames = (gameId: GameID, drawDate: string): string[] => {
  * @param {String} drawDate Draw date in YYYYMMDD format
  * @returns {String[]} Draw details urls
  */
-const buildDrawDetailsUrls = (gameId: GameID, drawDate: string): string[] => {
+export const buildDrawDetailsUrls = (
+  gameId: GameID,
+  drawDate: string,
+): string[] => {
   const resourceNames = buildResourceNames(gameId, drawDate);
   return resourceNames.map(
     (rName) => `${MPI_BASE}/cekilisler/${gameId}/${rName}`,
@@ -60,7 +61,7 @@ const buildDrawDetailsUrls = (gameId: GameID, drawDate: string): string[] => {
  * @param {String} url Draw details WEB service url
  * @returns {Promise<PromiseResult>} Draw details
  */
-const getDrawDetailsPromise = (
+export const getDrawDetailsPromise = (
   gameId: GameID,
   url: string,
 ): Promise<PromiseResult> => {
