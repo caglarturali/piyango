@@ -5,7 +5,7 @@ import { SortOrder } from './models/SortOrder';
  */
 export default {
   drawdates: {
-    limit: 104,
+    limit: 52,
     skip: 0,
     sort: SortOrder.DESC,
   },
