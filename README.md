@@ -8,7 +8,7 @@ The following is a list of the types of data used within the Piyango API:
 
 | Name    | Definition                                                   | Example      |
 | ------- | ------------------------------------------------------------ | ------------ |
-| ID      | A unique value used to identify resources (mostly games).    | `q1w2e3r4t5` |
+| ID      | A unique value used to identify resources.                   | `q1w2e3r4t5` |
 | String  | A string is a sequence of characters used to represent text. | `"JACKPOT"`  |
 | Integer | An integer is a number without decimals.                     | `12345`      |
 | Enum    | An Enum is a String with only a few possible valid values.   | `"X" | "Y"`  |
