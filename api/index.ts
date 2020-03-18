@@ -6,13 +6,11 @@ export default (req: NowRequest, res: NowResponse) => {
 
   switch (method) {
     case 'GET': {
-      res
-        .status(200)
-        .json({
-          name: 'John',
-          email: 'john@example.com',
-          dataPath: STATIC_DATA_PATH,
-        });
+      res.status(200).json({
+        name: 'John',
+        email: 'john@example.com',
+        dataPath: STATIC_DATA_PATH,
+      });
       break;
     }
 

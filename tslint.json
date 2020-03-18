@@ -1,8 +1,13 @@
 {
   "defaultSeverity": "error",
-  "extends": ["tslint:recommended"],
+  "extends": [
+    "tslint:recommended",
+    "tslint-plugin-prettier",
+    "tslint-config-prettier"
+  ],
   "jsRules": {},
   "rules": {
+    "prettier": [true, "./.prettierrc.js"],
     "quotemark": [true, "single"],
     "member-access": [true, "no-public"],
     "ordered-imports": [

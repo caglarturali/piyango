@@ -16,6 +16,8 @@ devDependencies:
   prettier: 1.19.1
   ts-node: 8.6.2_typescript@3.8.3
   tslint: 6.1.0_typescript@3.8.3
+  tslint-config-prettier: 1.18.0
+  tslint-plugin-prettier: 2.2.0_prettier@1.19.1+tslint@6.1.0
   typescript: 3.8.3
 lockfileVersion: 5.1
 packages:
@@ -250,6 +252,18 @@ packages:
       node: '>=0.8.0'
     resolution:
       integrity: sha1-G2HAViGQqN/2rjuyzwIAyhMLhtQ=
+  /eslint-plugin-prettier/2.7.0_prettier@1.19.1:
+    dependencies:
+      fast-diff: 1.2.0
+      jest-docblock: 21.2.0
+      prettier: 1.19.1
+    dev: true
+    engines:
+      node: '>=4.0.0'
+    peerDependencies:
+      prettier: '>= 0.11.0'
+    resolution:
+      integrity: sha512-CStQYJgALoQBw3FsBzH0VOVDRnJ/ZimUlpLm226U8qgqYJfPOY/CPK6wyRInMxh73HSKg5wyRwdS4BVYYHwokA==
   /esprima/4.0.1:
     dev: true
     engines:
@@ -263,6 +277,10 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha512-kVscqXk4OCp68SZ0dkgEKVi6/8ij300KBWTJq32P/dYeWTSwK41WyTxalN1eRmA5Z9UU/LX9D7FWSmV9SAYx6g==
+  /fast-diff/1.2.0:
+    dev: true
+    resolution:
+      integrity: sha512-xJuoT5+L99XlZ8twedaRf6Ax2TgQVxvgZOYoPKqZufmJib0tL2tegPBOZb1pVNgIhlqDlA0eO0c3wBvQcmzx4w==
   /find-up/4.1.0:
     dependencies:
       locate-path: 5.0.0
@@ -360,6 +378,10 @@ packages:
     dev: true
     resolution:
       integrity: sha1-d8mYQFJ6qOyxqLppe4BkWnqSap0=
+  /jest-docblock/21.2.0:
+    dev: true
+    resolution:
+      integrity: sha512-5IZ7sY9dBAYSV+YjQ0Ovb540Ku7AO9Z5o2Cg789xj167iQuZ2cG+z0f3Uct6WeYLbU6aQiM2pCs7sZ+4dotydw==
   /js-tokens/4.0.0:
     dev: true
     resolution:
@@ -654,6 +676,28 @@ packages:
     dev: true
     resolution:
       integrity: sha512-aZW88SY8kQbU7gpV19lN24LtXh/yD4ZZg6qieAJDDg+YBsJcSmLGK9QpnUjAKVG/xefmvJGd1WUmfpT/g6AJGA==
+  /tslint-config-prettier/1.18.0:
+    dev: true
+    engines:
+      node: '>=4.0.0'
+    hasBin: true
+    resolution:
+      integrity: sha512-xPw9PgNPLG3iKRxmK7DWr+Ea/SzrvfHtjFt5LBl61gk2UBG/DB9kCXRjv+xyIU1rUtnayLeMUVJBcMX8Z17nDg==
+  /tslint-plugin-prettier/2.2.0_prettier@1.19.1+tslint@6.1.0:
+    dependencies:
+      eslint-plugin-prettier: 2.7.0_prettier@1.19.1
+      lines-and-columns: 1.1.6
+      prettier: 1.19.1
+      tslib: 1.11.1
+      tslint: 6.1.0_typescript@3.8.3
+    dev: true
+    engines:
+      node: '>= 4'
+    peerDependencies:
+      prettier: ^1.9.0
+      tslint: ^5.0.0 || ^6.0.0
+    resolution:
+      integrity: sha512-K4pzyF+ueWw3DEJ7h4MqAZ3tHQBVsay1cRSQ0aDXErEuIdrkC5NKywCebOnKl8GHvTW0C9TrHpRMeo2D8iwI8w==
   /tslint/6.1.0_typescript@3.8.3:
     dependencies:
       '@babel/code-frame': 7.8.3
@@ -737,4 +781,6 @@ specifiers:
   strip-bom: ^4.0.0
   ts-node: ^8.6.2
   tslint: ^6.1.0
+  tslint-config-prettier: ^1.18.0
+  tslint-plugin-prettier: ^2.2.0
   typescript: ^3.8.3
