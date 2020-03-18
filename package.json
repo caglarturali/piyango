@@ -9,7 +9,8 @@
     "prod": "now --prod",
     "rmtmp": "rm -rf /tmp/zeit-fun-*",
     "sync:draws": "ts-node scripts/syncDraws.ts",
-    "sync:commit": "ts-node scripts/syncDrawsAndCommit.ts"
+    "sync:commit": "ts-node scripts/syncDrawsAndCommit.ts",
+    "docs": "ts-node scripts/generateDocs.ts && prettier --write index.html"
   },
   "husky": {
     "hooks": {
@@ -31,10 +32,13 @@
   },
   "devDependencies": {
     "@types/lodash": "^4.14.149",
+    "@types/markdown-it": "^0.0.9",
     "@types/moment-timezone": "^0.5.12",
     "@types/node": "^13.9.0",
     "@types/node-fetch": "^2.5.5",
     "husky": "^4.2.3",
+    "markdown-it": "^10.0.0",
+    "prettier": "^1.19.1",
     "ts-node": "^8.6.2",
     "tslint": "^6.1.0",
     "typescript": "^3.8.3"
