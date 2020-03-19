@@ -65,8 +65,8 @@ export default class ApiResponse<T> {
    * @param {String} message Error message
    * @param {String} statusCode HTTP status code
    */
-  setFailed(message: string, statusCode: number) {
-    this.statusCode = statusCode || 500;
+  setFailed(message: string, statusCode: number = 500) {
+    this.statusCode = statusCode;
     this.success = false;
     this.error = message;
     this.data = [];
