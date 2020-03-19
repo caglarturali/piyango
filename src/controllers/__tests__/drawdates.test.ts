@@ -16,12 +16,12 @@ test('should successfully get draw dates for given game', async () => {
   expect(success).toBeTruthy();
   expect(data).toBeDefined();
   expect(data).toHaveLength(limit);
-  expect(error).toBeNull();
+  expect(error).toBeUndefined();
 });
 
 test('should respond with error when invalid gameId is given', async () => {
   const fakeGameId = 'sayisalx' as GameID;
-  const { error, statusCode, success } = await getDrawDates(
+  const { statusCode, success, error } = await getDrawDates(
     fakeGameId,
     10,
     0,

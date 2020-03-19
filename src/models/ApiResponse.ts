@@ -7,7 +7,7 @@ export default class ApiResponse<T> {
   statusCode: number;
   success: boolean;
   data: T[];
-  error: string | null;
+  error?: string;
 
   /**
    * Creates an API response object.
@@ -18,7 +18,6 @@ export default class ApiResponse<T> {
     this.statusCode = statusCode;
     this.success = success;
     this.data = [];
-    this.error = null;
   }
 
   /**
