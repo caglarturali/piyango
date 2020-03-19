@@ -71,14 +71,14 @@ export default class ApiResponse<T> {
   /**
    * Returns the pure object representation
    * of the instance, with minimal info attached to it.
-   * @param pack Determines if the results will be "packed" or not
+   * @param zip Determines if the results will be "zipped" or not
    */
-  toObject(pack: boolean = true) {
+  toObject(zip: boolean = true) {
     const { data, error } = this;
 
     if (error) return { error };
 
-    if (pack) {
+    if (zip) {
       if (data.length === 1) return data[0];
     }
 
