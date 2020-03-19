@@ -4,10 +4,23 @@ import {
   buildResourceNames,
   getDrawDetails,
   getDrawDetailsForLastDraw,
+  getDrawDetailsForLatestDraws,
 } from '../draws';
 import { GameID } from '../../models/Game';
 import RegularDraw, { DrawType } from '../../models/RegularDraw';
-import { DATE_FORMAT, DATE_FORMAT_FRIENDLY, MPI_BASE } from '../../constants';
+import {
+  DATE_FORMAT,
+  DATE_FORMAT_FRIENDLY,
+  GAMES,
+  MPI_BASE,
+} from '../../constants';
+
+test('should get draw details for latest draws', async () => {
+  const { statusCode, data } = await getDrawDetailsForLatestDraws();
+
+  expect(statusCode).toBe(200);
+  expect(data).toHaveLength(GAMES.length);
+});
 
 test('should get draw details for the last draw for given game', async () => {
   const { statusCode, data, error } = await getDrawDetailsForLastDraw(

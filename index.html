@@ -196,8 +196,11 @@
         <li>
           <h3>Draws</h3>
           <p>
-            Get the information for a specific draw. Returns the details of the
-            <strong>last draw</strong> if <code>drawDate</code> is omitted.
+            Get the information for a specific draw. Returns the
+            <strong>latest draws for all games</strong> if both
+            <code>gameId</code> and <code>drawDate</code> is omitted, or returns
+            the details of the <strong>last draw</strong> if only
+            <code>drawDate</code> is omitted.
           </p>
           <p>
             <code
@@ -220,7 +223,7 @@
                   <tr>
                     <td>gameId</td>
                     <td>Enum</td>
-                    <td>Yes</td>
+                    <td>No</td>
                     <td>
                       A unique value used to identify games. Should be one of
                       the following: <code>sayisal</code>,
@@ -239,6 +242,11 @@
                 </tbody>
               </table>
               <h4>Example Requests</h4>
+              <p>
+                <a href="https://dev.piyango.online/api/draws"
+                  >https://dev.piyango.online/api/draws</a
+                >
+              </p>
               <p>
                 <a href="https://dev.piyango.online/api/draws/superloto"
                   >https://dev.piyango.online/api/draws/superloto</a
