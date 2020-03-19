@@ -1,12 +1,12 @@
+import Draw from '../Draw';
 import LuckyProvince from '../LuckyProvince';
 import { LotteryCategory } from './LotteryCategory';
 
 /**
  * LotteryDraw interface.
  */
-export default interface LotteryDraw {
+export default interface LotteryDraw extends Draw {
   cekilisAdi: string;
-  cekilisTarihi: string;
   cekilisTarihiRaw?: string;
   haneSayisi: number;
   sonuclar: LotteryCategory[];

@@ -1,3 +1,4 @@
+import Draw from '../Draw';
 import LuckyProvince from '../LuckyProvince';
 import { WinnerCategory } from './WinnerCategory';
 import { DrawType } from './DrawType';
@@ -5,12 +6,11 @@ import { DrawType } from './DrawType';
 /**
  * RegularDraw interface.
  */
-export default interface RegularDraw {
+export default interface RegularDraw extends Draw {
   archived?: boolean;
   oid: string;
   hafta: number;
   buyukIkramiyeKazananIl?: string;
-  cekilisTarihi: string;
   cekilisTuru: DrawType;
   rakamlar: string;
   rakamlarNumaraSirasi: string;
