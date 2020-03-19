@@ -7,14 +7,13 @@ import { isDateValid } from '../../utils';
 
 test('should successfully get draw dates for given game', async () => {
   const limit = 10;
-  const { success, statusCode, data, error } = await getDrawDates(
+  const { statusCode, data, error } = await getDrawDates(
     GameID.sayisal,
     limit,
     0,
     SortOrder.DESC,
   );
   expect(statusCode).toBe(200);
-  expect(success).toBeTruthy();
   expect(data).toBeDefined();
   expect(data).toHaveLength(limit);
   data.forEach((date) => {
@@ -25,13 +24,12 @@ test('should successfully get draw dates for given game', async () => {
 
 test('should respond with error when invalid gameId is given', async () => {
   const fakeGameId = 'sayisalx' as GameID;
-  const { statusCode, success, error } = await getDrawDates(
+  const { statusCode, error } = await getDrawDates(
     fakeGameId,
     10,
     0,
     SortOrder.DESC,
   );
-  expect(success).toBeFalsy();
   expect(statusCode).not.toBe(200);
   expect(error).toBeDefined();
 });

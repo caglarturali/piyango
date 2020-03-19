@@ -9,14 +9,13 @@ test('should check numbers successfully for a regular draw', async () => {
     numbers: ['05#20#24#25#32#34', '07#24#25#08#10#51'],
   };
 
-  const { statusCode, success, data } = await checkNumbers(
+  const { statusCode, data } = await checkNumbers(
     GameID.superloto,
     '20200312',
     body,
   );
 
   expect(statusCode).toBe(200);
-  expect(success).toBeTruthy();
   expect(data).toHaveLength(body.numbers.length);
   data.forEach((res) => {
     const result = res as RegularCheckResult;
@@ -29,14 +28,13 @@ test('should check numbers successfully for a lottery draw', async () => {
     numbers: ['501222', '511222', '123180', '221384', '123450'],
   };
 
-  const { statusCode, success, data } = await checkNumbers(
+  const { statusCode, data } = await checkNumbers(
     GameID.piyango,
     '20200309',
     body,
   );
 
   expect(statusCode).toBe(200);
-  expect(success).toBeTruthy();
   expect(data).toHaveLength(body.numbers.length);
   data.forEach((res) => {
     const result = res as LotteryCheckResult;
@@ -49,13 +47,12 @@ test('should respond with an error if length of the numbers are not correct', as
     numbers: ['05#20#24#25#32#34#12#23'],
   };
 
-  const { statusCode, success, error } = await checkNumbers(
+  const { statusCode, error } = await checkNumbers(
     GameID.superloto,
     '20200312',
     body,
   );
 
   expect(statusCode).not.toBe(200);
-  expect(success).toBeFalsy();
   expect(error).toBeDefined();
 });

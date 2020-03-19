@@ -5,18 +5,15 @@ import _ from 'lodash';
  */
 export default class ApiResponse<T> {
   statusCode: number;
-  success: boolean;
   data: T[];
   error?: string;
 
   /**
    * Creates an API response object.
    * @param {Number} statusCode HTTP status code
-   * @param {Boolean} success Successful or not
    */
-  constructor(statusCode: number = 200, success: boolean = true) {
+  constructor(statusCode: number = 200) {
     this.statusCode = statusCode;
-    this.success = success;
     this.data = [];
   }
 
@@ -67,17 +64,24 @@ export default class ApiResponse<T> {
    */
   setFailed(message: string, statusCode: number = 500) {
     this.statusCode = statusCode;
-    this.success = false;
     this.error = message;
     this.data = [];
   }
 
   /**
    * Returns the pure object representation
-   * of the instance, without statusCode field!
+   * of the instance, with minimal info attached to it.
+   * @param pack Determines if the results will be "packed" or not
    */
-  toObject() {
-    const { data, error, success } = this;
-    return { success, data, error };
+  toObject(pack: boolean = true) {
+    const { data, error } = this;
+
+    if (error) return { error };
+
+    if (pack) {
+      if (data.length === 1) return data[0];
+    }
+
+    return data;
   }
 }

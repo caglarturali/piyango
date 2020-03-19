@@ -36,12 +36,11 @@ export const checkNumbers = async (
 
   const {
     statusCode,
-    success,
     error,
     data: [drawData],
   } = await getDrawDetails(gameId, drawDate);
 
-  if (!success && error) {
+  if (error) {
     apiResponse.setFailed(error, statusCode);
     return apiResponse;
   }

@@ -28,7 +28,7 @@ export default async (req: NowRequest, res: NowResponse) => {
   switch (method) {
     case 'POST': {
       const result = await checkNumbers(gameArg, dateArg, checkBody);
-      res.status(result.statusCode).json(result.toObject());
+      res.status(result.statusCode).json(result.toObject(false));
       break;
     }
 
