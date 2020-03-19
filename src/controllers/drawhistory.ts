@@ -82,11 +82,11 @@ export const getDrawHistoryForGame = async (date: string, gameId: GameID) => {
   const refDate = moment(date, DATE_FORMAT).format(DATE_FORMAT_SHORT);
 
   const drawDates = await getDrawDates(gameId, 0, 0, SortOrder.DESC);
-  apiResponse.data = drawDates.data
-    .map(({ tarih }) => tarih)
-    .filter((t) => {
-      return refDate === moment(t, DATE_FORMAT).format(DATE_FORMAT_SHORT);
-    });
+  drawDates.data.forEach((t) => {
+    if (refDate === moment(t, DATE_FORMAT).format(DATE_FORMAT_SHORT)) {
+      apiResponse.addData(t);
+    }
+  });
 
   if (!apiResponse.hasData()) {
     apiResponse.setFailed('No records were found', 500);

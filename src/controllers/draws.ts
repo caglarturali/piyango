@@ -105,7 +105,7 @@ export const getDrawDetailsForLastDraw = async (gameId: GameID) => {
   if (drawDatesResp.error) {
     return drawDatesResp;
   }
-  const { tarih: lastDraw } = drawDatesResp.data[0];
+  const [lastDraw] = drawDatesResp.data;
   const lastDrawDetailsResp = await getDrawDetails(gameId, lastDraw);
   return lastDrawDetailsResp;
 };

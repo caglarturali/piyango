@@ -1,6 +1,5 @@
 import fs from 'fs';
 import { GameID } from '../models/Game';
-import DrawListing from '../models/DrawListing';
 import { SortOrder } from '../models/SortOrder';
 import { getDrawDates, getDrawDetails } from '../controllers';
 import { buildStaticResourcePath } from './static';
@@ -8,7 +7,7 @@ import apiconfig from '../apiconfig';
 
 export interface DrawDatesPromise {
   gameId: GameID;
-  drawDates: DrawListing[] | null | undefined;
+  drawDates: string[] | null | undefined;
   error: string | null;
 }
 

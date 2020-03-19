@@ -47,8 +47,8 @@ Promise.all(drawDatesPromises)
         return printMsg('Error while fetching draw dates', true);
       }
 
-      drawDates.forEach(({ tarih }) => {
-        drawDetailsPromises.push(getDrawDetailsPromise(gameId, tarih, true));
+      drawDates.forEach((date) => {
+        drawDetailsPromises.push(getDrawDetailsPromise(gameId, date, true));
       });
     });
 

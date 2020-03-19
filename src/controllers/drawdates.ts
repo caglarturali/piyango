@@ -10,12 +10,7 @@ import ApiResponse from '../models/ApiResponse';
 import DrawListing from '../models/DrawListing';
 import { SortOrder } from '../models/SortOrder';
 import { GameID } from '../models/Game';
-import {
-  DATE_FORMAT,
-  DATE_FORMAT_VIEW,
-  MPI_BASE,
-  STATIC_DATA_PATH,
-} from '../constants';
+import { DATE_FORMAT, MPI_BASE, STATIC_DATA_PATH } from '../constants';
 import { validGameId } from './_validate';
 
 /**
@@ -38,8 +33,8 @@ export const getDrawDates = async (
   limit: number,
   skip: number,
   sort: SortOrder,
-): Promise<ApiResponse<DrawListing>> => {
-  const apiResponse = new ApiResponse<DrawListing>();
+): Promise<ApiResponse<string>> => {
+  const apiResponse = new ApiResponse<string>();
 
   // Validate gameId.
   if (!validGameId(apiResponse, gameId)) return apiResponse;
@@ -54,8 +49,9 @@ export const getDrawDates = async (
   try {
     const body = await response.text();
     const data: DrawListing[] = JSON.parse(stripBom(body));
-    data.forEach((drawListing: DrawListing) => {
-      apiResponse.addData(drawListing);
+    data.forEach(({ tarih }: DrawListing) => {
+      // Add only "tarih" field!
+      apiResponse.addData(tarih);
     });
 
     if (!apiResponse.hasData()) {
@@ -76,21 +72,16 @@ export const getDrawDates = async (
     const extension = path.extname(fullPath);
     const fileName = path.basename(fullPath, extension);
 
-    const tempListing: DrawListing = {
-      tarih: fileName,
-      tarihView: moment(fileName, DATE_FORMAT).format(DATE_FORMAT_VIEW),
-    };
-
     // Add record if not already found.
-    if (!apiResponse.hasItem(tempListing)) {
-      apiResponse.addData(tempListing);
+    if (!apiResponse.hasItem(fileName)) {
+      apiResponse.addData(fileName);
     }
   });
 
   // Sort entries based on order arg.
-  apiResponse.sortData((a: DrawListing, b: DrawListing) => {
-    const aDate = moment(a.tarih, DATE_FORMAT).unix();
-    const bDate = moment(b.tarih, DATE_FORMAT).unix();
+  apiResponse.sortData((a, b) => {
+    const aDate = moment(a, DATE_FORMAT).unix();
+    const bDate = moment(b, DATE_FORMAT).unix();
 
     return sort === SortOrder.ASC ? aDate - bDate : bDate - aDate;
   });
