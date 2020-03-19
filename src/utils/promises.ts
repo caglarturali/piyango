@@ -4,18 +4,20 @@ import { SortOrder } from '../models/SortOrder';
 import { getDrawDates, getDrawDetails } from '../controllers';
 import { buildStaticResourcePath } from './static';
 import apiconfig from '../apiconfig';
+import RegularDraw from '../models/RegularDraw';
+import LotteryDraw from '../models/LotteryDraw';
 
 export interface DrawDatesPromise {
   gameId: GameID;
-  drawDates: string[] | null | undefined;
-  error: string | null;
+  drawDates?: string[];
+  error?: string;
 }
 
 export interface DrawDetailsPromise {
   gameId: GameID;
   drawDate: string;
-  drawDetails: any;
-  error: string | null;
+  drawDetails?: RegularDraw | LotteryDraw;
+  error?: string;
 }
 
 /**
@@ -30,21 +32,19 @@ export const getDrawDatesPromise = (
 
   return new Promise((resolve, reject) => {
     getDrawDates(gameId, limit, skip, SortOrder.DESC)
-      .then((response) => {
-        if (response.error) {
-          throw new Error(response.error);
+      .then(({ error, data }) => {
+        if (error) {
+          throw new Error(error);
         }
 
         resolve({
           gameId,
-          drawDates: response.data,
-          error: null,
+          drawDates: data,
         });
       })
       .catch((error) => {
         resolve({
           gameId,
-          drawDates: null,
           error,
         });
       });
@@ -71,30 +71,26 @@ export const getDrawDetailsPromise = (
         return resolve({
           gameId,
           drawDate,
-          drawDetails: null,
-          error: null,
         });
       }
     }
 
     getDrawDetails(gameId, drawDate)
-      .then((response) => {
-        if (response.error) {
-          throw new Error(response.error);
+      .then(({ error, data }) => {
+        if (error) {
+          throw new Error(error);
         }
 
         resolve({
           gameId,
           drawDate,
-          drawDetails: response.data[0],
-          error: null,
+          drawDetails: data[0],
         });
       })
       .catch((error) => {
         resolve({
           gameId,
           drawDate,
-          drawDetails: null,
           error,
         });
       });
