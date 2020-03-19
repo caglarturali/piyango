@@ -61,13 +61,14 @@ Promise.all(drawDatesPromises)
     );
   })
   .then((drawDetailsResults) => {
-    printMsg('Writing data into disk');
+    printMsg('Writing data into disk (if any)');
 
     drawDetailsResults.forEach(({ gameId, drawDate, drawDetails, error }) => {
       if (error) return printMsg(`${gameId}-${drawDate}-${error}`, true);
 
       if (drawDetails) {
         // Write file to disk.
+        printMsg(`Record added for: ${gameId} - ${drawDate}`);
         const filePath = buildStaticResourcePath(gameId, drawDate);
         fs.writeFileSync(filePath, JSON.stringify(drawDetails));
       }
