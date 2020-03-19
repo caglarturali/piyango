@@ -1,15 +1,16 @@
+/**
+ * /time
+ */
 import { NowRequest, NowResponse } from '@now/node';
-import momentTZ from 'moment-timezone';
+import { getCurrentTime } from '../../src/controllers';
 
 export default async (req: NowRequest, res: NowResponse) => {
   const { method } = req;
 
   switch (method) {
     case 'GET': {
-      const momentDate = momentTZ()
-        .tz('Europe/Istanbul')
-        .toObject();
-      res.status(200).json(momentDate);
+      const time = getCurrentTime();
+      res.status(200).json(time);
       break;
     }
 
