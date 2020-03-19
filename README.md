@@ -20,6 +20,16 @@ The following is a list of the types of data used within the Piyango API:
 
   `GET https://dev.piyango.online/api/`
 
+- ### Games
+
+  Get the list of games that the API currently supports.
+
+  `GET https://dev.piyango.online/api/games`
+
+  #### Example Request
+
+  https://dev.piyango.online/api/games
+
 - ### Draw Dates
 
   Get draw dates for given game.
