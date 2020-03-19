@@ -11,8 +11,11 @@ test('should return current time as a moment object', () => {
     'milliseconds',
   ];
 
-  const time = getCurrentTime();
+  const { statusCode, data } = getCurrentTime();
 
+  const [time] = data;
+
+  expect(statusCode).toBe(200);
   expect(time).toBeDefined();
   keys.forEach((key) => {
     expect(time).toHaveProperty(key);

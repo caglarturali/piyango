@@ -9,8 +9,8 @@ export default async (req: NowRequest, res: NowResponse) => {
 
   switch (method) {
     case 'GET': {
-      const time = getCurrentTime();
-      res.status(200).json(time);
+      const response = getCurrentTime();
+      res.status(response.statusCode).json(response.toObject());
       break;
     }
 
