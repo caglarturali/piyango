@@ -1,5 +1,5 @@
 import path from 'path';
-import { STATIC_DATA_PATH } from '../constants';
+import { DRAWS_DATA_PATH } from '../constants';
 
 /**
  * Builds static resource path for given draw.
@@ -12,5 +12,5 @@ export const buildStaticResourcePath = (
   drawDate: string,
 ): string => {
   const resourceName = `${drawDate}.json`;
-  return path.join(STATIC_DATA_PATH, gameId, resourceName);
+  return path.join(DRAWS_DATA_PATH, gameId, resourceName);
 };

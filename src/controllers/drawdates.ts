@@ -10,7 +10,7 @@ import ApiResponse from '../models/ApiResponse';
 import DrawListing from '../models/DrawListing';
 import { SortOrder } from '../models/SortOrder';
 import { GameID } from '../models/Game';
-import { DATE_FORMAT, MPI_BASE, STATIC_DATA_PATH } from '../constants';
+import { DATE_FORMAT, DRAWS_DATA_PATH, MPI_BASE } from '../constants';
 import { validGameId } from './_validate';
 
 /**
@@ -66,9 +66,9 @@ export const getDrawDates = async (
   }
 
   // Append static data.
-  fs.readdirSync(path.join(STATIC_DATA_PATH, gameId)).forEach((fullName) => {
+  fs.readdirSync(path.join(DRAWS_DATA_PATH, gameId)).forEach((fullName) => {
     // Build full path and file name (without extension).
-    const fullPath = path.join(STATIC_DATA_PATH, gameId, fullName);
+    const fullPath = path.join(DRAWS_DATA_PATH, gameId, fullName);
     const extension = path.extname(fullPath);
     const fileName = path.basename(fullPath, extension);
 
