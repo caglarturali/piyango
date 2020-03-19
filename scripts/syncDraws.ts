@@ -4,13 +4,13 @@
  */
 
 import fs from 'fs';
+import { buildStaticResourcePath } from '../src/utils';
 import {
-  buildStaticResourcePath,
   DrawDatesPromise,
   DrawDetailsPromise,
   getDrawDatesPromise,
   getDrawDetailsPromise,
-} from '../src/utils';
+} from './_utils';
 import { GAMES } from '../src/constants';
 import { GameID } from '../src/models/Game';
 

@@ -1,11 +1,11 @@
 import fs from 'fs';
-import { GameID } from '../models/Game';
-import { SortOrder } from '../models/SortOrder';
-import { getDrawDates, getDrawDetails } from '../controllers';
-import { buildStaticResourcePath } from './static';
-import apiconfig from '../apiconfig';
-import RegularDraw from '../models/RegularDraw';
-import LotteryDraw from '../models/LotteryDraw';
+import { GameID } from '../src/models/Game';
+import { SortOrder } from '../src/models/SortOrder';
+import { getDrawDates, getDrawDetails } from '../src/controllers';
+import { buildStaticResourcePath } from '../src/utils/static';
+import apiconfig from '../src/apiconfig';
+import RegularDraw from '../src/models/RegularDraw';
+import LotteryDraw from '../src/models/LotteryDraw';
 
 export interface DrawDatesPromise {
   gameId: GameID;
