@@ -5,7 +5,7 @@
   "scripts": {
     "test": "jest --coverage",
     "test:watch": "npm test -- --watch",
-    "maj": "majestic",
+    "majs": "majestic",
     "lint": "tslint -c tslint.json \"api/**/*.ts\" \"src/**/*.ts\"",
     "lint:fix": "npm run lint -- --fix",
     "prod": "now --prod",
