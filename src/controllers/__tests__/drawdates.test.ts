@@ -3,6 +3,7 @@ import { getDrawDates } from '../drawdates';
 import { GameID } from '../../models/Game';
 import { SortOrder } from '../../models/SortOrder';
 import { DATE_FORMAT } from '../../constants';
+import { isDateValid } from '../../utils';
 
 test('should successfully get draw dates for given game', async () => {
   const limit = 10;
@@ -16,6 +17,9 @@ test('should successfully get draw dates for given game', async () => {
   expect(success).toBeTruthy();
   expect(data).toBeDefined();
   expect(data).toHaveLength(limit);
+  data.forEach(({ tarih }) => {
+    expect(isDateValid(tarih)).toBeTruthy();
+  });
   expect(error).toBeUndefined();
 });
 
