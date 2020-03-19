@@ -66,7 +66,7 @@ The following is a list of the types of data used within the Piyango API:
 
   Get the information for a specific draw. Returns the **latest draws for all games** if both `gameId` and `drawDate` is omitted, or returns the details of the **last draw** if only `drawDate` is omitted.
 
-  `GET https://dev.piyango.online/api/draws/:gameId/?:drawDate`
+  `GET https://dev.piyango.online/api/draws/?:gameId/?:drawDate`
 
   - #### URL Parameters
 
