@@ -1,5 +1,6 @@
 dependencies:
   '@now/node': 1.4.1
+  haikunator: 2.1.2
   lodash: 4.17.15
   moment: 2.24.0
   moment-timezone: 0.5.28
@@ -470,6 +471,10 @@ packages:
     dev: true
     resolution:
       integrity: sha512-//oorEZjL6sbPcKUaCdIGlIUeH26mgzimjBB77G6XRgnDl/L5wOnpyBGRe/Mmf5CVW3PwEBE1NjiMZ/ssFh4wA==
+  /@types/random-seed/0.3.3:
+    dev: false
+    resolution:
+      integrity: sha512-kHsCbIRHNXJo6EN5W8EA5b4i1hdT6jaZke5crBPLUcLqaLdZ0QBq8QVMbafHzhjFF83Cl9qlee2dChD18d/kPg==
   /@types/stack-utils/1.0.1:
     dev: true
     resolution:
@@ -1522,6 +1527,14 @@ packages:
     optional: true
     resolution:
       integrity: sha1-8QdIy+dq+WS3yWyTxrzCivEgwIE=
+  /haikunator/2.1.2:
+    dependencies:
+      '@types/random-seed': 0.3.3
+      lodash.defaults: 4.2.0
+      random-seed: 0.3.0
+    dev: false
+    resolution:
+      integrity: sha512-8xTQw2yomVQWG1mLJKD7RrwXN8PkgRYKDShOBhtlu2MqOTboc4O5dVYhPgLigcKMAtwJ0GZty5N44EbLGZN3FA==
   /har-schema/2.0.0:
     dev: true
     engines:
@@ -2417,7 +2430,6 @@ packages:
     resolution:
       integrity: sha1-tIDIkuWaLwWVTOcnvT8qTogvnhM=
   /json-stringify-safe/5.0.1:
-    dev: true
     resolution:
       integrity: sha1-Epai1Y/UXxmg9s4B1lcB4sc1tus=
   /json5/2.1.2:
@@ -2527,6 +2539,10 @@ packages:
       node: '>=8'
     resolution:
       integrity: sha512-t7hw9pI+WvuwNJXwk5zVHpyhIqzg2qTlklJOf0mVxGSbe3Fp2VieZcduNYjaLDoy6p9uGpQEGWG87WpMKlNq8g==
+  /lodash.defaults/4.2.0:
+    dev: false
+    resolution:
+      integrity: sha1-0JF4cW/+pN3p5ft7N/bwgCJ0WAw=
   /lodash.memoize/4.1.2:
     dev: true
     resolution:
@@ -3150,6 +3166,14 @@ packages:
       node: '>=0.6'
     resolution:
       integrity: sha512-N5ZAX4/LxJmF+7wN74pUD6qAh9/wnvdQcjq9TZjevvXzSUo7bfmw91saqMjzGS2xq91/odN2dW/WOl7qQHNDGA==
+  /random-seed/0.3.0:
+    dependencies:
+      json-stringify-safe: 5.0.1
+    dev: false
+    engines:
+      node: '>= 0.6.0'
+    resolution:
+      integrity: sha1-2UXy4fOPSejViRNDG4v2u5N1Vs0=
   /react-is/16.13.0:
     dev: true
     resolution:
@@ -4197,6 +4221,7 @@ specifiers:
   '@types/moment-timezone': ^0.5.12
   '@types/node': ^13.9.0
   '@types/node-fetch': ^2.5.5
+  haikunator: ^2.1.2
   husky: ^4.2.3
   jest: ^25.1.0
   lodash: ^4.17.15

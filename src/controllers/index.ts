@@ -1,3 +1,4 @@
+export * from './root';
 export * from './check';
 export * from './drawdates';
 export * from './drawhistory';

@@ -1,0 +1,1058 @@
+{
+  "0 debug pnpm:scope": {
+    "selected": 1
+  },
+  "1 debug pnpm": {
+    "isCaseSensitive": true,
+    "store": "/home/caglar/.pnpm-store/2"
+  },
+  "2 debug pnpm:package-manifest": {
+    "initial": {
+      "name": "piyango-api",
+      "version": "1.0.0",
+      "description": "",
+      "scripts": {
+        "test": "jest",
+        "test:cov": "npm test -- --coverage",
+        "test:watch": "npm test -- --watch",
+        "majs": "majestic",
+        "lint": "tslint -c tslint.json \"api/**/*.ts\" \"src/**/*.ts\"",
+        "lint:fix": "npm run lint -- --fix",
+        "prod": "now --prod",
+        "rmtmp": "rm -rf /tmp/zeit-fun-*",
+        "sync:draws": "ts-node scripts/syncDraws.ts",
+        "sync:commit": "ts-node scripts/syncDrawsAndCommit.ts",
+        "docs": "ts-node scripts/generateDocs.ts && prettier --write index.html"
+      },
+      "husky": {
+        "hooks": {
+          "pre-commit": "npm run lint:fix",
+          "pre-push": "npm test",
+          "commit-msg": "echo $HUSKY_GIT_PARAMS"
+        }
+      },
+      "majestic": {
+        "args": [],
+        "env": {}
+      },
+      "keywords": [],
+      "author": "",
+      "license": "ISC",
+      "dependencies": {
+        "@now/node": "^1.4.1",
+        "haikunator": "^2.1.2",
+        "lodash": "^4.17.15",
+        "moment": "^2.24.0",
+        "moment-timezone": "^0.5.28",
+        "node-fetch": "^2.6.0",
+        "strip-bom": "^4.0.0"
+      },
+      "devDependencies": {
+        "@types/jest": "^25.1.4",
+        "@types/lodash": "^4.14.149",
+        "@types/markdown-it": "^0.0.9",
+        "@types/moment-timezone": "^0.5.12",
+        "@types/node": "^13.9.0",
+        "@types/node-fetch": "^2.5.5",
+        "husky": "^4.2.3",
+        "jest": "^25.1.0",
+        "majestic": "^1.6.2",
+        "markdown-it": "^10.0.0",
+        "prettier": "^1.19.1",
+        "ts-jest": "^25.2.1",
+        "ts-node": "^8.6.2",
+        "tslint": "^6.1.0",
+        "tslint-config-prettier": "^1.18.0",
+        "tslint-plugin-prettier": "^2.2.0",
+        "typescript": "^3.8.3"
+      }
+    },
+    "prefix": "/home/caglar/dev/www/piyango-api"
+  },
+  "3 debug pnpm:stage": {
+    "prefix": "/home/caglar/dev/www/piyango-api",
+    "stage": "resolution_started"
+  },
+  "4 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/@now/node/1.4.1",
+    "wanted": {
+      "name": "@now/node",
+      "rawSpec": "^1.4.1"
+    }
+  },
+  "5 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/@now/node/1.4.1",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "resolved"
+  },
+  "6 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/haikunator/2.1.2",
+    "wanted": {
+      "name": "haikunator",
+      "rawSpec": "^2.1.2"
+    }
+  },
+  "7 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/haikunator/2.1.2",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "resolved"
+  },
+  "8 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/lodash/4.17.15",
+    "wanted": {
+      "name": "lodash",
+      "rawSpec": "^4.17.15"
+    }
+  },
+  "9 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/lodash/4.17.15",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "resolved"
+  },
+  "10 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/moment/2.24.0",
+    "wanted": {
+      "name": "moment",
+      "rawSpec": "^2.24.0"
+    }
+  },
+  "11 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/moment/2.24.0",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "resolved"
+  },
+  "12 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/moment-timezone/0.5.28",
+    "wanted": {
+      "name": "moment-timezone",
+      "rawSpec": "^0.5.28"
+    }
+  },
+  "13 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/moment-timezone/0.5.28",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "resolved"
+  },
+  "14 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/node-fetch/2.6.0",
+    "wanted": {
+      "name": "node-fetch",
+      "rawSpec": "^2.6.0"
+    }
+  },
+  "15 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/node-fetch/2.6.0",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "resolved"
+  },
+  "16 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/strip-bom/4.0.0",
+    "wanted": {
+      "name": "strip-bom",
+      "rawSpec": "^4.0.0"
+    }
+  },
+  "17 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/strip-bom/4.0.0",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "resolved"
+  },
+  "18 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/@types/jest/25.1.4",
+    "wanted": {
+      "name": "@types/jest",
+      "rawSpec": "^25.1.4"
+    }
+  },
+  "19 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/@types/jest/25.1.4",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "resolved"
+  },
+  "20 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/@types/lodash/4.14.149",
+    "wanted": {
+      "name": "@types/lodash",
+      "rawSpec": "^4.14.149"
+    }
+  },
+  "21 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/@types/lodash/4.14.149",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "resolved"
+  },
+  "22 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/@types/markdown-it/0.0.9",
+    "wanted": {
+      "name": "@types/markdown-it",
+      "rawSpec": "^0.0.9"
+    }
+  },
+  "23 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/@types/markdown-it/0.0.9",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "resolved"
+  },
+  "24 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/@types/moment-timezone/0.5.12",
+    "wanted": {
+      "name": "@types/moment-timezone",
+      "rawSpec": "^0.5.12"
+    }
+  },
+  "25 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/@types/moment-timezone/0.5.12",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "resolved"
+  },
+  "26 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/@types/node/13.9.0",
+    "wanted": {
+      "name": "@types/node",
+      "rawSpec": "^13.9.0"
+    }
+  },
+  "27 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/@types/node/13.9.0",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "resolved"
+  },
+  "28 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/@types/node-fetch/2.5.5",
+    "wanted": {
+      "name": "@types/node-fetch",
+      "rawSpec": "^2.5.5"
+    }
+  },
+  "29 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/@types/node-fetch/2.5.5",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "resolved"
+  },
+  "30 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/husky/4.2.3",
+    "wanted": {
+      "name": "husky",
+      "rawSpec": "^4.2.3"
+    }
+  },
+  "31 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/husky/4.2.3",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "resolved"
+  },
+  "32 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/jest/25.1.0",
+    "wanted": {
+      "name": "jest",
+      "rawSpec": "^25.1.0"
+    }
+  },
+  "33 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/jest/25.1.0",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "resolved"
+  },
+  "34 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/majestic/1.6.2",
+    "wanted": {
+      "name": "majestic",
+      "rawSpec": "^1.6.2"
+    }
+  },
+  "35 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/majestic/1.6.2",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "resolved"
+  },
+  "36 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/markdown-it/10.0.0",
+    "wanted": {
+      "name": "markdown-it",
+      "rawSpec": "^10.0.0"
+    }
+  },
+  "37 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/markdown-it/10.0.0",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "resolved"
+  },
+  "38 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/prettier/1.19.1",
+    "wanted": {
+      "name": "prettier",
+      "rawSpec": "^1.19.1"
+    }
+  },
+  "39 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/prettier/1.19.1",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "resolved"
+  },
+  "40 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/ts-jest/25.2.1",
+    "wanted": {
+      "name": "ts-jest",
+      "rawSpec": "^25.2.1"
+    }
+  },
+  "41 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/ts-node/8.6.2",
+    "wanted": {
+      "name": "ts-node",
+      "rawSpec": "^8.6.2"
+    }
+  },
+  "42 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/tslint/6.1.0",
+    "wanted": {
+      "name": "tslint",
+      "rawSpec": "^6.1.0"
+    }
+  },
+  "43 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/tslint-config-prettier/1.18.0",
+    "wanted": {
+      "name": "tslint-config-prettier",
+      "rawSpec": "^1.18.0"
+    }
+  },
+  "44 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/tslint-config-prettier/1.18.0",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "resolved"
+  },
+  "45 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/tslint-plugin-prettier/2.2.0",
+    "wanted": {
+      "name": "tslint-plugin-prettier",
+      "rawSpec": "^2.2.0"
+    }
+  },
+  "46 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/typescript/3.8.3",
+    "wanted": {
+      "name": "typescript",
+      "rawSpec": "^3.8.3"
+    }
+  },
+  "47 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/typescript/3.8.3",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "resolved"
+  },
+  "48 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/haikunator/2.1.2",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "found_in_store"
+  },
+  "49 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/strip-bom/4.0.0",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "found_in_store"
+  },
+  "50 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/moment-timezone/0.5.28",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "found_in_store"
+  },
+  "51 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/node-fetch/2.6.0",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "found_in_store"
+  },
+  "52 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/@types/markdown-it/0.0.9",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "found_in_store"
+  },
+  "53 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/@types/moment-timezone/0.5.12",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "found_in_store"
+  },
+  "54 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/@types/jest/25.1.4",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "found_in_store"
+  },
+  "55 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/@types/node-fetch/2.5.5",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "found_in_store"
+  },
+  "56 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/@types/node/13.9.0",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "found_in_store"
+  },
+  "57 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/jest/25.1.0",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "found_in_store"
+  },
+  "58 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/husky/4.2.3",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "found_in_store"
+  },
+  "59 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/markdown-it/10.0.0",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "found_in_store"
+  },
+  "60 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/tslint-config-prettier/1.18.0",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "found_in_store"
+  },
+  "61 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/tslint-plugin-prettier/2.2.0",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "resolved"
+  },
+  "62 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/tslint-plugin-prettier/2.2.0",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "found_in_store"
+  },
+  "63 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/ts-node/8.6.2",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "resolved"
+  },
+  "64 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/ts-node/8.6.2",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "found_in_store"
+  },
+  "65 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/ts-jest/25.2.1",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "resolved"
+  },
+  "66 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/ts-jest/25.2.1",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "found_in_store"
+  },
+  "67 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/eslint-plugin-prettier/2.7.0",
+    "wanted": {
+      "dependentId": "registry.npmjs.org/tslint-plugin-prettier/2.2.0",
+      "name": "eslint-plugin-prettier",
+      "rawSpec": "^2.2.0"
+    }
+  },
+  "68 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/lines-and-columns/1.1.6",
+    "wanted": {
+      "dependentId": "registry.npmjs.org/tslint-plugin-prettier/2.2.0",
+      "name": "lines-and-columns",
+      "rawSpec": "^1.1.6"
+    }
+  },
+  "69 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/lines-and-columns/1.1.6",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "resolved"
+  },
+  "70 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/tslib/1.11.1",
+    "wanted": {
+      "dependentId": "registry.npmjs.org/tslint-plugin-prettier/2.2.0",
+      "name": "tslib",
+      "rawSpec": "^1.7.1"
+    }
+  },
+  "71 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/tslib/1.11.1",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "resolved"
+  },
+  "72 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/moment/2.24.0",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "found_in_store"
+  },
+  "73 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/arg/4.1.3",
+    "wanted": {
+      "dependentId": "registry.npmjs.org/ts-node/8.6.2",
+      "name": "arg",
+      "rawSpec": "^4.1.0"
+    }
+  },
+  "74 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/arg/4.1.3",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "resolved"
+  },
+  "75 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/diff/4.0.2",
+    "wanted": {
+      "dependentId": "registry.npmjs.org/ts-node/8.6.2",
+      "name": "diff",
+      "rawSpec": "^4.0.1"
+    }
+  },
+  "76 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/diff/4.0.2",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "resolved"
+  },
+  "77 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/make-error/1.3.6",
+    "wanted": {
+      "dependentId": "registry.npmjs.org/ts-node/8.6.2",
+      "name": "make-error",
+      "rawSpec": "^1.1.1"
+    }
+  },
+  "78 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/make-error/1.3.6",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "resolved"
+  },
+  "79 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/source-map-support/0.5.16",
+    "wanted": {
+      "dependentId": "registry.npmjs.org/ts-node/8.6.2",
+      "name": "source-map-support",
+      "rawSpec": "^0.5.6"
+    }
+  },
+  "80 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/source-map-support/0.5.16",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "resolved"
+  },
+  "81 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/yn/3.1.1",
+    "wanted": {
+      "dependentId": "registry.npmjs.org/ts-node/8.6.2",
+      "name": "yn",
+      "rawSpec": "3.1.1"
+    }
+  },
+  "82 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/yn/3.1.1",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "resolved"
+  },
+  "83 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/bs-logger/0.2.6",
+    "wanted": {
+      "dependentId": "registry.npmjs.org/ts-jest/25.2.1",
+      "name": "bs-logger",
+      "rawSpec": "0.x"
+    }
+  },
+  "84 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/bs-logger/0.2.6",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "resolved"
+  },
+  "85 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/buffer-from/1.1.1",
+    "wanted": {
+      "dependentId": "registry.npmjs.org/ts-jest/25.2.1",
+      "name": "buffer-from",
+      "rawSpec": "1.x"
+    }
+  },
+  "86 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/buffer-from/1.1.1",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "resolved"
+  },
+  "87 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/fast-json-stable-stringify/2.1.0",
+    "wanted": {
+      "dependentId": "registry.npmjs.org/ts-jest/25.2.1",
+      "name": "fast-json-stable-stringify",
+      "rawSpec": "2.x"
+    }
+  },
+  "88 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/fast-json-stable-stringify/2.1.0",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "resolved"
+  },
+  "89 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/json5/2.1.2",
+    "wanted": {
+      "dependentId": "registry.npmjs.org/ts-jest/25.2.1",
+      "name": "json5",
+      "rawSpec": "2.x"
+    }
+  },
+  "90 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/json5/2.1.2",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "resolved"
+  },
+  "91 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/lodash.memoize/4.1.2",
+    "wanted": {
+      "dependentId": "registry.npmjs.org/ts-jest/25.2.1",
+      "name": "lodash.memoize",
+      "rawSpec": "4.x"
+    }
+  },
+  "92 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/lodash.memoize/4.1.2",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "resolved"
+  },
+  "93 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/make-error/1.3.6",
+    "wanted": {
+      "dependentId": "registry.npmjs.org/ts-jest/25.2.1",
+      "name": "make-error",
+      "rawSpec": "1.x"
+    }
+  },
+  "94 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/mkdirp/0.4.2",
+    "wanted": {
+      "dependentId": "registry.npmjs.org/ts-jest/25.2.1",
+      "name": "mkdirp",
+      "rawSpec": "0.x"
+    }
+  },
+  "95 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/mkdirp/0.4.2",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "resolved"
+  },
+  "96 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/resolve/1.15.1",
+    "wanted": {
+      "dependentId": "registry.npmjs.org/ts-jest/25.2.1",
+      "name": "resolve",
+      "rawSpec": "1.x"
+    }
+  },
+  "97 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/resolve/1.15.1",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "resolved"
+  },
+  "98 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/semver/5.7.1",
+    "wanted": {
+      "dependentId": "registry.npmjs.org/ts-jest/25.2.1",
+      "name": "semver",
+      "rawSpec": "^5.5"
+    }
+  },
+  "99 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/semver/5.7.1",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "resolved"
+  },
+  "100 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/yargs-parser/16.1.0",
+    "wanted": {
+      "dependentId": "registry.npmjs.org/ts-jest/25.2.1",
+      "name": "yargs-parser",
+      "rawSpec": "^16.1.0"
+    }
+  },
+  "101 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/yargs-parser/16.1.0",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "resolved"
+  },
+  "102 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/lines-and-columns/1.1.6",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "found_in_store"
+  },
+  "103 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/tslib/1.11.1",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "found_in_store"
+  },
+  "104 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/make-error/1.3.6",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "found_in_store"
+  },
+  "105 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/source-map-support/0.5.16",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "found_in_store"
+  },
+  "106 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/arg/4.1.3",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "found_in_store"
+  },
+  "107 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/diff/4.0.2",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "found_in_store"
+  },
+  "108 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/yn/3.1.1",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "found_in_store"
+  },
+  "109 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/bs-logger/0.2.6",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "found_in_store"
+  },
+  "110 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/buffer-from/1.1.1",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "found_in_store"
+  },
+  "111 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/fast-json-stable-stringify/2.1.0",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "found_in_store"
+  },
+  "112 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/json5/2.1.2",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "found_in_store"
+  },
+  "113 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/lodash.memoize/4.1.2",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "found_in_store"
+  },
+  "114 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/resolve/1.15.1",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "found_in_store"
+  },
+  "115 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/mkdirp/0.4.2",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "found_in_store"
+  },
+  "116 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/semver/5.7.1",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "found_in_store"
+  },
+  "117 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/yargs-parser/16.1.0",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "found_in_store"
+  },
+  "118 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/tslint/6.1.0",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "resolved"
+  },
+  "119 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/tslint/6.1.0",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "found_in_store"
+  },
+  "120 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/@babel/code-frame/7.8.3",
+    "wanted": {
+      "dependentId": "registry.npmjs.org/tslint/6.1.0",
+      "name": "@babel/code-frame",
+      "rawSpec": "^7.0.0"
+    }
+  },
+  "121 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/@babel/code-frame/7.8.3",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "resolved"
+  },
+  "122 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/builtin-modules/1.1.1",
+    "wanted": {
+      "dependentId": "registry.npmjs.org/tslint/6.1.0",
+      "name": "builtin-modules",
+      "rawSpec": "^1.1.1"
+    }
+  },
+  "123 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/builtin-modules/1.1.1",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "resolved"
+  },
+  "124 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/chalk/2.4.2",
+    "wanted": {
+      "dependentId": "registry.npmjs.org/tslint/6.1.0",
+      "name": "chalk",
+      "rawSpec": "^2.3.0"
+    }
+  },
+  "125 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/chalk/2.4.2",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "resolved"
+  },
+  "126 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/commander/2.20.3",
+    "wanted": {
+      "dependentId": "registry.npmjs.org/tslint/6.1.0",
+      "name": "commander",
+      "rawSpec": "^2.12.1"
+    }
+  },
+  "127 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/commander/2.20.3",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "resolved"
+  },
+  "128 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/diff/4.0.2",
+    "wanted": {
+      "dependentId": "registry.npmjs.org/tslint/6.1.0",
+      "name": "diff",
+      "rawSpec": "^4.0.1"
+    }
+  },
+  "129 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/glob/7.1.6",
+    "wanted": {
+      "dependentId": "registry.npmjs.org/tslint/6.1.0",
+      "name": "glob",
+      "rawSpec": "^7.1.1"
+    }
+  },
+  "130 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/glob/7.1.6",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "resolved"
+  },
+  "131 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/js-yaml/3.13.1",
+    "wanted": {
+      "dependentId": "registry.npmjs.org/tslint/6.1.0",
+      "name": "js-yaml",
+      "rawSpec": "^3.13.1"
+    }
+  },
+  "132 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/js-yaml/3.13.1",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "resolved"
+  },
+  "133 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/minimatch/3.0.4",
+    "wanted": {
+      "dependentId": "registry.npmjs.org/tslint/6.1.0",
+      "name": "minimatch",
+      "rawSpec": "^3.0.4"
+    }
+  },
+  "134 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/minimatch/3.0.4",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "resolved"
+  },
+  "135 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/mkdirp/0.5.1",
+    "wanted": {
+      "dependentId": "registry.npmjs.org/tslint/6.1.0",
+      "name": "mkdirp",
+      "rawSpec": "^0.5.1"
+    }
+  },
+  "136 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/mkdirp/0.5.1",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "resolved"
+  },
+  "137 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/resolve/1.15.1",
+    "wanted": {
+      "dependentId": "registry.npmjs.org/tslint/6.1.0",
+      "name": "resolve",
+      "rawSpec": "^1.3.2"
+    }
+  },
+  "138 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/semver/5.7.1",
+    "wanted": {
+      "dependentId": "registry.npmjs.org/tslint/6.1.0",
+      "name": "semver",
+      "rawSpec": "^5.3.0"
+    }
+  },
+  "139 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/tslib/1.11.1",
+    "wanted": {
+      "dependentId": "registry.npmjs.org/tslint/6.1.0",
+      "name": "tslib",
+      "rawSpec": "^1.10.0"
+    }
+  },
+  "140 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/tsutils/2.29.0",
+    "wanted": {
+      "dependentId": "registry.npmjs.org/tslint/6.1.0",
+      "name": "tsutils",
+      "rawSpec": "^2.29.0"
+    }
+  },
+  "141 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/eslint-plugin-prettier/2.7.0",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "resolved"
+  },
+  "142 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/eslint-plugin-prettier/2.7.0",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "found_in_store"
+  },
+  "143 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/fast-diff/1.2.0",
+    "wanted": {
+      "dependentId": "registry.npmjs.org/eslint-plugin-prettier/2.7.0",
+      "name": "fast-diff",
+      "rawSpec": "^1.1.1"
+    }
+  },
+  "144 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/fast-diff/1.2.0",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "resolved"
+  },
+  "145 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/jest-docblock/21.2.0",
+    "wanted": {
+      "dependentId": "registry.npmjs.org/eslint-plugin-prettier/2.7.0",
+      "name": "jest-docblock",
+      "rawSpec": "^21.0.0"
+    }
+  },
+  "146 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/jest-docblock/21.2.0",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "resolved"
+  },
+  "147 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/fast-diff/1.2.0",
+    "wanted": {
+      "dependentId": "registry.npmjs.org/eslint-plugin-prettier/2.7.0",
+      "name": "fast-diff",
+      "rawSpec": "^1.1.1"
+    }
+  },
+  "148 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/jest-docblock/21.2.0",
+    "wanted": {
+      "dependentId": "registry.npmjs.org/eslint-plugin-prettier/2.7.0",
+      "name": "jest-docblock",
+      "rawSpec": "^21.0.0"
+    }
+  },
+  "149 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/@babel/code-frame/7.8.3",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "found_in_store"
+  },
+  "150 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/builtin-modules/1.1.1",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "found_in_store"
+  },
+  "151 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/chalk/2.4.2",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "found_in_store"
+  },
+  "152 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/js-yaml/3.13.1",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "found_in_store"
+  },
+  "153 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/commander/2.20.3",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "found_in_store"
+  },
+  "154 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/glob/7.1.6",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "found_in_store"
+  },
+  "155 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/minimatch/3.0.4",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "found_in_store"
+  },
+  "156 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/mkdirp/0.5.1",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "found_in_store"
+  },
+  "157 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/lodash/4.17.15",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "found_in_store"
+  },
+  "158 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/fast-diff/1.2.0",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "found_in_store"
+  },
+  "159 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/jest-docblock/21.2.0",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "found_in_store"
+  },
+  "160 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/prettier/1.19.1",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "found_in_store"
+  },
+  "161 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/tsutils/2.29.0",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "resolved"
+  },
+  "162 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/tsutils/2.29.0",
+    "requester": "/home/caglar/dev/www/piyango-api",
+    "status": "found_in_store"
+  },
+  "163 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/tslib/1.11.1",
+    "wanted": {
+      "dependentId": "registry.npmjs.org/tsutils/2.29.0",
+      "name": "tslib",
+      "rawSpec": "^1.8.1"
+    }
+  },
+  "164 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/tslib/1.11.1",
+    "wanted": {
+      "dependentId": "registry.npmjs.org/tsutils/2.29.0",
+      "name": "tslib",
+      "rawSpec": "^1.8.1"
+    }
+  },
+  "165 error pnpm": {
+    "message": {
+      "code": "ERR_PNPM_REGISTRY_META_RESPONSE_404",
+      "package": "@types/haikunator",
+      "response": {
+        "size": 0,
+        "timeout": 0
+      },
+      "uri": "https://registry.npmjs.org/@types%2Fhaikunator",
+      "pkgsStack": []
+    },
+    "err": {
+      "name": "Error",
+      "message": "404 Not Found: @types/haikunator (via https://registry.npmjs.org/@types%2Fhaikunator)",
+      "code": "ERR_PNPM_REGISTRY_META_RESPONSE_404",
+      "stack": "Error: 404 Not Found: @types/haikunator (via https://registry.npmjs.org/@types%2Fhaikunator)\n    at fromRegistry (/home/caglar/.nvm/versions/node/v13.8.0/pnpm-global/3/node_modules/.pnpm/registry.npmjs.org/pnpm/4.11.6/node_modules/pnpm/lib/node_modules/@pnpm/npm-resolver/lib/fetch.js:24:15)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+    }
+  }
+}

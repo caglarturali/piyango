@@ -1,16 +1,13 @@
 import { NowRequest, NowResponse } from '@now/node';
-import { DRAWS_DATA_PATH } from '../src/constants';
+import { getRootMessage } from '../src/controllers';
 
 export default (req: NowRequest, res: NowResponse) => {
   const { method } = req;
 
   switch (method) {
     case 'GET': {
-      res.status(200).json({
-        name: 'John',
-        email: 'john@example.com',
-        dataPath: DRAWS_DATA_PATH,
-      });
+      const response = getRootMessage();
+      res.status(response.statusCode).json(response.toObject());
       break;
     }
 
