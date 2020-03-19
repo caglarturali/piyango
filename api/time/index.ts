@@ -4,7 +4,7 @@
 import { NowRequest, NowResponse } from '@now/node';
 import { getCurrentTime } from '../../src/controllers';
 
-export default async (req: NowRequest, res: NowResponse) => {
+export default (req: NowRequest, res: NowResponse) => {
   const { method } = req;
 
   switch (method) {
