@@ -11,7 +11,7 @@ import { GAMES } from '../src/constants';
 import { GameID } from '../src/models/Game';
 
 /**
- * Sync static draw data with remote assets.
+ * Syncs static draw data with remote records.
  */
 const syncDraws = async () => {
   printMsg('Building draw dates promises array');
