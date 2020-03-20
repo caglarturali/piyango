@@ -7,6 +7,19 @@ import apiconfig from '../src/apiconfig';
 import RegularDraw from '../src/models/RegularDraw';
 import LotteryDraw from '../src/models/LotteryDraw';
 
+export interface DrawDates {
+  gameId: GameID;
+  drawDates?: string[];
+  error?: string;
+}
+
+export interface DrawDetails {
+  gameId: GameID;
+  drawDate: string;
+  drawDetails?: RegularDraw | LotteryDraw;
+  error?: string;
+}
+
 /**
  * Prints beautified text.
  * @param {String} text Raw text
@@ -19,19 +32,6 @@ export const printMsg = (text: string, isError: boolean = false) => {
   // tslint:enable: no-console
 };
 
-export interface DrawDatesPromise {
-  gameId: GameID;
-  drawDates?: string[];
-  error?: string;
-}
-
-export interface DrawDetailsPromise {
-  gameId: GameID;
-  drawDate: string;
-  drawDetails?: RegularDraw | LotteryDraw;
-  error?: string;
-}
-
 /**
  * Fetches draw dates for given game.
  * @param {GameID} gameId Game ID
@@ -39,27 +39,24 @@ export interface DrawDetailsPromise {
  */
 export const getDrawDatesPromise = (
   gameId: GameID,
-): Promise<DrawDatesPromise> => {
-  const { limit, skip } = apiconfig.drawdates;
+  limit: number = apiconfig.drawdates.limit,
+  skip: number = apiconfig.drawdates.skip,
+  sort: SortOrder = SortOrder.DESC,
+): Promise<DrawDates> => {
+  return new Promise(async (resolve, _reject) => {
+    const { data, error } = await getDrawDates(gameId, limit, skip, sort);
 
-  return new Promise((resolve, reject) => {
-    getDrawDates(gameId, limit, skip, SortOrder.DESC)
-      .then(({ error, data }) => {
-        if (error) {
-          throw new Error(error);
-        }
-
-        resolve({
-          gameId,
-          drawDates: data,
-        });
-      })
-      .catch((error) => {
-        resolve({
-          gameId,
-          error,
-        });
+    if (error) {
+      return resolve({
+        gameId,
+        error,
       });
+    }
+
+    resolve({
+      gameId,
+      drawDates: data,
+    });
   });
 };
 
@@ -74,7 +71,7 @@ export const getDrawDetailsPromise = (
   gameId: GameID,
   drawDate: string,
   skipStatic: boolean = false,
-): Promise<DrawDetailsPromise> => {
+): Promise<DrawDetails> => {
   return new Promise((resolve, reject) => {
     if (skipStatic) {
       // Skip if record is already found.
