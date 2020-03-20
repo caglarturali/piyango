@@ -1,3 +1,4 @@
+import { Response } from 'node-fetch';
 import { DATE_FORMAT, GAMES } from '../constants';
 import { GameID } from '../models/Game';
 import ApiResponse from '../models/ApiResponse';
@@ -32,6 +33,22 @@ export const validDate = (
 ): boolean => {
   if (!isDateValid(dateStr, dateFormat)) {
     apiResponse.setFailed('Date is not valid', 400);
+    return false;
+  }
+  return true;
+};
+
+/**
+ * Validates Fetch response.
+ * @param response Fetch response
+ * @param apiResponse ApiResponse
+ */
+export const validResponse = (
+  response: Response,
+  apiResponse: ApiResponse<any>,
+): boolean => {
+  if (!response.ok) {
+    apiResponse.setFailed('Unable to fetch data', response.status);
     return false;
   }
   return true;

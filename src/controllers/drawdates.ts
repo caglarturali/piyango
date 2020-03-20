@@ -11,7 +11,7 @@ import DrawListing from '../models/DrawListing';
 import { SortOrder } from '../models/SortOrder';
 import { GameID } from '../models/Game';
 import { DATE_FORMAT, DRAWS_DATA_PATH, MPI_BASE } from '../constants';
-import { validGameId } from './_validate';
+import { validGameId, validResponse } from './_validate';
 
 /**
  * Builds draw dates url.
@@ -41,10 +41,7 @@ export const getDrawDates = async (
 
   const response = await fetch(buildDrawDatesUrl(gameId), { method: 'GET' });
 
-  if (!response.ok) {
-    apiResponse.setFailed('Unable to fetch data', response.status);
-    return apiResponse;
-  }
+  if (!validResponse(response, apiResponse)) return apiResponse;
 
   try {
     const body = await response.text();
