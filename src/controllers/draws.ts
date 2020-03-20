@@ -2,7 +2,7 @@
  * Draws controller.
  */
 import fs from 'fs';
-import fetch, { Response } from 'node-fetch';
+import fetch from 'node-fetch';
 import moment from 'moment';
 import stripBom from 'strip-bom';
 import {
@@ -12,19 +12,19 @@ import {
   MPI_BASE,
 } from '../constants';
 import ApiResponse from '../models/ApiResponse';
-import PromiseResult from '../models/PromiseResult';
 import RegularDraw from '../models/RegularDraw';
 import LotteryDraw from '../models/LotteryDraw';
 import { GameID } from '../models/Game';
-import {
-  buildStaticResourcePath,
-  rejectHandler,
-  resolveHandler,
-} from '../utils';
+import { buildStaticResourcePath } from '../utils';
 import { getDrawDates } from './drawdates';
 import { SortOrder } from '../models/SortOrder';
 import { validDate, validGameId } from './_validate';
 import Draw from '../models/Draw';
+
+interface PromiseResult {
+  data?: any;
+  error?: string;
+}
 
 /**
  * Builds resource names array based on game id and draw data.
@@ -71,34 +71,33 @@ export const getDrawDetailsPromise = (
   gameId: GameID,
   url: string,
 ): Promise<PromiseResult> => {
-  return new Promise((resolve, reject) => {
-    fetch(url, { method: 'GET' })
-      .then(resolveHandler, rejectHandler)
-      .then((res: Response) => res.text())
-      .then((resText: string) => {
-        const data = JSON.parse(stripBom(resText));
+  return new Promise(async (resolve, _reject) => {
+    const response = await fetch(url, { method: 'GET' });
 
-        // Necessary for piyango.
-        if (gameId === GameID.piyango) {
-          const dateOriginal = data.cekilisTarihi;
-          const dateNew = moment(dateOriginal, DATE_FORMAT).format(
-            DATE_FORMAT_FRIENDLY,
-          );
-
-          // Append new fields.
-          data.cekilisTarihi = dateNew;
-          data.cekilisTarihiRaw = dateOriginal;
-        }
-
-        resolve({
-          data,
-        } as PromiseResult);
-      })
-      .catch((error) => {
-        resolve({
-          error: { message: error.message, status: error.status },
-        } as PromiseResult);
+    if (!response.ok) {
+      return resolve({
+        error: `Error ${response.status}: ${response.statusText}`,
       });
+    }
+
+    const text = await response.text();
+    const data = JSON.parse(stripBom(text));
+
+    // Necessary for piyango.
+    if (gameId === GameID.piyango) {
+      const dateOriginal = data.cekilisTarihi;
+      const dateNew = moment(dateOriginal, DATE_FORMAT).format(
+        DATE_FORMAT_FRIENDLY,
+      );
+
+      // Append new fields.
+      data.cekilisTarihi = dateNew;
+      data.cekilisTarihiRaw = dateOriginal;
+    }
+
+    resolve({
+      data,
+    });
   });
 };
 
@@ -192,7 +191,7 @@ export const getDrawDetails = async (gameId: GameID, drawDate: string) => {
   let finalError;
 
   results.forEach(({ error, data }) => {
-    if (error) finalError = error.message;
+    if (error) finalError = error;
     if (data) finalData = data;
   });
 
