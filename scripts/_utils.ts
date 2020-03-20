@@ -7,6 +7,18 @@ import apiconfig from '../src/apiconfig';
 import RegularDraw from '../src/models/RegularDraw';
 import LotteryDraw from '../src/models/LotteryDraw';
 
+/**
+ * Prints beautified text.
+ * @param {String} text Raw text
+ * @param {Boolean} isError Is error message or not
+ */
+export const printMsg = (text: string, isError: boolean = false) => {
+  // tslint:disable: no-console
+  if (isError) return console.error(`*** ${text} ***`);
+  console.log(`=== ${text} ===`);
+  // tslint:enable: no-console
+};
+
 export interface DrawDatesPromise {
   gameId: GameID;
   drawDates?: string[];

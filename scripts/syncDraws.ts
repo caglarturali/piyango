@@ -10,21 +10,10 @@ import {
   DrawDetailsPromise,
   getDrawDatesPromise,
   getDrawDetailsPromise,
+  printMsg,
 } from './_utils';
 import { GAMES } from '../src/constants';
 import { GameID } from '../src/models/Game';
-
-/**
- * Prints beautified text.
- * @param {String} text Raw text
- * @param {Boolean} isError Is error message or not
- */
-const printMsg = (text: string, isError: boolean = false) => {
-  // tslint:disable: no-console
-  if (isError) return console.error(`*** ${text} ***`);
-  console.log(`=== ${text} ===`);
-  // tslint:enable: no-console
-};
 
 printMsg('Building draw dates promises array');
 const drawDatesPromises: Promise<DrawDatesPromise>[] = [];
