@@ -1,8 +1,3 @@
-/**
- * Downloads missing draw results for each game
- * and saves them into /draws.
- */
-
 import fs from 'fs';
 import { buildStaticResourcePath } from '../src/utils';
 import {
