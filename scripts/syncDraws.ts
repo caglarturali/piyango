@@ -35,15 +35,22 @@ const syncDraws = async () => {
     }
 
     drawDates.forEach((date) => {
-      drawDetailsPromises.push(getDrawDetailsPromise(gameId, date, true));
+      // Skip if record is already found.
+      const resourcePath = buildStaticResourcePath(gameId, date);
+      if (!fs.existsSync(resourcePath)) {
+        drawDetailsPromises.push(getDrawDetailsPromise(gameId, date));
+      }
     });
   });
+
+  if (!drawDetailsPromises.length) {
+    return printMsg('All records are up to date!');
+  }
 
   printMsg('Waiting for draw details promises array to resolve');
   const drawDetailsResults = await Promise.all(drawDetailsPromises);
 
   printMsg('Writing data into disk (if any)');
-
   drawDetailsResults.forEach(({ gameId, drawDate, drawDetails, error }) => {
     if (error) return printMsg(`${gameId}-${drawDate}-${error}`, true);
 

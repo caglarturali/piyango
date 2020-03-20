@@ -1,12 +1,10 @@
 import { GAMES } from '../src/constants';
 import { GameID } from '../src/models/Game';
-import { getDrawDates, getDrawDetails } from '../src/controllers';
-import { SortOrder } from '../src/models/SortOrder';
-import ApiResponse from '../src/models/ApiResponse';
 import {
   DrawDates,
   DrawDetails,
   getDrawDatesPromise,
+  getDrawDetailsPromise,
 } from './_utils';
 import DrawUtils from '../src/utils/DrawUtils';
 import RegularDraw from '../src/models/RegularDraw';
@@ -28,17 +26,7 @@ const calculateStats = async () => {
   const drawDetailsPromises: Promise<any>[] = [];
   drawDatesResult.forEach(({ gameId, drawDates }) => {
     drawDates?.forEach((drawDate) => {
-      drawDetailsPromises.push(
-        (() =>
-          new Promise(async (resolve) => {
-            const { data } = await getDrawDetails(gameId, drawDate);
-            resolve({
-              gameId,
-              drawDate,
-              drawDetails: data[0],
-            });
-          }))(),
-      );
+      drawDetailsPromises.push(getDrawDetailsPromise(gameId, drawDate));
     });
   });
   const drawDetailsResults: DrawDetails[] = await Promise.all(
