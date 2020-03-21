@@ -12,7 +12,8 @@
     "prod": "now --prod",
     "rmtmp": "rm -rf /tmp/zeit-fun-*",
     "sync:draws": "ts-node scripts/syncDraws.ts",
-    "sync:commit": "ts-node scripts/syncDrawsAndCommit.ts",
+    "sync:stats": "ts-node scripts/calcStats.ts",
+    "sync:commit": "ts-node scripts/syncAndCommit.ts",
     "docs": "ts-node scripts/generateDocs.ts && prettier --write index.html"
   },
   "husky": {
