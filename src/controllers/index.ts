@@ -5,4 +5,5 @@ export * from './drawhistory';
 export * from './draws';
 export * from './embed';
 export * from './games';
+export * from './stats';
 export * from './time';
