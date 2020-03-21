@@ -1,4 +1,3 @@
-import fs from 'fs';
 import { GameID } from '../src/models/Game';
 import { SortOrder } from '../src/models/SortOrder';
 import { getDrawDates, getDrawDetails } from '../src/controllers';

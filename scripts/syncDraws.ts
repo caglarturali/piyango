@@ -1,5 +1,5 @@
 import fs from 'fs';
-import { buildStaticResourcePath } from '../src/utils';
+import PathUtils from '../src/utils/PathUtils';
 import {
   DrawDates,
   DrawDetails,
@@ -36,7 +36,7 @@ const syncDraws = async () => {
 
     drawDates.forEach((date) => {
       // Skip if record is already found.
-      const resourcePath = buildStaticResourcePath(gameId, date);
+      const resourcePath = PathUtils.drawResourcePath(gameId, date);
       if (!fs.existsSync(resourcePath)) {
         drawDetailsPromises.push(getDrawDetailsPromise(gameId, date));
       }
@@ -57,7 +57,7 @@ const syncDraws = async () => {
     if (drawDetails) {
       // Write file to disk.
       printMsg(`Record added for: ${gameId} - ${drawDate}`);
-      const filePath = buildStaticResourcePath(gameId, drawDate);
+      const filePath = PathUtils.drawResourcePath(gameId, drawDate);
       fs.writeFileSync(filePath, JSON.stringify(drawDetails));
     }
   });

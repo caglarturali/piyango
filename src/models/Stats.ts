@@ -1,0 +1,137 @@
+import fs from 'fs';
+import { GameID } from './Game';
+import { GameColumn } from './RegularDraw';
+import PathUtils from '../utils/PathUtils';
+import DateUtils from '../utils/DateUtils';
+import { GAMES } from '../constants';
+
+/**
+ * Statistics class that represents
+ * a frequency report of numbers of a game.
+ */
+export default class Stats {
+  lastDraw: string = '';
+  numbers: {
+    [key: string]: {
+      freq: number;
+      last: string | null;
+    };
+  } = {};
+
+  constructor(public gameId: GameID) {
+    const game = GAMES.find((g) => g.id === gameId);
+    if (game && game.pool) {
+      const { main, plus } = game.pool;
+      // Create entries for all numbers.
+      for (let i = 1; i <= main.from; i++) {
+        const numStr = this.numToStr(i);
+        this.numbers[numStr] = {
+          freq: 0,
+          last: null,
+        };
+      }
+      if (plus) {
+        for (let i = 1; i <= plus.from; i++) {
+          const numStr = this.numToStr(i, true);
+          this.numbers[numStr] = {
+            freq: 0,
+            last: null,
+          };
+        }
+      }
+    }
+  }
+
+  /**
+   * Returns a new instance from a static report
+   * that have already been created.
+   * @param gameId Game ID
+   */
+  static fromFile(gameId: GameID): Stats {
+    const stats = new Stats(gameId);
+
+    const filePath = PathUtils.statsResourcePath(gameId);
+    const { lastDraw = '', numbers = {} } = JSON.parse(
+      fs.readFileSync(filePath).toString(),
+    );
+
+    // Hydrate the instance.
+    stats.lastDraw = lastDraw;
+    stats.numbers = numbers;
+
+    return stats;
+  }
+
+  /**
+   * Processes a column of numbers.
+   * @param column Game column
+   * @param drawDate Draw date string
+   */
+  processColumn(column: GameColumn, drawDate: string) {
+    column.main.forEach((num) => this.processNumber(num, drawDate));
+    if (this.gameId === GameID.sanstopu && column.plus) {
+      column.plus.forEach((plus) => this.processNumber(plus, drawDate, true));
+    }
+  }
+
+  /**
+   * Processes a single number.
+   * @param num Number
+   * @param drawDate Draw date string
+   * @param isPlus If the number is belong to 'plus' pool or not
+   */
+  processNumber(num: number, drawDate: string, isPlus: boolean = false) {
+    const numStr = this.numToStr(num, isPlus);
+
+    const { freq, last } = this.numbers[numStr];
+    let lastDate;
+
+    if (last) {
+      lastDate = DateUtils.isGreaterThan(drawDate, last) ? drawDate : last;
+    } else {
+      lastDate = drawDate;
+    }
+
+    this.numbers[numStr] = {
+      freq: freq + 1,
+      last: lastDate,
+    };
+
+    if (!this.lastDraw || DateUtils.isGreaterThan(drawDate, this.lastDraw)) {
+      this.lastDraw = drawDate;
+    }
+  }
+
+  /**
+   * Returns the string representation of the number.
+   * @param num Number
+   * @param isPlus Is plus or not
+   */
+  numToStr(num: number, isPlus: boolean = false): string {
+    let numStr = Number(num)
+      .toString()
+      .padStart(2, '0');
+
+    // Prepend with plus if necessary.
+    if (isPlus) numStr = `+${numStr}`;
+
+    return numStr;
+  }
+
+  /**
+   * Builds a prettified report w/o gameId field.
+   */
+  report(): string {
+    const { lastDraw, numbers } = this;
+    return JSON.stringify({ lastDraw, numbers }, null, 2);
+  }
+
+  /**
+   * Writes the report into the disk.
+   */
+  writeToDisk() {
+    const report = this.report();
+    const filePath = PathUtils.statsResourcePath(this.gameId);
+    fs.writeFileSync(filePath, report);
+  }
+}

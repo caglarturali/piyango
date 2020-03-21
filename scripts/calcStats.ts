@@ -1,47 +1,86 @@
 import { GAMES } from '../src/constants';
 import { GameID } from '../src/models/Game';
-import {
-  DrawDates,
-  DrawDetails,
-  getDrawDatesPromise,
-  getDrawDetailsPromise,
-} from './_utils';
+import { printMsg } from './_utils';
 import DrawUtils from '../src/utils/DrawUtils';
 import RegularDraw from '../src/models/RegularDraw';
-
-// tslint:disable: no-console
+import { getDrawDates, getDrawDetails } from '../src/controllers';
+import { SortOrder } from '../src/models/SortOrder';
+import Stats from '../src/models/Stats';
 
 /**
- * Calculates stats for regular games.
+ * Calculates stats for all games (except piyango).
+ * @param write Write to disk or not
  */
-const calculateStats = async () => {
-  // Get all draw dates for all games, except piyango.
-  const drawDatesPromises: Promise<DrawDates>[] = [];
-  GAMES.filter((g) => g.id !== GameID.piyango).forEach((game) => {
-    drawDatesPromises.push(getDrawDatesPromise(game.id, 0, 0));
-  });
-  const drawDatesResult = await Promise.all(drawDatesPromises);
-
-  // Get draw details for all draws collected above.
-  const drawDetailsPromises: Promise<any>[] = [];
-  drawDatesResult.forEach(({ gameId, drawDates }) => {
-    drawDates?.forEach((drawDate) => {
-      drawDetailsPromises.push(getDrawDetailsPromise(gameId, drawDate));
-    });
-  });
-  const drawDetailsResults: DrawDetails[] = await Promise.all(
-    drawDetailsPromises,
+const calculateStats = async (write: boolean = false) => {
+  // Get all stats for all games, except piyango.
+  const statsResults: Stats[] = await Promise.all(
+    GAMES.filter((g) => g.id !== GameID.piyango).map(async (game) => {
+      return await calculateStatsForGame(game.id);
+    }),
   );
 
-  drawDetailsResults.forEach(({ gameId, drawDetails }) => {
+  statsResults.forEach((stats) => {
+    if (write) {
+      stats.writeToDisk();
+    } else {
+      // tslint:disable-next-line: no-console
+      console.log(stats.report());
+    }
+  });
+};
+
+/**
+ * Calculates stats for given game.
+ * @param gameId Game ID
+ */
+const calculateStatsForGame = async (gameId: GameID) => {
+  if (gameId === GameID.piyango) return new Stats(GameID.sayisal);
+
+  const stats = new Stats(gameId);
+
+  // Get all draw dates for game.
+  const { error, data: drawDates } = await getDrawDates(
+    gameId,
+    0,
+    0,
+    SortOrder.DESC,
+  );
+
+  if (error) {
+    printMsg(error, true);
+    return stats;
+  }
+
+  // Get draw details for all draws.
+  const drawDetailsResults: any[] = await Promise.all(
+    drawDates.map(async (drawDate) => {
+      const {
+        error: detailError,
+        data: [drawDetails],
+      } = await getDrawDetails(gameId, drawDate);
+
+      if (detailError) {
+        printMsg(detailError, true);
+        return stats;
+      }
+
+      return {
+        drawDate,
+        drawDetails,
+      };
+    }),
+  );
+
+  // Process numbers of each draw.
+  drawDetailsResults.forEach(({ drawDate, drawDetails }) => {
     const nums = DrawUtils.getWinningNumbers(
       gameId,
       drawDetails as RegularDraw,
     );
-    console.log(gameId, nums);
+    stats.processColumn(nums, drawDate);
   });
 
-  // console.log(drawDetailsResults);
+  return stats;
 };
 
-calculateStats();
+calculateStats(false);
