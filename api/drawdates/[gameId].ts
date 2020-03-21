@@ -1,3 +1,6 @@
+/**
+ * /drawdates
+ */
 import { NowRequest, NowResponse } from '@now/node';
 import { getDrawDates } from '../../src/controllers';
 import { GameID } from '../../src/models/Game';
