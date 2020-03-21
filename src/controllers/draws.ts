@@ -15,7 +15,7 @@ import ApiResponse from '../models/ApiResponse';
 import RegularDraw from '../models/RegularDraw';
 import LotteryDraw from '../models/LotteryDraw';
 import { GameID } from '../models/Game';
-import { buildStaticResourcePath } from '../utils';
+import PathUtils from '../utils/PathUtils';
 import { getDrawDates } from './drawdates';
 import { SortOrder } from '../models/SortOrder';
 import { validDate, validGameId } from './_validate';
@@ -167,7 +167,7 @@ export const getDrawDetails = async (gameId: GameID, drawDate: string) => {
   /**
    * Return static data if found.
    */
-  const resourcePath = buildStaticResourcePath(gameId, drawDate);
+  const resourcePath = PathUtils.drawResourcePath(gameId, drawDate);
   if (fs.existsSync(resourcePath)) {
     const fileContents = require(resourcePath);
     apiResponse.addData(fileContents);

@@ -1,7 +1,7 @@
 import { getDrawHistory, getDrawHistoryForGame } from '../drawhistory';
 import { GAMES } from '../../constants';
 import { GameID } from '../../models/Game';
-import { isDateValid } from '../../utils';
+import DateUtils from '../../utils/DateUtils';
 
 test('should get draw history for all games for given date', async () => {
   const dateStr = '20200101';
@@ -12,7 +12,7 @@ test('should get draw history for all games for given date', async () => {
     expect(gameId).toBeDefined();
     expect(draws).toBeDefined();
     draws.forEach((date) => {
-      expect(isDateValid(date)).toBeTruthy();
+      expect(DateUtils.isDateValid(date)).toBeTruthy();
     });
   });
 });
@@ -23,6 +23,6 @@ test('should get draw history for given game and date', async () => {
 
   expect(data.length).toBeGreaterThan(0);
   data.forEach((date) => {
-    expect(isDateValid(date)).toBeTruthy();
+    expect(DateUtils.isDateValid(date)).toBeTruthy();
   });
 });

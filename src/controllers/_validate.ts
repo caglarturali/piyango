@@ -2,7 +2,7 @@ import { Response } from 'node-fetch';
 import { DATE_FORMAT, GAMES } from '../constants';
 import { GameID } from '../models/Game';
 import ApiResponse from '../models/ApiResponse';
-import { isDateValid } from '../utils';
+import DateUtils from '../utils/DateUtils';
 
 /**
  * Validates Game Id.
@@ -31,7 +31,7 @@ export const validDate = (
   dateStr: string,
   dateFormat: string = DATE_FORMAT,
 ): boolean => {
-  if (!isDateValid(dateStr, dateFormat)) {
+  if (!DateUtils.isDateValid(dateStr, dateFormat)) {
     apiResponse.setFailed('Date is not valid', 400);
     return false;
   }
