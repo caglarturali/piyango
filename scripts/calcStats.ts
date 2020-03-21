@@ -83,4 +83,4 @@ const calculateStatsForGame = async (gameId: GameID) => {
   return stats;
 };
 
-calculateStats(false);
+calculateStats(true);
