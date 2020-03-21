@@ -402,6 +402,53 @@
             </li>
           </ul>
         </li>
+        <li>
+          <h3>Statistics</h3>
+          <p>
+            Get the statistics for given game. The game <code>piyango</code> is
+            not supported on this endpoint.
+          </p>
+          <p><code>GET https://dev.piyango.online/api/stats/:gameId</code></p>
+          <ul>
+            <li>
+              <h4>URL Parameters</h4>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Key</th>
+                    <th>Type</th>
+                    <th>Required</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>gameId</td>
+                    <td>Enum</td>
+                    <td>Yes</td>
+                    <td>
+                      A unique value used to identify games. Should be one of
+                      the following: <code>sayisal</code>,
+                      <code>sanstopu</code>, <code>onnumara</code>,
+                      <code>superloto</code>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <h4>Example Request</h4>
+              <p>
+                <a href="https://dev.piyango.online/api/stats/sanstopu"
+                  >https://dev.piyango.online/api/stats/sanstopu</a
+                >
+              </p>
+              <p>
+                <a href="https://dev.piyango.online/api/stats/sayisal"
+                  >https://dev.piyango.online/api/stats/sayisal</a
+                >
+              </p>
+            </li>
+          </ul>
+        </li>
       </ul>
       <ul>
         <li>

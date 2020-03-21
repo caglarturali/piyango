@@ -132,6 +132,24 @@ The following is a list of the types of data used within the Piyango API:
       }'
     ```
 
+- ### Statistics
+
+  Get the statistics for given game. The game `piyango` is not supported on this endpoint.
+
+  `GET https://dev.piyango.online/api/stats/:gameId`
+
+  - #### URL Parameters
+
+    | Key    | Type | Required | Description                                                                                                           |
+    | ------ | ---- | -------- | --------------------------------------------------------------------------------------------------------------------- |
+    | gameId | Enum | Yes      | A unique value used to identify games. Should be one of the following: `sayisal`, `sanstopu`, `onnumara`, `superloto` |
+
+    #### Example Request
+
+    https://dev.piyango.online/api/stats/sanstopu
+
+    https://dev.piyango.online/api/stats/sayisal
+
 * ### Embed
 
   Get embeddable HLS stream of the draw. Returns dummy stream if the requested stream is not found.
