@@ -1,4 +1,4 @@
 export * from './format';
-export * from './global';
+export * from './games';
 export * from './path';
 export * from './urls';

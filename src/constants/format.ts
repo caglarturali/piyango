@@ -14,7 +14,7 @@ export const DATE_FORMAT_VIEW = 'DD-MM-YYYY';
 export const DATE_FORMAT_FRIENDLY = 'DD/MM/YYYY';
 
 /**
- * Date format used for luckhistory endpoint.
+ * Date format used for drawhistory endpoint.
  */
 export const DATE_FORMAT_SHORT = 'MMDD';
 
