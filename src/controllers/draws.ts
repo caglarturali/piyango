@@ -55,50 +55,9 @@ export const buildDrawDetailsUrls = (
   gameId: GameID,
   drawDate: string,
 ): string[] => {
-  const resourceNames = buildResourceNames(gameId, drawDate);
-  return resourceNames.map(
+  return buildResourceNames(gameId, drawDate).map(
     (rName) => `${MPI_BASE}/cekilisler/${gameId}/${rName}`,
   );
-};
-
-/**
- * Fetches draw details based on given credentials.
- * @param {GameID} gameId Game ID
- * @param {String} url Draw details WEB service url
- * @returns {Promise<PromiseResult>} Draw details
- */
-export const getDrawDetailsPromise = (
-  gameId: GameID,
-  url: string,
-): Promise<PromiseResult> => {
-  return new Promise(async (resolve, _reject) => {
-    const response = await fetch(url, { method: 'GET' });
-
-    if (!response.ok) {
-      return resolve({
-        error: `Error ${response.status}: ${response.statusText}`,
-      });
-    }
-
-    const text = await response.text();
-    const data = JSON.parse(stripBom(text));
-
-    // Necessary for piyango.
-    if (gameId === GameID.piyango) {
-      const dateOriginal = data.cekilisTarihi;
-      const dateNew = moment(dateOriginal, DATE_FORMAT).format(
-        DATE_FORMAT_FRIENDLY,
-      );
-
-      // Append new fields.
-      data.cekilisTarihi = dateNew;
-      data.cekilisTarihiRaw = dateOriginal;
-    }
-
-    resolve({
-      data,
-    });
-  });
 };
 
 /**
@@ -169,7 +128,7 @@ export const getDrawDetails = async (gameId: GameID, drawDate: string) => {
    */
   const resourcePath = PathUtils.drawResourcePath(gameId, drawDate);
   if (fs.existsSync(resourcePath)) {
-    const fileContents = require(resourcePath);
+    const fileContents = JSON.parse(fs.readFileSync(resourcePath).toString());
     apiResponse.addData(fileContents);
     return apiResponse;
   }
@@ -177,16 +136,37 @@ export const getDrawDetails = async (gameId: GameID, drawDate: string) => {
   /**
    * Fetch results from the web service.
    */
-
-  // Build promises array with urls.
-  const drawDetailsPromises: any[] = [];
   const urls = buildDrawDetailsUrls(gameId, drawDate);
-  urls.forEach((url) => {
-    drawDetailsPromises.push(getDrawDetailsPromise(gameId, url));
-  });
 
-  // Wait for promises to resolve and return succesful result (if any).
-  const results: PromiseResult[] = await Promise.all(drawDetailsPromises);
+  const results: PromiseResult[] = await Promise.all(
+    urls.map(async (url) => {
+      const response = await fetch(url, { method: 'GET' });
+
+      if (!response.ok) {
+        return {
+          error: `Error ${response.status}: ${response.statusText}`,
+        };
+      }
+
+      const text = await response.text();
+      const data = JSON.parse(stripBom(text));
+
+      // Necessary for piyango.
+      if (gameId === GameID.piyango) {
+        const dateOriginal = data.cekilisTarihi;
+        const dateNew = moment(dateOriginal, DATE_FORMAT).format(
+          DATE_FORMAT_FRIENDLY,
+        );
+
+        // Append new fields.
+        data.cekilisTarihi = dateNew;
+        data.cekilisTarihiRaw = dateOriginal;
+      }
+
+      return { data };
+    }),
+  );
+
   let finalData;
   let finalError;
 
