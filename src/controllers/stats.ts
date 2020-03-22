@@ -1,3 +1,6 @@
+/**
+ * Stats controller.
+ */
 import { GameID } from '../models/Game';
 import ApiResponse from '../models/ApiResponse';
 import Stats from '../models/Stats';

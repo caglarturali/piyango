@@ -1,3 +1,6 @@
+/**
+ * Time controller.
+ */
 import momentTZ, { MomentObjectOutput } from 'moment-timezone';
 import ApiResponse from '../models/ApiResponse';
 

@@ -1,3 +1,6 @@
+/**
+ * Games controller.
+ */
 import { GAMES } from '../constants';
 import ApiResponse from '../models/ApiResponse';
 import Game from '../models/Game';

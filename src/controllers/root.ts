@@ -1,3 +1,6 @@
+/**
+ * Root controller.
+ */
 import Haikunator from 'haikunator';
 import DummyMessage from '../models/DummyMessage';
 import ApiResponse from '../models/ApiResponse';

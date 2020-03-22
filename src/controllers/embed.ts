@@ -1,3 +1,6 @@
+/**
+ * Embed controller.
+ */
 import fetch from 'node-fetch';
 import moment from 'moment';
 import EmbedResponse from '../models/EmbedResponse';
