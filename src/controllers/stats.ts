@@ -29,14 +29,19 @@ export const getStatsForGame = async (gameId: GameID) => {
   const stats = Stats.fromFile(gameId);
 
   // Get all draw dates for the game.
-  const drawDatesResp = await getDrawDates(gameId, 0, 0, SortOrder.DESC);
+  const { error, data: drawDates } = await getDrawDates(
+    gameId,
+    0,
+    0,
+    SortOrder.DESC,
+  );
 
-  if (drawDatesResp.error) {
-    return drawDatesResp;
+  if (error) {
+    return apiResponse.setFailed(error);
   }
 
   // Find newer draws (if any).
-  const drawsToCalc = drawDatesResp.data.filter((drawDate) =>
+  const drawsToCalc = drawDates.filter((drawDate) =>
     DateUtils.isGreaterThan(drawDate, stats.lastDraw),
   );
 

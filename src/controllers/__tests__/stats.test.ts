@@ -14,8 +14,10 @@ test('should successfully get up-to-date report for given game', async () => {
     data: [lastDrawDate],
   } = await getDrawDates(gameId, 1, 0, SortOrder.DESC);
 
-  const { statusCode, data } = await getStatsForGame(gameId);
-  const stats = data[0] as Stats;
+  const {
+    statusCode,
+    data: [stats],
+  } = await getStatsForGame(gameId);
 
   expect(statusCode).toBe(200);
   expect(stats.lastDraw).toBe(lastDrawDate);
