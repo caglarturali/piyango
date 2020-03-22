@@ -19,7 +19,7 @@ import PathUtils from '../utils/PathUtils';
 import { getDrawDates } from './drawdates';
 import { SortOrder } from '../models/SortOrder';
 import { validDate, validGameId } from './_validate';
-import Draw from '../models/Draw';
+import DateUtils from '../utils/DateUtils';
 
 interface PromiseResult {
   data?: any;
@@ -65,30 +65,22 @@ export const buildDrawDetailsUrls = (
  */
 export const getDrawDetailsForLatestDraws = async () => {
   const apiResponse = new ApiResponse<RegularDraw | LotteryDraw>();
-  const promises: Promise<any>[] = [];
 
-  GAMES.forEach(({ id }) => {
-    promises.push(
-      (() =>
-        new Promise(async (resolve, _reject) => {
-          const { data } = await getDrawDetailsForLastDraw(id);
-          const [drawData] = data;
-          resolve(drawData);
-        }))(),
-    );
-  });
+  const results: (RegularDraw | LotteryDraw)[] = await Promise.all(
+    GAMES.map(async ({ id }) => {
+      const { data } = await getDrawDetailsForLastDraw(id);
+      const [drawData] = data;
+      return drawData;
+    }),
+  );
 
-  const results = await Promise.all(promises);
   results.forEach((data) => {
     apiResponse.addData(data);
   });
 
   if (apiResponse.hasData()) {
     apiResponse.sortData((a, b) => {
-      return (
-        moment((b as Draw).cekilisTarihi, DATE_FORMAT_FRIENDLY).unix() -
-        moment((a as Draw).cekilisTarihi, DATE_FORMAT_FRIENDLY).unix()
-      );
+      return DateUtils.isGreaterThan(b.cekilisTarihi, a.cekilisTarihi) ? 1 : -1;
     });
   }
 
@@ -100,11 +92,11 @@ export const getDrawDetailsForLatestDraws = async () => {
  * @param gameId Game ID
  */
 export const getDrawDetailsForLastDraw = async (gameId: GameID) => {
-  const drawDatesResp = await getDrawDates(gameId, 1, 0, SortOrder.DESC);
-  if (drawDatesResp.error) {
-    return drawDatesResp;
+  const { error, data } = await getDrawDates(gameId, 1, 0, SortOrder.DESC);
+  if (error) {
+    return new ApiResponse<RegularDraw | LotteryDraw>().setFailed(error);
   }
-  const [lastDrawStr] = drawDatesResp.data;
+  const [lastDrawStr] = data;
   return await getDrawDetails(gameId, lastDrawStr);
 };
 
