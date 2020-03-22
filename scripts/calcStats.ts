@@ -1,6 +1,6 @@
 import { GAMES } from '../src/constants';
 import { GameID } from '../src/models/Game';
-import { printMsg } from './_utils';
+import { MessageType, printMsg } from './_utils';
 import DrawUtils from '../src/utils/DrawUtils';
 import RegularDraw from '../src/models/RegularDraw';
 import { getDrawDates, getDrawDetails } from '../src/controllers';
@@ -47,7 +47,7 @@ const calculateStatsForGame = async (gameId: GameID) => {
   );
 
   if (error) {
-    printMsg(error, true);
+    printMsg(error, MessageType.ERROR);
     return stats;
   }
 
@@ -60,7 +60,7 @@ const calculateStatsForGame = async (gameId: GameID) => {
       } = await getDrawDetails(gameId, drawDate);
 
       if (detailError) {
-        printMsg(detailError, true);
+        printMsg(detailError, MessageType.ERROR);
         return stats;
       }
 
