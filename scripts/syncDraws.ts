@@ -1,68 +1,70 @@
 import fs from 'fs';
-import PathUtils from '../src/utils/PathUtils';
-import {
-  DrawDates,
-  DrawDetails,
-  getDrawDatesPromise,
-  getDrawDetailsPromise,
-  printMsg,
-} from './_utils';
+import { PathUtils } from '../src/utils';
+import { MessageType, printMsg } from './_utils';
 import { GAMES } from '../src/constants';
-import { GameID } from '../src/models/Game';
+import { getDrawDates, getDrawDetails } from '../src/controllers';
+import { SortOrder } from '../src/models/SortOrder';
 
 /**
  * Syncs static draw data with remote records.
  */
 const syncDraws = async () => {
-  printMsg('Building draw dates promises array');
-  const drawDatesPromises: Promise<DrawDates>[] = [];
-  GAMES.forEach((game) => {
-    const gameId = game.id as GameID;
-    drawDatesPromises.push(getDrawDatesPromise(gameId));
-  });
+  printMsg('Fetching draw dates');
+  const drawDatesResults = await Promise.all(
+    GAMES.map(async (game) => {
+      const { data } = await getDrawDates(game.id, 0, 0, SortOrder.DESC);
+      return {
+        gameId: game.id,
+        drawDates: data,
+      };
+    }),
+  );
 
-  printMsg('Waiting for draw dates promises array to resolve');
-  const drawDatesResults = await Promise.all(drawDatesPromises);
+  printMsg('Fetching draw details');
+  const drawDetailsResults = await Promise.all(
+    drawDatesResults.map(({ gameId, drawDates }) => {
+      return Promise.all(
+        drawDates
+          .filter((drawDate) => {
+            // Filter out records that are already found.
+            const resourcePath = PathUtils.drawResourcePath(gameId, drawDate);
+            return !fs.existsSync(resourcePath);
+          })
+          .map(async (drawDate) => {
+            const {
+              error,
+              data: [drawDetails],
+            } = await getDrawDetails(gameId, drawDate);
+            return {
+              gameId,
+              drawDate,
+              drawDetails,
+              error,
+            };
+          }),
+      );
+    }),
+  );
 
-  printMsg('Building draw details promises array');
-  const drawDetailsPromises: Promise<DrawDetails>[] = [];
-  drawDatesResults.forEach(({ gameId, drawDates, error }) => {
-    if (error) {
-      return printMsg(error, true);
-    }
-    if (!drawDates) {
-      return printMsg('Error while fetching draw dates', true);
-    }
+  printMsg('Writing data into disk (if any)');
+  drawDetailsResults.forEach((games) => {
+    games.forEach(({ gameId, drawDate, drawDetails, error }) => {
+      if (error)
+        return printMsg(`${gameId}-${drawDate}-${error}`, MessageType.ERROR);
 
-    drawDates.forEach((date) => {
-      // Skip if record is already found.
-      const resourcePath = PathUtils.drawResourcePath(gameId, date);
-      if (!fs.existsSync(resourcePath)) {
-        drawDetailsPromises.push(getDrawDetailsPromise(gameId, date));
+      if (drawDetails) {
+        // Write file to disk.
+        printMsg(
+          `Record added for: ${gameId} - ${drawDate}`,
+          MessageType.SUCCESS,
+        );
+        const filePath = PathUtils.drawResourcePath(gameId, drawDate);
+        fs.writeFileSync(filePath, JSON.stringify(drawDetails));
       }
     });
   });
 
-  if (!drawDetailsPromises.length) {
-    return printMsg('All records are up to date!');
-  }
-
-  printMsg('Waiting for draw details promises array to resolve');
-  const drawDetailsResults = await Promise.all(drawDetailsPromises);
-
-  printMsg('Writing data into disk (if any)');
-  drawDetailsResults.forEach(({ gameId, drawDate, drawDetails, error }) => {
-    if (error) return printMsg(`${gameId}-${drawDate}-${error}`, true);
-
-    if (drawDetails) {
-      // Write file to disk.
-      printMsg(`Record added for: ${gameId} - ${drawDate}`);
-      const filePath = PathUtils.drawResourcePath(gameId, drawDate);
-      fs.writeFileSync(filePath, JSON.stringify(drawDetails));
-    }
-  });
-
-  printMsg('Done!');
+  printMsg('Done!', MessageType.SUCCESS);
 };
 
 syncDraws();

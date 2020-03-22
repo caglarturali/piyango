@@ -46,6 +46,7 @@
     "@types/moment-timezone": "^0.5.12",
     "@types/node": "^13.9.0",
     "@types/node-fetch": "^2.5.5",
+    "chalk": "^3.0.0",
     "husky": "^4.2.3",
     "jest": "^25.1.0",
     "majestic": "^1.6.2",
