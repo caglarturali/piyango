@@ -70,7 +70,7 @@ export const getDrawDates = async (
     const fileName = path.basename(fullPath, extension);
 
     // Add record if not already found.
-    if (!apiResponse.hasItem(fileName)) {
+    if (!apiResponse.hasItem(fileName) && extension === '.json') {
       apiResponse.addData(fileName);
     }
   });
