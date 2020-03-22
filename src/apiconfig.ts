@@ -9,4 +9,7 @@ export default {
     skip: 0,
     sort: SortOrder.DESC,
   },
+  draws: {
+    delimiter: ',',
+  },
 };

@@ -3,6 +3,7 @@ import {
   buildDrawDetailsUrls,
   buildResourceNames,
   getDrawDetails,
+  getDrawDetailsForDraws,
   getDrawDetailsForLastDraw,
   getDrawDetailsForLatestDraws,
 } from '../draws';
@@ -33,6 +34,19 @@ test('should get draw details for the last draw for given game', async () => {
   expect(data).toBeDefined();
   expect(data).toHaveLength(1);
   expect(drawDetails.cekilisTuru).toBe(DrawType.SUPER_LOTO);
+});
+
+test('should get draw details for given game and dates', async () => {
+  const dates = ['20200311', '20200314'];
+  const { statusCode, data, error } = await getDrawDetailsForDraws(
+    GameID.sayisal,
+    dates,
+  );
+
+  expect(statusCode).toBe(200);
+  expect(error).toBeUndefined();
+  expect(data).toBeDefined();
+  expect(data).toHaveLength(dates.length);
 });
 
 test('should get draw details for given game and date', async () => {

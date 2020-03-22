@@ -200,7 +200,10 @@
             <strong>latest draws for all games</strong> if both
             <code>gameId</code> and <code>drawDate</code> is omitted, or returns
             the details of the <strong>last draw</strong> if only
-            <code>drawDate</code> is omitted.
+            <code>drawDate</code> is omitted. It supports performing multiple
+            queries simultaneously when draw dates are provided as a
+            comma-separated (&quot;,&quot;) list, without any additional
+            characters in between dates.
           </p>
           <p>
             <code
@@ -256,6 +259,12 @@
               <p>
                 <a href="https://dev.piyango.online/api/draws/sayisal/20200311"
                   >https://dev.piyango.online/api/draws/sayisal/20200311</a
+                >
+              </p>
+              <p>
+                <a
+                  href="https://dev.piyango.online/api/draws/sayisal/20200311,20200314"
+                  >https://dev.piyango.online/api/draws/sayisal/20200311,20200314</a
                 >
               </p>
             </li>

@@ -2,8 +2,15 @@
  * /draws/:gameId/:drawDate
  */
 import { NowRequest, NowResponse } from '@now/node';
-import { getDrawDetails } from '../../../src/controllers';
+import {
+  getDrawDetails,
+  getDrawDetailsForDraws,
+} from '../../../src/controllers';
 import { GameID } from '../../../src/models/Game';
+import ApiResponse from '../../../src/models/ApiResponse';
+import RegularDraw from '../../../src/models/RegularDraw';
+import LotteryDraw from '../../../src/models/LotteryDraw';
+import conf from '../../../src/apiconfig';
 
 export default async (req: NowRequest, res: NowResponse) => {
   const {
@@ -16,7 +23,14 @@ export default async (req: NowRequest, res: NowResponse) => {
 
   switch (method) {
     case 'GET': {
-      const result = await getDrawDetails(gameArg, dateArg);
+      let result: ApiResponse<RegularDraw | LotteryDraw>;
+      if (dateArg.includes(conf.draws.delimiter)) {
+        const drawDates = dateArg.split(conf.draws.delimiter);
+        result = await getDrawDetailsForDraws(gameArg, drawDates);
+      } else {
+        result = await getDrawDetails(gameArg, dateArg);
+      }
+
       res.status(result.statusCode).json(result.toObject());
       break;
     }

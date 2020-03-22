@@ -100,6 +100,37 @@ export const getDrawDetailsForLastDraw = async (gameId: GameID) => {
 };
 
 /**
+ * Returns draw details for given game and dates.
+ * @param gameId Game ID
+ * @param drawDates Draw dates
+ */
+export const getDrawDetailsForDraws = async (
+  gameId: GameID,
+  drawDates: string[],
+) => {
+  const apiResponse = new ApiResponse<RegularDraw | LotteryDraw>();
+
+  const results = await Promise.all(
+    drawDates.map(async (drawDate) => {
+      const {
+        error,
+        data: [drawDetails],
+      } = await getDrawDetails(gameId, drawDate);
+      return {
+        error,
+        drawDetails,
+      };
+    }),
+  );
+
+  results.forEach(({ drawDetails, error }) => {
+    apiResponse.addData(drawDetails || { error });
+  });
+
+  return apiResponse;
+};
+
+/**
  * Returns draw details for given game and given date.
  * @param {GameID} gameId Game ID
  * @param {String} drawDate Draw date in YYYYMMDD format
