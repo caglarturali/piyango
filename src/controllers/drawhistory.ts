@@ -7,7 +7,6 @@ import ApiResponse from '../models/ApiResponse';
 import { GameID } from '../models/Game';
 import { DATE_FORMAT, DATE_FORMAT_SHORT, GAMES } from '../constants';
 import DrawHistory from '../models/DrawHistory';
-import { SortOrder } from '../models/SortOrder';
 import { validDate, validGameId } from './_validate';
 
 /**
@@ -81,7 +80,8 @@ export const getDrawHistoryForGame = async (date: string, gameId: GameID) => {
 
   const refDate = moment(date, DATE_FORMAT).format(DATE_FORMAT_SHORT);
 
-  const drawDates = await getDrawDates(gameId, 0, 0, SortOrder.DESC);
+  const drawDates = await getDrawDates(gameId, 0);
+
   drawDates.data.forEach((t) => {
     if (refDate === moment(t, DATE_FORMAT).format(DATE_FORMAT_SHORT)) {
       apiResponse.addData(t);

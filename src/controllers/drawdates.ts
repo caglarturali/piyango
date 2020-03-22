@@ -12,6 +12,7 @@ import { SortOrder } from '../models/SortOrder';
 import { GameID } from '../models/Game';
 import { DATE_FORMAT, DRAWS_DIR_PATH, MPI_BASE } from '../constants';
 import { validGameId, validResponse } from './_validate';
+import conf from '../apiconfig';
 
 /**
  * Builds draw dates url.
@@ -24,15 +25,15 @@ const buildDrawDatesUrl = (gameId: GameID) => {
 /**
  * Returns draw dates listing for specified game.
  * @param gameId Game ID
- * @param limit Limit to be applied
- * @param skip Count of entries to skip
- * @param sort Sorting order of the results
+ * @param limit Limit to be applied. 25 by default.
+ * @param skip Count of entries to skip. 0 by default.
+ * @param sort Sorting order of the results. DESC by default.
  */
 export const getDrawDates = async (
   gameId: GameID,
-  limit: number,
-  skip: number,
-  sort: SortOrder,
+  limit: number = conf.drawdates.limit,
+  skip: number = conf.drawdates.skip,
+  sort: SortOrder = conf.drawdates.sort,
 ): Promise<ApiResponse<string>> => {
   const apiResponse = new ApiResponse<string>();
 

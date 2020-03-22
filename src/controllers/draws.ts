@@ -17,7 +17,6 @@ import LotteryDraw from '../models/LotteryDraw';
 import { GameID } from '../models/Game';
 import PathUtils from '../utils/PathUtils';
 import { getDrawDates } from './drawdates';
-import { SortOrder } from '../models/SortOrder';
 import { validDate, validGameId } from './_validate';
 import DateUtils from '../utils/DateUtils';
 
@@ -92,7 +91,7 @@ export const getDrawDetailsForLatestDraws = async () => {
  * @param gameId Game ID
  */
 export const getDrawDetailsForLastDraw = async (gameId: GameID) => {
-  const { error, data } = await getDrawDates(gameId, 1, 0, SortOrder.DESC);
+  const { error, data } = await getDrawDates(gameId, 1);
   if (error) {
     return new ApiResponse<RegularDraw | LotteryDraw>().setFailed(error);
   }

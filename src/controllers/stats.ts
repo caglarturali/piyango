@@ -5,7 +5,6 @@ import { GameID } from '../models/Game';
 import ApiResponse from '../models/ApiResponse';
 import Stats from '../models/Stats';
 import { getDrawDates } from './drawdates';
-import { SortOrder } from '../models/SortOrder';
 import DateUtils from '../utils/DateUtils';
 import { getDrawDetails } from './draws';
 import RegularDraw from '../models/RegularDraw';
@@ -29,12 +28,7 @@ export const getStatsForGame = async (gameId: GameID) => {
   const stats = Stats.fromFile(gameId);
 
   // Get all draw dates for the game.
-  const { error, data: drawDates } = await getDrawDates(
-    gameId,
-    0,
-    0,
-    SortOrder.DESC,
-  );
+  const { error, data: drawDates } = await getDrawDates(gameId, 0);
 
   if (error) {
     return apiResponse.setFailed(error);

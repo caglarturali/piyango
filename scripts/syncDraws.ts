@@ -3,7 +3,6 @@ import { PathUtils } from '../src/utils';
 import { MessageType, printMsg } from './_utils';
 import { GAMES } from '../src/constants';
 import { getDrawDates, getDrawDetails } from '../src/controllers';
-import { SortOrder } from '../src/models/SortOrder';
 
 /**
  * Syncs static draw data with remote records.
@@ -12,7 +11,7 @@ const syncDraws = async () => {
   printMsg('Fetching draw dates');
   const drawDatesResults = await Promise.all(
     GAMES.map(async (game) => {
-      const { data } = await getDrawDates(game.id, 0, 0, SortOrder.DESC);
+      const { data } = await getDrawDates(game.id, 0);
       return {
         gameId: game.id,
         drawDates: data,

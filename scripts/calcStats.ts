@@ -4,7 +4,6 @@ import { MessageType, printMsg } from './_utils';
 import DrawUtils from '../src/utils/DrawUtils';
 import RegularDraw from '../src/models/RegularDraw';
 import { getDrawDates, getDrawDetails } from '../src/controllers';
-import { SortOrder } from '../src/models/SortOrder';
 import Stats from '../src/models/Stats';
 
 /**
@@ -39,12 +38,7 @@ const calculateStatsForGame = async (gameId: GameID) => {
   const stats = new Stats(gameId);
 
   // Get all draw dates for game.
-  const { error, data: drawDates } = await getDrawDates(
-    gameId,
-    0,
-    0,
-    SortOrder.DESC,
-  );
+  const { error, data: drawDates } = await getDrawDates(gameId, 0);
 
   if (error) {
     printMsg(error, MessageType.ERROR);
