@@ -100,8 +100,7 @@ const checkNumbersAgainstRegularDraw = async (
   });
 
   if (!columnsValid) {
-    apiResponse.setFailed('Incorrect column size', 400);
-    return apiResponse;
+    return apiResponse.setFailed('Incorrect column size', 400);
   }
 
   // Compare numbers againsts winningNumbers.
