@@ -2,26 +2,34 @@ import fs from 'fs';
 import path from 'path';
 import MarkdownIt from 'markdown-it';
 
-const md = new MarkdownIt({
-  html: true,
-  linkify: true,
-  typographer: true,
-});
+/**
+ * Generates documentation from src and
+ * writes it into dest.
+ * @param src Source file
+ * @param dest Destination file
+ */
+const generateDocs = (
+  src: string = 'README.md',
+  dest: string = 'index.html',
+) => {
+  const md = new MarkdownIt({
+    html: true,
+    linkify: true,
+    typographer: true,
+  });
 
-fs.readFile(path.join(__dirname, '..', 'README.md'), (err, data) => {
-  if (err) {
-    // tslint:disable-next-line: no-console
-    return console.log(err);
+  const data = fs.readFileSync(path.join(__dirname, '..', src)).toString();
+  if (data) {
+    const result = md.render(data);
+    fs.writeFileSync(path.join(__dirname, '..', dest), generateHtml(result));
   }
+};
 
-  const result = md.render(data.toString());
-  fs.writeFileSync(
-    path.join(__dirname, '..', 'index.html'),
-    generateHtml(result),
-  );
-});
-
-const generateHtml = (contents: string) => {
+/**
+ * Generates a proper html document.
+ * @param body Body of the page
+ */
+const generateHtml = (body: string) => {
   return `
   <!DOCTYPE html>
   <html lang="en">
@@ -47,8 +55,10 @@ const generateHtml = (contents: string) => {
   </head>
   <body>
     <div class="container">
-      ${contents}
+      ${body}
     </div>
   </body>
   </html>`;
 };
+
+generateDocs();
