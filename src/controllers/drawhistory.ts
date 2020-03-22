@@ -10,37 +10,6 @@ import DrawHistory from '../models/DrawHistory';
 import { validDate, validGameId } from './_validate';
 
 /**
- * Creates an always resolving promise for
- * batch processing purposes.
- * @param date Date string
- * @param gameId Game Id
- */
-const drawHistoryPromise = (
-  date: string,
-  gameId: GameID,
-): Promise<DrawHistory> => {
-  return new Promise((resolve, reject) => {
-    getDrawHistoryForGame(date, gameId)
-      .then((response) => {
-        if (response.error) {
-          throw new Error(response.error);
-        }
-
-        resolve({
-          gameId,
-          draws: response.data,
-        });
-      })
-      .catch(() => {
-        resolve({
-          gameId,
-          draws: [],
-        });
-      });
-  });
-};
-
-/**
  * Returns draw history of the date.
  * @param date Date string in YYYYMMDD form
  */
@@ -50,12 +19,16 @@ export const getDrawHistory = async (date: string) => {
   // Validate date.
   if (!validDate(apiResponse, date)) return apiResponse;
 
-  const promises: Promise<DrawHistory>[] = [];
-  GAMES.forEach((game) => {
-    promises.push(drawHistoryPromise(date, game.id as GameID));
-  });
+  const results = await Promise.all(
+    GAMES.map(async (game) => {
+      const { error, data } = await getDrawHistoryForGame(date, game.id);
+      return {
+        gameId: game.id,
+        draws: error ? [] : data,
+      };
+    }),
+  );
 
-  const results = await Promise.all(promises);
   results.forEach(({ gameId, draws }) => {
     apiResponse.addData({
       gameId,
@@ -80,16 +53,20 @@ export const getDrawHistoryForGame = async (date: string, gameId: GameID) => {
 
   const refDate = moment(date, DATE_FORMAT).format(DATE_FORMAT_SHORT);
 
-  const drawDates = await getDrawDates(gameId, 0);
+  const { error, data: drawDates } = await getDrawDates(gameId, 0);
 
-  drawDates.data.forEach((t) => {
+  if (error) {
+    return apiResponse.setFailed(error);
+  }
+
+  drawDates.forEach((t) => {
     if (refDate === moment(t, DATE_FORMAT).format(DATE_FORMAT_SHORT)) {
       apiResponse.addData(t);
     }
   });
 
   if (!apiResponse.hasData()) {
-    apiResponse.setFailed('No records were found', 500);
+    return apiResponse.setFailed('No records were found', 500);
   }
 
   return apiResponse;
