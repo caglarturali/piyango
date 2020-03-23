@@ -1,7 +1,7 @@
 import { MatchTypeLottery } from '.';
-import { CheckResult } from '../Game';
+import { ICheckResult } from '../Game';
 
-export interface LotteryCheck extends CheckResult {
+export interface LotteryCheck extends ICheckResult {
   type: MatchTypeLottery | null;
   digits: number | null;
   prize: number;

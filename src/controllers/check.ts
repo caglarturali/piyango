@@ -2,17 +2,10 @@
  * Check numbers controller.
  */
 import ApiResponse from '../models/ApiResponse';
-import Game, { CheckResult, GameID } from '../models/Game';
-import {
-  GameColumn,
-  MatchTypeRegular,
-  RegularCheck,
-  RegularDraw,
-  RegularGame,
-} from '../models/Regular';
-import { LotteryCheck, LotteryDraw } from '../models/Lottery';
+import Game, { GameID, ICheckResult } from '../models/Game';
+import { RegularCheck, RegularDraw, RegularGame } from '../models/Regular';
+import { LotteryCheck, LotteryDraw, LotteryGame } from '../models/Lottery';
 import CheckBody from '../models/CheckBody';
-import DrawUtils from '../utils/DrawUtils';
 import { getDrawDetails } from './draws';
 import { validDate, validGameId } from './_validate';
 import { GAMES } from '../constants';
@@ -28,7 +21,7 @@ export const checkNumbers = async (
   drawDate: string,
   checkBody: CheckBody,
 ) => {
-  const apiResponse = new ApiResponse<CheckResult>();
+  const apiResponse = new ApiResponse<ICheckResult>();
 
   // Validate gameId and date.
   if (!validGameId(apiResponse, gameId)) return apiResponse;
@@ -50,13 +43,13 @@ export const checkNumbers = async (
 
   if (gameId === GameID.piyango) {
     return await checkNumbersAgainstLotteryDraw(
+      game as LotteryGame,
       drawData as LotteryDraw,
       numbers,
     );
   }
 
   return await checkNumbersAgainstRegularDraw(
-    gameId,
     game as RegularGame,
     drawData as RegularDraw,
     numbers,
@@ -65,95 +58,26 @@ export const checkNumbers = async (
 
 /**
  * Checks player's numbers against draw data.
- * @param gameId Game Id
  * @param game RegularGame object
  * @param drawData RegularDraw data
  * @param numbers Player's numbers
  */
 const checkNumbersAgainstRegularDraw = async (
-  gameId: GameID,
   game: RegularGame,
   drawData: RegularDraw,
   numbers: string[],
 ) => {
-  const apiResponse = new ApiResponse<RegularCheck>();
+  const apiResponse = new ApiResponse<ICheckResult>();
+  const check = new RegularCheck(game, drawData, numbers);
 
-  const { bilenKisiler } = drawData;
-
-  // Convert string of numbers to GameColumn objects.
-  const userNumbers = numbers.map((numsStr) =>
-    DrawUtils.convertNumbersToColumn(gameId, numsStr),
-  );
-  const winningNumbers = DrawUtils.getWinningNumbers(gameId, drawData);
-
-  // Validate the length of the numbers.
-  let columnsValid = true;
-  userNumbers.forEach(({ main, plus }) => {
-    if (main.length !== game.pool.main.select) {
-      columnsValid = false;
-    }
-    if (gameId === GameID.sanstopu && plus?.length !== game.pool.plus?.select) {
-      columnsValid = false;
-    }
-  });
-
-  if (!columnsValid) {
+  if (!check.validate()) {
     return apiResponse.setFailed('Incorrect column size', 400);
   }
 
-  // Compare numbers againsts winningNumbers.
-  const matched: GameColumn[] = [];
-  userNumbers.forEach(({ main, plus }) => {
-    const numsMatch: GameColumn = { main: [] };
+  check.process();
 
-    main.forEach((num) => {
-      if (winningNumbers.main.includes(num)) {
-        numsMatch.main.push(num);
-      }
-    });
-
-    if (gameId === GameID.sanstopu) {
-      numsMatch.plus = [];
-      plus?.forEach((num) => {
-        if (winningNumbers.plus?.includes(num)) {
-          numsMatch.plus?.push(num);
-        }
-      });
-    }
-
-    matched.push(numsMatch);
-  });
-
-  matched.forEach((match) => {
-    let matchTypeStr: string = '$';
-
-    switch (gameId) {
-      case GameID.onnumara:
-        if (match.main.length === 0) {
-          // Override!
-          matchTypeStr = MatchTypeRegular.$HIC;
-        }
-        break;
-
-      case GameID.sanstopu:
-        matchTypeStr += `${match.main.length}_`;
-        matchTypeStr += match.plus?.length ? `${match.plus.length}_` : '';
-        matchTypeStr += 'BILEN';
-        break;
-
-      default:
-        matchTypeStr += `${match.main.length}_BILEN`;
-        break;
-    }
-
-    // Try to find a match.
-    const winners = bilenKisiler.find((w) => w.tur === matchTypeStr);
-
-    apiResponse.addData({
-      type: winners ? matchTypeStr : null,
-      match,
-      prize: winners ? winners.kisiBasinaDusenIkramiye : 0,
-    } as RegularCheck);
+  check.results.forEach((checkRes) => {
+    apiResponse.addData(checkRes);
   });
 
   return apiResponse;
@@ -165,6 +89,7 @@ const checkNumbersAgainstRegularDraw = async (
  * @param numbers Player's numbers
  */
 const checkNumbersAgainstLotteryDraw = async (
+  game: LotteryGame,
   drawData: LotteryDraw,
   numbers: string[],
 ) => {
