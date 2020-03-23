@@ -7,7 +7,7 @@ import Stats from '../models/Stats';
 import { getDrawDates } from './drawdates';
 import DateUtils from '../utils/DateUtils';
 import { getDrawDetails } from './draws';
-import RegularDraw from '../models/RegularDraw';
+import { RegularDraw } from '../models/Regular';
 import DrawUtils from '../utils/DrawUtils';
 import { validGameId } from './_validate';
 

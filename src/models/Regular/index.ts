@@ -1,6 +1,5 @@
-import RegularDraw from './RegularDraw';
-
-export default RegularDraw;
+export * from './RegularDraw';
+export * from './RegularGame';
 export * from './DrawType';
 export * from './GameColumn';
 export * from './MatchTypeRegular';

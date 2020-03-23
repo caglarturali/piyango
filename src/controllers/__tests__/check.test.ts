@@ -1,8 +1,8 @@
 import { checkNumbers } from '../check';
 import { GameID } from '../../models/Game';
 import CheckBody from '../../models/CheckBody';
-import { RegularCheckResult } from '../../models/RegularDraw';
-import { LotteryCheckResult } from '../../models/LotteryDraw';
+import { RegularCheckResult } from '../../models/Regular';
+import { LotteryCheckResult } from '../../models/Lottery';
 
 test('should check numbers successfully for a regular draw', async () => {
   const body: CheckBody = {

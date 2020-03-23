@@ -1,8 +1,8 @@
 import ApiResponse from '../models/ApiResponse';
-import { GameID, NumbersPool, RegularGame } from '../models/Game';
+import { GameID, NumbersPool } from '../models/Game';
 import { validGameId } from './_validate';
 import { GAMES } from '../constants';
-import { GameColumn } from '../models/RegularDraw';
+import { GameColumn, RegularGame } from '../models/Regular';
 import { NumUtils } from '../utils';
 
 /**

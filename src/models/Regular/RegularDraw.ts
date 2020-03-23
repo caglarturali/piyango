@@ -6,7 +6,7 @@ import { DrawType } from './DrawType';
 /**
  * RegularDraw interface.
  */
-export default interface RegularDraw extends Draw {
+export interface RegularDraw extends Draw {
   archived?: boolean;
   oid: string;
   hafta: number;

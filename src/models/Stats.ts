@@ -1,6 +1,6 @@
 import fs from 'fs';
 import { GameID } from './Game';
-import { GameColumn } from './RegularDraw';
+import { GameColumn } from './Regular';
 import PathUtils from '../utils/PathUtils';
 import DateUtils from '../utils/DateUtils';
 import { GAMES } from '../constants';

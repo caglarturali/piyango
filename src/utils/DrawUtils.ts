@@ -1,5 +1,5 @@
 import { GameID } from '../models/Game';
-import RegularDraw, { GameColumn } from '../models/RegularDraw';
+import { GameColumn, RegularDraw } from '../models/Regular';
 
 export default class DrawUtils {
   /**

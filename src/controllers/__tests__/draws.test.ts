@@ -8,7 +8,7 @@ import {
   getDrawDetailsForLatestDraws,
 } from '../draws';
 import { GameID } from '../../models/Game';
-import RegularDraw, { DrawType } from '../../models/RegularDraw';
+import { DrawType, RegularDraw } from '../../models/Regular';
 import {
   DATE_FORMAT,
   DATE_FORMAT_FRIENDLY,

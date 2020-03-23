@@ -3,12 +3,14 @@
  */
 import ApiResponse from '../models/ApiResponse';
 import Game, { GameID } from '../models/Game';
-import RegularDraw, {
+import {
   GameColumn,
   MatchTypeRegular,
   RegularCheckResult,
-} from '../models/RegularDraw';
-import LotteryDraw, { LotteryCheckResult } from '../models/LotteryDraw';
+  RegularDraw,
+  RegularGame,
+} from '../models/Regular';
+import { LotteryCheckResult, LotteryDraw } from '../models/Lottery';
 import CheckBody from '../models/CheckBody';
 import DrawUtils from '../utils/DrawUtils';
 import { getDrawDetails } from './draws';
@@ -28,11 +30,11 @@ export const checkNumbers = async (
 ) => {
   const apiResponse = new ApiResponse<{}>();
 
-  const game = GAMES.find((g) => g.id === gameId);
-
   // Validate gameId and date.
-  if (!(validGameId(apiResponse, gameId) && game)) return apiResponse;
+  if (!validGameId(apiResponse, gameId)) return apiResponse;
   if (!validDate(apiResponse, drawDate)) return apiResponse;
+
+  const game = GAMES.find((g) => g.id === gameId) as Game;
 
   const {
     statusCode,
@@ -41,8 +43,7 @@ export const checkNumbers = async (
   } = await getDrawDetails(gameId, drawDate);
 
   if (error) {
-    apiResponse.setFailed(error, statusCode);
-    return apiResponse;
+    return apiResponse.setFailed(error, statusCode);
   }
 
   const { numbers } = checkBody;
@@ -56,7 +57,7 @@ export const checkNumbers = async (
 
   return await checkNumbersAgainstRegularDraw(
     gameId,
-    game,
+    game as RegularGame,
     drawData as RegularDraw,
     numbers,
   );
@@ -65,13 +66,13 @@ export const checkNumbers = async (
 /**
  * Checks player's numbers against draw data.
  * @param gameId Game Id
- * @param game Game object
+ * @param game RegularGame object
  * @param drawData RegularDraw data
  * @param numbers Player's numbers
  */
 const checkNumbersAgainstRegularDraw = async (
   gameId: GameID,
-  game: Game,
+  game: RegularGame,
   drawData: RegularDraw,
   numbers: string[],
 ) => {
@@ -88,13 +89,10 @@ const checkNumbersAgainstRegularDraw = async (
   // Validate the length of the numbers.
   let columnsValid = true;
   userNumbers.forEach(({ main, plus }) => {
-    if (main.length !== game.pool?.main.select) {
+    if (main.length !== game.pool.main.select) {
       columnsValid = false;
     }
-    if (
-      gameId === GameID.sanstopu &&
-      plus?.length !== game.pool?.plus?.select
-    ) {
+    if (gameId === GameID.sanstopu && plus?.length !== game.pool.plus?.select) {
       columnsValid = false;
     }
   });

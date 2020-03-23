@@ -12,8 +12,8 @@ import {
   MPI_BASE,
 } from '../constants';
 import ApiResponse from '../models/ApiResponse';
-import RegularDraw from '../models/RegularDraw';
-import LotteryDraw from '../models/LotteryDraw';
+import { RegularDraw } from '../models/Regular';
+import { LotteryDraw } from '../models/Lottery';
 import { GameID } from '../models/Game';
 import PathUtils from '../utils/PathUtils';
 import { getDrawDates } from './drawdates';

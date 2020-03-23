@@ -5,7 +5,7 @@ import { LotteryCategory } from './LotteryCategory';
 /**
  * LotteryDraw interface.
  */
-export default interface LotteryDraw extends Draw {
+export interface LotteryDraw extends Draw {
   cekilisAdi: string;
   cekilisTarihiRaw?: string;
   haneSayisi: number;

@@ -2,12 +2,12 @@ import { getStatsForGame } from '../stats';
 import { getDrawDates } from '../drawdates';
 import { GameID } from '../../models/Game';
 import { SortOrder } from '../../models/SortOrder';
-import Stats from '../../models/Stats';
 import { GAMES } from '../../constants';
+import { RegularGame } from '../../models/Regular';
 
 test('should successfully get up-to-date report for given game', async () => {
   const gameId = GameID.sanstopu;
-  const game = GAMES.find((g) => g.id === gameId);
+  const game = GAMES.find((g) => g.id === gameId) as RegularGame;
 
   // Get latest draw date.
   const {
@@ -23,12 +23,9 @@ test('should successfully get up-to-date report for given game', async () => {
   expect(stats.lastDraw).toBe(lastDrawDate);
 
   let totalNums: number;
-  // TODO: improve!
-  if (game && game.pool) {
-    totalNums = game.pool.main.from;
-    if (game.pool.plus) {
-      totalNums += game.pool.plus.from;
-    }
-    expect(Object.keys(stats.numbers).length).toBe(totalNums);
+  totalNums = game.pool.main.from;
+  if (game.pool.plus) {
+    totalNums += game.pool.plus.from;
   }
+  expect(Object.keys(stats.numbers).length).toBe(totalNums);
 });

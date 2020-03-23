@@ -8,8 +8,8 @@ import {
 } from '../../../src/controllers';
 import { GameID } from '../../../src/models/Game';
 import ApiResponse from '../../../src/models/ApiResponse';
-import RegularDraw from '../../../src/models/RegularDraw';
-import LotteryDraw from '../../../src/models/LotteryDraw';
+import { RegularDraw } from '../../../src/models/Regular';
+import { LotteryDraw } from '../../../src/models/Lottery';
 import conf from '../../../src/apiconfig';
 
 export default async (req: NowRequest, res: NowResponse) => {

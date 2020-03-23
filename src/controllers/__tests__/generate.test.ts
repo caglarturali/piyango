@@ -1,5 +1,6 @@
 import { generateGuesses } from '../generate';
-import { GameID, NumbersPool, RegularGame } from '../../models/Game';
+import { GameID, NumbersPool } from '../../models/Game';
+import { RegularGame } from '../../models/Regular';
 import { GAMES } from '../../constants';
 
 test('should successfully generate random numbers for given game', async () => {
