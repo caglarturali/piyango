@@ -1,9 +1,7 @@
 import { ICheckNumbers, ICheckResult } from '../Game';
-import { LotteryGame } from './LotteryGame';
-import { LotteryDraw } from './LotteryDraw';
-import { LotteryCategory } from './LotteryCategory';
+import { LotteryCategory, LotteryDraw, LotteryGame } from '../Lottery';
 
-export class LotteryCheck implements ICheckNumbers {
+export default class LotteryCheck implements ICheckNumbers {
   private game: LotteryGame;
   private numbers: string[];
   private drawData: LotteryDraw;

@@ -3,8 +3,10 @@
  */
 import ApiResponse from '../models/ApiResponse';
 import Game, { GameID, ICheckNumbers, ICheckResult } from '../models/Game';
-import { RegularCheck, RegularDraw, RegularGame } from '../models/Regular';
-import { LotteryCheck, LotteryDraw, LotteryGame } from '../models/Lottery';
+import { RegularDraw, RegularGame } from '../models/Regular';
+import RegularCheck from '../models/Check/RegularCheck';
+import { LotteryDraw, LotteryGame } from '../models/Lottery';
+import LotteryCheck from '../models/Check/LotteryCheck';
 import CheckBody from '../models/CheckBody';
 import { getDrawDetails } from './draws';
 import { validDate, validGameId } from './_validate';

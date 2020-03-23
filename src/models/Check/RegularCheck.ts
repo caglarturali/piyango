@@ -1,11 +1,13 @@
-import { MatchTypeRegular } from '.';
-import { GameColumn } from './GameColumn';
+import {
+  GameColumn,
+  MatchTypeRegular,
+  RegularDraw,
+  RegularGame,
+} from '../Regular';
 import { GameID, ICheckNumbers, ICheckResult } from '../Game';
-import { RegularDraw } from './RegularDraw';
-import { RegularGame } from './RegularGame';
 import { DrawUtils } from '../../utils';
 
-export class RegularCheck implements ICheckNumbers {
+export default class RegularCheck implements ICheckNumbers {
   private game: RegularGame;
   private drawData: RegularDraw;
   private userNumbers: GameColumn[];
