@@ -29,21 +29,19 @@ export class RegularCheck implements ICheckNumbers {
    * Validates the length of the numbers.
    */
   validate(): boolean {
-    let columnsValid = true;
-    this.userNumbers.forEach(({ main, plus }) => {
+    for (const { main, plus } of this.userNumbers) {
       const { main: mainPool, plus: plusPool } = this.game.pool;
 
       if (main.length !== mainPool.select) {
-        columnsValid = false;
+        return false;
       }
-      if (
-        this.game.id === GameID.sanstopu &&
-        plus?.length !== plusPool?.select
-      ) {
-        columnsValid = false;
+      if (this.game.id === GameID.sanstopu) {
+        if (plus?.length !== plusPool?.select) {
+          return false;
+        }
       }
-    });
-    return columnsValid;
+    }
+    return true;
   }
 
   /**
