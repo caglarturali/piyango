@@ -27,7 +27,8 @@ export const generateGuesses = (
     return apiResponse.setFailed('Unexpected error');
   }
 
-  const colCount = Math.abs(columnCount || game.columns);
+  let colCount = Math.abs(columnCount || game.columns);
+  if (colCount > 1000) colCount = 1000;
 
   // Generate random numbers
   for (let i = 1; i <= colCount; i++) {
