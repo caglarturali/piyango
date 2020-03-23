@@ -2,15 +2,15 @@
  * Check numbers controller.
  */
 import ApiResponse from '../models/ApiResponse';
-import Game, { GameID } from '../models/Game';
+import Game, { CheckResult, GameID } from '../models/Game';
 import {
   GameColumn,
   MatchTypeRegular,
-  RegularCheckResult,
+  RegularCheck,
   RegularDraw,
   RegularGame,
 } from '../models/Regular';
-import { LotteryCheckResult, LotteryDraw } from '../models/Lottery';
+import { LotteryCheck, LotteryDraw } from '../models/Lottery';
 import CheckBody from '../models/CheckBody';
 import DrawUtils from '../utils/DrawUtils';
 import { getDrawDetails } from './draws';
@@ -28,7 +28,7 @@ export const checkNumbers = async (
   drawDate: string,
   checkBody: CheckBody,
 ) => {
-  const apiResponse = new ApiResponse<{}>();
+  const apiResponse = new ApiResponse<CheckResult>();
 
   // Validate gameId and date.
   if (!validGameId(apiResponse, gameId)) return apiResponse;
@@ -76,7 +76,7 @@ const checkNumbersAgainstRegularDraw = async (
   drawData: RegularDraw,
   numbers: string[],
 ) => {
-  const apiResponse = new ApiResponse<RegularCheckResult>();
+  const apiResponse = new ApiResponse<RegularCheck>();
 
   const { bilenKisiler } = drawData;
 
@@ -153,7 +153,7 @@ const checkNumbersAgainstRegularDraw = async (
       type: winners ? matchTypeStr : null,
       match,
       prize: winners ? winners.kisiBasinaDusenIkramiye : 0,
-    } as RegularCheckResult);
+    } as RegularCheck);
   });
 
   return apiResponse;
@@ -168,7 +168,7 @@ const checkNumbersAgainstLotteryDraw = async (
   drawData: LotteryDraw,
   numbers: string[],
 ) => {
-  const apiResponse = new ApiResponse<LotteryCheckResult>();
+  const apiResponse = new ApiResponse<LotteryCheck>();
 
   const { sonuclar } = drawData;
 
@@ -179,7 +179,7 @@ const checkNumbersAgainstLotteryDraw = async (
 
   // Compare numbers against categories.
   numbers.forEach((num) => {
-    let result: LotteryCheckResult = { type: null, digits: null, prize: 0 };
+    let result: LotteryCheck = { type: null, digits: null, prize: 0 };
 
     // Check "teselli" first.
     if (teselli?.numaralar.includes(num)) {

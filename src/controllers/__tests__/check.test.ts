@@ -1,8 +1,8 @@
 import { checkNumbers } from '../check';
 import { GameID } from '../../models/Game';
 import CheckBody from '../../models/CheckBody';
-import { RegularCheckResult } from '../../models/Regular';
-import { LotteryCheckResult } from '../../models/Lottery';
+import { RegularCheck } from '../../models/Regular';
+import { LotteryCheck } from '../../models/Lottery';
 
 test('should check numbers successfully for a regular draw', async () => {
   const body: CheckBody = {
@@ -18,7 +18,7 @@ test('should check numbers successfully for a regular draw', async () => {
   expect(statusCode).toBe(200);
   expect(data).toHaveLength(body.numbers.length);
   data.forEach((res) => {
-    const result = res as RegularCheckResult;
+    const result = res as RegularCheck;
     expect(typeof result.prize).toBe('number');
   });
 });
@@ -37,7 +37,7 @@ test('should check numbers successfully for a lottery draw', async () => {
   expect(statusCode).toBe(200);
   expect(data).toHaveLength(body.numbers.length);
   data.forEach((res) => {
-    const result = res as LotteryCheckResult;
+    const result = res as LotteryCheck;
     expect(typeof result.prize).toBe('number');
   });
 });
