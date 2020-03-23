@@ -85,6 +85,7 @@ const checkNumbersAgainstRegularDraw = async (
 
 /**
  * Checks player's numbers against lottery results.
+ * @param game LotteryGame object
  * @param drawData LotteryDraw data
  * @param numbers Player's numbers
  */
