@@ -1,17 +1,11 @@
-import { GameDrawDate, GameID, NumbersPool } from '.';
+import { GameID } from '.';
 
 /**
- * Game interface.
+ * Base game definiton.
  */
 export default interface Game {
   id: GameID;
   name: string;
   embedSlug?: string;
-  columns?: number;
-  pool?: {
-    main: NumbersPool;
-    plus?: NumbersPool;
-  };
-  drawDates?: GameDrawDate[];
-  lottery?: boolean;
+  [key: string]: any;
 }

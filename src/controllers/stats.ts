@@ -21,7 +21,7 @@ export const getStatsForGame = async (gameId: GameID) => {
   if (!validGameId(apiResponse, gameId)) return apiResponse;
 
   if (gameId === GameID.piyango) {
-    return apiResponse.setFailed('Game not supported');
+    return apiResponse.setFailed(`${gameId} is not supported`);
   }
 
   // Start with static data.
