@@ -23,9 +23,6 @@ export const generateGuesses = (
   }
 
   const game = GAMES.find((g) => g.id === gameId) as RegularGame;
-  if (!game.pool) {
-    return apiResponse.setFailed('Unexpected error');
-  }
 
   let colCount = Math.abs(columnCount || game.columns);
   if (colCount > 1000) colCount = 1000;
