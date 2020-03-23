@@ -2,7 +2,9 @@
  * Base definiton for check result.
  */
 export interface ICheckResult {
+  [key: string]: any;
   type: any;
   prize: number;
-  [key: string]: any;
+  match?: any;
+  digits?: any;
 }
