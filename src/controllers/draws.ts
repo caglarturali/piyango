@@ -57,7 +57,7 @@ export const getDrawDetailsForLastDraw = async (gameId: GameID) => {
  */
 export const getDrawDetailsForDraws = async (
   gameId: GameID,
-  drawDates: string[],
+  drawDates: DrawDate[],
 ) => {
   const apiResponse = new ApiResponse<DrawDataType>();
 

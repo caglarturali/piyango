@@ -41,8 +41,7 @@ export const getStatsForGame = async (gameId: GameID) => {
 
   // Records are up-to-date.
   if (drawsToCalc.length === 0) {
-    apiResponse.addData(stats);
-    return apiResponse;
+    return apiResponse.addData(stats);
   }
 
   // Take missing draws into account.
@@ -64,6 +63,5 @@ export const getStatsForGame = async (gameId: GameID) => {
     stats.processColumn(nums, drawDate);
   });
 
-  apiResponse.addData(stats);
-  return apiResponse;
+  return apiResponse.addData(stats);
 };
