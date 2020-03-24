@@ -2,6 +2,7 @@
  * Draw history controller.
  */
 import moment from 'moment';
+import momentTZ from 'moment-timezone';
 import { getDrawDates } from '.';
 import ApiResponse from '../models/ApiResponse';
 import { GameID } from '../models/Game';
@@ -9,6 +10,16 @@ import { DATE_FORMAT, DATE_FORMAT_SHORT, GAMES } from '../constants';
 import DrawHistory from '../models/DrawHistory';
 import { DrawDate } from '../models/DrawDate';
 import { validDate, validGameId } from './_validate';
+
+/**
+ * Returns draw history of today.
+ */
+export const getDrawHistoryOfToday = async () => {
+  const today = momentTZ()
+    .tz('Europe/Istanbul')
+    .format(DATE_FORMAT);
+  return await getDrawHistory(today);
+};
 
 /**
  * Returns draw history of the date.

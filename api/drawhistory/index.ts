@@ -2,20 +2,14 @@
  * /drawhistory
  */
 import { NowRequest, NowResponse } from '@now/node';
-import momentTZ from 'moment-timezone';
-import { getDrawHistory } from '../../src/controllers';
-import { DATE_FORMAT } from '../../src/constants';
+import { getDrawHistoryOfToday } from '../../src/controllers';
 
 export default async (req: NowRequest, res: NowResponse) => {
   const { method } = req;
 
   switch (method) {
     case 'GET': {
-      const today = momentTZ()
-        .tz('Europe/Istanbul')
-        .format(DATE_FORMAT);
-
-      const result = await getDrawHistory(today);
+      const result = await getDrawHistoryOfToday();
       res.status(result.statusCode).json(result.toResponse());
       break;
     }
