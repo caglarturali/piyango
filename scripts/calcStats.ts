@@ -2,7 +2,7 @@ import { GAMES } from '../src/constants';
 import { GameID } from '../src/models/Game';
 import { MessageType, printMsg } from './_utils';
 import DrawUtils from '../src/utils/DrawUtils';
-import RegularDraw from '../src/models/RegularDraw';
+import { RegularDraw } from '../src/models/Regular';
 import { getDrawDates, getDrawDetails } from '../src/controllers';
 import Stats from '../src/models/Stats';
 
