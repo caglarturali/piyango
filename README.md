@@ -153,11 +153,11 @@ The following is a list of the types of data used within the Piyango API:
 
     https://dev.piyango.online/api/stats/sayisal
 
-- ### Generate
+- ### Random
 
   Generates [pseudo-random](https://en.wikipedia.org/wiki/Pseudorandom_number_generator) guesses for given game. The game `piyango` is not supported on this endpoint.
 
-  `GET https://dev.piyango.online/api/generate/:gameId`
+  `GET https://dev.piyango.online/api/random/:gameId`
 
   - #### URL Parameters
 
@@ -175,9 +175,9 @@ The following is a list of the types of data used within the Piyango API:
 
     #### Example Request
 
-    https://dev.piyango.online/api/generate/sanstopu
+    https://dev.piyango.online/api/random/sanstopu
 
-    https://dev.piyango.online/api/generate/sanstopu?col=10
+    https://dev.piyango.online/api/random/sanstopu?col=10
 
 * ### Embed
 

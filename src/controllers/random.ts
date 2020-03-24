@@ -10,7 +10,7 @@ import { NumUtils } from '../utils';
  * @param gameId Game ID
  * @param columnCount Number of columns to be generated
  */
-export const generateGuesses = (
+export const generateRandomGuesses = (
   gameId: GameID,
   columnCount: number | undefined,
 ) => {

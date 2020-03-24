@@ -1,4 +1,4 @@
-import { generateGuesses } from '../generate';
+import { generateRandomGuesses } from '../random';
 import { GameID, NumbersPool } from '../../models/Game';
 import { RegularGame } from '../../models/Regular';
 import { GAMES } from '../../constants';
@@ -11,7 +11,7 @@ test('should successfully generate random numbers for given game', async () => {
   const { select: mainCount } = game.pool.main;
   const { select: plusCount } = game.pool.plus as NumbersPool;
 
-  const { statusCode, data } = await generateGuesses(gameId, colCount);
+  const { statusCode, data } = await generateRandomGuesses(gameId, colCount);
 
   expect(statusCode).toBe(200);
   expect(data).toHaveLength(colCount);
