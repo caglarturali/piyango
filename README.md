@@ -153,6 +153,32 @@ The following is a list of the types of data used within the Piyango API:
 
     https://dev.piyango.online/api/stats/sayisal
 
+- ### Generate
+
+  Generates pseudo-random guesses for given game. The game `piyango` is not supported on this endpoint.
+
+  `GET https://dev.piyango.online/api/generate/:gameId`
+
+  - #### URL Parameters
+
+    | Key    | Type | Required | Description                                                                                                           |
+    | ------ | ---- | -------- | --------------------------------------------------------------------------------------------------------------------- |
+    | gameId | Enum | Yes      | A unique value used to identify games. Should be one of the following: `sayisal`, `sanstopu`, `onnumara`, `superloto` |
+
+    #### Query parameters
+
+    The following query parameters are allowed:
+
+    | Query param | Type   | Required | Default value                           | Description                        |
+    | ----------- | ------ | -------- | --------------------------------------- | ---------------------------------- |
+    | col         | Number | No       | 1 coupon worth of guesses for each game | Number of columns to be generated. |
+
+    #### Example Request
+
+    https://dev.piyango.online/api/generate/sanstopu
+
+    https://dev.piyango.online/api/generate/sanstopu?col=10
+
 * ### Embed
 
   Get embeddable HLS stream of the draw. Returns dummy stream if the requested stream is not found.
