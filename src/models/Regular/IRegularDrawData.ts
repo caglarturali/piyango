@@ -1,17 +1,13 @@
-import Draw from '../Draw';
+import { IDrawData } from '../Draw';
+import { RegularDrawType, WinnerCategory } from '.';
 import LuckyProvince from '../LuckyProvince';
-import { WinnerCategory } from './WinnerCategory';
-import { DrawType } from './DrawType';
 
-/**
- * RegularDraw interface.
- */
-export interface RegularDraw extends Draw {
+export interface IRegularDrawData extends IDrawData {
   archived?: boolean;
   oid: string;
   hafta: number;
   buyukIkramiyeKazananIl?: string;
-  cekilisTuru: DrawType;
+  cekilisTuru: RegularDrawType;
   rakamlar: string;
   rakamlarNumaraSirasi: string;
   devretti: boolean;

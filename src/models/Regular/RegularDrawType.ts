@@ -1,4 +1,4 @@
-export enum DrawType {
+export enum RegularDrawType {
   SAYISAL_LOTO = 'SAYISAL_LOTO',
   SANS_TOPU = 'SANS_TOPU',
   ON_NUMARA = 'ON_NUMARA',

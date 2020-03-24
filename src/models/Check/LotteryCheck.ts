@@ -1,14 +1,18 @@
 import { ICheckNumbers, ICheckResult } from '.';
-import { LotteryCategory, LotteryDraw, LotteryGame } from '../Lottery';
+import { ILotteryDrawData, LotteryCategory, LotteryGame } from '../Lottery';
 
 export default class LotteryCheck implements ICheckNumbers {
   private game: LotteryGame;
   private numbers: string[];
-  private drawData: LotteryDraw;
+  private drawData: ILotteryDrawData;
 
   results: ICheckResult[] = [];
 
-  constructor(game: LotteryGame, drawData: LotteryDraw, numbers: string[]) {
+  constructor(
+    game: LotteryGame,
+    drawData: ILotteryDrawData,
+    numbers: string[],
+  ) {
     this.game = game;
     this.drawData = drawData;
     this.numbers = numbers;

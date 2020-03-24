@@ -1,0 +1,124 @@
+import fs from 'fs';
+import fetch from 'node-fetch';
+import moment from 'moment';
+import stripBom from 'strip-bom';
+import { GameID } from '../Game';
+import { DrawDataType } from './DrawDataType';
+import { DATE_FORMAT, DATE_FORMAT_FRIENDLY, MPI_BASE } from '../../constants';
+import { PathUtils } from '../../utils';
+
+interface PromiseResult {
+  data?: any;
+  error?: string;
+}
+
+/**
+ * Draw class.
+ */
+export default class Draw {
+  private gameId: GameID;
+  private drawDate: string;
+
+  drawData?: DrawDataType;
+  error?: string;
+
+  constructor(gameId: GameID, drawDate: string) {
+    this.gameId = gameId;
+    this.drawDate = drawDate;
+  }
+
+  /**
+   * Populates drawData field with static data (if found)
+   * and returns an instance.
+   * @param gameId Game ID
+   * @param drawDate Draw date
+   * @returns Draw instance.
+   */
+  static fromFile(gameId: GameID, drawDate: string): Draw {
+    const draw = new this(gameId, drawDate);
+    const resPath = PathUtils.drawResourcePath(gameId, drawDate);
+
+    if (fs.existsSync(resPath)) {
+      const drawData = JSON.parse(fs.readFileSync(resPath).toString());
+      draw.drawData = drawData;
+    }
+    return draw;
+  }
+
+  /**
+   * Fetches results from the web service.
+   */
+  async fetchData() {
+    const urls = this.buildDrawDetailsUrls();
+
+    const results: PromiseResult[] = await Promise.all(
+      urls.map(async (url) => {
+        const response = await fetch(url, { method: 'GET' });
+
+        if (!response.ok) {
+          return {
+            error: `Error ${response.status}: ${response.statusText}`,
+          };
+        }
+
+        const text = await response.text();
+        const json = JSON.parse(stripBom(text));
+
+        if (this.gameId === GameID.piyango) {
+          /**
+           * Lottery.
+           */
+          const dateOriginal = json.cekilisTarihi;
+          const dateNew = moment(dateOriginal, DATE_FORMAT).format(
+            DATE_FORMAT_FRIENDLY,
+          );
+
+          // Append new fields.
+          json.cekilisTarihi = dateNew;
+          json.cekilisTarihiRaw = dateOriginal;
+
+          return { data: json };
+        } else {
+          /**
+           * Regular game.
+           * Return only the "data" field.
+           */
+          const { data } = json;
+          return { data };
+        }
+      }),
+    );
+
+    results.forEach(({ error, data }) => {
+      if (error) this.error = error;
+      if (data) this.drawData = data;
+    });
+
+    if (!(this.drawData && this.error)) {
+      // Request is not fullfilled so far.
+      this.error = 'Resource not found';
+    }
+  }
+
+  /**
+   * Builds the urls for draw details resource.
+   */
+  private buildDrawDetailsUrls(): string[] {
+    return this.buildResourceNames().map(
+      (rName) => `${MPI_BASE}/cekilisler/${this.gameId}/${rName}`,
+    );
+  }
+
+  /**
+   * Builds resource names array based on game id and draw data.
+   */
+  private buildResourceNames(): string[] {
+    const resourceNames = [`${this.drawDate}.json`];
+
+    // Edge case that needs to be covered!
+    if (this.gameId === GameID.sayisal) {
+      resourceNames.push(`SAY_${this.drawDate}.json`);
+    }
+    return resourceNames;
+  }
+}

@@ -8,8 +8,7 @@ import {
 } from '../../../src/controllers';
 import { GameID } from '../../../src/models/Game';
 import ApiResponse from '../../../src/models/ApiResponse';
-import { RegularDraw } from '../../../src/models/Regular';
-import { LotteryDraw } from '../../../src/models/Lottery';
+import { DrawDataType } from '../../../src/models/Draw';
 import conf from '../../../src/apiconfig';
 
 export default async (req: NowRequest, res: NowResponse) => {
@@ -23,7 +22,7 @@ export default async (req: NowRequest, res: NowResponse) => {
 
   switch (method) {
     case 'GET': {
-      let result: ApiResponse<RegularDraw | LotteryDraw>;
+      let result: ApiResponse<DrawDataType>;
       if (dateArg.includes(conf.draws.delimiter)) {
         const drawDates = dateArg.split(conf.draws.delimiter);
         result = await getDrawDetailsForDraws(gameArg, drawDates);

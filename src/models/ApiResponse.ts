@@ -20,9 +20,11 @@ export default class ApiResponse<T> {
   /**
    * Adds arbitrary data to results.
    * @param {T} data Data to be added
+   * @returns ApiResponse instance.
    */
   addData(data: T) {
     this.data.push(data);
+    return this;
   }
 
   /**
