@@ -155,7 +155,7 @@ The following is a list of the types of data used within the Piyango API:
 
 - ### Generate
 
-  Generates pseudo-random guesses for given game. The game `piyango` is not supported on this endpoint.
+  Generates [pseudo-random](https://en.wikipedia.org/wiki/Pseudorandom_number_generator) guesses for given game. The game `piyango` is not supported on this endpoint.
 
   `GET https://dev.piyango.online/api/generate/:gameId`
 
