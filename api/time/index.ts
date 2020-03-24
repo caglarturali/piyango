@@ -10,7 +10,7 @@ export default (req: NowRequest, res: NowResponse) => {
   switch (method) {
     case 'GET': {
       const response = getCurrentTime();
-      res.status(response.statusCode).json(response.toObject());
+      res.status(response.statusCode).json(response.toResponse());
       break;
     }
 

@@ -10,7 +10,7 @@ export default (req: NowRequest, res: NowResponse) => {
   switch (method) {
     case 'GET': {
       const result = getGames();
-      res.status(result.statusCode).json(result.toObject());
+      res.status(result.statusCode).json(result.toResponse());
       break;
     }
 

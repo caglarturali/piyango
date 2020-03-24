@@ -17,7 +17,7 @@ export default async (req: NowRequest, res: NowResponse) => {
   switch (method) {
     case 'GET': {
       const result = await getDrawHistoryForGame(dateArg, gameArg);
-      res.status(result.statusCode).json(result.toObject());
+      res.status(result.statusCode).json(result.toResponse());
       break;
     }
 

@@ -75,7 +75,7 @@ export default class ApiResponse<T> {
    * of the instance, with minimal info attached to it.
    * @param zip Determines if the results will be "zipped" or not
    */
-  toObject(zip: boolean = true) {
+  toResponse(zip: boolean = true) {
     const { data, error } = this;
 
     if (error) return { error };

@@ -31,7 +31,7 @@ export default async (req: NowRequest, res: NowResponse) => {
         result = await getDrawDetails(gameArg, dateArg);
       }
 
-      res.status(result.statusCode).json(result.toObject());
+      res.status(result.statusCode).json(result.toResponse());
       break;
     }
 
