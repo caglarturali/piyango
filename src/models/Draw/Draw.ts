@@ -95,7 +95,7 @@ export default class Draw {
       if (data) this.drawData = data;
     });
 
-    if (!(this.drawData && this.error)) {
+    if (!(this.drawData || this.error)) {
       // Request is not fullfilled so far.
       this.error = 'Resource not found';
     }
