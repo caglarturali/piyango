@@ -8,6 +8,7 @@ import { getDrawDates } from './drawdates';
 import { validDate, validGameId } from './_validate';
 import DateUtils from '../utils/DateUtils';
 import { Draw, DrawDataType } from '../models/Draw';
+import { DrawDate } from '../models/DrawDate';
 
 /**
  * Returns latest draws in descending order by date.
@@ -85,7 +86,7 @@ export const getDrawDetailsForDraws = async (
  * @param {GameID} gameId Game ID
  * @param {String} drawDate Draw date in YYYYMMDD format
  */
-export const getDrawDetails = async (gameId: GameID, drawDate: string) => {
+export const getDrawDetails = async (gameId: GameID, drawDate: DrawDate) => {
   const apiResponse = new ApiResponse<DrawDataType>();
 
   // Validate gameId and date.

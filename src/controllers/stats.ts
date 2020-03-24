@@ -7,7 +7,7 @@ import Stats from '../models/Stats';
 import { getDrawDates } from './drawdates';
 import DateUtils from '../utils/DateUtils';
 import { getDrawDetails } from './draws';
-import { RegularDraw } from '../models/Regular';
+import { IRegularDrawData } from '../models/Regular';
 import DrawUtils from '../utils/DrawUtils';
 import { validGameId } from './_validate';
 
@@ -53,7 +53,7 @@ export const getStatsForGame = async (gameId: GameID) => {
       } = await getDrawDetails(gameId, drawDate);
       return {
         drawDate,
-        drawDetails: drawDetails as RegularDraw,
+        drawDetails: drawDetails as IRegularDrawData,
       };
     }),
   );

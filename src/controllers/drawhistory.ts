@@ -7,13 +7,14 @@ import ApiResponse from '../models/ApiResponse';
 import { GameID } from '../models/Game';
 import { DATE_FORMAT, DATE_FORMAT_SHORT, GAMES } from '../constants';
 import DrawHistory from '../models/DrawHistory';
+import { DrawDate } from '../models/DrawDate';
 import { validDate, validGameId } from './_validate';
 
 /**
  * Returns draw history of the date.
  * @param date Date string in YYYYMMDD form
  */
-export const getDrawHistory = async (date: string) => {
+export const getDrawHistory = async (date: DrawDate) => {
   const apiResponse = new ApiResponse<DrawHistory>();
 
   // Validate date.
@@ -44,7 +45,7 @@ export const getDrawHistory = async (date: string) => {
  * @param date Date string
  * @param gameId Game Id
  */
-export const getDrawHistoryForGame = async (date: string, gameId: GameID) => {
+export const getDrawHistoryForGame = async (date: DrawDate, gameId: GameID) => {
   const apiResponse = new ApiResponse<string>();
 
   // Validate gameId and date.

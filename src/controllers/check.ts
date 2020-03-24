@@ -13,6 +13,7 @@ import { IRegularDrawData, RegularGame } from '../models/Regular';
 import { ILotteryDrawData, LotteryGame } from '../models/Lottery';
 import CheckBody from '../models/CheckBody';
 import { getDrawDetails } from './draws';
+import { DrawDate } from '../models/DrawDate';
 import { validDate, validGameId } from './_validate';
 import { GAMES } from '../constants';
 
@@ -24,7 +25,7 @@ import { GAMES } from '../constants';
  */
 export const checkNumbers = async (
   gameId: GameID,
-  drawDate: string,
+  drawDate: DrawDate,
   checkBody: CheckBody,
 ) => {
   const apiResponse = new ApiResponse<ICheckResult>();

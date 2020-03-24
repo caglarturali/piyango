@@ -3,6 +3,7 @@ import { GameID } from './Game';
 import { GameColumn } from './Regular';
 import PathUtils from '../utils/PathUtils';
 import DateUtils from '../utils/DateUtils';
+import { DrawDate } from './DrawDate';
 import { GAMES } from '../constants';
 
 /**
@@ -10,11 +11,11 @@ import { GAMES } from '../constants';
  * a frequency report of numbers of a game.
  */
 export default class Stats {
-  lastDraw: string = '';
+  lastDraw: DrawDate = '';
   numbers: {
     [key: string]: {
       freq: number;
-      last: string | null;
+      last?: DrawDate;
     };
   } = {};
 
@@ -27,7 +28,6 @@ export default class Stats {
         const numStr = this.numToStr(i);
         this.numbers[numStr] = {
           freq: 0,
-          last: null,
         };
       }
       if (plus) {
@@ -35,7 +35,6 @@ export default class Stats {
           const numStr = this.numToStr(i, true);
           this.numbers[numStr] = {
             freq: 0,
-            last: null,
           };
         }
       }
@@ -67,7 +66,7 @@ export default class Stats {
    * @param column Game column
    * @param drawDate Draw date string
    */
-  processColumn(column: GameColumn, drawDate: string) {
+  processColumn(column: GameColumn, drawDate: DrawDate) {
     column.main.forEach((num) => this.processNumber(num, drawDate));
     if (this.gameId === GameID.sanstopu && column.plus) {
       column.plus.forEach((plus) => this.processNumber(plus, drawDate, true));
@@ -80,7 +79,7 @@ export default class Stats {
    * @param drawDate Draw date string
    * @param isPlus If the number is belong to 'plus' pool or not
    */
-  processNumber(num: number, drawDate: string, isPlus: boolean = false) {
+  processNumber(num: number, drawDate: DrawDate, isPlus: boolean = false) {
     const numStr = this.numToStr(num, isPlus);
 
     const { freq, last } = this.numbers[numStr];

@@ -4,6 +4,7 @@ import moment from 'moment';
 import stripBom from 'strip-bom';
 import { GameID } from '../Game';
 import { DrawDataType } from './DrawDataType';
+import { DrawDate } from '../DrawDate';
 import { DATE_FORMAT, DATE_FORMAT_FRIENDLY, MPI_BASE } from '../../constants';
 import { PathUtils } from '../../utils';
 
@@ -17,12 +18,12 @@ interface PromiseResult {
  */
 export default class Draw {
   private gameId: GameID;
-  private drawDate: string;
+  private drawDate: DrawDate;
 
   drawData?: DrawDataType;
   error?: string;
 
-  constructor(gameId: GameID, drawDate: string) {
+  constructor(gameId: GameID, drawDate: DrawDate) {
     this.gameId = gameId;
     this.drawDate = drawDate;
   }
@@ -34,7 +35,7 @@ export default class Draw {
    * @param drawDate Draw date
    * @returns Draw instance.
    */
-  static fromFile(gameId: GameID, drawDate: string): Draw {
+  static fromFile(gameId: GameID, drawDate: DrawDate): Draw {
     const draw = new this(gameId, drawDate);
     const resPath = PathUtils.drawResourcePath(gameId, drawDate);
 

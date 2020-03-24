@@ -5,6 +5,7 @@ import fetch from 'node-fetch';
 import moment from 'moment';
 import EmbedResponse from '../models/EmbedResponse';
 import { GameID } from '../models/Game';
+import { DrawDate } from '../models/DrawDate';
 import {
   DATE_FORMAT,
   DATE_FORMAT_EMBED,
@@ -20,7 +21,7 @@ import {
  */
 export const getEmbeddableStream = async (
   gameId: GameID,
-  drawDate: string,
+  drawDate: DrawDate,
 ): Promise<EmbedResponse> => {
   const game = GAMES.find((g) => g.id === gameId);
   const gameStr = game?.embedSlug ? game.embedSlug : game?.id;
