@@ -1,4 +1,4 @@
-import { ICheckNumbers, ICheckResult } from '../Game';
+import { ICheckNumbers, ICheckResult } from '.';
 import { LotteryCategory, LotteryDraw, LotteryGame } from '../Lottery';
 
 export default class LotteryCheck implements ICheckNumbers {

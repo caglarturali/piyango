@@ -2,11 +2,15 @@
  * Check numbers controller.
  */
 import ApiResponse from '../models/ApiResponse';
-import Game, { GameID, ICheckNumbers, ICheckResult } from '../models/Game';
+import Game, { GameID } from '../models/Game';
 import { RegularDraw, RegularGame } from '../models/Regular';
-import RegularCheck from '../models/Check/RegularCheck';
+import {
+  ICheckNumbers,
+  ICheckResult,
+  LotteryCheck,
+  RegularCheck,
+} from '../models/Check';
 import { LotteryDraw, LotteryGame } from '../models/Lottery';
-import LotteryCheck from '../models/Check/LotteryCheck';
 import CheckBody from '../models/CheckBody';
 import { getDrawDetails } from './draws';
 import { validDate, validGameId } from './_validate';

@@ -4,7 +4,8 @@ import {
   RegularDraw,
   RegularGame,
 } from '../Regular';
-import { GameID, ICheckNumbers, ICheckResult } from '../Game';
+import { GameID } from '../Game';
+import { ICheckNumbers, ICheckResult } from '.';
 import { DrawUtils } from '../../utils';
 
 export default class RegularCheck implements ICheckNumbers {
