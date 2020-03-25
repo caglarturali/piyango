@@ -1,5 +1,5 @@
 import { CheckResult, ICheckNumbers } from '.';
-import { LotteryDrawData, LotteryCategory, LotteryGame } from '../Lottery';
+import { LotteryCategory, LotteryDrawData, LotteryGame } from '../Lottery';
 
 export default class LotteryCheck implements ICheckNumbers {
   private game: LotteryGame;
@@ -8,11 +8,7 @@ export default class LotteryCheck implements ICheckNumbers {
 
   results: CheckResult[] = [];
 
-  constructor(
-    game: LotteryGame,
-    drawData: LotteryDrawData,
-    numbers: string[],
-  ) {
+  constructor(game: LotteryGame, drawData: LotteryDrawData, numbers: string[]) {
     this.game = game;
     this.drawData = drawData;
     this.numbers = numbers;
