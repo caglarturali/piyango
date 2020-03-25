@@ -6,7 +6,7 @@ import {
   getDrawDetailsForLatestDraws,
 } from '../draws';
 import { GameID } from '../../models/Game';
-import { IRegularDrawData, RegularDrawType } from '../../models/Regular';
+import { RegularDrawData, RegularDrawType } from '../../models/Regular';
 import { DATE_FORMAT, DATE_FORMAT_FRIENDLY, GAMES } from '../../constants';
 
 test('should get draw details for latest draws', async () => {
@@ -20,7 +20,7 @@ test('should get draw details for the last draw for given game', async () => {
   const { statusCode, data, error } = await getDrawDetailsForLastDraw(
     GameID.superloto,
   );
-  const drawDetails = data[0] as IRegularDrawData;
+  const drawDetails = data[0] as RegularDrawData;
 
   expect(statusCode).toBe(200);
   expect(error).toBeUndefined();
@@ -48,7 +48,7 @@ test('should get draw details for given game and date', async () => {
     GameID.superloto,
     dateStr,
   );
-  const drawDetails = data[0] as IRegularDrawData;
+  const drawDetails = data[0] as RegularDrawData;
 
   expect(statusCode).toBe(200);
   expect(error).toBeUndefined();

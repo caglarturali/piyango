@@ -1,5 +1,5 @@
 import DrawHistory from './DrawHistory';
 
 export default DrawHistory;
-export * from './IDrawHistory';
-export * from './IHistoryResponse';
+export * from './DrawHistoryData';
+export * from './HistoryResponse';

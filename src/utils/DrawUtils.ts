@@ -1,5 +1,5 @@
 import { GameID } from '../models/Game';
-import { GameColumn, IRegularDrawData } from '../models/Regular';
+import { GameColumn, RegularDrawData } from '../models/Regular';
 
 export default class DrawUtils {
   /**
@@ -31,7 +31,7 @@ export default class DrawUtils {
    */
   static getWinningNumbers(
     gameId: GameID,
-    drawDetails: IRegularDrawData,
+    drawDetails: RegularDrawData,
   ): GameColumn {
     if (gameId === GameID.piyango) return { main: [] };
     const { rakamlar } = drawDetails;

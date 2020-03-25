@@ -1,16 +1,16 @@
-import { ICheckNumbers, ICheckResult } from '.';
-import { ILotteryDrawData, LotteryCategory, LotteryGame } from '../Lottery';
+import { CheckResult, ICheckNumbers } from '.';
+import { LotteryDrawData, LotteryCategory, LotteryGame } from '../Lottery';
 
 export default class LotteryCheck implements ICheckNumbers {
   private game: LotteryGame;
   private numbers: string[];
-  private drawData: ILotteryDrawData;
+  private drawData: LotteryDrawData;
 
-  results: ICheckResult[] = [];
+  results: CheckResult[] = [];
 
   constructor(
     game: LotteryGame,
-    drawData: ILotteryDrawData,
+    drawData: LotteryDrawData,
     numbers: string[],
   ) {
     this.game = game;
@@ -53,7 +53,7 @@ export default class LotteryCheck implements ICheckNumbers {
 
     // Compare numbers against categories.
     this.numbers.forEach((num) => {
-      let result: ICheckResult = { type: null, digits: null, prize: 0 };
+      let result: CheckResult = { type: null, digits: null, prize: 0 };
 
       // Check "teselli" first.
       if (teselli.numaralar.includes(num)) {

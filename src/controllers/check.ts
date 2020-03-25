@@ -4,13 +4,13 @@
 import ApiResponse from '../models/ApiResponse';
 import Game, { GameID } from '../models/Game';
 import {
+  CheckResult,
   ICheckNumbers,
-  ICheckResult,
   LotteryCheck,
   RegularCheck,
 } from '../models/Check';
-import { IRegularDrawData, RegularGame } from '../models/Regular';
-import { ILotteryDrawData, LotteryGame } from '../models/Lottery';
+import { RegularDrawData, RegularGame } from '../models/Regular';
+import { LotteryDrawData, LotteryGame } from '../models/Lottery';
 import CheckBody from '../models/CheckBody';
 import { getDrawDetails } from './draws';
 import { DrawDate } from '../models/DrawDates';
@@ -28,7 +28,7 @@ export const checkNumbers = async (
   drawDate: DrawDate,
   checkBody: CheckBody,
 ) => {
-  const apiResponse = new ApiResponse<ICheckResult>();
+  const apiResponse = new ApiResponse<CheckResult>();
 
   // Validate gameId and date.
   if (!validGameId(apiResponse, gameId)) return apiResponse;
@@ -55,7 +55,7 @@ export const checkNumbers = async (
      */
     check = new LotteryCheck(
       game as LotteryGame,
-      drawData as ILotteryDrawData,
+      drawData as LotteryDrawData,
       numbers,
     );
 
@@ -68,7 +68,7 @@ export const checkNumbers = async (
      */
     check = new RegularCheck(
       game as RegularGame,
-      drawData as IRegularDrawData,
+      drawData as RegularDrawData,
       numbers,
     );
 

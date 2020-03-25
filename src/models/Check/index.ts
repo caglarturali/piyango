@@ -3,4 +3,4 @@ import RegularCheck from './RegularCheck';
 
 export { LotteryCheck, RegularCheck };
 export * from './ICheckNumbers';
-export * from './ICheckResult';
+export * from './CheckResult';

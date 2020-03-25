@@ -1,7 +1,7 @@
 /**
  * Embed controller.
  */
-import Embed, { IEmbedResponse } from '../models/Embed';
+import Embed, { EmbedResponse } from '../models/Embed';
 import { DrawDate } from '../models/DrawDates';
 import { GameID } from '../models/Game';
 
@@ -14,7 +14,7 @@ import { GameID } from '../models/Game';
 export const getEmbeddableStream = async (
   gameId: GameID,
   drawDate: DrawDate,
-): Promise<IEmbedResponse> => {
+): Promise<EmbedResponse> => {
   const embed = new Embed(gameId, drawDate);
   return await embed.getStream();
 };

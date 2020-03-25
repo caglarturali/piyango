@@ -1,8 +1,8 @@
-import { IDrawData } from '../Draw';
+import { DrawData } from '../Draw';
 import { RegularDrawType, WinnerCategory } from '.';
 import LuckyProvince from '../LuckyProvince';
 
-export interface IRegularDrawData extends IDrawData {
+export interface RegularDrawData extends DrawData {
   archived?: boolean;
   oid: string;
   hafta: number;

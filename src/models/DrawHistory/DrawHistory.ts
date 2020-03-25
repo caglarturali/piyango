@@ -1,8 +1,8 @@
 import moment from 'moment';
 import { DrawDate } from '../DrawDates/DrawDate';
-import { IDrawHistory } from './IDrawHistory';
+import { DrawHistoryData } from './DrawHistoryData';
 import { GameID } from '../Game';
-import { IHistoryResponse } from '.';
+import { HistoryResponse } from '.';
 import DrawDates from '../DrawDates';
 import { DATE_FORMAT, DATE_FORMAT_SHORT, GAMES } from '../../constants';
 
@@ -16,10 +16,10 @@ export default class DrawHistory {
   /**
    * Returns draw history of the date for all games.
    */
-  async historyForGames(): Promise<IHistoryResponse> {
+  async historyForGames(): Promise<HistoryResponse> {
     const result = {
       history: [],
-    } as IHistoryResponse;
+    } as HistoryResponse;
 
     const results = await Promise.all(
       GAMES.map(async (game) => {
@@ -43,11 +43,11 @@ export default class DrawHistory {
    * Returns draw history of the date for given game.
    * @param gameId Game ID
    */
-  async historyForGame(gameId: GameID): Promise<IDrawHistory> {
+  async historyForGame(gameId: GameID): Promise<DrawHistoryData> {
     const drawHistory = {
       gameId,
       draws: [],
-    } as IDrawHistory;
+    } as DrawHistoryData;
 
     const refDate = moment(this.date, DATE_FORMAT).format(DATE_FORMAT_SHORT);
 

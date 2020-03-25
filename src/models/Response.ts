@@ -1,7 +1,7 @@
 /**
  * Generic response definiton.
  */
-export default interface IResponse {
+export default interface Response {
   [key: string]: any;
   error?: string;
 }

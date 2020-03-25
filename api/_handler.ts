@@ -1,6 +1,5 @@
 import { NowRequest, NowRequestQuery, NowResponse } from '@now/node';
-import { HTTPMethods } from '../src/models/HTTPMethods';
-import { Header } from '../src/models/Header';
+import { HTTPHeader, HTTPMethods } from '../src/models/HTTP';
 
 export type CallbackFunction = (query: NowRequestQuery, body: any) => void;
 
@@ -12,7 +11,7 @@ export type CallbackFunction = (query: NowRequestQuery, body: any) => void;
 const handler = (req: NowRequest, res: NowResponse) => (
   allowedMethod: HTTPMethods,
   callback: CallbackFunction,
-  allowedHeader?: Header,
+  allowedHeader?: HTTPHeader,
 ) => {
   const { method, query, body, headers } = req;
 

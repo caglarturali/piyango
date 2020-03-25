@@ -1,10 +1,10 @@
-import { ICheckResult } from '.';
+import { CheckResult } from '.';
 
 /**
  * Base interface for check utility classes.
  */
 export interface ICheckNumbers {
-  results: ICheckResult[];
+  results: CheckResult[];
   validate(): boolean;
   process(): any;
 }

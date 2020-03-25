@@ -1,7 +1,7 @@
-import { ILotteryDrawData } from '../Lottery';
-import { IRegularDrawData } from '../Regular';
+import { LotteryDrawData } from '../Lottery';
+import { RegularDrawData } from '../Regular';
 
 /**
  * Type alias for types of draw data.
  */
-export type DrawDataType = ILotteryDrawData | IRegularDrawData;
+export type DrawDataType = LotteryDrawData | RegularDrawData;

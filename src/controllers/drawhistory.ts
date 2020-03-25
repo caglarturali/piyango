@@ -5,7 +5,7 @@ import momentTZ from 'moment-timezone';
 import ApiResponse from '../models/ApiResponse';
 import { GameID } from '../models/Game';
 import { DATE_FORMAT } from '../constants';
-import DrawHistory, { IDrawHistory } from '../models/DrawHistory';
+import DrawHistory, { DrawHistoryData } from '../models/DrawHistory';
 import { DrawDate } from '../models/DrawDates';
 import { validDate, validGameId } from './_validate';
 
@@ -25,7 +25,7 @@ export const getDrawHistoryOfToday = async () => {
  * @param gameId Game Id
  */
 export const getDrawHistory = async (date: DrawDate, gameId?: GameID) => {
-  const apiResponse = new ApiResponse<IDrawHistory>();
+  const apiResponse = new ApiResponse<DrawHistoryData>();
 
   // Validate date and gameId (if provided).
   if (!validDate(apiResponse, date)) return apiResponse;

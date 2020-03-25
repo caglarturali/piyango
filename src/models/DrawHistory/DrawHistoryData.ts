@@ -1,8 +1,8 @@
 import { GameID } from '../Game';
 import { DrawDate } from '../DrawDates';
-import IResponse from '../IResponse';
+import Response from '../Response';
 
-export interface IDrawHistory extends IResponse {
+export interface DrawHistoryData extends Response {
   error?: string;
   gameId: GameID;
   draws: DrawDate[];

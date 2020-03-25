@@ -1,10 +1,10 @@
 import _ from 'lodash';
-import IResponse from './IResponse';
+import Response from './Response';
 
 /**
  * Base class for an API response.
  */
-export default class ApiResponse<T> implements IResponse {
+export default class ApiResponse<T> implements Response {
   statusCode: number;
   data: T[];
   error?: string;

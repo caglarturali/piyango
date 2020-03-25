@@ -2,7 +2,7 @@ import { GAMES } from '../src/constants';
 import { GameID } from '../src/models/Game';
 import { MessageType, printMsg } from './_utils';
 import DrawUtils from '../src/utils/DrawUtils';
-import { IRegularDrawData } from '../src/models/Regular';
+import { RegularDrawData } from '../src/models/Regular';
 import { getDrawDates, getDrawDetails } from '../src/controllers';
 import Stats from '../src/models/Stats/Stats';
 
@@ -69,7 +69,7 @@ const calculateStatsForGame = async (gameId: GameID) => {
   drawDetailsResults.forEach(({ drawDate, drawDetails }) => {
     const nums = DrawUtils.getWinningNumbers(
       gameId,
-      drawDetails as IRegularDrawData,
+      drawDetails as RegularDrawData,
     );
     stats.processColumn(nums, drawDate);
   });

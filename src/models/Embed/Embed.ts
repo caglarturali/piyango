@@ -2,13 +2,13 @@ import fetch from 'node-fetch';
 import moment from 'moment';
 import Game, { GameID } from '../Game';
 import { DrawDate } from '../DrawDates';
+import { EmbedResponse } from '.';
 import {
   DATE_FORMAT,
   DATE_FORMAT_EMBED,
   GAMES,
   STREAM_URL,
 } from '../../constants';
-import { IEmbedResponse } from '.';
 
 export default class Embed {
   private gameId: GameID;
@@ -23,7 +23,7 @@ export default class Embed {
    * Returns HLS stream of the draw (if found).
    * Otherwise, it returns a dummy stream.
    */
-  async getStream(): Promise<IEmbedResponse> {
+  async getStream(): Promise<EmbedResponse> {
     const game = GAMES.find((g) => g.id === this.gameId) as Game;
     const gameStr = game.embedSlug || game.id;
 
@@ -61,7 +61,7 @@ export default class Embed {
     return {
       status: 200,
       contents,
-      header: ['Content-Type', 'application/vnd.apple.mpegurl'],
+      header: ['content-type', 'application/vnd.apple.mpegurl'],
     };
   }
 

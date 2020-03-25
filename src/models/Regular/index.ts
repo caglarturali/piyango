@@ -1,4 +1,4 @@
-export * from './IRegularDrawData';
+export * from './RegularDrawData';
 export * from './RegularGame';
 export * from './RegularDrawType';
 export * from './GameColumn';

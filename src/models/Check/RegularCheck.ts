@@ -1,25 +1,25 @@
 import {
   GameColumn,
-  IRegularDrawData,
+  RegularDrawData,
   MatchTypeRegular,
   RegularGame,
 } from '../Regular';
 import { GameID } from '../Game';
-import { ICheckNumbers, ICheckResult } from '.';
+import { CheckResult, ICheckNumbers } from '.';
 import { DrawUtils } from '../../utils';
 
 export default class RegularCheck implements ICheckNumbers {
   private game: RegularGame;
-  private drawData: IRegularDrawData;
+  private drawData: RegularDrawData;
   private userNumbers: GameColumn[];
   private winningNumbers: GameColumn;
 
   private matches: GameColumn[] = [];
-  results: ICheckResult[] = [];
+  results: CheckResult[] = [];
 
   constructor(
     game: RegularGame,
-    drawData: IRegularDrawData,
+    drawData: RegularDrawData,
     numbers: string[],
   ) {
     this.game = game;
