@@ -4,7 +4,7 @@
 import ApiResponse from '../models/ApiResponse';
 import { SortOrder } from '../models/SortOrder';
 import { GameID } from '../models/Game';
-import { DrawDate, DrawDates } from '../models/DrawDates';
+import DrawDates, { DrawDate } from '../models/DrawDates';
 import { validGameId } from './_validate';
 
 /**
@@ -26,7 +26,6 @@ export const getDrawDates = async (
   if (!validGameId(apiResponse, gameId)) return apiResponse;
 
   const drawDates = new DrawDates(gameId, limit, skip, sort);
-
   await drawDates.collectData();
 
   if (drawDates.error) {

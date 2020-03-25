@@ -5,7 +5,7 @@ import momentTZ from 'moment-timezone';
 import ApiResponse from '../models/ApiResponse';
 import { GameID } from '../models/Game';
 import { DATE_FORMAT } from '../constants';
-import { DrawHistory, IDrawHistory } from '../models/DrawHistory';
+import DrawHistory, { IDrawHistory } from '../models/DrawHistory';
 import { DrawDate } from '../models/DrawDates';
 import { validDate, validGameId } from './_validate';
 

@@ -1,5 +1,5 @@
 import Draw from './Draw';
 
-export { Draw };
+export default Draw;
 export * from './IDrawData';
 export * from './DrawDataType';

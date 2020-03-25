@@ -3,7 +3,7 @@
  */
 import { GameID } from '../models/Game';
 import ApiResponse from '../models/ApiResponse';
-import Stats from '../models/Stats/Stats';
+import Stats from '../models/Stats';
 import { getDrawDates } from './drawdates';
 import DateUtils from '../utils/DateUtils';
 import { getDrawDetails } from './draws';

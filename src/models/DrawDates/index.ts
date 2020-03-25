@@ -1,4 +1,4 @@
 import DrawDates from './DrawDates';
 
-export { DrawDates };
+export default DrawDates;
 export * from './DrawDate';

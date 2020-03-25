@@ -7,7 +7,7 @@ import { GameID } from '../models/Game';
 import { getDrawDates } from './drawdates';
 import { validDate, validGameId } from './_validate';
 import DateUtils from '../utils/DateUtils';
-import { Draw, DrawDataType } from '../models/Draw';
+import Draw, { DrawDataType } from '../models/Draw';
 import { DrawDate } from '../models/DrawDates';
 
 /**

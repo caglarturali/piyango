@@ -3,7 +3,7 @@ import { DrawDate } from '../DrawDates/DrawDate';
 import { IDrawHistory } from './IDrawHistory';
 import { GameID } from '../Game';
 import { IHistoryResponse } from '.';
-import { DrawDates } from '../DrawDates';
+import DrawDates from '../DrawDates';
 import { DATE_FORMAT, DATE_FORMAT_SHORT, GAMES } from '../../constants';
 
 export default class DrawHistory {
