@@ -19,7 +19,7 @@ const handler = (req: NowRequest, res: NowResponse) => (
     case allowedMethod: {
       if (allowedHeader) {
         const [key, value] = allowedHeader;
-        if (headers[key.toLowerCase()] !== value.toString().toLowerCase()) {
+        if (headers[key.toLowerCase()] !== value) {
           return res
             .status(400)
             .end(`The header ${key} must be set to ${value}`);
