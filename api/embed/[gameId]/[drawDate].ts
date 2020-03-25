@@ -16,16 +16,14 @@ export default async (req: NowRequest, res: NowResponse) => {
 
   switch (method) {
     case 'GET': {
-      const { status, contents, error } = await getEmbeddableStream(
+      const { status, contents, error, header } = await getEmbeddableStream(
         gameArg,
         dateArg,
       );
 
-      if (error) {
-        return res.status(status).end(error);
-      }
+      if (error) return res.status(status).end(error);
 
-      res.setHeader('Content-Type', 'application/vnd.apple.mpegurl');
+      if (header) res.setHeader(...header);
       res.status(status).end(contents);
       break;
     }

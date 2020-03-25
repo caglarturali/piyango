@@ -1,7 +1,7 @@
 module.exports = {
   preset: 'ts-jest',
   testEnvironment: 'node',
-  testTimeout: 10000,
+  testTimeout: 15000,
   bail: 1,
   coverageDirectory: 'output/coverage/jest',
   globals: {
