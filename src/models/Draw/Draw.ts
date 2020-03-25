@@ -4,7 +4,7 @@ import moment from 'moment';
 import stripBom from 'strip-bom';
 import { GameID } from '../Game';
 import { DrawDataType } from './DrawDataType';
-import { DrawDate } from '../DrawDate';
+import { DrawDate } from '../DrawDates';
 import { DATE_FORMAT, DATE_FORMAT_FRIENDLY, MPI_BASE } from '../../constants';
 import { PathUtils } from '../../utils';
 

@@ -5,7 +5,7 @@ import fetch from 'node-fetch';
 import moment from 'moment';
 import EmbedResponse from '../models/EmbedResponse';
 import { GameID } from '../models/Game';
-import { DrawDate } from '../models/DrawDate';
+import { DrawDate } from '../models/DrawDates';
 import {
   DATE_FORMAT,
   DATE_FORMAT_EMBED,

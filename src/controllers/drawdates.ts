@@ -4,8 +4,7 @@
 import ApiResponse from '../models/ApiResponse';
 import { SortOrder } from '../models/SortOrder';
 import { GameID } from '../models/Game';
-import { DrawDate } from '../models/DrawDate';
-import DrawDates from '../models/DrawDates';
+import { DrawDate, DrawDates } from '../models/DrawDates';
 import { validGameId } from './_validate';
 
 /**

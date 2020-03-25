@@ -3,12 +3,12 @@ import path from 'path';
 import moment from 'moment';
 import fetch from 'node-fetch';
 import stripBom from 'strip-bom';
-import { GameID } from './Game';
+import { GameID } from '../Game';
 import { DrawDate } from './DrawDate';
-import { DATE_FORMAT, DRAWS_DIR_PATH, MPI_BASE } from '../constants';
-import DrawListing from './DrawListing';
-import { SortOrder } from './SortOrder';
-import conf from '../apiconfig';
+import { DATE_FORMAT, DRAWS_DIR_PATH, MPI_BASE } from '../../constants';
+import DrawListing from '../DrawListing';
+import { SortOrder } from '../SortOrder';
+import conf from '../../apiconfig';
 
 export default class DrawDates {
   private gameId: GameID;

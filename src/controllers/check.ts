@@ -13,7 +13,7 @@ import { IRegularDrawData, RegularGame } from '../models/Regular';
 import { ILotteryDrawData, LotteryGame } from '../models/Lottery';
 import CheckBody from '../models/CheckBody';
 import { getDrawDetails } from './draws';
-import { DrawDate } from '../models/DrawDate';
+import { DrawDate } from '../models/DrawDates';
 import { validDate, validGameId } from './_validate';
 import { GAMES } from '../constants';
 

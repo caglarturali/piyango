@@ -3,7 +3,7 @@ import { GameID } from './Game';
 import { GameColumn } from './Regular';
 import PathUtils from '../utils/PathUtils';
 import DateUtils from '../utils/DateUtils';
-import { DrawDate } from './DrawDate';
+import { DrawDate } from './DrawDates';
 import { GAMES } from '../constants';
 
 /**

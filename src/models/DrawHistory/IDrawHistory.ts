@@ -1,5 +1,5 @@
 import { GameID } from '../Game';
-import { DrawDate } from '../DrawDate';
+import { DrawDate } from '../DrawDates';
 import IResponse from '../IResponse';
 
 export interface IDrawHistory extends IResponse {

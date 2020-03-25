@@ -8,7 +8,7 @@ import { getDrawDates } from './drawdates';
 import { validDate, validGameId } from './_validate';
 import DateUtils from '../utils/DateUtils';
 import { Draw, DrawDataType } from '../models/Draw';
-import { DrawDate } from '../models/DrawDate';
+import { DrawDate } from '../models/DrawDates';
 
 /**
  * Returns latest draws in descending order by date.
