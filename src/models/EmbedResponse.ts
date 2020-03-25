@@ -1,5 +1,6 @@
-export default interface EmbedResponse {
+import IResponse from './IResponse';
+
+export default interface EmbedResponse extends IResponse {
   status: number;
-  error?: string;
   contents?: string;
 }

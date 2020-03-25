@@ -1,4 +1,4 @@
-import { getDrawHistory, getDrawHistoryForGame } from '../drawhistory';
+import { getDrawHistory } from '../drawhistory';
 import { GAMES } from '../../constants';
 import { GameID } from '../../models/Game';
 import DateUtils from '../../utils/DateUtils';
@@ -19,10 +19,12 @@ test('should get draw history for all games for given date', async () => {
 
 test('should get draw history for given game and date', async () => {
   const dateStr = '20191231';
-  const { data } = await getDrawHistoryForGame(dateStr, GameID.piyango);
+  const {
+    data: [history],
+  } = await getDrawHistory(dateStr, GameID.piyango);
 
-  expect(data.length).toBeGreaterThan(0);
-  data.forEach((date) => {
+  expect(history.draws.length).toBeGreaterThan(0);
+  history.draws.forEach((date) => {
     expect(DateUtils.isDateValid(date)).toBeTruthy();
   });
 });

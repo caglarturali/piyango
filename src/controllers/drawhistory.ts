@@ -22,47 +22,34 @@ export const getDrawHistoryOfToday = async () => {
 /**
  * Returns draw history of the date.
  * @param date Date string
- */
-export const getDrawHistory = async (date: DrawDate) => {
-  const apiResponse = new ApiResponse<IDrawHistory>();
-
-  // Validate date.
-  if (!validDate(apiResponse, date)) return apiResponse;
-
-  const drawHistory = new DrawHistory(date);
-
-  const { error, history } = await drawHistory.historyForGames();
-
-  if (error) {
-    return apiResponse.setFailed(error);
-  }
-
-  apiResponse.data = history;
-
-  return apiResponse;
-};
-
-/**
- * Returns draw history of the date for given game.
- * @param date Date string
  * @param gameId Game Id
  */
-export const getDrawHistoryForGame = async (date: DrawDate, gameId: GameID) => {
-  const apiResponse = new ApiResponse<DrawDate>();
+export const getDrawHistory = async (date: DrawDate, gameId?: GameID) => {
+  const apiResponse = new ApiResponse<IDrawHistory>();
 
-  // Validate gameId and date.
-  if (!validGameId(apiResponse, gameId)) return apiResponse;
+  // Validate date and gameId (if provided).
   if (!validDate(apiResponse, date)) return apiResponse;
+  if (gameId) {
+    if (!validGameId(apiResponse, gameId)) return apiResponse;
+  }
 
   const drawHistory = new DrawHistory(date);
 
-  const { error, history } = await drawHistory.historyForGame(gameId);
-
-  if (error) {
-    return apiResponse.setFailed(error);
+  if (gameId) {
+    /**
+     * Draw history for specific game.
+     */
+    const { error, draws } = await drawHistory.historyForGame(gameId);
+    if (error) return apiResponse.setFailed(error);
+    apiResponse.addData({ gameId, draws });
+  } else {
+    /**
+     * Draw history for all games.
+     */
+    const { error, history } = await drawHistory.historyForGames();
+    if (error) return apiResponse.setFailed(error);
+    apiResponse.data = history;
   }
-
-  apiResponse.data = history;
 
   return apiResponse;
 };

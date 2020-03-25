@@ -2,21 +2,9 @@ import moment from 'moment';
 import { DrawDate } from '../DrawDate';
 import { IDrawHistory } from './IDrawHistory';
 import { GameID } from '../Game';
-import { DATE_FORMAT, DATE_FORMAT_SHORT, GAMES } from '../../constants';
+import { IHistoryResponse } from '.';
 import DrawDates from '../DrawDates';
-import IResponse from '../IResponse';
-
-export interface IHistoryForGame extends IResponse {
-  history: DrawDate[];
-}
-
-export interface IHistoryForGames extends IResponse {
-  history: IDrawHistory[];
-}
-
-export interface IHistoryForDate extends IResponse {
-  history: IDrawHistory[];
-}
+import { DATE_FORMAT, DATE_FORMAT_SHORT, GAMES } from '../../constants';
 
 export default class DrawHistory {
   private date: DrawDate;
@@ -27,19 +15,19 @@ export default class DrawHistory {
 
   /**
    * Returns draw history of the date for all games.
-   * @param date Date (optional)
    */
-  async historyForGames(date?: DrawDate): Promise<IHistoryForGames> {
+  async historyForGames(): Promise<IHistoryResponse> {
     const result = {
       history: [],
-    } as IHistoryForGames;
+    } as IHistoryResponse;
 
     const results = await Promise.all(
       GAMES.map(async (game) => {
-        const { history, error } = await this.historyForGame(game.id, date);
+        const { gameId, draws, error } = await this.historyForGame(game.id);
         return {
-          gameId: game.id,
-          draws: error ? [] : history,
+          gameId,
+          draws,
+          error,
         };
       }),
     );
@@ -54,34 +42,27 @@ export default class DrawHistory {
   /**
    * Returns draw history of the date for given game.
    * @param gameId Game ID
-   * @param date Date (optional)
    */
-  async historyForGame(
-    gameId: GameID,
-    date?: DrawDate,
-  ): Promise<IHistoryForGame> {
-    const result = {
-      history: [],
-    } as IHistoryForGame;
+  async historyForGame(gameId: GameID): Promise<IDrawHistory> {
+    const drawHistory = {
+      gameId,
+      draws: [],
+    } as IDrawHistory;
 
-    const refDate = moment(date || this.date, DATE_FORMAT).format(
-      DATE_FORMAT_SHORT,
-    );
+    const refDate = moment(this.date, DATE_FORMAT).format(DATE_FORMAT_SHORT);
 
     const drawDates = new DrawDates(gameId, 0);
     await drawDates.collectData();
 
     if (drawDates.error) {
-      result.error = drawDates.error;
-      return result;
+      drawHistory.error = drawDates.error;
+      return drawHistory;
     }
 
-    drawDates.drawDates.forEach((t) => {
-      if (refDate === moment(t, DATE_FORMAT).format(DATE_FORMAT_SHORT)) {
-        result.history.push(t);
-      }
+    drawHistory.draws = drawDates.drawDates.filter((t) => {
+      return refDate === moment(t, DATE_FORMAT).format(DATE_FORMAT_SHORT);
     });
 
-    return result;
+    return drawHistory;
   }
 }
