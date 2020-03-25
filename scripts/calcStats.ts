@@ -4,7 +4,7 @@ import { MessageType, printMsg } from './_utils';
 import DrawUtils from '../src/utils/DrawUtils';
 import { IRegularDrawData } from '../src/models/Regular';
 import { getDrawDates, getDrawDetails } from '../src/controllers';
-import Stats from '../src/models/Stats';
+import Stats from '../src/models/Stats/Stats';
 
 /**
  * Calculates stats for all games (except piyango).

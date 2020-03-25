@@ -1,10 +1,10 @@
 import fs from 'fs';
-import { GameID } from './Game';
-import { GameColumn } from './Regular';
-import PathUtils from '../utils/PathUtils';
-import DateUtils from '../utils/DateUtils';
-import { DrawDate } from './DrawDates';
-import { GAMES } from '../constants';
+import { GameID } from '../Game';
+import { GameColumn } from '../Regular';
+import PathUtils from '../../utils/PathUtils';
+import DateUtils from '../../utils/DateUtils';
+import { DrawDate } from '../DrawDates';
+import { GAMES } from '../../constants';
 
 /**
  * Statistics class that represents
