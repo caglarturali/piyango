@@ -4,26 +4,16 @@
 import { NowRequest, NowResponse } from '@now/node';
 import { getDrawHistory } from '../../../src/controllers';
 import { GameID } from '../../../src/models/Game';
+import handler from '../../_handler';
 
 export default async (req: NowRequest, res: NowResponse) => {
-  const {
-    method,
-    query: { date, gameId },
-  } = req;
+  handler(req, res)('GET', async (query) => {
+    const { date, gameId } = query;
 
-  const gameArg = gameId.toString().toLowerCase() as GameID;
-  const dateArg = date.toString();
+    const gameArg = gameId.toString().toLowerCase() as GameID;
+    const dateArg = date.toString();
 
-  switch (method) {
-    case 'GET': {
-      const result = await getDrawHistory(dateArg, gameArg);
-      res.status(result.statusCode).json(result.toResponse());
-      break;
-    }
-
-    default:
-      res.setHeader('Allow', ['GET']);
-      res.status(405).end(`Method ${method} Not Allowed`);
-      break;
-  }
+    const result = await getDrawHistory(dateArg, gameArg);
+    res.status(result.statusCode).json(result.toResponse());
+  });
 };

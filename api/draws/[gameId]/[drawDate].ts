@@ -10,33 +10,23 @@ import { GameID } from '../../../src/models/Game';
 import ApiResponse from '../../../src/models/ApiResponse';
 import { DrawDataType } from '../../../src/models/Draw';
 import conf from '../../../src/apiconfig';
+import handler from '../../_handler';
 
 export default async (req: NowRequest, res: NowResponse) => {
-  const {
-    method,
-    query: { gameId, drawDate },
-  } = req;
+  handler(req, res)('GET', async (query) => {
+    const { gameId, drawDate } = query;
 
-  const gameArg = gameId.toString().toLowerCase() as GameID;
-  const dateArg = drawDate.toString();
+    const gameArg = gameId.toString().toLowerCase() as GameID;
+    const dateArg = drawDate.toString();
 
-  switch (method) {
-    case 'GET': {
-      let result: ApiResponse<DrawDataType>;
-      if (dateArg.includes(conf.draws.delimiter)) {
-        const drawDates = dateArg.split(conf.draws.delimiter);
-        result = await getDrawDetailsForDraws(gameArg, drawDates);
-      } else {
-        result = await getDrawDetails(gameArg, dateArg);
-      }
-
-      res.status(result.statusCode).json(result.toResponse());
-      break;
+    let result: ApiResponse<DrawDataType>;
+    if (dateArg.includes(conf.draws.delimiter)) {
+      const drawDates = dateArg.split(conf.draws.delimiter);
+      result = await getDrawDetailsForDraws(gameArg, drawDates);
+    } else {
+      result = await getDrawDetails(gameArg, dateArg);
     }
 
-    default:
-      res.setHeader('Allow', ['GET']);
-      res.status(405).end(`Method ${method} Not Allowed`);
-      break;
-  }
+    res.status(result.statusCode).json(result.toResponse());
+  });
 };
