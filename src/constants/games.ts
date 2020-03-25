@@ -18,7 +18,7 @@ export const GAMES: Game[] = [
     drawDates: [
       {
         weekday: 6,
-        since: '20180106',
+        since: '19961116',
       },
       {
         weekday: 3,
@@ -39,7 +39,7 @@ export const GAMES: Game[] = [
     drawDates: [
       {
         weekday: 4,
-        since: '20180104',
+        since: '20071025',
       },
     ],
   },
@@ -60,7 +60,7 @@ export const GAMES: Game[] = [
     drawDates: [
       {
         weekday: 3,
-        since: '20180103',
+        since: '20010620',
       },
     ],
   },
@@ -77,7 +77,7 @@ export const GAMES: Game[] = [
     drawDates: [
       {
         weekday: 1,
-        since: '20180101',
+        since: '20020812',
       },
     ],
   },
