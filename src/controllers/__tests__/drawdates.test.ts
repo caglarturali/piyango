@@ -22,17 +22,17 @@ test('should successfully get draw dates for given game', async () => {
   expect(error).toBeUndefined();
 });
 
-test('should respond with error when invalid gameId is given', async () => {
-  const fakeGameId = 'sayisalx' as GameID;
-  const { statusCode, error } = await getDrawDates(
-    fakeGameId,
-    10,
-    0,
-    SortOrder.DESC,
-  );
-  expect(statusCode).not.toBe(200);
-  expect(error).toBeDefined();
-});
+// test('should respond with error when invalid gameId is given', async () => {
+//   const fakeGameId = 'sayisalx' as GameID;
+//   const { statusCode, error } = await getDrawDates(
+//     fakeGameId,
+//     10,
+//     0,
+//     SortOrder.DESC,
+//   );
+//   expect(statusCode).not.toBe(200);
+//   expect(error).toBeDefined();
+// });
 
 test('should sort results in specified order', async () => {
   const { data } = await getDrawDates(GameID.onnumara, 2, 0, SortOrder.ASC);
