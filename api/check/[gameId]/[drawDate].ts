@@ -4,7 +4,7 @@
 import { NowRequest, NowResponse } from '@now/node';
 import { checkNumbers } from '../../../src/controllers';
 import CheckBody from '../../../src/models/CheckBody';
-import handler from '../../_handler';
+import { handler } from '../../_utils';
 
 export default async (req: NowRequest, res: NowResponse) => {
   handler(req, res)(

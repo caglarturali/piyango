@@ -1,8 +1,8 @@
-import { GameID } from '../src/models/Game';
-import { SortOrder } from '../src/models/SortOrder';
-import { GAMES } from '../src/constants';
-import { DateUtils } from '../src/utils';
-import conf from '../src/apiconfig';
+import { GameID } from '../../src/models/Game';
+import { SortOrder } from '../../src/models/SortOrder';
+import { GAMES } from '../../src/constants';
+import { DateUtils } from '../../src/utils';
+import conf from '../../src/apiconfig';
 
 /**
  * Supported query parameters.

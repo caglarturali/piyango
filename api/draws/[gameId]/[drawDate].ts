@@ -9,7 +9,7 @@ import {
 import ApiResponse from '../../../src/models/ApiResponse';
 import { DrawDataType } from '../../../src/models/Draw';
 import conf from '../../../src/apiconfig';
-import handler from '../../_handler';
+import { handler } from '../../_utils';
 
 export default async (req: NowRequest, res: NowResponse) => {
   handler(req, res)(

@@ -1,6 +1,6 @@
 import { NowRequest, NowResponse } from '@now/node';
-import { HTTPHeader, HTTPMethods } from '../src/models/HTTP';
-import { getParamKit, QueryParam } from './_helpers';
+import { HTTPHeader, HTTPMethods } from '../../src/models/HTTP';
+import { getParamKit, QueryParam } from './helpers';
 
 export type CallbackFunction = (params: any, body: any) => void;
 
@@ -9,7 +9,7 @@ export type CallbackFunction = (params: any, body: any) => void;
  * @param req NowRequest object
  * @param res NowResponse object
  */
-const handler = (req: NowRequest, res: NowResponse) => (
+export const handler = (req: NowRequest, res: NowResponse) => (
   allowedMethod: HTTPMethods,
   callback: CallbackFunction,
   getParams?: QueryParam[],
@@ -55,5 +55,3 @@ const handler = (req: NowRequest, res: NowResponse) => (
       break;
   }
 };
-
-export default handler;
