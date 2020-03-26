@@ -19,10 +19,17 @@ export default class DrawDates {
   drawDates: DrawDate[] = [];
   error?: string;
 
+  /**
+   * Creates a DrawDates instance.
+   * @param gameId Game ID
+   * @param limit Limit to be applied. Provide -1 for all results.
+   * @param skip Number of items to be skipped
+   * @param sort Sorting order
+   */
   constructor(gameId: GameID, limit?: number, skip?: number, sort?: SortOrder) {
     this.gameId = gameId;
-    this.limit = limit || conf.drawdates.limit;
-    this.skip = skip || conf.drawdates.skip;
+    this.limit = Math.max(limit || conf.drawdates.limit, -1);
+    this.skip = Math.abs(skip || conf.drawdates.skip);
     this.sort = sort || conf.drawdates.sort;
   }
 
@@ -87,9 +94,8 @@ export default class DrawDates {
    */
   paginateData(): DrawDate[] {
     const { limit, skip } = this;
-    if (limit > 0) {
-      return this.drawDates.slice(skip, skip + limit);
-    }
+    if (limit === -1) return this.drawDates;
+    if (limit > 0) return this.drawDates.slice(skip, skip + limit);
     return this.drawDates;
   }
 

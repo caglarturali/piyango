@@ -51,7 +51,7 @@ export default class DrawHistory {
 
     const refDate = moment(this.date, DATE_FORMAT).format(DATE_FORMAT_SHORT);
 
-    const drawDates = new DrawDates(gameId, 0);
+    const drawDates = new DrawDates(gameId, -1);
     await drawDates.collectData();
 
     if (drawDates.error) {
