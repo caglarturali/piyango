@@ -101,7 +101,8 @@ export const getDrawDetails = async (gameId: GameID, drawDate: DrawDate) => {
     await draw.fetchData();
   }
 
-  if (draw.error) return apiResponse.setFailed(draw.error);
+  // Check drawData first!
   if (draw.drawData) return apiResponse.addData(draw.drawData);
+  if (draw.error) return apiResponse.setFailed(draw.error);
   return apiResponse;
 };
