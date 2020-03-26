@@ -18,8 +18,8 @@ export default async (req: NowRequest, res: NowResponse) => {
       const { gameId, drawDate } = params;
 
       let result: ApiResponse<DrawDataType>;
-      if (drawDate.includes(conf.draws.delimiter)) {
-        const drawDates = drawDate.split(conf.draws.delimiter);
+      if (drawDate.includes(conf.delimiter)) {
+        const drawDates = drawDate.split(conf.delimiter);
         result = await getDrawDetailsForDraws(gameId, drawDates);
       } else {
         result = await getDrawDetails(gameId, drawDate);

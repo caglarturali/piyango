@@ -5,7 +5,6 @@ import { GAMES } from '../constants';
 import ApiResponse from '../models/ApiResponse';
 import { GameID } from '../models/Game';
 import { getDrawDates } from './drawdates';
-import { validDate, validGameId } from './_validate';
 import DateUtils from '../utils/DateUtils';
 import Draw, { DrawDataType } from '../models/Draw';
 import { DrawDate } from '../models/DrawDates';
@@ -88,10 +87,6 @@ export const getDrawDetailsForDraws = async (
  */
 export const getDrawDetails = async (gameId: GameID, drawDate: DrawDate) => {
   const apiResponse = new ApiResponse<DrawDataType>();
-
-  // Validate gameId and date.
-  if (!validGameId(apiResponse, gameId)) return apiResponse;
-  if (!validDate(apiResponse, drawDate)) return apiResponse;
 
   /**
    * Return static data or fetch it from the web service.

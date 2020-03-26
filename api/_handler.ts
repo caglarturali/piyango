@@ -1,6 +1,6 @@
 import { NowRequest, NowResponse } from '@now/node';
 import { HTTPHeader, HTTPMethods } from '../src/models/HTTP';
-import { getParserForParam, QueryParam } from './_helpers';
+import { getParamKit, QueryParam } from './_helpers';
 
 export type CallbackFunction = (params: any, body: any) => void;
 
@@ -29,11 +29,20 @@ const handler = (req: NowRequest, res: NowResponse) => (
         }
       }
 
-      // Populate params if necessary.
+      // Populate and validate params if necessary.
       const params: { [key: string]: any } = {};
       if (getParams) {
-        for (const param of getParams) {
-          params[param] = getParserForParam(param)(query[param]);
+        for (const rawParam of getParams) {
+          const { parser, validator, error, status } = getParamKit(rawParam);
+          const param = parser(query[rawParam]);
+
+          // Short-circuit if it's not valid.
+          if (!validator(param)) {
+            return res.status(status || 400).json({ error });
+          }
+
+          // Valid. Append it to params.
+          params[rawParam] = param;
         }
       }
 

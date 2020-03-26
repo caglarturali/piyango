@@ -9,7 +9,6 @@ import DateUtils from '../utils/DateUtils';
 import { getDrawDetails } from './draws';
 import { RegularDrawData } from '../models/Regular';
 import DrawUtils from '../utils/DrawUtils';
-import { validGameId } from './_validate';
 
 /**
  * Gets the statistics for given game.
@@ -17,8 +16,6 @@ import { validGameId } from './_validate';
  */
 export const getStatsForGame = async (gameId: GameID) => {
   const apiResponse = new ApiResponse<Stats>();
-
-  if (!validGameId(apiResponse, gameId)) return apiResponse;
 
   if (gameId === GameID.piyango) {
     return apiResponse.setFailed(`${gameId} is not supported`);

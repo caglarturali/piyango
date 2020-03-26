@@ -14,7 +14,6 @@ import { LotteryDrawData, LotteryGame } from '../models/Lottery';
 import CheckBody from '../models/CheckBody';
 import { getDrawDetails } from './draws';
 import { DrawDate } from '../models/DrawDates';
-import { validDate, validGameId } from './_validate';
 import { GAMES } from '../constants';
 
 /**
@@ -29,10 +28,6 @@ export const checkNumbers = async (
   checkBody: CheckBody,
 ) => {
   const apiResponse = new ApiResponse<CheckResult>();
-
-  // Validate gameId and date.
-  if (!validGameId(apiResponse, gameId)) return apiResponse;
-  if (!validDate(apiResponse, drawDate)) return apiResponse;
 
   const game = GAMES.find((g) => g.id === gameId) as Game;
 

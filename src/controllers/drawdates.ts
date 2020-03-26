@@ -5,7 +5,6 @@ import ApiResponse from '../models/ApiResponse';
 import { SortOrder } from '../models/SortOrder';
 import { GameID } from '../models/Game';
 import DrawDates, { DrawDate } from '../models/DrawDates';
-import { validGameId } from './_validate';
 
 /**
  * Returns draw dates listing for specified game.
@@ -21,9 +20,6 @@ export const getDrawDates = async (
   sort?: SortOrder,
 ): Promise<ApiResponse<DrawDate>> => {
   const apiResponse = new ApiResponse<DrawDate>();
-
-  // Validate gameId.
-  if (!validGameId(apiResponse, gameId)) return apiResponse;
 
   const drawDates = new DrawDates(gameId, limit, skip, sort);
   await drawDates.collectData();

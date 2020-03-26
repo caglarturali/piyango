@@ -7,7 +7,6 @@ import { GameID } from '../models/Game';
 import { DATE_FORMAT } from '../constants';
 import DrawHistory, { DrawHistoryData } from '../models/DrawHistory';
 import { DrawDate } from '../models/DrawDates';
-import { validDate, validGameId } from './_validate';
 
 /**
  * Returns draw history of today.
@@ -26,12 +25,6 @@ export const getDrawHistoryOfToday = async () => {
  */
 export const getDrawHistory = async (date: DrawDate, gameId?: GameID) => {
   const apiResponse = new ApiResponse<DrawHistoryData>();
-
-  // Validate date and gameId (if provided).
-  if (!validDate(apiResponse, date)) return apiResponse;
-  if (gameId) {
-    if (!validGameId(apiResponse, gameId)) return apiResponse;
-  }
 
   const drawHistory = new DrawHistory(date);
 
