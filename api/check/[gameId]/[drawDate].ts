@@ -3,24 +3,21 @@
  */
 import { NowRequest, NowResponse } from '@now/node';
 import { checkNumbers } from '../../../src/controllers';
-import { GameID } from '../../../src/models/Game';
 import CheckBody from '../../../src/models/CheckBody';
 import handler from '../../_handler';
 
 export default async (req: NowRequest, res: NowResponse) => {
   handler(req, res)(
     'POST',
-    async (query, body) => {
-      const { gameId, drawDate } = query;
-
-      const gameArg = gameId.toString().toLowerCase() as GameID;
-      const dateArg = drawDate.toString();
+    async (params, body) => {
+      const { gameId, drawDate } = params;
 
       const checkBody = body as CheckBody;
 
-      const result = await checkNumbers(gameArg, dateArg, checkBody);
+      const result = await checkNumbers(gameId, drawDate, checkBody);
       res.status(result.statusCode).json(result.toResponse(false));
     },
+    ['gameId', 'drawDate'],
     ['content-type', 'application/json'],
   );
 };

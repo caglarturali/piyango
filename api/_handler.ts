@@ -1,7 +1,8 @@
-import { NowRequest, NowRequestQuery, NowResponse } from '@now/node';
+import { NowRequest, NowResponse } from '@now/node';
 import { HTTPHeader, HTTPMethods } from '../src/models/HTTP';
+import { getParserForParam, QueryParam } from './_helpers';
 
-export type CallbackFunction = (query: NowRequestQuery, body: any) => void;
+export type CallbackFunction = (params: any, body: any) => void;
 
 /**
  * Generic request handler.
@@ -11,6 +12,7 @@ export type CallbackFunction = (query: NowRequestQuery, body: any) => void;
 const handler = (req: NowRequest, res: NowResponse) => (
   allowedMethod: HTTPMethods,
   callback: CallbackFunction,
+  getParams?: QueryParam[],
   allowedHeader?: HTTPHeader,
 ) => {
   const { method, query, body, headers } = req;
@@ -18,6 +20,7 @@ const handler = (req: NowRequest, res: NowResponse) => (
   switch (method) {
     case allowedMethod: {
       if (allowedHeader) {
+        // Validate header.
         const [key, value] = allowedHeader;
         if (headers[key.toLowerCase()] !== value) {
           return res
@@ -26,7 +29,15 @@ const handler = (req: NowRequest, res: NowResponse) => (
         }
       }
 
-      return callback(query, body);
+      // Populate params if necessary.
+      const params: { [key: string]: any } = {};
+      if (getParams) {
+        for (const param of getParams) {
+          params[param] = getParserForParam(param)(query[param]);
+        }
+      }
+
+      return callback(params, body);
     }
 
     default:
