@@ -1,9 +1,10 @@
 import fs from 'fs';
-import { GameID } from '../Game';
+import Game, { GameID } from '../Game';
 import { GameColumn } from '../Regular';
 import PathUtils from '../../utils/PathUtils';
 import DateUtils from '../../utils/DateUtils';
 import { DrawDate } from '../DrawDates';
+import { NumFrequency } from './NumFrequency';
 import { GAMES } from '../../constants';
 
 /**
@@ -11,32 +12,31 @@ import { GAMES } from '../../constants';
  * a frequency report of numbers of a game.
  */
 export default class Stats {
+  private gameId: GameID;
+
   lastDraw: DrawDate = '';
   numbers: {
-    [key: string]: {
-      freq: number;
-      last?: DrawDate;
-    };
+    [num: string]: NumFrequency;
   } = {};
 
-  constructor(public gameId: GameID) {
-    const game = GAMES.find((g) => g.id === gameId);
-    if (game && game.pool) {
-      const { main, plus } = game.pool;
-      // Create entries for all numbers.
-      for (let i = 1; i <= main.from; i++) {
-        const numStr = this.numToStr(i);
+  constructor(gameId: GameID) {
+    this.gameId = gameId;
+
+    const game = GAMES.find((g) => g.id === gameId) as Game;
+    const { main, plus } = game.pool;
+    // Create entries for all numbers.
+    for (let i = 1; i <= main.from; i++) {
+      const numStr = this.numToStr(i);
+      this.numbers[numStr] = {
+        freq: 0,
+      };
+    }
+    if (plus) {
+      for (let i = 1; i <= plus.from; i++) {
+        const numStr = this.numToStr(i, true);
         this.numbers[numStr] = {
           freq: 0,
         };
-      }
-      if (plus) {
-        for (let i = 1; i <= plus.from; i++) {
-          const numStr = this.numToStr(i, true);
-          this.numbers[numStr] = {
-            freq: 0,
-          };
-        }
       }
     }
   }
