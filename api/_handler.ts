@@ -32,17 +32,17 @@ const handler = (req: NowRequest, res: NowResponse) => (
       // Populate and validate params if necessary.
       const params: { [key: string]: any } = {};
       if (getParams) {
-        for (const rawParam of getParams) {
-          const { parser, validator, error, status } = getParamKit(rawParam);
-          const param = parser(query[rawParam]);
+        for (const item of getParams) {
+          const { parser, validator, error, status } = getParamKit(item);
+          const param = parser(query[item]);
 
           // Short-circuit if it's not valid.
-          if (!validator(param)) {
+          if (param && !validator(param)) {
             return res.status(status || 400).json({ error });
           }
 
-          // Valid. Append it to params.
-          params[rawParam] = param;
+          // Valid (or undefined). Append it to params anyway.
+          params[item] = param;
         }
       }
 
