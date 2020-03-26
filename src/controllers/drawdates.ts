@@ -10,7 +10,7 @@ import { validGameId } from './_validate';
 /**
  * Returns draw dates listing for specified game.
  * @param gameId Game ID
- * @param limit Limit to be applied. 25 by default.
+ * @param limit Limit to be applied. 25 by default. -1 for unlimited.
  * @param skip Count of entries to skip. 0 by default.
  * @param sort Sorting order of the results. DESC by default.
  */

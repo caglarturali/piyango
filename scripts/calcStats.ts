@@ -38,7 +38,7 @@ const calculateStatsForGame = async (gameId: GameID) => {
   const stats = new Stats(gameId);
 
   // Get all draw dates for game.
-  const { error, data: drawDates } = await getDrawDates(gameId, 0);
+  const { error, data: drawDates } = await getDrawDates(gameId, -1);
 
   if (error) {
     printMsg(error, MessageType.ERROR);

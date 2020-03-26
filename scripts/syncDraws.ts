@@ -11,7 +11,7 @@ const syncDraws = async () => {
   printMsg('Fetching draw dates');
   const drawDatesResults = await Promise.all(
     GAMES.map(async (game) => {
-      const { data } = await getDrawDates(game.id, 0);
+      const { data } = await getDrawDates(game.id, -1);
       return {
         gameId: game.id,
         drawDates: data,

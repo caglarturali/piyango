@@ -28,7 +28,7 @@ export const getStatsForGame = async (gameId: GameID) => {
   const stats = Stats.fromFile(gameId);
 
   // Get all draw dates for the game.
-  const { error, data: drawDates } = await getDrawDates(gameId, 0);
+  const { error, data: drawDates } = await getDrawDates(gameId, -1);
 
   if (error) {
     return apiResponse.setFailed(error);
