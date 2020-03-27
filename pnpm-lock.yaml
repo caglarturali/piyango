@@ -35,8 +35,8 @@ importers:
       typescript: ^3.8.3
   packages/server:
     dependencies:
+      '@caglarturali/piyango-common': 'link:../common'
       '@now/node': 1.5.0
-      '@piyango/common': 'link:../common'
       haikunator: 2.1.2
       lodash: 4.17.15
       moment: 2.24.0
@@ -63,8 +63,8 @@ importers:
       tslint-plugin-prettier: 2.3.0_prettier@1.19.1+tslint@6.1.0
       typescript: 3.8.3
     specifiers:
+      '@caglarturali/piyango-common': 'workspace:^1.0.1'
       '@now/node': ^1.4.1
-      '@piyango/common': 'workspace:^1.0.1'
       '@types/jest': ^25.1.4
       '@types/lodash': ^4.14.149
       '@types/markdown-it': ^0.0.9
