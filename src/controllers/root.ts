@@ -16,3 +16,10 @@ export const getRootMessage = () => {
 
   return response;
 };
+
+/**
+ * Returns a not found message.
+ */
+export const getNotFoundMessage = () => {
+  return new ApiResponse().setFailed('There is nothing here for you', 404);
+};

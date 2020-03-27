@@ -1,5 +1,5 @@
 /**
- * /drawdates
+ * /drawdates/:gameId
  */
 import { NowRequest, NowResponse } from '@now/node';
 import { getDrawDates } from '../../src/controllers';

@@ -1,5 +1,5 @@
 /**
- * /random
+ * /random/:gameId
  */
 import { NowRequest, NowResponse } from '@now/node';
 import { generateRandomGuesses } from '../../src/controllers';

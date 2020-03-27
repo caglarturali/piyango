@@ -1,5 +1,5 @@
 /**
- * /stats
+ * /stats/:gameId
  */
 import { NowRequest, NowResponse } from '@now/node';
 import { getStatsForGame } from '../../src/controllers';
