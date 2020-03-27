@@ -1,0 +1,9 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "paths": {
+      "@piyango/*": ["node_modules/@piyango/*/src"]
+    }
+  },
+  "include": ["src"]
+}
