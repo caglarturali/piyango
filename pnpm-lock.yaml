@@ -64,7 +64,7 @@ importers:
       typescript: 3.8.3
     specifiers:
       '@now/node': ^1.4.1
-      '@piyango/common': 'workspace:^1.0.0'
+      '@piyango/common': 'workspace:^1.0.1'
       '@types/jest': ^25.1.4
       '@types/lodash': ^4.14.149
       '@types/markdown-it': ^0.0.9
