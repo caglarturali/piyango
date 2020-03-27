@@ -1,6 +1,6 @@
 import moment from 'moment';
 import {
-  getDrawDetails,
+  getDrawDetailsForDraw,
   getDrawDetailsForDraws,
   getDrawDetailsForLastDraw,
   getDrawDetailsForLatestDraws,
@@ -44,7 +44,7 @@ test('should get draw details for given game and dates', async () => {
 
 test('should get draw details for given game and date', async () => {
   const dateStr = '20200312';
-  const { statusCode, data, error } = await getDrawDetails(
+  const { statusCode, data, error } = await getDrawDetailsForDraw(
     GameID.superloto,
     dateStr,
   );
@@ -62,7 +62,7 @@ test('should get draw details for given game and date', async () => {
 
 test('should not get draw details for invalid game', async () => {
   const dateStr = '20200312';
-  const { statusCode, data, error } = await getDrawDetails(
+  const { statusCode, data, error } = await getDrawDetailsForDraw(
     'not-a-valid-game' as GameID,
     dateStr,
   );
@@ -74,7 +74,7 @@ test('should not get draw details for invalid game', async () => {
 
 test('should not get draw details for invalid date', async () => {
   const dateStr = '20200312XX';
-  const { statusCode, data, error } = await getDrawDetails(
+  const { statusCode, data, error } = await getDrawDetailsForDraw(
     GameID.superloto,
     dateStr,
   );

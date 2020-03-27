@@ -12,7 +12,7 @@ import {
 import { RegularDrawData, RegularGame } from '../models/Regular';
 import { LotteryDrawData, LotteryGame } from '../models/Lottery';
 import CheckBody from '../models/CheckBody';
-import { getDrawDetails } from './draws';
+import { getDrawDetailsForDraw } from './draws';
 import { DrawDate } from '../models/DrawDates';
 import { GAMES } from '../constants';
 
@@ -35,7 +35,7 @@ export const checkNumbers = async (
     statusCode,
     error,
     data: [drawData],
-  } = await getDrawDetails(gameId, drawDate);
+  } = await getDrawDetailsForDraw(gameId, drawDate);
 
   if (error) {
     return apiResponse.setFailed(error, statusCode);

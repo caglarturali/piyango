@@ -3,7 +3,7 @@ import { GameID } from '../src/models/Game';
 import { MessageType, printMsg } from './_utils';
 import DrawUtils from '../src/utils/DrawUtils';
 import { RegularDrawData } from '../src/models/Regular';
-import { getDrawDates, getDrawDetails } from '../src/controllers';
+import { getDrawDates, getDrawDetailsForDraw } from '../src/controllers';
 import Stats from '../src/models/Stats/Stats';
 
 /**
@@ -51,7 +51,7 @@ const calculateStatsForGame = async (gameId: GameID) => {
       const {
         error: detailError,
         data: [drawDetails],
-      } = await getDrawDetails(gameId, drawDate);
+      } = await getDrawDetailsForDraw(gameId, drawDate);
 
       if (detailError) {
         printMsg(detailError, MessageType.ERROR);

@@ -6,7 +6,7 @@ import ApiResponse from '../models/ApiResponse';
 import Stats from '../models/Stats';
 import { getDrawDates } from './drawdates';
 import DateUtils from '../utils/DateUtils';
-import { getDrawDetails } from './draws';
+import { getDrawDetailsForDraw } from './draws';
 import { RegularDrawData } from '../models/Regular';
 import DrawUtils from '../utils/DrawUtils';
 
@@ -46,7 +46,7 @@ export const getStatsForGame = async (gameId: GameID) => {
     drawsToCalc.map(async (drawDate) => {
       const {
         data: [drawDetails],
-      } = await getDrawDetails(gameId, drawDate);
+      } = await getDrawDetailsForDraw(gameId, drawDate);
       return {
         drawDate,
         drawDetails: drawDetails as RegularDrawData,

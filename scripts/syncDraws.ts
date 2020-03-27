@@ -2,7 +2,7 @@ import fs from 'fs';
 import { PathUtils } from '../src/utils';
 import { MessageType, printMsg } from './_utils';
 import { GAMES } from '../src/constants';
-import { getDrawDates, getDrawDetails } from '../src/controllers';
+import { getDrawDates, getDrawDetailsForDraw } from '../src/controllers';
 
 /**
  * Syncs static draw data with remote records.
@@ -33,7 +33,7 @@ const syncDraws = async () => {
             const {
               error,
               data: [drawDetails],
-            } = await getDrawDetails(gameId, drawDate);
+            } = await getDrawDetailsForDraw(gameId, drawDate);
             return {
               gameId,
               drawDate,
