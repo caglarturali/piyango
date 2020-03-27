@@ -3,6 +3,7 @@
  */
 import Haikunator from 'haikunator';
 import ApiResponse from '../models/ApiResponse';
+import { messages } from '../constants';
 
 /**
  * Returns a Heroku-like random string.
@@ -21,5 +22,5 @@ export const getRootMessage = () => {
  * Returns a not found message.
  */
 export const getNotFoundMessage = () => {
-  return new ApiResponse().setFailed('There is nothing here for you', 404);
+  return new ApiResponse().setFailed(messages.notFound(), 404);
 };

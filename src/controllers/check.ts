@@ -14,7 +14,7 @@ import { LotteryDrawData, LotteryGame } from '../models/Lottery';
 import CheckBody from '../models/CheckBody';
 import { getDrawDetailsForDraw } from './draws';
 import { DrawDate } from '../models/DrawDates';
-import { GAMES } from '../constants';
+import { GAMES, messages } from '../constants';
 
 /**
  * Central point for number checking functionality.
@@ -55,7 +55,7 @@ export const checkNumbers = async (
     );
 
     if (!check.validate()) {
-      return apiResponse.setFailed('Invalid ticket number', 400);
+      return apiResponse.setFailed(messages.invalidTicket(), 400);
     }
   } else {
     /**
@@ -68,7 +68,7 @@ export const checkNumbers = async (
     );
 
     if (!check.validate()) {
-      return apiResponse.setFailed('Incorrect column size', 400);
+      return apiResponse.setFailed(messages.invalidColumn(), 400);
     }
   }
 

@@ -9,6 +9,7 @@ import DateUtils from '../utils/DateUtils';
 import { getDrawDetailsForDraw } from './draws';
 import { RegularDrawData } from '../models/Regular';
 import DrawUtils from '../utils/DrawUtils';
+import { messages } from '../constants';
 
 /**
  * Gets the statistics for given game.
@@ -18,7 +19,7 @@ export const getStatsForGame = async (gameId: GameID) => {
   const apiResponse = new ApiResponse<Stats>();
 
   if (gameId === GameID.piyango) {
-    return apiResponse.setFailed(`${gameId} is not supported`);
+    return apiResponse.setFailed(messages.notSupported(gameId));
   }
 
   // Start with static data.

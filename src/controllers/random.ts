@@ -2,6 +2,7 @@ import ApiResponse from '../models/ApiResponse';
 import { GameID } from '../models/Game';
 import { GameColumn } from '../models/Regular';
 import Random from '../models/Random';
+import { messages } from '../constants';
 
 /**
  * Generates columns of pseudo-random numbers for given game.
@@ -12,7 +13,7 @@ export const generateRandomGuesses = (gameId: GameID, columnCount?: number) => {
   const apiResponse = new ApiResponse<GameColumn>();
 
   if (gameId === GameID.piyango) {
-    return apiResponse.setFailed(`${gameId} is not supported`);
+    return apiResponse.setFailed(messages.notSupported(gameId));
   }
 
   const random = new Random(gameId, columnCount);

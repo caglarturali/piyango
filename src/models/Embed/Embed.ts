@@ -7,6 +7,7 @@ import {
   DATE_FORMAT,
   DATE_FORMAT_EMBED,
   GAMES,
+  messages,
   STREAM_URL,
 } from '../../constants';
 
@@ -49,7 +50,7 @@ export default class Embed {
       if (!response.ok) {
         return {
           status: 404,
-          error: 'Resource not found',
+          error: messages.resNotFound(),
         };
       }
     }

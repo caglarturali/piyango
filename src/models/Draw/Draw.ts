@@ -5,7 +5,12 @@ import stripBom from 'strip-bom';
 import { GameID } from '../Game';
 import { DrawDataType } from './DrawDataType';
 import { DrawDate } from '../DrawDates';
-import { DATE_FORMAT, DATE_FORMAT_FRIENDLY, MPI_BASE } from '../../constants';
+import {
+  DATE_FORMAT,
+  DATE_FORMAT_FRIENDLY,
+  messages,
+  MPI_BASE,
+} from '../../constants';
 import { PathUtils } from '../../utils';
 
 interface PromiseResult {
@@ -58,7 +63,9 @@ export default class Draw {
 
         if (!response.ok) {
           return {
-            error: `Error ${response.status}: ${response.statusText}`,
+            error: messages.error(
+              `${response.status} - ${response.statusText}`,
+            ),
           };
         }
 
@@ -97,7 +104,7 @@ export default class Draw {
 
     if (!(this.drawData || this.error)) {
       // Request is not fullfilled so far.
-      this.error = 'Resource not found';
+      this.error = messages.resNotFound();
     }
   }
 

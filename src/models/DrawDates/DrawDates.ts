@@ -5,7 +5,12 @@ import fetch from 'node-fetch';
 import stripBom from 'strip-bom';
 import { GameID } from '../Game';
 import { DrawDate } from './DrawDate';
-import { DATE_FORMAT, DRAWS_DIR_PATH, MPI_BASE } from '../../constants';
+import {
+  DATE_FORMAT,
+  DRAWS_DIR_PATH,
+  messages,
+  MPI_BASE,
+} from '../../constants';
 import DrawListing from '../DrawListing';
 import { SortOrder } from '../SortOrder';
 import conf from '../../apiconfig';
@@ -42,7 +47,9 @@ export default class DrawDates {
     const response = await fetch(this.buildDrawDatesUrl(), { method: 'GET' });
 
     if (!response.ok) {
-      this.error = `Unable to fetch data: ${response.statusText}`;
+      this.error = messages.error(
+        `${response.status} - ${response.statusText}`,
+      );
       return;
     }
 

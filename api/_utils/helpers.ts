@@ -1,6 +1,6 @@
 import { GameID } from '../../src/models/Game';
 import { SortOrder } from '../../src/models/SortOrder';
-import { GAMES } from '../../src/constants';
+import { GAMES, messages } from '../../src/constants';
 import { DateUtils } from '../../src/utils';
 import conf from '../../src/apiconfig';
 
@@ -16,20 +16,14 @@ export type QueryParam =
   | 'col'
   | 'sort';
 
-/**
- * Function definition for query param parsers.
- */
 export type ParamParser = (val: any) => any;
-
-/**
- * Function definition for query param validators.
- */
 export type ParamValidator = (val: any) => boolean;
+export type MessageBuilder = (val?: any) => string;
 
 export interface ParamKit {
   parser: ParamParser;
   validator: ParamValidator;
-  error: string;
+  errorFn: MessageBuilder;
   status?: number;
 }
 
@@ -43,7 +37,7 @@ export const getParamKit = (param: QueryParam): ParamKit => {
       return {
         parser: (val: any) => val.toString().toLowerCase() as GameID,
         validator: (val: any) => GAMES.some((game) => game.id === val),
-        error: 'Game ID is not valid',
+        errorFn: messages.invalidGameId,
       };
 
     case 'date':
@@ -60,7 +54,7 @@ export const getParamKit = (param: QueryParam): ParamKit => {
           }
           return DateUtils.isDateValid(valStr);
         },
-        error: 'Date is not valid',
+        errorFn: messages.invalidDate,
       };
 
     case 'limit':
@@ -69,7 +63,7 @@ export const getParamKit = (param: QueryParam): ParamKit => {
       return {
         parser: (val: any) => (val ? parseInt(val.toString(), 10) : undefined),
         validator: () => true,
-        error: 'Number is not valid',
+        errorFn: messages.invalidNumber,
       };
 
     case 'sort':
@@ -78,14 +72,14 @@ export const getParamKit = (param: QueryParam): ParamKit => {
           val ? (val.toString().toLowerCase() as SortOrder) : undefined,
         validator: (val: any) =>
           val === SortOrder.ASC || val === SortOrder.DESC,
-        error: 'Sorting order is not valid',
+        errorFn: messages.invalidSort,
       };
 
     default:
       return {
         parser: (val: any) => val.toString().toLowerCase(),
         validator: () => true,
-        error: 'Unexpected error',
+        errorFn: messages.unexpected,
       };
   }
 };
