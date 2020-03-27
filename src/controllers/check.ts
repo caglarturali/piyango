@@ -1,6 +1,7 @@
 /**
  * Check numbers controller.
  */
+import { LotteryDrawData, RegularDrawData } from '@piyango/common';
 import ApiResponse from '../models/ApiResponse';
 import Game, { GameID } from '../models/Game';
 import {
@@ -9,8 +10,8 @@ import {
   LotteryCheck,
   RegularCheck,
 } from '../models/Check';
-import { RegularDrawData, RegularGame } from '../models/Regular';
-import { LotteryDrawData, LotteryGame } from '../models/Lottery';
+import { RegularGame } from '../models/Regular';
+import { LotteryGame } from '../models/Lottery';
 import CheckBody from '../models/CheckBody';
 import { getDrawDetailsForDraw } from './draws';
 import { DrawDate } from '../models/DrawDates';

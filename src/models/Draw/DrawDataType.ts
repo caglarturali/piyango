@@ -1,5 +1,4 @@
-import { LotteryDrawData } from '../Lottery';
-import { RegularDrawData } from '../Regular';
+import { LotteryDrawData, RegularDrawData } from '@piyango/common';
 
 /**
  * Type alias for types of draw data.

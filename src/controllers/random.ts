@@ -1,6 +1,6 @@
+import { GameColumn } from '@piyango/common';
 import ApiResponse from '../models/ApiResponse';
 import { GameID } from '../models/Game';
-import { GameColumn } from '../models/Regular';
 import Random from '../models/Random';
 import { messages } from '../constants';
 

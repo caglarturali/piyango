@@ -1,5 +1,5 @@
+import { GameColumn, RegularDrawData } from '@piyango/common';
 import { GameID } from '../models/Game';
-import { GameColumn, RegularDrawData } from '../models/Regular';
 
 export default class DrawUtils {
   /**

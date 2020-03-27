@@ -1,6 +1,6 @@
+import { GameColumn } from '@piyango/common';
 import fs from 'fs';
 import Game, { GameID } from '../Game';
-import { GameColumn } from '../Regular';
 import PathUtils from '../../utils/PathUtils';
 import DateUtils from '../../utils/DateUtils';
 import { DrawDate } from '../DrawDates';

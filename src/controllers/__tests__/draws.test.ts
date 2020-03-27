@@ -1,4 +1,5 @@
 import moment from 'moment';
+import { RegularDrawData, RegularDrawType } from '@piyango/common';
 import {
   getDrawDetailsForDraw,
   getDrawDetailsForDraws,
@@ -6,7 +7,6 @@ import {
   getDrawDetailsForLatestDraws,
 } from '../draws';
 import { GameID } from '../../models/Game';
-import { RegularDrawData, RegularDrawType } from '../../models/Regular';
 import { DATE_FORMAT, DATE_FORMAT_FRIENDLY, GAMES } from '../../constants';
 
 test('should get draw details for latest draws', async () => {

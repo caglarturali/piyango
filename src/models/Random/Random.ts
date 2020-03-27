@@ -1,6 +1,7 @@
+import { GameColumn } from '@piyango/common';
 import { GameID, NumbersPool } from '../Game';
 import { GAMES } from '../../constants';
-import { GameColumn, RegularGame } from '../Regular';
+import { RegularGame } from '../Regular';
 import { NumUtils } from '../../utils';
 
 export default class Random {

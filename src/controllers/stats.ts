@@ -1,13 +1,13 @@
 /**
  * Stats controller.
  */
+import { RegularDrawData } from '@piyango/common';
 import { GameID } from '../models/Game';
 import ApiResponse from '../models/ApiResponse';
 import Stats from '../models/Stats';
 import { getDrawDates } from './drawdates';
 import DateUtils from '../utils/DateUtils';
 import { getDrawDetailsForDraw } from './draws';
-import { RegularDrawData } from '../models/Regular';
 import DrawUtils from '../utils/DrawUtils';
 import { messages } from '../constants';
 
