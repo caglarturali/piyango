@@ -1,4 +1,4 @@
-import { GameColumn, RegularDrawData } from '@piyango/common';
+import { GameColumn, RegularDrawData } from '@caglarturali/piyango-common';
 import { GameID } from '../models/Game';
 
 export default class DrawUtils {
