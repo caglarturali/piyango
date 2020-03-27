@@ -1,4 +1,8 @@
-import { GameColumn, MatchTypeRegular, RegularDrawData } from '@piyango/common';
+import {
+  GameColumn,
+  MatchTypeRegular,
+  RegularDrawData,
+} from '@caglarturali/piyango-common';
 import { RegularGame } from '../Regular';
 import { GameID } from '../Game';
 import { CheckResult, ICheckNumbers } from '.';

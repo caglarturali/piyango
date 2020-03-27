@@ -1,4 +1,4 @@
-import { LotteryCategory, LotteryDrawData } from '@piyango/common';
+import { LotteryCategory, LotteryDrawData } from '@caglarturali/piyango-common';
 import { CheckResult, ICheckNumbers } from '.';
 import { LotteryGame } from '../Lottery';
 

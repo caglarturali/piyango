@@ -1,5 +1,5 @@
 import moment from 'moment';
-import { RegularDrawData, RegularDrawType } from '@piyango/common';
+import { RegularDrawData, RegularDrawType } from '@caglarturali/piyango-common';
 import {
   getDrawDetailsForDraw,
   getDrawDetailsForDraws,

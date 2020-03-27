@@ -1,4 +1,4 @@
-import { GameColumn } from '@piyango/common';
+import { GameColumn } from '@caglarturali/piyango-common';
 import fs from 'fs';
 import Game, { GameID } from '../Game';
 import PathUtils from '../../utils/PathUtils';

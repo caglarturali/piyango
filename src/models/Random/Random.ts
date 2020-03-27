@@ -1,4 +1,4 @@
-import { GameColumn } from '@piyango/common';
+import { GameColumn } from '@caglarturali/piyango-common';
 import { GameID, NumbersPool } from '../Game';
 import { GAMES } from '../../constants';
 import { RegularGame } from '../Regular';

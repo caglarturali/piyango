@@ -1,4 +1,4 @@
-import { GameColumn } from '@piyango/common';
+import { GameColumn } from '@caglarturali/piyango-common';
 import ApiResponse from '../models/ApiResponse';
 import { GameID } from '../models/Game';
 import Random from '../models/Random';
