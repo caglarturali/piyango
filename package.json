@@ -1,7 +1,8 @@
 {
-  "name": "piyango-api",
+  "name": "@piyango/server",
   "version": "1.0.0",
   "description": "",
+  "private": true,
   "scripts": {
     "test": "jest",
     "test:cov": "npm test -- --coverage",
