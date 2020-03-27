@@ -1,11 +1,11 @@
 {
-  "name": "@piyango/common",
+  "name": "@caglarturali/piyango-common",
   "version": "1.0.1",
   "description": "",
-  "private": true,
   "main": "cjs/index.js",
   "module": "esm/index.js",
   "types": "esm/index.d.ts",
+  "repository": "git://github.com:caglarturali/piyango-common.git",
   "scripts": {
     "clean": "rimraf ./cjs ./esm",
     "prebuild": "pnpm run clean",
