@@ -1,6 +1,10 @@
 {
   "version": 2,
-  "env": {},
+  "build": {
+    "env": {
+      "NPM_RC": "@my-npmrc"
+    }
+  },
   "routes": [
     {
       "src": "/(.*)",

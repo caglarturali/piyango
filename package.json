@@ -33,7 +33,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@caglarturali/piyango-common": "workspace:^1.0.1",
+    "@caglarturali/piyango-common": "^1.0.1",
     "@now/node": "^1.4.1",
     "haikunator": "^2.1.2",
     "lodash": "^4.17.15",
