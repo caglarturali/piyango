@@ -7,3 +7,6 @@
 [submodule "packages/app"]
 	path = packages/app
 	url = git@github.com:caglarturali/piyango-app.git
+[submodule "packages/components"]
+	path = packages/components
+	url = git@github.com:caglarturali/piyango-components.git
