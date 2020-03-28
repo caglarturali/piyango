@@ -1,4 +1,4 @@
-export default interface LuckyProvince {
+export interface LuckyProvince {
   il: string;
   ilView: string;
   ilce: string;

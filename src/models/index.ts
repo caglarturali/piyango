@@ -1,4 +1,4 @@
-export * from './DrawData';
+export * from './Draw';
+export * from './Game';
 export * from './Lottery';
 export * from './Regular';
-export * from './LuckyProvince';

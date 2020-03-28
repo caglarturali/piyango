@@ -1,5 +1,4 @@
-import { DrawData } from '../';
-import LuckyProvince from '../LuckyProvince';
+import { DrawData, LuckyProvince } from '../Draw';
 import { LotteryCategory } from './';
 
 /**

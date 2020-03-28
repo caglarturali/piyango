@@ -1,5 +1,4 @@
-import { DrawData } from '../DrawData';
-import LuckyProvince from '../LuckyProvince';
+import { DrawData, LuckyProvince } from '../Draw';
 import { RegularDrawType, WinnerCategory } from './';
 
 export interface RegularDrawData extends DrawData {
