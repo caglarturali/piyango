@@ -1,3 +1,3 @@
 ## piyango-common
 
-Common models ans constants across project.
+Common models and constants across project.
