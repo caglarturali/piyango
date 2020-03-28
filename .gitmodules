@@ -1,6 +1,9 @@
 [submodule "packages/server"]
 	path = packages/server
-	url = git@github.com:caglarturali/piyango-api.git
+	url = git@github.com:caglarturali/piyango-server.git
 [submodule "packages/common"]
 	path = packages/common
 	url = git@github.com:caglarturali/piyango-common.git
+[submodule "packages/app"]
+	path = packages/app
+	url = git@github.com:caglarturali/piyango-app.git
