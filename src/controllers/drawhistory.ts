@@ -10,9 +10,7 @@ import DrawHistory, { DrawHistoryData } from '../models/DrawHistory';
  * Returns draw history of today.
  */
 export const getDrawHistoryOfToday = async () => {
-  const today = momentTZ()
-    .tz('Europe/Istanbul')
-    .format(DATE_FORMAT);
+  const today = momentTZ().tz('Europe/Istanbul').format(DATE_FORMAT);
   return await getDrawHistory(today);
 };
 

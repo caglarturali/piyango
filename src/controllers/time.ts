@@ -10,9 +10,7 @@ import ApiResponse from '../models/ApiResponse';
 export const getCurrentTime = () => {
   const apiResponse = new ApiResponse<MomentObjectOutput>();
 
-  const now = momentTZ()
-    .tz('Europe/Istanbul')
-    .toObject();
+  const now = momentTZ().tz('Europe/Istanbul').toObject();
 
   apiResponse.addData(now);
 

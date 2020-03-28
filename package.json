@@ -6,11 +6,9 @@
   "repository": "git://github.com:caglarturali/piyango-server.git",
   "scripts": {
     "test": "jest",
-    "test:cov": "npm test -- --coverage",
-    "test:watch": "npm test -- --watch",
+    "test:cov": "pnpm test -- --coverage",
+    "test:watch": "pnpm test -- --watch",
     "majs": "majestic",
-    "lint": "tslint -c tslint.json \"api/**/*.ts\" \"src/**/*.ts\"",
-    "lint:fix": "npm run lint -- --fix",
     "prod": "now --prod",
     "rmtmp": "rm -rf /tmp/zeit-fun-*",
     "sync:draws": "ts-node scripts/syncDraws.ts",
@@ -20,14 +18,9 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint:fix",
-      "pre-push": "npm test",
+      "pre-push": "pnpm test",
       "commit-msg": "echo $HUSKY_GIT_PARAMS"
     }
-  },
-  "majestic": {
-    "args": [],
-    "env": {}
   },
   "keywords": [],
   "author": "",

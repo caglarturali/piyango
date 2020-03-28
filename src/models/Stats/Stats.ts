@@ -110,9 +110,7 @@ export default class Stats {
    * @param isPlus Is plus or not
    */
   numToStr(num: number, isPlus: boolean = false): string {
-    let numStr = Number(num)
-      .toString()
-      .padStart(2, '0');
+    let numStr = Number(num).toString().padStart(2, '0');
 
     // Prepend with plus if necessary.
     if (isPlus) numStr = `+${numStr}`;
