@@ -1,0 +1,9 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "paths": {
+      "@caglarturali/*": ["node_modules/@caglarturali/*/src"]
+    }
+  },
+  "include": ["src"]
+}
