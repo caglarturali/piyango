@@ -2,7 +2,7 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "paths": {
-      "@piyango/*": ["node_modules/@piyango/*/src"]
+      "@caglarturali/*": ["node_modules/@caglarturali/*/src"]
     }
   },
   "include": ["src"]
