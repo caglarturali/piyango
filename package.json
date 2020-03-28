@@ -1,6 +1,10 @@
 {
   "name": "piyango",
   "private": true,
+  "scripts": {
+    "pkg": "git add packages/ && git commit -m \"Update: packages\"",
+    "pkgp": "pnpm run pkg && git push"
+  },
   "devDependencies": {
     "chalk": "^3.0.0",
     "husky": "^4.2.3",
