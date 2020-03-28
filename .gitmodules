@@ -10,3 +10,6 @@
 [submodule "packages/app-old"]
 	path = packages/app-old
 	url = git@github.com:caglarturali/piyango-app-old.git
+[submodule "packages/app"]
+	path = packages/app
+	url = git@github.com:caglarturali/piyango-app.git
