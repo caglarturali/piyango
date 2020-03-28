@@ -1,11 +1,12 @@
 import React from 'react';
 import { NextPage } from 'next';
+import MainLayout from '../src/layouts/MainLayout';
 
 const Home: NextPage = () => {
   return (
-    <div>
+    <MainLayout contentTitle="Son Çekilişler">
       <p>Hellooo!</p>
-    </div>
+    </MainLayout>
   );
 };
 
