@@ -1,7 +1,10 @@
+import {
+  GameID,
+  GAMES,
+  NumbersPool,
+  RegularGame,
+} from '@caglarturali/piyango-common';
 import { generateRandomGuesses } from '../random';
-import { GameID, NumbersPool } from '../../models/Game';
-import { RegularGame } from '../../models/Regular';
-import { GAMES } from '../../constants';
 
 test('should successfully generate random numbers for given game', async () => {
   const gameId = GameID.sanstopu;

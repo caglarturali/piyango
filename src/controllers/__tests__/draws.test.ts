@@ -1,13 +1,18 @@
 import moment from 'moment';
-import { RegularDrawData, RegularDrawType } from '@caglarturali/piyango-common';
+import {
+  DATE_FORMAT,
+  DATE_FORMAT_FRIENDLY,
+  GameID,
+  GAMES,
+  RegularDrawData,
+  RegularDrawType,
+} from '@caglarturali/piyango-common';
 import {
   getDrawDetailsForDraw,
   getDrawDetailsForDraws,
   getDrawDetailsForLastDraw,
   getDrawDetailsForLatestDraws,
 } from '../draws';
-import { GameID } from '../../models/Game';
-import { DATE_FORMAT, DATE_FORMAT_FRIENDLY, GAMES } from '../../constants';
 
 test('should get draw details for latest draws', async () => {
   const { statusCode, data } = await getDrawDetailsForLatestDraws();

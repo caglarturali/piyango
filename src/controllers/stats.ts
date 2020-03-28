@@ -1,8 +1,7 @@
 /**
  * Stats controller.
  */
-import { RegularDrawData } from '@caglarturali/piyango-common';
-import { GameID } from '../models/Game';
+import { GameID, RegularDrawData } from '@caglarturali/piyango-common';
 import ApiResponse from '../models/ApiResponse';
 import Stats from '../models/Stats';
 import { getDrawDates } from './drawdates';

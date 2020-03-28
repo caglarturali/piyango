@@ -1,5 +1,5 @@
 import moment from 'moment';
-import { DATE_FORMAT } from '../constants';
+import { DATE_FORMAT } from '@caglarturali/piyango-common';
 
 export default class DateUtils {
   /**

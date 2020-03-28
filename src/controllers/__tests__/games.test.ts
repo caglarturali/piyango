@@ -1,5 +1,5 @@
+import { GAMES } from '@caglarturali/piyango-common';
 import { getGames } from '../games';
-import { GAMES } from '../../constants';
 
 test('should succesfully get the list of games', () => {
   const { data } = getGames();

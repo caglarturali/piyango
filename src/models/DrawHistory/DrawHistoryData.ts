@@ -1,5 +1,4 @@
-import { GameID } from '../Game';
-import { DrawDate } from '../DrawDates';
+import { DrawDate, GameID } from '@caglarturali/piyango-common';
 import Response from '../Response';
 
 export interface DrawHistoryData extends Response {

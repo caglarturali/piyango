@@ -1,9 +1,7 @@
+import { GameID, GAMES, RegularGame } from '@caglarturali/piyango-common';
 import { getStatsForGame } from '../stats';
 import { getDrawDates } from '../drawdates';
-import { GameID } from '../../models/Game';
 import { SortOrder } from '../../models/SortOrder';
-import { GAMES } from '../../constants';
-import { RegularGame } from '../../models/Regular';
 
 test('should successfully get up-to-date report for given game', async () => {
   const gameId = GameID.sanstopu;

@@ -1,10 +1,10 @@
 /**
  * Draw dates controller.
  */
+import { DrawDate, GameID } from '@caglarturali/piyango-common';
 import ApiResponse from '../models/ApiResponse';
 import { SortOrder } from '../models/SortOrder';
-import { GameID } from '../models/Game';
-import DrawDates, { DrawDate } from '../models/DrawDates';
+import DrawDates from '../models/DrawDates';
 
 /**
  * Returns draw dates listing for specified game.

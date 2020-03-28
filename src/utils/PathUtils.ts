@@ -1,5 +1,5 @@
 import path from 'path';
-import { GameID } from '../models/Game';
+import { GameID } from '@caglarturali/piyango-common';
 import { DRAWS_DIR_PATH, STATS_DIR_PATH } from '../constants';
 
 export default class PathUtils {

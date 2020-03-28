@@ -1,5 +1,5 @@
+import { GameID } from '@caglarturali/piyango-common';
 import { checkNumbers } from '../check';
-import { GameID } from '../../models/Game';
 import CheckBody from '../../models/CheckBody';
 
 test('should check numbers successfully for a regular draw', async () => {

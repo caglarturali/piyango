@@ -1,9 +1,8 @@
 /**
  * Embed controller.
  */
+import { DrawDate, GameID } from '@caglarturali/piyango-common';
 import Embed, { EmbedResponse } from '../models/Embed';
-import { DrawDate } from '../models/DrawDates';
-import { GameID } from '../models/Game';
 
 /**
  * Returns an embeddable stream of the draw (if found).

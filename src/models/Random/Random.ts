@@ -1,7 +1,10 @@
-import { GameColumn } from '@caglarturali/piyango-common';
-import { GameID, NumbersPool } from '../Game';
-import { GAMES } from '../../constants';
-import { RegularGame } from '../Regular';
+import {
+  GameColumn,
+  GameID,
+  GAMES,
+  NumbersPool,
+  RegularGame,
+} from '@caglarturali/piyango-common';
 import { NumUtils } from '../../utils';
 
 export default class Random {

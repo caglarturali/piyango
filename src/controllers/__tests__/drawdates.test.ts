@@ -1,8 +1,7 @@
 import moment from 'moment';
+import { DATE_FORMAT, GameID } from '@caglarturali/piyango-common';
 import { getDrawDates } from '../drawdates';
-import { GameID } from '../../models/Game';
 import { SortOrder } from '../../models/SortOrder';
-import { DATE_FORMAT } from '../../constants';
 import DateUtils from '../../utils/DateUtils';
 
 test('should successfully get draw dates for given game', async () => {

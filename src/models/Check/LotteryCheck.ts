@@ -1,6 +1,9 @@
-import { LotteryCategory, LotteryDrawData } from '@caglarturali/piyango-common';
+import {
+  LotteryCategory,
+  LotteryDrawData,
+  LotteryGame,
+} from '@caglarturali/piyango-common';
 import { CheckResult, ICheckNumbers } from '.';
-import { LotteryGame } from '../Lottery';
 
 export default class LotteryCheck implements ICheckNumbers {
   private game: LotteryGame;

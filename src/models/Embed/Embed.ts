@@ -1,15 +1,15 @@
 import fetch from 'node-fetch';
 import moment from 'moment';
-import Game, { GameID } from '../Game';
-import { DrawDate } from '../DrawDates';
-import { EmbedResponse } from '.';
 import {
   DATE_FORMAT,
   DATE_FORMAT_EMBED,
+  DrawDate,
+  Game,
+  GameID,
   GAMES,
-  messages,
-  STREAM_URL,
-} from '../../constants';
+} from '@caglarturali/piyango-common';
+import { EmbedResponse } from '.';
+import { messages, STREAM_URL } from '../../constants';
 
 export default class Embed {
   private gameId: GameID;

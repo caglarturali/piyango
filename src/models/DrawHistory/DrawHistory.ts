@@ -1,10 +1,14 @@
 import moment from 'moment';
-import { DrawDate } from '../DrawDates/DrawDate';
+import {
+  DATE_FORMAT,
+  DATE_FORMAT_SHORT,
+  DrawDate,
+  GameID,
+  GAMES,
+} from '@caglarturali/piyango-common';
 import { DrawHistoryData } from './DrawHistoryData';
-import { GameID } from '../Game';
 import { HistoryResponse } from '.';
 import DrawDates from '../DrawDates';
-import { DATE_FORMAT, DATE_FORMAT_SHORT, GAMES } from '../../constants';
 
 export default class DrawHistory {
   private date: DrawDate;

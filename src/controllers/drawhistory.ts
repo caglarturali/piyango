@@ -2,11 +2,9 @@
  * Draw history controller.
  */
 import momentTZ from 'moment-timezone';
+import { DATE_FORMAT, DrawDate, GameID } from '@caglarturali/piyango-common';
 import ApiResponse from '../models/ApiResponse';
-import { GameID } from '../models/Game';
-import { DATE_FORMAT } from '../constants';
 import DrawHistory, { DrawHistoryData } from '../models/DrawHistory';
-import { DrawDate } from '../models/DrawDates';
 
 /**
  * Returns draw history of today.

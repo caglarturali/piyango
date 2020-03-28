@@ -1,13 +1,16 @@
 /**
  * Draws controller.
  */
-import { GAMES } from '../constants';
+import {
+  DrawDataType,
+  DrawDate,
+  GameID,
+  GAMES,
+} from '@caglarturali/piyango-common';
 import ApiResponse from '../models/ApiResponse';
-import { GameID } from '../models/Game';
 import { getDrawDates } from './drawdates';
 import DateUtils from '../utils/DateUtils';
-import Draw, { DrawDataType } from '../models/Draw';
-import { DrawDate } from '../models/DrawDates';
+import Draw from '../models/Draw';
 import conf from '../apiconfig';
 
 /**

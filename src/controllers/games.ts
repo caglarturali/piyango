@@ -1,9 +1,8 @@
 /**
  * Games controller.
  */
-import { GAMES } from '../constants';
+import { Game, GAMES } from '@caglarturali/piyango-common';
 import ApiResponse from '../models/ApiResponse';
-import Game from '../models/Game';
 
 /**
  * Get the list of games that are currently supported.

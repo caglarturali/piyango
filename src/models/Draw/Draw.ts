@@ -2,15 +2,14 @@ import fs from 'fs';
 import fetch from 'node-fetch';
 import moment from 'moment';
 import stripBom from 'strip-bom';
-import { GameID } from '../Game';
-import { DrawDataType } from './DrawDataType';
-import { DrawDate } from '../DrawDates';
 import {
   DATE_FORMAT,
   DATE_FORMAT_FRIENDLY,
-  messages,
-  MPI_BASE,
-} from '../../constants';
+  DrawDataType,
+  DrawDate,
+  GameID,
+} from '@caglarturali/piyango-common';
+import { messages, MPI_BASE } from '../../constants';
 import { PathUtils } from '../../utils';
 
 interface PromiseResult {

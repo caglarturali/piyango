@@ -1,21 +1,26 @@
 /**
  * Check numbers controller.
  */
-import { LotteryDrawData, RegularDrawData } from '@caglarturali/piyango-common';
+import {
+  DrawDate,
+  Game,
+  GameID,
+  GAMES,
+  LotteryDrawData,
+  LotteryGame,
+  RegularDrawData,
+  RegularGame,
+} from '@caglarturali/piyango-common';
 import ApiResponse from '../models/ApiResponse';
-import Game, { GameID } from '../models/Game';
 import {
   CheckResult,
   ICheckNumbers,
   LotteryCheck,
   RegularCheck,
 } from '../models/Check';
-import { RegularGame } from '../models/Regular';
-import { LotteryGame } from '../models/Lottery';
 import CheckBody from '../models/CheckBody';
 import { getDrawDetailsForDraw } from './draws';
-import { DrawDate } from '../models/DrawDates';
-import { GAMES, messages } from '../constants';
+import { messages } from '../constants';
 
 /**
  * Central point for number checking functionality.

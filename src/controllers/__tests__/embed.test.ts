@@ -1,5 +1,5 @@
+import { GameID } from '@caglarturali/piyango-common';
 import { getEmbeddableStream } from '../embed';
-import { GameID } from '../../models/Game';
 import { STREAM_URL } from '../../constants';
 
 test('should successfully return embeddable stream for valid draw', async () => {
