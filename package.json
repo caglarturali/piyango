@@ -2,8 +2,19 @@
   "name": "piyango",
   "private": true,
   "scripts": {
+    "test": "jest",
+    "majs": "majestic",
+    "lint": "tslint -c tslint.json \"packages/**/*.ts\"",
+    "lint:fix": "pnpm run lint -- --fix",
     "pkg": "git add packages/ && git commit -m \"Update:Packages --> $(date)\"",
     "pkgp": "pnpm run pkg && git push"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pnpm run lint:fix",
+      "pre-push": "pnpm test",
+      "commit-msg": "echo $HUSKY_GIT_PARAMS"
+    }
   },
   "devDependencies": {
     "@types/jest": "^25.1.4",

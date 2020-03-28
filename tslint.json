@@ -1,0 +1,26 @@
+{
+  "defaultSeverity": "error",
+  "extends": [
+    "tslint:recommended",
+    "tslint-plugin-prettier",
+    "tslint-config-prettier"
+  ],
+  "linterOptions": {
+    "exclude": ["**/node_modules/**", "**/cjs/**", "**/esm/**"]
+  },
+  "jsRules": {},
+  "rules": {
+    "prettier": [true, "./.prettierrc.js"],
+    "quotemark": [true, "single"],
+    "member-access": [true, "no-public"],
+    "ordered-imports": [
+      true,
+      {
+        "import-sources-order": "any",
+        "named-imports-order": "case-insensitive"
+      }
+    ],
+    "object-literal-sort-keys": false
+  },
+  "rulesDirectory": []
+}

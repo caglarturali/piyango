@@ -13,8 +13,8 @@
     "strict": true,
 
     /* Additional Checks */
-    "noUnusedLocals": true,
-    "noImplicitReturns": true,
+    // "noUnusedLocals": true,
+    // "noImplicitReturns": true,
 
     /* Module Resolution Options */
     "moduleResolution": "node",
