@@ -1,12 +1,19 @@
 importers:
   .:
     devDependencies:
+      '@types/jest': 25.1.4
+      '@types/lodash': 4.14.149
+      '@types/markdown-it': 0.0.9
+      '@types/moment-timezone': 0.5.13
+      '@types/node': 13.9.5
+      '@types/node-fetch': 2.5.5
       '@types/react': 16.9.26
       chalk: 3.0.0
       husky: 4.2.3
       jest: 25.2.3
       lerna: 3.20.2
       majestic: 1.6.2
+      markdown-it: 10.0.0
       prettier: 2.0.2
       rimraf: 3.0.2
       ts-jest: 25.2.1_jest@25.2.3
@@ -16,12 +23,19 @@ importers:
       tslint-plugin-prettier: 2.3.0_prettier@2.0.2+tslint@6.1.0
       typescript: 3.8.3
     specifiers:
+      '@types/jest': ^25.1.4
+      '@types/lodash': ^4.14.149
+      '@types/markdown-it': ^0.0.9
+      '@types/moment-timezone': ^0.5.13
+      '@types/node': ^13.9.5
+      '@types/node-fetch': ^2.5.5
       '@types/react': ^16.9.26
       chalk: ^3.0.0
       husky: ^4.2.3
       jest: ^25.2.3
       lerna: ^3.20.2
       majestic: ^1.6.2
+      markdown-it: ^10.0.0
       prettier: ^2.0.2
       rimraf: ^3.0.2
       ts-jest: ^25.2.1
@@ -7430,7 +7444,7 @@ packages:
       node: '>=0.4.7'
     hasBin: true
     optionalDependencies:
-      uglify-js: 3.8.0
+      uglify-js: 3.8.1
     resolution:
       integrity: sha512-SRGwSYuNfx8DwHD/6InAPzD6RgeruWLT+B8e8a7gGs8FWgHzlExpTFMEq2IA6QpAfOClpKHy6+8IqTjeBCu6Kg==
   /har-schema/2.0.0:
@@ -14452,7 +14466,7 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-Y2VsbPVs0FIshJztycsO2SfPk7/KAF/T72qzv9u5EpQ4kB2hQoHlhNQTsNyy6ul7lQtqJN/AoWeS23OzEiEFxw==
-  /uglify-js/3.8.0:
+  /uglify-js/3.8.1:
     dependencies:
       commander: 2.20.3
       source-map: 0.6.1
@@ -14462,7 +14476,7 @@ packages:
     hasBin: true
     optional: true
     resolution:
-      integrity: sha512-ugNSTT8ierCsDHso2jkBHXYrU8Y5/fY2ZUprfrJUiD7YpuFvV4jODLFmb3h4btQjqr5Nh4TX4XtgDfCU1WdioQ==
+      integrity: sha512-W7KxyzeaQmZvUFbGj4+YFshhVrMBGSg2IbcYAjGWGvx8DHvJMclbTDMpffdxFUGPBHjIytk7KJUR/KUXstUGDw==
   /uid-number/0.0.6:
     dev: true
     resolution:
