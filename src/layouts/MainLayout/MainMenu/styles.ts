@@ -2,7 +2,7 @@
  * MainMenu component styles.
  */
 import { Theme } from '@material-ui/core';
-import { drawerWidth } from '../../styles';
+import { drawerWidth } from '../styles';
 
 export default (theme: Theme) => ({
   drawer: {

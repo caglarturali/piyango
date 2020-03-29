@@ -2,6 +2,8 @@
  * MainMenu component.
  */
 import React from 'react';
+import { GAMES } from '@caglarturali/piyango-common';
+import { GameIcon } from '@caglarturali/piyango-components';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
@@ -33,12 +35,12 @@ const MainMenu: React.FunctionComponent<MainMenuProps> = ({
       <div className={classes.toolbar} />
       <Divider />
       <List>
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-          <ListItem button key={text}>
+        {GAMES.map(({ id, name, iconText }, index) => (
+          <ListItem button key={id}>
             <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+              <GameIcon content={iconText} />
             </ListItemIcon>
-            <ListItemText primary={text} />
+            <ListItemText primary={name} />
           </ListItem>
         ))}
       </List>

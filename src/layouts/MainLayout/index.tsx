@@ -12,7 +12,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import styles from './styles';
 import DocumentHead from '../DocumentHead';
-import MainMenu from './components/MainMenu';
+import MainMenu from './MainMenu';
 
 const useStyles = makeStyles(styles);
 
