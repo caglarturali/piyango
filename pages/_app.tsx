@@ -1,6 +1,6 @@
 import React from 'react';
 import App from 'next/app';
-import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import theme from '../src/theme';
 
@@ -16,13 +16,8 @@ class MyApp extends App {
   render() {
     const { Component, pageProps } = this.props;
 
-    // Create a theme instance.
-    const muiTheme = createMuiTheme({
-      palette: theme.palette,
-    });
-
     return (
-      <ThemeProvider theme={muiTheme}>
+      <ThemeProvider theme={theme}>
         <CssBaseline />
         <Component {...pageProps} />
       </ThemeProvider>

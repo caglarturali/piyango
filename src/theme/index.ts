@@ -1,18 +1,9 @@
-import { indigo, red, teal } from '@material-ui/core/colors';
+import { createMuiTheme } from '@material-ui/core/styles';
+import palette from './palette';
 
-export default {
+export default createMuiTheme({
   palette: {
-    primary: {
-      main: indigo[400],
-    },
-    secondary: {
-      main: teal[400],
-    },
-    error: {
-      main: red.A400,
-    },
-    background: {
-      // main: '#ffffff',
-    },
+    ...palette,
+    type: 'light',
   },
-};
+});
