@@ -3,7 +3,7 @@
  */
 import { Theme } from '@material-ui/core';
 
-export const drawerWidth = 240;
+export const drawerWidth = 256;
 
 export default (theme: Theme) => ({
   root: {

@@ -3,18 +3,16 @@
  */
 import React from 'react';
 import Link from 'next/link';
-import { GAMES } from '@caglarturali/piyango-common';
-import { GameIcon } from '@caglarturali/piyango-components';
+import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
 import Hidden from '@material-ui/core/Hidden';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import MailIcon from '@material-ui/icons/Mail';
+import { Menu } from './Menu';
+
 import styles from './styles';
 
 const useStyles = makeStyles(styles);
@@ -38,33 +36,47 @@ const MainMenu: React.FunctionComponent<MainMenuProps> = ({
           <div>piyango.online</div>
         </div>
       </Link>
-      <Divider />
-      <List>
-        {GAMES.map(({ id, name, iconText }) => (
-          <ListItem button key={id}>
-            <ListItemIcon>
-              <GameIcon content={iconText} />
-            </ListItemIcon>
-            <ListItemText primary={name} />
-          </ListItem>
-        ))}
-      </List>
-      <Divider />
-      <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
+      <Divider className={classes.dividerBottom} />
+
+      {Menu.map(({ title, items }) => (
+        <>
+          {title && (
+            <ListItem className={classes.categoryHeader}>
+              <ListItemText
+                classes={{
+                  primary: classes.categoryHeaderPrimary,
+                }}
+              >
+                {title}
+              </ListItemText>
+            </ListItem>
+          )}
+          {items.map(({ id, icon: Icon, text, active }) => (
+            <ListItem
+              key={id}
+              button
+              dense
+              className={clsx(classes.item, classes.itemActionable, {
+                [classes.active]: active,
+              })}
+            >
+              <ListItemIcon>{Icon}</ListItemIcon>
+              <ListItemText
+                classes={{
+                  primary: classes.itemPrimary,
+                }}
+                primary={text}
+              />
+            </ListItem>
+          ))}
+          <Divider className={classes.divider} />
+        </>
+      ))}
     </div>
   );
 
   return (
-    <nav className={classes.drawer} aria-label="mailbox folders">
+    <nav className={classes.drawer} aria-label="ana menü">
       {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
       <Hidden smUp implementation="css">
         <Drawer
