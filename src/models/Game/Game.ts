@@ -6,6 +6,7 @@ import { GameID } from '.';
 export interface Game {
   id: GameID;
   name: string;
+  iconText: string;
   embedSlug?: string;
   [key: string]: any;
 }

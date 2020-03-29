@@ -7,6 +7,7 @@ export const GAMES: Game[] = [
   {
     id: GameID.sayisal,
     name: 'Sayısal LOTO',
+    iconText: '49',
     embedSlug: 'sayisalloto',
     columns: 8,
     pool: {
@@ -29,6 +30,7 @@ export const GAMES: Game[] = [
   {
     id: GameID.superloto,
     name: 'Süper LOTO',
+    iconText: '54',
     columns: 6,
     pool: {
       main: {
@@ -46,6 +48,7 @@ export const GAMES: Game[] = [
   {
     id: GameID.sanstopu,
     name: 'Şans Topu',
+    iconText: '+1',
     columns: 5,
     pool: {
       main: {
@@ -67,6 +70,7 @@ export const GAMES: Game[] = [
   {
     id: GameID.onnumara,
     name: 'On Numara',
+    iconText: '80',
     columns: 5,
     pool: {
       main: {
@@ -84,6 +88,7 @@ export const GAMES: Game[] = [
   {
     id: GameID.piyango,
     name: 'Milli Piyango',
+    iconText: '*9',
     embedSlug: 'millipiyango',
     lottery: true,
   },
