@@ -4,7 +4,7 @@ import MainLayout from '../src/layouts/MainLayout';
 
 const Home: NextPage = () => {
   return (
-    <MainLayout contentTitle="Son Çekilişler">
+    <MainLayout contentTitle="Ana Sayfa">
       <p>Hellooo!</p>
     </MainLayout>
   );

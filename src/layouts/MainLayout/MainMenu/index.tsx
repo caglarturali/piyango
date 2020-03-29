@@ -2,6 +2,7 @@
  * MainMenu component.
  */
 import React from 'react';
+import Link from 'next/link';
 import { GAMES } from '@caglarturali/piyango-common';
 import { GameIcon } from '@caglarturali/piyango-components';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
@@ -32,10 +33,14 @@ const MainMenu: React.FunctionComponent<MainMenuProps> = ({
 
   const drawer = (
     <div>
-      <div className={classes.toolbar} />
+      <Link href="/">
+        <div className={classes.brand}>
+          <div>piyango.online</div>
+        </div>
+      </Link>
       <Divider />
       <List>
-        {GAMES.map(({ id, name, iconText }, index) => (
+        {GAMES.map(({ id, name, iconText }) => (
           <ListItem button key={id}>
             <ListItemIcon>
               <GameIcon content={iconText} />
