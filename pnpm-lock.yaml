@@ -1,6 +1,7 @@
 importers:
   .:
     devDependencies:
+      '@types/color': 3.0.1
       '@types/jest': 25.1.4
       '@types/lodash': 4.14.149
       '@types/markdown-it': 0.0.9
@@ -24,6 +25,7 @@ importers:
       tslint-plugin-prettier: 2.3.0_prettier@2.0.2+tslint@6.1.0
       typescript: 3.8.3
     specifiers:
+      '@types/color': ^3.0.1
       '@types/jest': ^25.1.4
       '@types/lodash': ^4.14.149
       '@types/markdown-it': ^0.0.9
@@ -53,6 +55,7 @@ importers:
       '@material-ui/core': 4.9.8_react-dom@16.13.1+react@16.13.1
       '@material-ui/icons': 4.9.1_f6e950129319803d4a2bf17043cc5bb9
       '@material-ui/styles': 4.9.6_react-dom@16.13.1+react@16.13.1
+      color: 3.1.2
       next: 9.3.2_react-dom@16.13.1+react@16.13.1
       prop-types: 15.7.2
       react: 16.13.1
@@ -63,6 +66,7 @@ importers:
       '@material-ui/core': ^4.9.8
       '@material-ui/icons': ^4.9.1
       '@material-ui/styles': ^4.9.6
+      color: ^3.1.2
       next: ^9.3.2
       prop-types: ^15.7.2
       react: ^16.13.1
@@ -2444,10 +2448,22 @@ packages:
     dev: true
     resolution:
       integrity: sha512-jEFQ8L1tuvPjOI8lnpaf73oCJe+aoxL6ygqSy6c8LcW98zaC+4mzWuQIRCEvKeCOu+lbqdXcg4Uqmm1S8AP1tw==
+  /@types/color-convert/1.9.0:
+    dependencies:
+      '@types/color-name': 1.1.1
+    dev: true
+    resolution:
+      integrity: sha512-OKGEfULrvSL2VRbkl/gnjjgbbF7ycIlpSsX7Nkab4MOWi5XxmgBYvuiQ7lcCFY5cPDz7MUNaKgxte2VRmtr4Fg==
   /@types/color-name/1.1.1:
     dev: true
     resolution:
       integrity: sha512-rr+OQyAjxze7GgWrSaJwydHStIhHq2lvY3BOC2Mj7KnzI7XK0Uw1TOOdI9lDoajEbSWLiYgoo4f1R51erQfhPQ==
+  /@types/color/3.0.1:
+    dependencies:
+      '@types/color-convert': 1.9.0
+    dev: true
+    resolution:
+      integrity: sha512-oeUWVaAwI+xINDUx+3F2vJkl/vVB03VChFF/Gl3iQCdbcakjuoJyMOba+3BXRtnBhxZ7uBYqQBi9EpLnvSoztA==
   /@types/events/3.0.0:
     dev: true
     resolution:
@@ -3817,9 +3833,22 @@ packages:
     resolution:
       integrity: sha1-p9BVi9icQveV3UIyj3QIMcpTvCU=
   /color-name/1.1.4:
-    dev: true
     resolution:
       integrity: sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==
+  /color-string/1.5.3:
+    dependencies:
+      color-name: 1.1.4
+      simple-swizzle: 0.2.2
+    dev: false
+    resolution:
+      integrity: sha512-dC2C5qeWoYkxki5UAXapdjqO672AM4vZuPGRQfO8b5HKuKGBbKWpITyDYN7TOFKvRW7kOgAn3746clDBMDJyQw==
+  /color/3.1.2:
+    dependencies:
+      color-convert: 1.9.3
+      color-string: 1.5.3
+    dev: false
+    resolution:
+      integrity: sha512-vXTJhHebByxZn3lDvDJYw4lR5+uB3vuoHsuYA5AKuxRVn5wzzIfQKGLBmgdVRHKTJYeK5rvJcHnrd0Li49CFpg==
   /colors/1.2.5:
     dev: false
     engines:
@@ -5986,6 +6015,10 @@ packages:
   /is-arrayish/0.2.1:
     resolution:
       integrity: sha1-d8mYQFJ6qOyxqLppe4BkWnqSap0=
+  /is-arrayish/0.3.2:
+    dev: false
+    resolution:
+      integrity: sha512-eVRqCvVlZbuw3GrM63ovNSNAeA1K16kaR/LRY/92w0zxQ5/1YzwblUX652i4Xs9RwAGjW9d9y6X88t8OaAJfWQ==
   /is-binary-path/1.0.1:
     dependencies:
       binary-extensions: 1.13.1
@@ -10045,6 +10078,12 @@ packages:
   /signal-exit/3.0.3:
     resolution:
       integrity: sha512-VUJ49FC8U1OxwZLxIbTTrDvLnf/6TDgxZcK8wxR8zs13xpx7xbG60ndBlhNrFi2EMuFRoeDoJO7wthSLq42EjA==
+  /simple-swizzle/0.2.2:
+    dependencies:
+      is-arrayish: 0.3.2
+    dev: false
+    resolution:
+      integrity: sha1-pNprY1/8zMoz9w0Xy5JZLeleVXo=
   /sisteransi/1.0.5:
     dev: true
     resolution:
