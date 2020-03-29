@@ -23,6 +23,7 @@
     "@types/moment-timezone": "^0.5.13",
     "@types/node": "^13.9.5",
     "@types/node-fetch": "^2.5.5",
+    "@types/prop-types": "^15.7.3",
     "@types/react": "^16.9.26",
     "chalk": "^3.0.0",
     "husky": "^4.2.3",
