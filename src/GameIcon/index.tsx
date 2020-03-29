@@ -7,11 +7,13 @@ import styles from './styles';
 
 const useStyles = makeStyles(styles);
 
-export interface GameIcon {
+export interface GameIconProps {
   content: string;
 }
 
-const GameIcon: React.FunctionComponent<GameIcon> = ({ content }) => {
+export const GameIcon: React.FunctionComponent<GameIconProps> = ({
+  content,
+}) => {
   const classes = useStyles();
 
   return (
@@ -20,5 +22,3 @@ const GameIcon: React.FunctionComponent<GameIcon> = ({ content }) => {
     </div>
   );
 };
-
-export default GameIcon;
