@@ -1,6 +1,6 @@
 {
   "name": "@caglarturali/piyango-components",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "cjs/index.js",
   "module": "esm/index.js",
   "types": "esm/index.d.ts",
@@ -15,7 +15,11 @@
     "prepack": "pnpm run build"
   },
   "dependencies": {
-    "react": "^16.13.1"
+    "@material-ui/core": "^4.9.8",
+    "@material-ui/icons": "^4.9.1",
+    "@material-ui/styles": "^4.9.6",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   },
   "files": [
     "cjs",
