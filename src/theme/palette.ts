@@ -1,13 +1,14 @@
-import { indigo, red, teal } from '@material-ui/core/colors';
+import { ThemeOptions } from '@material-ui/core';
+import { orange, red } from '@material-ui/core/colors';
 
-export default {
-  primary: {
-    main: indigo[400],
-  },
-  secondary: {
-    main: teal[400],
-  },
-  error: {
-    main: red.A400,
+const opts: ThemeOptions = {
+  palette: {
+    primary: {
+      main: '#009be5',
+    },
+    secondary: orange,
+    error: red,
   },
 };
+
+export default opts.palette;

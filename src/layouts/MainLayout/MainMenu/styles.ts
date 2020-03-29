@@ -4,10 +4,10 @@
 import { createStyles, Theme } from '@material-ui/core';
 import { drawerWidth } from '../styles';
 
-export default (theme: Theme) =>
+export default ({ breakpoints, custom, typography, palette }: Theme) =>
   createStyles({
     drawer: {
-      [theme.breakpoints.up('sm')]: {
+      [breakpoints.up('sm')]: {
         width: drawerWidth,
         flexShrink: 0,
       },
@@ -17,9 +17,9 @@ export default (theme: Theme) =>
       width: drawerWidth,
     },
     brand: {
-      fontFamily: "'Gugi', cursive",
-      fontSize: theme.typography.pxToRem(24),
-      color: theme.palette.text.secondary,
+      fontFamily: custom.typography.cursive,
+      fontSize: typography.pxToRem(24),
+      color: palette.text.secondary,
       cursor: 'pointer',
       display: 'flex',
       justifyContent: 'center',
