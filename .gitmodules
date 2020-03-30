@@ -1,3 +1,0 @@
-[submodule "packages/server"]
-	path = packages/server
-	url = git@github.com:caglarturali/piyango-server.git
