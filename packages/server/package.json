@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "private": true,
-  "repository": "git://github.com:caglarturali/piyango-server.git",
+  "repository": "git://github.com:caglarturali/piyango.git",
   "scripts": {
     "test": "jest",
     "test:cov": "pnpm test -- --coverage",

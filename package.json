@@ -1,6 +1,7 @@
 {
   "name": "piyango",
   "private": true,
+  "repository": "git://github.com:caglarturali/piyango.git",
   "scripts": {
     "test": "jest",
     "majs": "majestic",
