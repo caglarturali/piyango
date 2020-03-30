@@ -16,12 +16,6 @@
     "sync:commit": "ts-node scripts/syncAndCommit.ts",
     "docs": "ts-node scripts/generateDocs.ts && prettier --write index.html"
   },
-  "husky": {
-    "hooks": {
-      "pre-push": "pnpm test",
-      "commit-msg": "echo $HUSKY_GIT_PARAMS"
-    }
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",

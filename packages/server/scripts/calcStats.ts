@@ -1,8 +1,6 @@
-import { GAMES } from '../src/constants';
-import { GameID } from '../src/models/Game';
+import { GameID, GAMES, RegularDrawData } from '@caglarturali/piyango-common';
 import { MessageType, printMsg } from './_utils';
 import DrawUtils from '../src/utils/DrawUtils';
-import { RegularDrawData } from '../src/models/Regular';
 import { getDrawDates, getDrawDetailsForDraw } from '../src/controllers';
 import Stats from '../src/models/Stats/Stats';
 

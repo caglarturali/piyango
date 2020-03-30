@@ -1,14 +1,14 @@
 /**
  * Time controller.
  */
-import momentTZ, { MomentObjectOutput } from 'moment-timezone';
+import momentTZ from 'moment-timezone';
 import ApiResponse from '../models/ApiResponse';
 
 /**
  * Returns current time as a moment object.
  */
 export const getCurrentTime = () => {
-  const apiResponse = new ApiResponse<MomentObjectOutput>();
+  const apiResponse = new ApiResponse();
 
   const now = momentTZ().tz('Europe/Istanbul').toObject();
 

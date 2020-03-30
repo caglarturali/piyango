@@ -1,7 +1,7 @@
 import fs from 'fs';
+import { GAMES } from '@caglarturali/piyango-common';
 import { PathUtils } from '../src/utils';
 import { MessageType, printMsg } from './_utils';
-import { GAMES } from '../src/constants';
 import { getDrawDates, getDrawDetailsForDraw } from '../src/controllers';
 
 /**

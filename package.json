@@ -3,12 +3,13 @@
   "private": true,
   "repository": "git://github.com:caglarturali/piyango.git",
   "scripts": {
+    "clean": "pnpm recursive exec -- rm -rf node_modules && pnpm recursive install",
+    "start:app": "pnpm recursive run dev --filter @caglarturali/piyango-app",
     "test": "jest",
     "majs": "majestic",
     "lint": "tslint -c tslint.json \"packages/**/*.ts\"",
     "lint:fix": "pnpm run lint -- --fix",
-    "pkg": "git add packages/ && git commit -m \"Update:Packages --> $(date)\"",
-    "pkgp": "pnpm run pkg && git push"
+    "sync": "pnpm recursive run sync:commit --filter @caglarturali/piyango-server"
   },
   "husky": {
     "hooks": {
