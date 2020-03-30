@@ -1,0 +1,36 @@
+{
+  "version": 2,
+  "build": {
+    "env": {
+      "NPM_RC": "@my-npmrc"
+    }
+  },
+  "routes": [
+    {
+      "src": "/(.*)",
+      "headers": {
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "DENY",
+        "X-XSS-Protection": "1; mode=block"
+      },
+      "continue": true
+    },
+    {
+      "src": "/api/(.*)",
+      "headers": { "Cache-Control": "max-age=0, s-maxage=3600" },
+      "continue": true
+    },
+    {
+      "src": "/static/draws.*",
+      "headers": {
+        "Cache-Control": "max-age=31536000",
+        "Content-Type": "application/json"
+      },
+      "continue": true
+    },
+    {
+      "src": "/static/draws/(?<gameid>[^/]+)/(?<date>[0-9]{8})$",
+      "dest": "/static/draws/$gameid/$date.json"
+    }
+  ]
+}

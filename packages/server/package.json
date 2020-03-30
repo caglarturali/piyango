@@ -1,0 +1,38 @@
+{
+  "name": "@caglarturali/piyango-server",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "repository": "git://github.com:caglarturali/piyango-server.git",
+  "scripts": {
+    "test": "jest",
+    "test:cov": "pnpm test -- --coverage",
+    "test:watch": "pnpm test -- --watch",
+    "majs": "majestic",
+    "prod": "now --prod",
+    "rmtmp": "rm -rf /tmp/zeit-fun-*",
+    "sync:draws": "ts-node scripts/syncDraws.ts",
+    "sync:stats": "ts-node scripts/calcStats.ts",
+    "sync:commit": "ts-node scripts/syncAndCommit.ts",
+    "docs": "ts-node scripts/generateDocs.ts && prettier --write index.html"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "pnpm test",
+      "commit-msg": "echo $HUSKY_GIT_PARAMS"
+    }
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@caglarturali/piyango-common": "^1.3.2",
+    "@now/node": "^1.5.0",
+    "haikunator": "^2.1.2",
+    "lodash": "^4.17.15",
+    "moment": "^2.24.0",
+    "moment-timezone": "^0.5.28",
+    "node-fetch": "^2.6.0",
+    "strip-bom": "^4.0.0"
+  }
+}
