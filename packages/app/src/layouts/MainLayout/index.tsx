@@ -59,7 +59,7 @@ const MainLayout: React.FunctionComponent<MainLayoutProps> = ({
       />
       <main className={classes.content}>
         <div className={classes.toolbar} />
-        <Typography paragraph>{children}</Typography>
+        <div>{children}</div>
       </main>
     </div>
   );
