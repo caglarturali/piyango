@@ -4,7 +4,7 @@
   "main": "cjs/index.js",
   "module": "esm/index.js",
   "types": "esm/index.d.ts",
-  "repository": "git://github.com:caglarturali/piyango-components.git",
+  "repository": "git://github.com:caglarturali/piyango.git",
   "scripts": {
     "clean": "rimraf ./cjs ./esm",
     "prebuild": "pnpm run clean",
