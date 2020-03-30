@@ -1,15 +1,30 @@
 import React from 'react';
-import { NextPage } from 'next';
+import fetch from 'node-fetch';
+import { GetServerSideProps, NextPage } from 'next';
 import { SectionHeader } from '@caglarturali/piyango-components';
+import { DrawDataType } from '@caglarturali/piyango-common';
 import MainLayout from '../src/layouts/MainLayout';
+import HomeView from '../src/views/HomeView';
+import { API } from '../src/shared';
 
-const Home: NextPage = () => {
+export interface NextPageProps {
+  data: DrawDataType[];
+}
+
+const Home: NextPage<NextPageProps> = ({ data }) => {
   return (
     <MainLayout contentTitle="Ana Sayfa">
       <SectionHeader title="Son Çekilişler" />
-      <p>Hellooo!</p>
+      <HomeView draws={data} />
     </MainLayout>
   );
+};
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const res = await fetch(`${API}/draws`);
+  const data = (await res.json()) as DrawDataType[];
+
+  return { props: { data } };
 };
 
 export default Home;
