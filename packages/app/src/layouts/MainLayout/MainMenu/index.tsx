@@ -38,8 +38,8 @@ const MainMenu: React.FunctionComponent<MainMenuProps> = ({
       </Link>
       <Divider className={classes.dividerBottom} />
 
-      {Menu.map(({ title, items }) => (
-        <>
+      {Menu.map(({ title, items }, i) => (
+        <React.Fragment key={`menu-cat-${i}`}>
           {title && (
             <ListItem className={classes.categoryHeader}>
               <ListItemText
@@ -70,7 +70,7 @@ const MainMenu: React.FunctionComponent<MainMenuProps> = ({
             </ListItem>
           ))}
           <Divider className={classes.divider} />
-        </>
+        </React.Fragment>
       ))}
     </div>
   );
