@@ -63,7 +63,7 @@ export default class RegularCheck implements ICheckNumbers {
     this.userNumbers.forEach(({ main, plus }) => {
       const numsMatch: GameColumn = { main: [] };
 
-      main.forEach((num) => {
+      main.forEach((num: number) => {
         if (this.winningNumbers.main.includes(num)) {
           numsMatch.main.push(num);
         }
@@ -71,7 +71,7 @@ export default class RegularCheck implements ICheckNumbers {
 
       if (this.game.id === GameID.sanstopu) {
         numsMatch.plus = [];
-        plus?.forEach((num) => {
+        plus?.forEach((num: number) => {
           if (this.winningNumbers.plus?.includes(num)) {
             numsMatch.plus?.push(num);
           }

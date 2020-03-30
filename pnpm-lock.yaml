@@ -4,7 +4,6 @@ importers:
       '@types/color': 3.0.1
       '@types/jest': 25.1.4
       '@types/lodash': 4.14.149
-      '@types/markdown-it': 0.0.9
       '@types/moment-timezone': 0.5.13
       '@types/node': 13.9.5
       '@types/node-fetch': 2.5.5
@@ -14,7 +13,6 @@ importers:
       husky: 4.2.3
       jest: 25.2.4
       majestic: 1.6.2
-      markdown-it: 10.0.0
       pnpm: 4.12.1
       prettier: 2.0.2
       rimraf: 3.0.2
@@ -28,7 +26,6 @@ importers:
       '@types/color': ^3.0.1
       '@types/jest': ^25.1.4
       '@types/lodash': ^4.14.149
-      '@types/markdown-it': ^0.0.9
       '@types/moment-timezone': ^0.5.13
       '@types/node': ^13.9.5
       '@types/node-fetch': ^2.5.5
@@ -38,7 +35,6 @@ importers:
       husky: ^4.2.3
       jest: ^25.2.4
       majestic: ^1.6.2
-      markdown-it: ^10.0.0
       pnpm: ^4.12.1
       prettier: ^2.0.2
       rimraf: ^3.0.2
@@ -94,19 +90,38 @@ importers:
       '@now/node': 1.5.0
       haikunator: 2.1.2
       lodash: 4.17.15
+      markdown-it: 10.0.0
       moment: 2.24.0
       moment-timezone: 0.5.28
       node-fetch: 2.6.0
       strip-bom: 4.0.0
+    devDependencies:
+      '@types/lodash': 4.14.149
+      '@types/markdown-it': 0.0.9
+      '@types/moment-timezone': 0.5.13
+      '@types/node': 13.9.5
+      '@types/node-fetch': 2.5.5
+      chalk: 3.0.0
+      ts-node: 8.8.1_typescript@3.8.3
+      typescript: 3.8.3
     specifiers:
       '@caglarturali/piyango-common': ^1.3.3
       '@now/node': ^1.5.0
+      '@types/lodash': ^4.14.149
+      '@types/markdown-it': ^0.0.9
+      '@types/moment-timezone': ^0.5.12
+      '@types/node': ^13.9.0
+      '@types/node-fetch': ^2.5.5
+      chalk: ^3.0.0
       haikunator: ^2.1.2
       lodash: ^4.17.15
+      markdown-it: ^10.0.0
       moment: ^2.24.0
       moment-timezone: ^0.5.28
       node-fetch: ^2.6.0
       strip-bom: ^4.0.0
+      ts-node: ^8.6.2
+      typescript: ^3.8.3
 lockfileVersion: 5.1
 packages:
   /@ampproject/toolbox-core/2.0.0:
@@ -3400,6 +3415,7 @@ packages:
     resolution:
       integrity: sha512-98p2zE+rL7/g/DzMHMTF4zZlCgeVdJ7yr6xzEpJRYwFYrGi9ANdn5DnJURg6RpBkyk60XYDnWIv51VfIhfNGuA==
   /entities/2.0.0:
+    dev: false
     resolution:
       integrity: sha512-D9f7V0JSRwIxlRI2mjMqufDrRDnx8p+eEOz7aUM9SuvF8gsBzra0/6tbjl1m8eQHrZlYj6PxqE00hZ1SAIKPLw==
   /env-paths/2.2.0:
@@ -5315,7 +5331,7 @@ packages:
   /linkify-it/2.2.0:
     dependencies:
       uc.micro: 1.0.6
-    dev: true
+    dev: false
     resolution:
       integrity: sha512-GnAl/knGn+i1U/wjBz3akz2stz+HrHLsxMwHQGofCDfPvlf+gDKN58UtfmUquTY4/MXeE2x7k19KQmeoZi94Iw==
   /load-json-file/2.0.0:
@@ -5559,7 +5575,7 @@ packages:
       linkify-it: 2.2.0
       mdurl: 1.0.1
       uc.micro: 1.0.6
-    dev: true
+    dev: false
     hasBin: true
     resolution:
       integrity: sha512-YWOP1j7UbDNz+TumYP1kpwnP0aEa711cJjrAQrzd0UXlbJfc5aAq0F/PZHjiioqDC1NKgvIMX+o+9Bk7yuM2dg==
@@ -5572,7 +5588,7 @@ packages:
     resolution:
       integrity: sha512-xitP+WxNPcTTOgnTJcrhM0xvdPepipPSf3I8EIpGKeFLjt3PlJLIDG3u8EX53ZIubkb+5U2+3rELYpEhHhzdkg==
   /mdurl/1.0.1:
-    dev: true
+    dev: false
     resolution:
       integrity: sha1-/oWy7HWlkDfyrf7BAP1sYBdhFS4=
   /memory-fs/0.4.1:
@@ -8419,7 +8435,7 @@ packages:
     resolution:
       integrity: sha512-MYlEfn5VrLNsgudQTVJeNaQFUAI7DkhnOjdpAp4T+ku1TfQClewlbSuTVHiA+8skNBgaf02TL/kLOvig4y3G8w==
   /uc.micro/1.0.6:
-    dev: true
+    dev: false
     resolution:
       integrity: sha512-8Y75pvTYkLJW2hWQHXxoqRgV7qb9B+9vFEtidML+7koHUFapnVJAZ6cKs+Qjz5Aw3aZWHMC6u0wJE3At+nSGwA==
   /unfetch/4.1.0:
