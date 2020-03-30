@@ -7,7 +7,7 @@ export default ({ breakpoints, spacing }: Theme) =>
   createStyles({
     content: {
       [breakpoints.up('sm')]: {
-        padding: spacing(3),
+        padding: spacing(2),
       },
     },
   });
