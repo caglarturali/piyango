@@ -13,7 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "@caglarturali/piyango-common": "^1.3.3",
-    "@caglarturali/piyango-components": "^1.2.0",
+    "@caglarturali/piyango-components": "^1.2.1",
     "@material-ui/core": "^4.9.8",
     "@material-ui/icons": "^4.9.1",
     "@material-ui/styles": "^4.9.6",

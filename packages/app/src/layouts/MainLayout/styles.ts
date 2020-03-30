@@ -25,6 +25,5 @@ export default (theme: Theme) => ({
   toolbar: theme.mixins.toolbar,
   content: {
     flexGrow: 1,
-    padding: theme.spacing(3),
   },
 });

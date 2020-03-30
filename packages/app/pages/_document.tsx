@@ -6,7 +6,7 @@ import theme from '../src/theme';
 export default class MyDocument extends Document {
   render() {
     return (
-      <html lang="en">
+      <html lang="tr">
         <Head>
           <meta charSet="utf-8" />
           <meta
