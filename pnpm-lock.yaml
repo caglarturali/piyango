@@ -70,7 +70,12 @@ importers:
       react: ^16.13.1
       react-dom: ^16.13.1
   packages/common:
-    specifiers: {}
+    devDependencies:
+      '@types/node': 13.9.5
+      typescript: 3.8.3
+    specifiers:
+      '@types/node': ^13.9.5
+      typescript: ^3.8.3
   packages/components:
     dependencies:
       '@material-ui/core': 4.9.8_react-dom@16.13.1+react@16.13.1
