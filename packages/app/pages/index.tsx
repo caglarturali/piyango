@@ -2,13 +2,13 @@ import React from 'react';
 import fetch from 'node-fetch';
 import { GetServerSideProps, NextPage } from 'next';
 import { SectionHeader } from '@caglarturali/piyango-components';
-import { DrawDataType } from '@caglarturali/piyango-common';
+import { DrawsItem } from '@caglarturali/piyango-common';
 import MainLayout from '../src/layouts/MainLayout';
 import HomeView from '../src/views/HomeView';
 import { API } from '../src/shared';
 
 export interface NextPageProps {
-  data: DrawDataType[];
+  data: DrawsItem[];
 }
 
 const Home: NextPage<NextPageProps> = ({ data }) => {
@@ -22,7 +22,7 @@ const Home: NextPage<NextPageProps> = ({ data }) => {
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const res = await fetch(`${API}/draws`);
-  const data = (await res.json()) as DrawDataType[];
+  const data = (await res.json()) as DrawsItem[];
 
   return { props: { data } };
 };

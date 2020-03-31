@@ -2,7 +2,7 @@
  * HomeView component.
  */
 import React from 'react';
-import { DrawDataType } from '@caglarturali/piyango-common';
+import { DrawsItem } from '@caglarturali/piyango-common';
 import { Container } from '@caglarturali/piyango-components';
 import { makeStyles } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
@@ -12,7 +12,7 @@ import styles from './styles';
 const useStyles = makeStyles(styles);
 
 export interface HomeViewProps {
-  draws: DrawDataType[];
+  draws: DrawsItem[];
 }
 
 const HomeView: React.FunctionComponent<HomeViewProps> = ({ draws }) => {
@@ -21,9 +21,9 @@ const HomeView: React.FunctionComponent<HomeViewProps> = ({ draws }) => {
   return (
     <Container>
       <Grid container spacing={1}>
-        {draws.map(({ cekilisTarihi }, i) => (
-          <Grid item xs={12} md={6} key={`draw-summary-${i}`}>
-            <Card elevation={0}>{cekilisTarihi}</Card>
+        {draws.map(({ id }) => (
+          <Grid item xs={12} md={6} key={`draw-summary-${id}`}>
+            <Card elevation={0}>{id}</Card>
           </Grid>
         ))}
       </Grid>
