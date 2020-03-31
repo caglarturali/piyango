@@ -59,7 +59,7 @@ importers:
       react: 16.13.1
       react-dom: 16.13.1_react@16.13.1
     specifiers:
-      '@caglarturali/piyango-common': ^1.4.0
+      '@caglarturali/piyango-common': ^1.5.0
       '@caglarturali/piyango-components': ^1.2.3
       '@material-ui/core': ^4.9.8
       '@material-ui/icons': ^4.9.1
@@ -112,7 +112,7 @@ importers:
       ts-node: 8.8.1_typescript@3.8.3
       typescript: 3.8.3
     specifiers:
-      '@caglarturali/piyango-common': ^1.4.0
+      '@caglarturali/piyango-common': ^1.5.0
       '@now/node': ^1.5.0
       '@types/lodash': ^4.14.149
       '@types/markdown-it': ^0.0.9
