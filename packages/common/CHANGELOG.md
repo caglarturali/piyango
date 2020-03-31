@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.6.2] - 2020-03-31
+
+### Fixed
+
+- Mark `buyukIkrKazananIlIlceler` as optional
+
 ## [1.6.1] - 2020-03-31
 
 ### Changed

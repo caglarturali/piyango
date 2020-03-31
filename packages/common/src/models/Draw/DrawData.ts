@@ -5,5 +5,5 @@ import { LuckyProvince } from '.';
  */
 export interface DrawData {
   cekilisTarihi: string;
-  buyukIkrKazananIlIlceler: LuckyProvince[];
+  buyukIkrKazananIlIlceler?: LuckyProvince[];
 }
