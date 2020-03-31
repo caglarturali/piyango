@@ -14,7 +14,7 @@ export default ({ breakpoints, palette, spacing, typography }: Theme) =>
       justifyContent: 'center',
       color: palette.common.white,
       fontSize: typography.pxToRem(20),
-      fontWeight: 'bold',
+      fontWeight: typography.fontWeightMedium,
       height: '44px',
       width: '44px',
       margin: spacing(1),
