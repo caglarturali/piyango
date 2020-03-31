@@ -4,6 +4,7 @@
 import {
   DrawDataType,
   DrawDate,
+  DrawsItem,
   GameID,
   GAMES,
 } from '@caglarturali/piyango-common';
@@ -87,13 +88,16 @@ export const getDrawDetailsForDraws = async (
  * Returns latest draws in descending order by date.
  */
 export const getDrawDetailsForLatestDraws = async () => {
-  const apiResponse = new ApiResponse<DrawDataType>();
+  const apiResponse = new ApiResponse<DrawsItem>();
 
-  const results: DrawDataType[] = await Promise.all(
+  const results: DrawsItem[] = await Promise.all(
     GAMES.map(async ({ id }) => {
       const { data } = await getDrawDetailsForLastDraw(id);
       const [drawData] = data;
-      return drawData;
+      return {
+        id,
+        data: drawData,
+      };
     }),
   );
 
@@ -103,7 +107,9 @@ export const getDrawDetailsForLatestDraws = async () => {
 
   if (apiResponse.hasData()) {
     apiResponse.sortData((a, b) => {
-      return DateUtils.isGreaterThan(b.cekilisTarihi, a.cekilisTarihi) ? 1 : -1;
+      return DateUtils.isGreaterThan(b.data.cekilisTarihi, a.data.cekilisTarihi)
+        ? 1
+        : -1;
     });
   }
 
