@@ -1,4 +1,4 @@
-import { DrawData, LuckyProvince } from '../Draw';
+import { DrawData } from '../Draw';
 import { LotteryCategory } from './';
 
 /**
@@ -9,5 +9,4 @@ export interface LotteryDrawData extends DrawData {
   cekilisTarihiRaw?: string;
   haneSayisi: number;
   sonuclar: LotteryCategory[];
-  buyukIkrKazananIlIlceler: LuckyProvince[];
 }

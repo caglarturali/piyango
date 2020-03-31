@@ -1,4 +1,4 @@
-import { DrawData, LuckyProvince } from '../Draw';
+import { DrawData } from '../Draw';
 import { RegularDrawType, WinnerCategory } from './';
 
 export interface RegularDrawData extends DrawData {
@@ -12,7 +12,6 @@ export interface RegularDrawData extends DrawData {
   devretti: boolean;
   devirSayisi?: number;
   bilenKisiler: WinnerCategory[];
-  buyukIkrKazananIlIlceler?: LuckyProvince[];
   kibrisHasilati?: number;
   devirTutari: number;
   kolonSayisi?: number;
