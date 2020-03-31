@@ -1,4 +1,5 @@
-import { DrawDataType, GameID } from 'packages/common/esm';
+import { GameID } from '../Game';
+import { DrawDataType } from './';
 
 /**
  * Interface defines the items
