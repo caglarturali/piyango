@@ -1,12 +1,13 @@
 import {
+  DrawUtils,
   GameColumn,
   GameID,
   MatchTypeRegular,
+  ProcessDraw,
   RegularDrawData,
   RegularGame,
 } from '@caglarturali/piyango-common';
 import { CheckResult, ICheckNumbers } from '.';
-import { DrawUtils } from '../../utils';
 
 export default class RegularCheck implements ICheckNumbers {
   private game: RegularGame;
@@ -25,7 +26,10 @@ export default class RegularCheck implements ICheckNumbers {
     this.userNumbers = numbers.map((numsStr) =>
       DrawUtils.convertNumbersToColumn(game.id, numsStr),
     );
-    this.winningNumbers = DrawUtils.getWinningNumbers(game.id, drawData);
+    this.winningNumbers = new ProcessDraw<RegularDrawData>(
+      game.id,
+      drawData,
+    ).winningNumbers();
   }
 
   /**

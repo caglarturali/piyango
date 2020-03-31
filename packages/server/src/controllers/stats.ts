@@ -1,13 +1,16 @@
 /**
  * Stats controller.
  */
-import { GameID, RegularDrawData } from '@caglarturali/piyango-common';
+import {
+  GameID,
+  ProcessDraw,
+  RegularDrawData,
+} from '@caglarturali/piyango-common';
 import ApiResponse from '../models/ApiResponse';
 import Stats from '../models/Stats';
 import { getDrawDates } from './drawdates';
 import DateUtils from '../utils/DateUtils';
 import { getDrawDetailsForDraw } from './draws';
-import DrawUtils from '../utils/DrawUtils';
 import { messages } from '../constants';
 
 /**
@@ -56,7 +59,10 @@ export const getStatsForGame = async (gameId: GameID) => {
 
   // Process numbers.
   drawDetailsResults.forEach(({ drawDate, drawDetails }) => {
-    const nums = DrawUtils.getWinningNumbers(gameId, drawDetails);
+    const nums = new ProcessDraw<RegularDrawData>(
+      gameId,
+      drawDetails,
+    ).winningNumbers();
     stats.processColumn(nums, drawDate);
   });
 
