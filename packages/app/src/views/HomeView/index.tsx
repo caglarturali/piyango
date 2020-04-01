@@ -4,26 +4,29 @@
 import React from 'react';
 import { DrawsItem } from '@caglarturali/piyango-common';
 import { Container } from '@caglarturali/piyango-components';
-import { makeStyles } from '@material-ui/core';
+import withMobileDialog, {
+  InjectedProps,
+} from '@material-ui/core/withMobileDialog';
 import Grid from '@material-ui/core/Grid';
-import Card from '@material-ui/core/Card';
-import styles from './styles';
-
-const useStyles = makeStyles(styles);
+import { DrawDisplay } from '../../components/DrawDisplay';
 
 export interface HomeViewProps {
   draws: DrawsItem[];
 }
 
-const HomeView: React.FunctionComponent<HomeViewProps> = ({ draws }) => {
-  const classes = useStyles();
+const HomeView: React.FunctionComponent<HomeViewProps & InjectedProps> = ({
+  draws,
+  fullScreen,
+}) => {
+  // Decide spacing based on screen size.
+  const spacing = fullScreen ? 0 : 2;
 
   return (
     <Container>
-      <Grid container spacing={1}>
-        {draws.map(({ id }) => (
-          <Grid item xs={12} md={6} key={`draw-summary-${id}`}>
-            <Card elevation={0}>{id}</Card>
+      <Grid container spacing={spacing}>
+        {draws.map((draw: DrawsItem) => (
+          <Grid item xs={12} lg={6} key={`draw-display-${draw.id}`}>
+            <DrawDisplay drawItem={draw} />
           </Grid>
         ))}
       </Grid>
@@ -31,4 +34,4 @@ const HomeView: React.FunctionComponent<HomeViewProps> = ({ draws }) => {
   );
 };
 
-export default HomeView;
+export default withMobileDialog({ breakpoint: 'xs' })(HomeView);

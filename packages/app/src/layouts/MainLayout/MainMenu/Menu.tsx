@@ -14,7 +14,7 @@ export interface MenuCategory {
 export interface MenuItem {
   id: string;
   text: string;
-  icon: any;
+  icon: React.ReactElement;
   active: boolean;
 }
 
