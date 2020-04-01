@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.6.4] - 2020-04-01
+
+### Added
+
+- Implement rollingTexts method
+
 ## [1.6.3] - 2020-03-31
 
 ### Added
