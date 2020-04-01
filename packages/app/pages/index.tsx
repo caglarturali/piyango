@@ -2,9 +2,10 @@
  * Home page.
  */
 import React from 'react';
+import moment from 'moment';
 import fetch from 'isomorphic-unfetch';
 import { GetServerSideProps, NextPage } from 'next';
-import { DrawsItem } from '@caglarturali/piyango-common';
+import { DATE_FORMAT_FRIENDLY, DrawsItem } from '@caglarturali/piyango-common';
 import MainLayout from '../src/layouts/MainLayout';
 import HomeView from '../src/views/HomeView';
 import SectionHeader from '../src/components/SectionHeader';
@@ -23,11 +24,22 @@ const HomePage: NextPage<HomePageProps> = ({ data }) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const res = await fetch(`${API}/draws`);
   const data = (await res.json()) as DrawsItem[];
 
-  return { props: { data } };
+  data.sort((a, b) => {
+    return (
+      moment(b.data.cekilisTarihi, DATE_FORMAT_FRIENDLY).unix() -
+      moment(a.data.cekilisTarihi, DATE_FORMAT_FRIENDLY).unix()
+    );
+  });
+
+  return {
+    props: {
+      data,
+    },
+  };
 };
 
 export default HomePage;
