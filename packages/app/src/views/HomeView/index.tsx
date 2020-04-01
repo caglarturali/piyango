@@ -2,12 +2,7 @@
  * HomeView component.
  */
 import React from 'react';
-import moment from 'moment';
-import {
-  DATE_FORMAT_FRIENDLY,
-  DrawsItem,
-  ProcessDraw,
-} from '@caglarturali/piyango-common';
+import { DrawsItem, ProcessDraw } from '@caglarturali/piyango-common';
 import withMobileDialog, {
   InjectedProps,
 } from '@material-ui/core/withMobileDialog';
@@ -28,17 +23,15 @@ const HomeView: React.FunctionComponent<HomeViewProps & InjectedProps> = ({
 
   // Sort draws in desc order.
   draws.sort((a, b) => {
-    const jackpotA = new ProcessDraw(a.id, a.data).jackpot();
-    const jackpotB = new ProcessDraw(b.id, b.data).jackpot();
-    const dateA = moment(a.data.cekilisTarihi, DATE_FORMAT_FRIENDLY);
-    const dateB = moment(b.data.cekilisTarihi, DATE_FORMAT_FRIENDLY);
+    const prdA = new ProcessDraw(a.id, a.data);
+    const prdB = new ProcessDraw(b.id, b.data);
 
-    if (dateA.isSame(dateB)) {
+    if (prdA.drawDate().isSame(prdB.drawDate())) {
       // Sort by jackpot amount.
-      return jackpotB - jackpotA;
+      return prdB.jackpot() - prdA.jackpot();
     } else {
       // Sort by date.
-      return dateB.unix() - dateA.unix();
+      return prdB.drawDate().unix() - prdA.drawDate().unix();
     }
   });
 

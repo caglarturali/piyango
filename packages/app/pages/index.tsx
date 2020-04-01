@@ -23,7 +23,7 @@ const HomePage: NextPage<HomePageProps> = ({ data }) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const res = await fetch(`${API}/draws`);
   const data = (await res.json()) as DrawsItem[];
 

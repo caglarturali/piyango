@@ -77,7 +77,7 @@ const DrawDisplay: React.FunctionComponent<DrawDisplayProps> = ({
       />
       <Link
         href="/[gameId]/[subPage]/[drawDate]"
-        as={`/${gameId}/cekilis-sonuclari/${processed.drawDate()}`}
+        as={`/${gameId}/cekilis-sonuclari/${processed.drawDateF()}`}
       >
         <Box className={clsx({ [classes.pointer]: isSummary })}>
           <Numbers game={game} numbers={processed.winningNumbers()} />
