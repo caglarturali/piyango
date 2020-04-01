@@ -9,6 +9,9 @@ export default ({ breakpoints, palette, spacing, typography }: Theme) =>
     root: {
       userSelect: 'none',
     },
+    pointer: {
+      cursor: 'pointer',
+    },
     header: {
       display: 'flex',
       alignItems: 'center',

@@ -2,32 +2,40 @@
  * DrawDisplay component.
  */
 import React, { useMemo } from 'react';
+import Link from 'next/link';
+import clsx from 'clsx';
 import {
-  DrawsItem,
+  DrawDataType,
   Game,
+  GameID,
   GAMES,
   ProcessDraw,
 } from '@caglarturali/piyango-common';
 import { makeStyles } from '@material-ui/core';
+import Box from '@material-ui/core/Box';
 import Card from '@material-ui/core/Card';
-import styles from './styles';
 import Header from './comps/Header';
 import Numbers from './comps/Numbers';
 import Actions, { ActionItem } from './comps/Actions';
 import CommentIcon from '@material-ui/icons/ModeCommentOutlined';
 import CheckCouponIcon from '@material-ui/icons/PlaylistAddCheck';
 import CopyIcon from '@material-ui/icons/FileCopy';
+import styles from './styles';
 // import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 // import VideoIcon from '@material-ui/icons/Videocam';
 
 const useStyles = makeStyles(styles);
 
 export interface DrawDisplayProps {
-  drawItem: DrawsItem;
+  gameId: GameID;
+  drawData: DrawDataType;
+  isSummary?: boolean;
 }
 
 const DrawDisplay: React.FunctionComponent<DrawDisplayProps> = ({
-  drawItem: { id: gameId, data: drawData },
+  gameId,
+  drawData,
+  isSummary = true,
 }) => {
   const classes = useStyles();
 
@@ -48,7 +56,7 @@ const DrawDisplay: React.FunctionComponent<DrawDisplayProps> = ({
     ],
     [
       {
-        title: 'Kuponumu Kontrol Et',
+        title: 'Kupon Kontrolü',
         icon: CheckCouponIcon,
         disabled: false,
       },
@@ -67,7 +75,14 @@ const DrawDisplay: React.FunctionComponent<DrawDisplayProps> = ({
         drawDate={drawData.cekilisTarihi}
         jackpot={processed.jackpot()}
       />
-      <Numbers game={game} numbers={processed.winningNumbers()} />
+      <Link
+        href="/[gameId]/[subPage]/[drawDate]"
+        as={`/${gameId}/cekilis-sonuclari/${processed.drawDate()}`}
+      >
+        <Box className={clsx({ [classes.pointer]: isSummary })}>
+          <Numbers game={game} numbers={processed.winningNumbers()} />
+        </Box>
+      </Link>
       <Actions
         game={game}
         actions={actions}

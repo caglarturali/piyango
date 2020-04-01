@@ -24,9 +24,9 @@ const HomeView: React.FunctionComponent<HomeViewProps & InjectedProps> = ({
   return (
     <Container>
       <Grid container spacing={spacing}>
-        {draws.map((draw: DrawsItem) => (
-          <Grid item xs={12} lg={6} key={`draw-display-${draw.id}`}>
-            <DrawDisplay drawItem={draw} />
+        {draws.map(({ id, data }: DrawsItem) => (
+          <Grid item xs={12} lg={6} key={`draw-display-${id}`}>
+            <DrawDisplay gameId={id} drawData={data} />
           </Grid>
         ))}
       </Grid>
