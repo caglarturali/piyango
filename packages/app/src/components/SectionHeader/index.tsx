@@ -13,7 +13,7 @@ export interface SectionHeaderProps {
   lg?: any;
 }
 
-export const SectionHeader: React.FunctionComponent<SectionHeaderProps> = ({
+const SectionHeader: React.FunctionComponent<SectionHeaderProps> = ({
   title,
   lg,
   children,
@@ -31,3 +31,5 @@ export const SectionHeader: React.FunctionComponent<SectionHeaderProps> = ({
     </Grid>
   );
 };
+
+export default SectionHeader;

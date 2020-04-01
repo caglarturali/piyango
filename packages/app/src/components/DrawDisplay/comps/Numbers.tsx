@@ -3,9 +3,9 @@
  */
 import React from 'react';
 import { Game, GameColumn, GameID } from '@caglarturali/piyango-common';
-import { LuckyBall } from '@caglarturali/piyango-components';
 import { makeStyles } from '@material-ui/core';
 import Box from '@material-ui/core/Box';
+import LuckyBall from '../../LuckyBall';
 import styles from '../styles';
 
 const useStyles = makeStyles(styles);

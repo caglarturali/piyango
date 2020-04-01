@@ -2,9 +2,9 @@
  * Main menu items.
  */
 import { GAMES } from '@caglarturali/piyango-common';
-import { GameIcon } from '@caglarturali/piyango-components';
 import HomeIcon from '@material-ui/icons/Home';
 import FaceIcon from '@material-ui/icons/Face';
+import GameIcon from '../../../components/GameIcon';
 
 export interface MenuCategory {
   title?: string;

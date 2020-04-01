@@ -12,7 +12,7 @@ export interface LuckyBallProps {
   pad?: boolean;
 }
 
-export const LuckyBall: React.FunctionComponent<LuckyBallProps> = ({
+const LuckyBall: React.FunctionComponent<LuckyBallProps> = ({
   num,
   pad = true,
 }) => {
@@ -20,3 +20,5 @@ export const LuckyBall: React.FunctionComponent<LuckyBallProps> = ({
   const numStr = pad ? num.toString().padStart(2, '0') : num.toString();
   return <div className={classes.root}>{numStr}</div>;
 };
+
+export default LuckyBall;

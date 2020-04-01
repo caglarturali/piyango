@@ -12,14 +12,14 @@ import styles from './styles';
 
 const useStyles = makeStyles(styles);
 
-export interface JackpotDisplayProps {
+export interface JackpotChipProps {
   jackpot: number;
   tooltip: string;
   variant?: 'default' | 'outlined';
   onClick?: () => void;
 }
 
-export const JackpotChip: React.FunctionComponent<JackpotDisplayProps> = ({
+const JackpotChip: React.FunctionComponent<JackpotChipProps> = ({
   jackpot,
   tooltip,
   variant = 'default',
@@ -52,3 +52,5 @@ export const JackpotChip: React.FunctionComponent<JackpotDisplayProps> = ({
     </Tooltip>
   );
 };
+
+export default JackpotChip;

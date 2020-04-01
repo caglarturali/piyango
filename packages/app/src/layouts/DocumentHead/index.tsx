@@ -5,10 +5,16 @@ import React from 'react';
 import Head from 'next/head';
 import PropTypes from 'prop-types';
 
-const DocumentHead: React.FunctionComponent<{ title?: string }> = (props) => {
+export interface DocumentHeadProps {
+  title?: string;
+}
+
+const DocumentHead: React.FunctionComponent<DocumentHeadProps> = ({
+  title,
+}) => {
   return (
     <Head>
-      <title>{props.title}</title>
+      <title>{title}</title>
     </Head>
   );
 };

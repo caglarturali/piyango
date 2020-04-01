@@ -26,7 +26,7 @@ export interface DrawDisplayProps {
   drawItem: DrawsItem;
 }
 
-export const DrawDisplay: React.FunctionComponent<DrawDisplayProps> = ({
+const DrawDisplay: React.FunctionComponent<DrawDisplayProps> = ({
   drawItem: { id: gameId, data: drawData },
 }) => {
   const classes = useStyles();
@@ -76,3 +76,5 @@ export const DrawDisplay: React.FunctionComponent<DrawDisplayProps> = ({
     </Card>
   );
 };
+
+export default DrawDisplay;

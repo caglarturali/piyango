@@ -3,12 +3,12 @@
  */
 import React from 'react';
 import { DrawsItem } from '@caglarturali/piyango-common';
-import { Container } from '@caglarturali/piyango-components';
 import withMobileDialog, {
   InjectedProps,
 } from '@material-ui/core/withMobileDialog';
 import Grid from '@material-ui/core/Grid';
-import { DrawDisplay } from '../../components/DrawDisplay';
+import Container from '../../components/Container';
+import DrawDisplay from '../../components/DrawDisplay';
 
 export interface HomeViewProps {
   draws: DrawsItem[];

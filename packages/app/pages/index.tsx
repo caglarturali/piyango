@@ -1,10 +1,10 @@
 import React from 'react';
 import fetch from 'node-fetch';
 import { GetServerSideProps, NextPage } from 'next';
-import { SectionHeader } from '@caglarturali/piyango-components';
 import { DrawsItem } from '@caglarturali/piyango-common';
 import MainLayout from '../src/layouts/MainLayout';
 import HomeView from '../src/views/HomeView';
+import SectionHeader from '../src/components/SectionHeader';
 import { API } from '../src/shared';
 
 export interface NextPageProps {
