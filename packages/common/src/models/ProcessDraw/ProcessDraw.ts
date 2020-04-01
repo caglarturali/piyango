@@ -1,4 +1,4 @@
-import moment from 'moment';
+import moment, { Moment } from 'moment';
 import { IProcessDraw } from './IProcessDraw';
 import { GameColumn, GameID } from '../Game';
 import { RegularDrawData } from '../Regular';
@@ -55,13 +55,18 @@ export class ProcessDraw<T extends DrawDataType> implements IProcessDraw {
   }
 
   /**
+   * Returns draw date as a Moment object.
+   */
+  drawDate(): Moment {
+    return moment(this.drawData.cekilisTarihi, DATE_FORMAT_FRIENDLY);
+  }
+
+  /**
    * Returns formatted draw date.
    * @param format Format string. DD-MM-YYYY by default.
    */
-  drawDate(format: string = DATE_FORMAT_VIEW): string {
-    return moment(this.drawData.cekilisTarihi, DATE_FORMAT_FRIENDLY).format(
-      format,
-    );
+  drawDateF(format: string = DATE_FORMAT_VIEW): string {
+    return this.drawDate().format(format);
   }
 
   /**

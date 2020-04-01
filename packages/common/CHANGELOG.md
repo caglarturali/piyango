@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.0] - 2020-04-02
+
+### Changed
+
+- `drawDate` method returns a Moment object now
+
+### Added
+
+- Implemented `drawDateF` method, returning formatted output.
+
 ## [1.6.5] - 2020-04-01
 
 ### Added
