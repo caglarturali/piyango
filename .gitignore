@@ -21,6 +21,7 @@ dist
 cjs
 esm
 umd
+tmp
 
 # debug
 logs
