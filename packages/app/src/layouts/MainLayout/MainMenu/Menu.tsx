@@ -14,8 +14,8 @@ export interface MenuCategory {
 export interface MenuItem {
   id: string;
   text: string;
+  path: string;
   icon: React.ReactElement;
-  active: boolean;
 }
 
 export const Menu: MenuCategory[] = [
@@ -24,8 +24,8 @@ export const Menu: MenuCategory[] = [
       {
         id: '',
         text: 'Ana Sayfa',
+        path: '/',
         icon: <HomeIcon />,
-        active: true,
       },
     ],
   },
@@ -34,8 +34,8 @@ export const Menu: MenuCategory[] = [
     items: GAMES.map(({ id, name, iconText }) => ({
       id,
       text: name,
+      path: `/${id}`,
       icon: <GameIcon content={iconText} />,
-      active: false,
     })),
   },
   {
@@ -43,9 +43,9 @@ export const Menu: MenuCategory[] = [
     items: [
       {
         id: 'bilen-adam',
+        path: 'bilen-adam',
         text: 'Bilen Adam',
         icon: <FaceIcon />,
-        active: false,
       },
     ],
   },

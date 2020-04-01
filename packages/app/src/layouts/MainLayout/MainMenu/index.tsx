@@ -3,6 +3,7 @@
  */
 import React from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Divider from '@material-ui/core/Divider';
@@ -28,6 +29,12 @@ const MainMenu: React.FunctionComponent<MainMenuProps> = ({
 }) => {
   const classes = useStyles();
   const theme = useTheme();
+  const router = useRouter();
+
+  const isActivePath = (path: string) => {
+    if (path === '/') return path === '/' && router.asPath === '/';
+    return router.asPath.startsWith(path);
+  };
 
   const drawer = (
     <div>
@@ -51,23 +58,24 @@ const MainMenu: React.FunctionComponent<MainMenuProps> = ({
               </ListItemText>
             </ListItem>
           )}
-          {items.map(({ id, icon: Icon, text, active }) => (
-            <ListItem
-              key={id}
-              button
-              dense
-              className={clsx(classes.item, classes.itemActionable, {
-                [classes.active]: active,
-              })}
-            >
-              <ListItemIcon>{Icon}</ListItemIcon>
-              <ListItemText
-                classes={{
-                  primary: classes.itemPrimary,
-                }}
-                primary={text}
-              />
-            </ListItem>
+          {items.map(({ id, icon: Icon, text, path }) => (
+            <Link href={path} key={id}>
+              <ListItem
+                button
+                dense
+                className={clsx(classes.item, classes.itemActionable, {
+                  [classes.active]: isActivePath(path),
+                })}
+              >
+                <ListItemIcon>{Icon}</ListItemIcon>
+                <ListItemText
+                  classes={{
+                    primary: classes.itemPrimary,
+                  }}
+                  primary={text}
+                />
+              </ListItem>
+            </Link>
           ))}
           <Divider className={classes.divider} />
         </React.Fragment>

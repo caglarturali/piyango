@@ -61,9 +61,6 @@ export default ({
     itemPrimary: {
       color: 'inherit',
       fontSize: typography.fontSize,
-      '&$dense': {
-        fontSize: typography.fontSize,
-      },
     },
     divider: {
       marginTop: spacing(1),
