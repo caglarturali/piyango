@@ -1,8 +1,10 @@
+import moment from 'moment';
 import { IProcessDraw } from './IProcessDraw';
 import { GameColumn, GameID } from '../Game';
 import { RegularDrawData } from '../Regular';
 import { LotteryDrawData } from '../Lottery';
 import { DrawDataType, LuckyProvince } from '../Draw';
+import { DATE_FORMAT_FRIENDLY, DATE_FORMAT_VIEW } from '../../constants';
 import { DrawUtils } from '../../utils';
 
 export class ProcessDraw<T extends DrawDataType> implements IProcessDraw {
@@ -50,6 +52,16 @@ export class ProcessDraw<T extends DrawDataType> implements IProcessDraw {
    */
   luckyProvinces(): LuckyProvince[] {
     return this.drawData.buyukIkrKazananIlIlceler || [];
+  }
+
+  /**
+   * Returns formatted draw date.
+   * @param format Format string. DD-MM-YYYY by default.
+   */
+  drawDate(format: string = DATE_FORMAT_VIEW): string {
+    return moment(this.drawData.cekilisTarihi, DATE_FORMAT_FRIENDLY).format(
+      format,
+    );
   }
 
   /**
