@@ -8,9 +8,8 @@ import {
   DATE_FORMAT,
   DATE_FORMAT_VIEW,
   DrawDataType,
-  Game,
   GameID,
-  GAMES,
+  GameUtils,
 } from '@caglarturali/piyango-common';
 import DrawView from '../../../src/views/DrawView';
 import MainLayout from '../../../src/layouts/MainLayout';
@@ -25,7 +24,7 @@ const DrawDetailsPage: NextPage<DrawDetailsPageProps> = ({
   gameId,
   drawData,
 }) => {
-  const game = GAMES.find((g) => g.id === gameId) as Game;
+  const game = GameUtils.getGameById(gameId);
 
   return (
     <MainLayout contentTitle={game.name}>

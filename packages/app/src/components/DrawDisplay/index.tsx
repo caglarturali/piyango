@@ -6,9 +6,8 @@ import Link from 'next/link';
 import clsx from 'clsx';
 import {
   DrawDataType,
-  Game,
   GameID,
-  GAMES,
+  GameUtils,
   ProcessDraw,
 } from '@caglarturali/piyango-common';
 import { makeStyles } from '@material-ui/core';
@@ -16,11 +15,7 @@ import Box from '@material-ui/core/Box';
 import Card from '@material-ui/core/Card';
 import Header from './comps/Header';
 import Numbers from './comps/Numbers';
-import Actions, {
-  ActionItem,
-  ActionItemsExtra,
-  ActionItemsMain,
-} from './comps/Actions';
+import Actions, { ActionItemsExtra, ActionItemsMain } from './comps/Actions';
 import CommentIcon from '@material-ui/icons/ModeCommentOutlined';
 import CheckCouponIcon from '@material-ui/icons/PlaylistAddCheck';
 import CopyIcon from '@material-ui/icons/FileCopy';
@@ -48,7 +43,7 @@ const DrawDisplay: React.FunctionComponent<DrawDisplayProps> = ({
   const [expanded, setExpanded] = useState(!isSummary);
 
   // Get game object.
-  const game = GAMES.find((g) => g.id === gameId) as Game;
+  const game = GameUtils.getGameById(gameId);
 
   const processed = useMemo(() => {
     return new ProcessDraw(gameId, drawData);

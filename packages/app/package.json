@@ -12,7 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@caglarturali/piyango-common": "2.0.0",
+    "@caglarturali/piyango-common": "^2.1.0",
     "@material-ui/core": "^4.9.8",
     "@material-ui/icons": "^4.9.1",
     "@material-ui/styles": "^4.9.6",

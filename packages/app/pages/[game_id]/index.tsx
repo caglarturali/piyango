@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import { NextPage, NextPageContext } from 'next';
-import { Game, GameID, GAMES } from '@caglarturali/piyango-common';
+import { GameID, GameUtils } from '@caglarturali/piyango-common';
 import MainLayout from '../../src/layouts/MainLayout';
 import SectionHeader from '../../src/components/SectionHeader';
 
@@ -12,7 +12,7 @@ export interface GameHomeProps {
 }
 
 const GameHome: NextPage<GameHomeProps> = ({ gameId }) => {
-  const game = GAMES.find((g) => g.id === gameId) as Game;
+  const game = GameUtils.getGameById(gameId);
 
   return (
     <MainLayout contentTitle={game.name}>
