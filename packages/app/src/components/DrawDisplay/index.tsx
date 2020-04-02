@@ -13,15 +13,15 @@ import {
 import { makeStyles } from '@material-ui/core';
 import Box from '@material-ui/core/Box';
 import Card from '@material-ui/core/Card';
-import Header from './comps/Header';
-import Numbers from './comps/Numbers';
-import Actions, { ActionItemsExtra, ActionItemsMain } from './comps/Actions';
 import CommentIcon from '@material-ui/icons/ModeCommentOutlined';
 import CheckCouponIcon from '@material-ui/icons/PlaylistAddCheck';
 import CopyIcon from '@material-ui/icons/FileCopy';
 import styles from './styles';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import VideoIcon from '@material-ui/icons/Videocam';
+import Header from './comps/Header';
+import Numbers from './comps/Numbers';
+import Actions, { ActionItemsExtra, ActionItemsMain } from './comps/Actions';
 import Details from './comps/Details';
 import { Segments } from '../../shared';
 
@@ -108,7 +108,13 @@ const DrawDisplay: React.FunctionComponent<DrawDisplayProps> = ({
         rollingTexts={processed.rollingTexts()}
         isSummary={isSummary}
       />
-      {!isSummary && <Details expanded={expanded} />}
+      {!isSummary && (
+        <Details
+          gameId={gameId}
+          expanded={expanded}
+          report={processed.report()}
+        />
+      )}
     </Card>
   );
 };

@@ -86,4 +86,23 @@ export default ({
     expandOpen: {
       transform: 'rotate(180deg)',
     },
+    piyangoTopRow: {
+      height: typography.pxToRem(36),
+      verticalAlign: 'bottom',
+    },
+    piyangoCell: {
+      color: palette.text.secondary,
+      fontSize: typography.pxToRem(13),
+      fontWeight: typography.fontWeightMedium,
+      borderBottom: 'none',
+      paddingBottom: 0,
+    },
+    piyangoBottomRow: {
+      height: 'auto',
+    },
+    piyangoNumbers: {
+      padding: `${spacing(1)}px 0`,
+      display: 'flex',
+      flexWrap: 'wrap',
+    },
   });
