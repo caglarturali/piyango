@@ -19,7 +19,7 @@ const DrawView: React.FunctionComponent<DrawViewProps> = ({
 }) => {
   return (
     <>
-      <SectionHeader title="Çekiliş Detayları" />
+      <SectionHeader title="Çekiliş Sonuçları" />
       <Container>
         <Grid item xs={12} lg={6}>
           <DrawDisplay gameId={gameId} drawData={drawData} isSummary={false} />

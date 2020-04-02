@@ -32,13 +32,7 @@ const JackpotChip: React.FunctionComponent<JackpotChipProps> = ({
   return (
     <Tooltip title={tooltip}>
       <Chip
-        avatar={
-          <Avatar>
-            <Typography className={classes.currency} variant="body2">
-              ₺
-            </Typography>
-          </Avatar>
-        }
+        icon={<span className={classes.currency}>₺</span>}
         classes={{
           outlined: classes.chipOutlined,
         }}
