@@ -1,14 +1,14 @@
 dependencies:
   moment: 2.24.0
 devDependencies:
-  '@types/node': 13.9.8
+  '@types/node': 13.11.0
   typescript: 3.8.3
 lockfileVersion: 5.1
 packages:
-  /@types/node/13.9.8:
+  /@types/node/13.11.0:
     dev: true
     resolution:
-      integrity: sha512-1WgO8hsyHynlx7nhP1kr0OFzsgKz5XDQL+Lfc3b1Q3qIln/n8cKD4m09NJ0+P1Rq7Zgnc7N0+SsMnoD1rEb0kA==
+      integrity: sha512-uM4mnmsIIPK/yeO+42F2RQhGUIs39K2RFmugcJANppXe6J1nvH87PvzPZYpza7Xhhs8Yn9yIAVdLZ84z61+0xQ==
   /moment/2.24.0:
     dev: false
     resolution:
@@ -21,6 +21,6 @@ packages:
     resolution:
       integrity: sha512-MYlEfn5VrLNsgudQTVJeNaQFUAI7DkhnOjdpAp4T+ku1TfQClewlbSuTVHiA+8skNBgaf02TL/kLOvig4y3G8w==
 specifiers:
-  '@types/node': ^13.9.8
+  '@types/node': ^13.11.0
   moment: ^2.24.0
   typescript: ^3.8.3

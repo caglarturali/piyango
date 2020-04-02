@@ -1169,17 +1169,17 @@ packages:
       integrity: sha512-KfRL3PuHmqQLOG+2tGpRO26Ctg+Cq1E01D2DMriKEATHgWLfeNDmq9e29Q9WIky0dQ3NPkd1mzYH8Lm936Z9qw==
   /@types/react-transition-group/4.2.4:
     dependencies:
-      '@types/react': 16.9.31
+      '@types/react': 16.9.32
     dev: false
     resolution:
       integrity: sha512-8DMUaDqh0S70TjkqU0DxOu80tFUiiaS9rxkWip/nb7gtvAsbqOXm02UCmR8zdcjWujgeYPiPNTVpVpKzUDotwA==
-  /@types/react/16.9.31:
+  /@types/react/16.9.32:
     dependencies:
       '@types/prop-types': 15.7.3
       csstype: 2.6.10
     dev: false
     resolution:
-      integrity: sha512-NpYJpNMWScFXtx3A2BJMeew2G3+9SEslVWMdxNJ6DLvxIuxWjY1bizK9q5Y1ujhln31vtjmhjOAYDr9Xx3k9FQ==
+      integrity: sha512-fmejdp0CTH00mOJmxUPPbWCEBWPvRIL4m8r0qD+BSDUqmutPyGQCHifzMpMzdvZwROdEdL78IuZItntFWgPXHQ==
   /@webassemblyjs/ast/1.8.5:
     dependencies:
       '@webassemblyjs/helper-module-context': 1.8.5
@@ -4796,7 +4796,7 @@ packages:
     resolution:
       integrity: sha512-a4UGQaWPH59mOXUYnAG2ewncQS4i4F43Tv3JoAM+s2VDAmS9NsK8GpDMLrCHPksFT7h3K6TOoUNn2pb7RoXx4g==
 specifiers:
-  '@caglarturali/piyango-common': ^2.2.0
+  '@caglarturali/piyango-common': ^2.3.0
   '@material-ui/core': ^4.9.8
   '@material-ui/icons': ^4.9.1
   '@material-ui/styles': ^4.9.6
