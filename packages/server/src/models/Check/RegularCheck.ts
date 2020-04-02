@@ -2,10 +2,10 @@ import {
   DrawUtils,
   GameColumn,
   GameID,
-  MatchTypeRegular,
   ProcessDraw,
   RegularDrawData,
   RegularGame,
+  RegularMatchType,
 } from '@caglarturali/piyango-common';
 import { CheckResult, ICheckNumbers } from '.';
 
@@ -99,7 +99,7 @@ export default class RegularCheck implements ICheckNumbers {
         case GameID.onnumara:
           if (match.main.length === 0) {
             // Override!
-            matchTypeStr = MatchTypeRegular.$HIC;
+            matchTypeStr = RegularMatchType.$HIC;
           }
           break;
 
