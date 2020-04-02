@@ -76,7 +76,12 @@ export class ProcessDraw<T extends DrawDataType> implements IProcessDraw {
   rollingTexts(): string[] {
     const provinces = this.luckyProvinces();
     if (provinces.length > 0) {
-      return provinces.map((p) => `${p.ilView} / ${p.ilceView}`);
+      return provinces.map(({ ilView, ilceView }) => {
+        const il = ilView.trim();
+        const ilce = ilceView.trim();
+        if (ilce === '') return il;
+        return `${il} / ${ilce}`;
+      });
     }
     const texts: string[] = ['Devretti!'];
     if (this.gameId !== GameID.piyango) {
