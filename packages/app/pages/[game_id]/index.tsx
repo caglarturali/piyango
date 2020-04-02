@@ -22,10 +22,10 @@ const GameHome: NextPage<GameHomeProps> = ({ gameId }) => {
 };
 
 GameHome.getInitialProps = async (context: NextPageContext) => {
-  const { gameId } = context.query;
+  const { game_id } = context.query;
 
   return {
-    gameId: gameId as GameID,
+    gameId: game_id as GameID,
   };
 };
 
