@@ -21,7 +21,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@caglarturali/piyango-common": "^2.3.0",
+    "@caglarturali/piyango-common": "^2.3.2",
     "@now/node": "^1.5.0",
     "haikunator": "^2.1.2",
     "lodash": "^4.17.15",
