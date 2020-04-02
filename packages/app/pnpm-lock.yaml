@@ -4796,7 +4796,7 @@ packages:
     resolution:
       integrity: sha512-a4UGQaWPH59mOXUYnAG2ewncQS4i4F43Tv3JoAM+s2VDAmS9NsK8GpDMLrCHPksFT7h3K6TOoUNn2pb7RoXx4g==
 specifiers:
-  '@caglarturali/piyango-common': ^2.1.0
+  '@caglarturali/piyango-common': ^2.1.1
   '@material-ui/core': ^4.9.8
   '@material-ui/icons': ^4.9.1
   '@material-ui/styles': ^4.9.6
