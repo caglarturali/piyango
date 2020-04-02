@@ -4,7 +4,13 @@
 import { createStyles, Theme } from '@material-ui/core';
 import { orange } from '@material-ui/core/colors';
 
-export default ({ breakpoints, palette, spacing, typography }: Theme) =>
+export default ({
+  breakpoints,
+  palette,
+  spacing,
+  typography,
+  transitions,
+}: Theme) =>
   createStyles({
     root: {
       userSelect: 'none',
@@ -12,6 +18,7 @@ export default ({ breakpoints, palette, spacing, typography }: Theme) =>
     pointer: {
       cursor: 'pointer',
     },
+    // Header.
     header: {
       display: 'flex',
       alignItems: 'center',
@@ -33,6 +40,7 @@ export default ({ breakpoints, palette, spacing, typography }: Theme) =>
       letterSpacing: '-0.3px',
       padding: 0,
     },
+    // Numbers area.
     numbers: {
       display: 'flex',
       alignItems: 'center',
@@ -40,15 +48,16 @@ export default ({ breakpoints, palette, spacing, typography }: Theme) =>
       flexWrap: 'wrap',
       padding: `${spacing(3)}px 0`,
     },
-    actions: {
-      display: 'flex',
-    },
     plus: {
       color: orange.A400,
       fontSize: typography.pxToRem(20),
       fontWeight: typography.fontWeightMedium,
       paddingLeft: spacing(1),
       paddingRight: spacing(1),
+    },
+    // Actions area.
+    actions: {
+      display: 'flex',
     },
     typed: {
       color: palette.text.secondary,
@@ -65,5 +74,16 @@ export default ({ breakpoints, palette, spacing, typography }: Theme) =>
       '.typed-cursor': {
         color: orange.A400,
       },
+    },
+    // Details area.
+    expand: {
+      transform: 'rotate(0deg)',
+      marginLeft: 'auto',
+      transition: transitions.create('transform', {
+        duration: transitions.duration.shortest,
+      }),
+    },
+    expandOpen: {
+      transform: 'rotate(180deg)',
     },
   });

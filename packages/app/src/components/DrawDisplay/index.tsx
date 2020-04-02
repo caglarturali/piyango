@@ -1,7 +1,7 @@
 /**
  * DrawDisplay component.
  */
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import Link from 'next/link';
 import clsx from 'clsx';
 import {
@@ -16,13 +16,19 @@ import Box from '@material-ui/core/Box';
 import Card from '@material-ui/core/Card';
 import Header from './comps/Header';
 import Numbers from './comps/Numbers';
-import Actions, { ActionItem } from './comps/Actions';
+import Actions, {
+  ActionItem,
+  ActionItemsExtra,
+  ActionItemsMain,
+} from './comps/Actions';
 import CommentIcon from '@material-ui/icons/ModeCommentOutlined';
 import CheckCouponIcon from '@material-ui/icons/PlaylistAddCheck';
 import CopyIcon from '@material-ui/icons/FileCopy';
 import styles from './styles';
-// import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-// import VideoIcon from '@material-ui/icons/Videocam';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import VideoIcon from '@material-ui/icons/Videocam';
+import Details from './comps/Details';
+import { Segments } from '../../shared';
 
 const useStyles = makeStyles(styles);
 
@@ -39,6 +45,8 @@ const DrawDisplay: React.FunctionComponent<DrawDisplayProps> = ({
 }) => {
   const classes = useStyles();
 
+  const [expanded, setExpanded] = useState(!isSummary);
+
   // Get game object.
   const game = GAMES.find((g) => g.id === gameId) as Game;
 
@@ -46,15 +54,15 @@ const DrawDisplay: React.FunctionComponent<DrawDisplayProps> = ({
     return new ProcessDraw(gameId, drawData);
   }, [gameId, drawData]);
 
-  const actions: ActionItem[][] = [
-    [
+  const actionsMain: ActionItemsMain = {
+    left: [
       {
         title: 'Yorumlar',
         icon: CommentIcon,
         disabled: false,
       },
     ],
-    [
+    right: [
       {
         title: 'Kupon Kontrolü',
         icon: CheckCouponIcon,
@@ -66,7 +74,22 @@ const DrawDisplay: React.FunctionComponent<DrawDisplayProps> = ({
         disabled: false,
       },
     ],
-  ];
+  };
+
+  const actionsExtra: ActionItemsExtra = {
+    video: {
+      title: 'Çekiliş Videosu',
+      icon: VideoIcon,
+      disabled: false,
+    },
+    expand: {
+      title: 'Çekiliş Detayları',
+      icon: ExpandMoreIcon,
+      disabled: false,
+      className: clsx(classes.expand, { [classes.expandOpen]: expanded }),
+      handler: () => setExpanded(!expanded),
+    },
+  };
 
   return (
     <Card elevation={0} className={classes.root}>
@@ -76,8 +99,8 @@ const DrawDisplay: React.FunctionComponent<DrawDisplayProps> = ({
         jackpot={processed.jackpot()}
       />
       <Link
-        href="/[gameId]/[subPage]/[drawDate]"
-        as={`/${gameId}/cekilis-sonuclari/${processed.drawDateF()}`}
+        href={`/[game_id]/${Segments.CEKILIS_SONUCLARI}/[draw_date]`}
+        as={`/${gameId}/${Segments.CEKILIS_SONUCLARI}/${processed.drawDateF()}`}
       >
         <Box className={clsx({ [classes.pointer]: isSummary })}>
           <Numbers game={game} numbers={processed.winningNumbers()} />
@@ -85,9 +108,12 @@ const DrawDisplay: React.FunctionComponent<DrawDisplayProps> = ({
       </Link>
       <Actions
         game={game}
-        actions={actions}
+        actionsMain={actionsMain}
+        actionsExtra={actionsExtra}
         rollingTexts={processed.rollingTexts()}
+        isSummary={isSummary}
       />
+      {!isSummary && <Details expanded={expanded} />}
     </Card>
   );
 };

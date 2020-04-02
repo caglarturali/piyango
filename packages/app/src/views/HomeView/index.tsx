@@ -4,6 +4,7 @@
 import React from 'react';
 import { DrawsItem, ProcessDraw } from '@caglarturali/piyango-common';
 import Grid from '@material-ui/core/Grid';
+import SectionHeader from '../../components/SectionHeader';
 import Container from '../../components/Container';
 import DrawDisplay from '../../components/DrawDisplay';
 
@@ -27,13 +28,16 @@ const HomeView: React.FunctionComponent<HomeViewProps> = ({ draws }) => {
   });
 
   return (
-    <Container>
-      {draws.map(({ id, data }: DrawsItem) => (
-        <Grid item xs={12} lg={6} key={`draw-display-${id}`}>
-          <DrawDisplay gameId={id} drawData={data} />
-        </Grid>
-      ))}
-    </Container>
+    <>
+      <SectionHeader title="Son Çekilişler" />
+      <Container>
+        {draws.map(({ id, data }: DrawsItem) => (
+          <Grid item xs={12} lg={6} key={`draw-display-${id}`}>
+            <DrawDisplay gameId={id} drawData={data} />
+          </Grid>
+        ))}
+      </Container>
+    </>
   );
 };
 
