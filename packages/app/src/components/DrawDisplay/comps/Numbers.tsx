@@ -19,24 +19,21 @@ const Numbers: React.FunctionComponent<NumbersProps> = ({ game, numbers }) => {
   const classes = useStyles();
   const { main, plus } = numbers;
 
+  const renderNumbers = (nums: number[], pool: string) => {
+    return nums.map((n, i) => (
+      <LuckyBall
+        num={n}
+        pad={game.id !== GameID.piyango}
+        key={`${game.id}-${pool}-number-${n}-${i}`}
+      />
+    ));
+  };
+
   return (
     <Box className={classes.numbers}>
-      {main.map((n, i) => (
-        <LuckyBall
-          num={n}
-          pad={game.id !== GameID.piyango}
-          key={`${game.id}-main-number-${n}-${i}`}
-        />
-      ))}
+      {renderNumbers(main, 'main')}
       {plus && <span className={classes.plus}>+</span>}
-      {plus &&
-        plus.map((n, i) => (
-          <LuckyBall
-            num={n}
-            pad={game.id !== GameID.piyango}
-            key={`${game.id}-plus-number-${n}-${i}`}
-          />
-        ))}
+      {plus && renderNumbers(plus, 'plus')}
     </Box>
   );
 };
