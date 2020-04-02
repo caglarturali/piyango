@@ -10,6 +10,7 @@ devDependencies:
   husky: 4.2.3
   jest: 25.2.6
   majestic: 1.6.2
+  node-sloc: 0.1.12
   pnpm: 4.12.4
   prettier: 2.0.2
   rimraf: 3.0.2
@@ -660,6 +661,10 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-qJS3XUvE9s1nnvMkSp/Y9Gri1Cg=
+  /asap/2.0.6:
+    dev: true
+    resolution:
+      integrity: sha1-5QNHYR1+aQlDIIu9r+vLwvuGbUY=
   /asn1/0.2.4:
     dependencies:
       safer-buffer: 2.1.2
@@ -2697,6 +2702,22 @@ packages:
     optional: true
     resolution:
       integrity: sha512-SVfQ/wMw+DesunOm5cKqr6yDcvUTDl/yc97ybGHMrteNEY6oekXpNpS3lZwgLlwz0FLgHoiW28ZpmBHUDg37cw==
+  /node-sloc/0.1.12:
+    dependencies:
+      chalk: 2.4.2
+      graceful-fs: 4.2.3
+      minimist: 1.2.5
+      promisify-node: 0.5.0
+    dev: true
+    hasBin: true
+    resolution:
+      integrity: sha512-1Lmqtnd+zu+NTFrn3jA9cw4OiIq0LrlhNOT429cTi5kC0sJV6WHSC5ek5NX8PA+Pc74cbNdUS6gGxQ9CGUOhWQ==
+  /nodegit-promise/4.0.0:
+    dependencies:
+      asap: 2.0.6
+    dev: true
+    resolution:
+      integrity: sha1-VyKxhPLfcycWEGSnkdLoQskWezQ=
   /normalize-package-data/2.5.0:
     dependencies:
       hosted-git-info: 2.8.8
@@ -2744,6 +2765,12 @@ packages:
     dev: true
     resolution:
       integrity: sha512-fexhUFFPTGV8ybAtSIGbV6gOkSv8UtRbDBnAyLQw4QPKkgNlsH2ByPGtMUqdWkos6YCRmAqViwgZrJc/mRDzZQ==
+  /object-assign/4.1.1:
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-IQmtx5ZYh8/AXLvUQsrIv7s2CGM=
   /object-copy/0.1.0:
     dependencies:
       copy-descriptor: 0.1.1
@@ -3023,6 +3050,13 @@ packages:
       node: '>= 8.3'
     resolution:
       integrity: sha512-DEiWxLBaCHneffrIT4B+TpMvkV9RNvvJrd3lY9ew1CEQobDzEXmYT1mg0hJhljZty7kCc10z13ohOFAE8jrUDg==
+  /promisify-node/0.5.0:
+    dependencies:
+      nodegit-promise: 4.0.0
+      object-assign: 4.1.1
+    dev: true
+    resolution:
+      integrity: sha512-GR2E4qgCoKFTprhULqP2OP3bl8kHo16XtnqtkHH6be7tPW1yL6rXd15nl3oV2sLTFv1+j6tqoF69VVpFtJ/j+A==
   /prompts/2.3.2:
     dependencies:
       kleur: 3.0.3
@@ -4062,6 +4096,7 @@ specifiers:
   husky: ^4.2.3
   jest: ^25.2.6
   majestic: ^1.6.2
+  node-sloc: ^0.1.12
   pnpm: ^4.12.4
   prettier: ^2.0.2
   rimraf: ^3.0.2

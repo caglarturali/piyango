@@ -9,7 +9,8 @@
     "majs": "majestic",
     "lint": "tslint -c tslint.json \"packages/**/*.ts\"",
     "lint:fix": "pnpm run lint -- --fix",
-    "sync": "pnpm recursive run sync:commit --filter @caglarturali/piyango-server"
+    "sync": "pnpm recursive run sync:commit --filter @caglarturali/piyango-server",
+    "loc": "pnpm recursive run sloc"
   },
   "husky": {
     "hooks": {
@@ -30,6 +31,7 @@
     "husky": "^4.2.3",
     "jest": "^25.2.6",
     "majestic": "^1.6.2",
+    "node-sloc": "^0.1.12",
     "pnpm": "^4.12.4",
     "prettier": "^2.0.2",
     "rimraf": "^3.0.2",
