@@ -3,9 +3,6 @@
  */
 import React from 'react';
 import { DrawsItem, ProcessDraw } from '@caglarturali/piyango-common';
-import withMobileDialog, {
-  InjectedProps,
-} from '@material-ui/core/withMobileDialog';
 import Grid from '@material-ui/core/Grid';
 import Container from '../../components/Container';
 import DrawDisplay from '../../components/DrawDisplay';
@@ -14,13 +11,7 @@ export interface HomeViewProps {
   draws: DrawsItem[];
 }
 
-const HomeView: React.FunctionComponent<HomeViewProps & InjectedProps> = ({
-  draws,
-  fullScreen,
-}) => {
-  // Decide spacing based on screen size.
-  const spacing = fullScreen ? 0 : 2;
-
+const HomeView: React.FunctionComponent<HomeViewProps> = ({ draws }) => {
   // Sort draws in desc order.
   draws.sort((a, b) => {
     const prdA = new ProcessDraw(a.id, a.data);
@@ -37,15 +28,13 @@ const HomeView: React.FunctionComponent<HomeViewProps & InjectedProps> = ({
 
   return (
     <Container>
-      <Grid container spacing={spacing}>
-        {draws.map(({ id, data }: DrawsItem) => (
-          <Grid item xs={12} lg={6} key={`draw-display-${id}`}>
-            <DrawDisplay gameId={id} drawData={data} />
-          </Grid>
-        ))}
-      </Grid>
+      {draws.map(({ id, data }: DrawsItem) => (
+        <Grid item xs={12} lg={6} key={`draw-display-${id}`}>
+          <DrawDisplay gameId={id} drawData={data} />
+        </Grid>
+      ))}
     </Container>
   );
 };
 
-export default withMobileDialog({ breakpoint: 'xs' })(HomeView);
+export default HomeView;
