@@ -3,9 +3,11 @@
  */
 import React, { useMemo } from 'react';
 import {
+  DrawDataType,
   GameID,
   LotteryReportLine,
   MoneyUtils,
+  RegularDrawData,
   RegularReportLine,
   ReportLineType,
 } from '@caglarturali/piyango-common';
@@ -26,14 +28,24 @@ export interface DetailsProps {
   gameId: GameID;
   expanded: boolean;
   report: ReportLineType[];
+  drawData: DrawDataType;
 }
 
 const Details: React.FunctionComponent<DetailsProps> = ({
   gameId,
   expanded,
   report,
+  drawData,
 }) => {
   const classes = useStyles();
+
+  const winnersText = (count: number) => {
+    if (count > 0) return Number(count).toLocaleString();
+
+    const { devirSayisi } = drawData as RegularDrawData;
+    if (devirSayisi) return `${devirSayisi}. Devir`;
+    return 'Devretti';
+  };
 
   const renderReportRegular = (r: RegularReportLine[]) => {
     return (
@@ -51,9 +63,7 @@ const Details: React.FunctionComponent<DetailsProps> = ({
           {r.map(({ type, winnersCount, prize }, i) => (
             <TableRow key={`report-line-${i}`}>
               <TableCell padding="none">{type}</TableCell>
-              <TableCell align="right">
-                {Number(winnersCount).toLocaleString()}
-              </TableCell>
+              <TableCell align="right">{winnersText(winnersCount)}</TableCell>
               <TableCell padding="none" align="right">
                 {new MoneyUtils(prize).format(2, true)}
               </TableCell>

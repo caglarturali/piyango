@@ -113,6 +113,7 @@ const DrawDisplay: React.FunctionComponent<DrawDisplayProps> = ({
           gameId={gameId}
           expanded={expanded}
           report={processed.report()}
+          drawData={drawData}
         />
       )}
     </Card>
