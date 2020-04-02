@@ -4,3 +4,4 @@ export * from './DrawDate';
 export * from './DrawListing';
 export * from './DrawsItem';
 export * from './LuckyProvince';
+export * from './MatchType';

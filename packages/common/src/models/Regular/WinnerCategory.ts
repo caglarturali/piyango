@@ -1,8 +1,8 @@
-import { MatchTypeRegular } from './';
+import { RegularMatchType } from './';
 
 export interface WinnerCategory {
   oid: string;
   kisiBasinaDusenIkramiye: number;
   kisiSayisi: number;
-  tur: MatchTypeRegular;
+  tur: RegularMatchType;
 }

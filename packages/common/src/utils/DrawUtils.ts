@@ -1,4 +1,5 @@
 import { GameColumn, GameID } from '../models/Game';
+import { LotteryMatchTypeMap, MatchType, RegularMatchTypeMap } from '../models';
 
 export class DrawUtils {
   /**
@@ -21,5 +22,15 @@ export class DrawUtils {
     column.main = Array.from(new Set(numsArray)).sort((a, b) => a - b);
 
     return column;
+  }
+
+  /**
+   * Returns the user-readable text corresponding to matchType.
+   * @param matchType Match type
+   */
+  static matchTypeToString(matchType: MatchType): string {
+    if (matchType in RegularMatchTypeMap) return RegularMatchTypeMap[matchType];
+    if (matchType in LotteryMatchTypeMap) return LotteryMatchTypeMap[matchType];
+    return '';
   }
 }

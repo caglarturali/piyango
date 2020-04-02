@@ -1,8 +1,9 @@
 import moment, { Moment } from 'moment';
 import { GameColumn, GameID } from '../Game';
-import { RegularDrawData } from '../Regular';
-import { LotteryDrawData } from '../Lottery';
+import { RegularDrawData, RegularReportLine } from '../Regular';
+import { LotteryDrawData, LotteryReportLine } from '../Lottery';
 import { DrawDataType, LuckyProvince } from '../Draw';
+import { ReportLineType } from './ReportLineType';
 import { DATE_FORMAT_FRIENDLY, DATE_FORMAT_VIEW } from '../../constants';
 import { DrawUtils } from '../../utils';
 
@@ -66,6 +67,35 @@ export class ProcessDraw<T extends DrawDataType> {
    */
   drawDateF(format: string = DATE_FORMAT_VIEW): string {
     return this.drawDate().format(format);
+  }
+
+  /**
+   * Returns a detailed report of the draw in array form.
+   */
+  report(): ReportLineType[] {
+    let report: ReportLineType[];
+    if (this.gameId === GameID.piyango) {
+      const { sonuclar } = this.drawData as LotteryDrawData;
+      report = sonuclar.map(
+        ({ tip, ikramiye, numaralar }) =>
+          ({
+            type: DrawUtils.matchTypeToString(tip),
+            prize: ikramiye,
+            winningNumbers: numaralar,
+          } as LotteryReportLine),
+      );
+    } else {
+      const { bilenKisiler } = this.drawData as RegularDrawData;
+      report = bilenKisiler.map(
+        ({ tur, kisiBasinaDusenIkramiye, kisiSayisi }) =>
+          ({
+            type: DrawUtils.matchTypeToString(tur),
+            prize: kisiBasinaDusenIkramiye,
+            winnersCount: kisiSayisi,
+          } as RegularReportLine),
+      );
+    }
+    return report.sort((a, b) => b.prize - a.prize);
   }
 
   /**

@@ -1,0 +1,33 @@
+export enum RegularMatchType {
+  $HIC = '$HIC',
+  $1_1_BILEN = '$1_1_BILEN',
+  $2_1_BILEN = '$2_1_BILEN',
+  $3_1_BILEN = '$3_1_BILEN',
+  $4_1_BILEN = '$4_1_BILEN',
+  $5_1_BILEN = '$5_1_BILEN',
+  $3_BILEN = '$3_BILEN',
+  $4_BILEN = '$4_BILEN',
+  $5_BILEN = '$5_BILEN',
+  $6_BILEN = '$6_BILEN',
+  $7_BILEN = '$7_BILEN',
+  $8_BILEN = '$8_BILEN',
+  $9_BILEN = '$9_BILEN',
+  $10_BILEN = '$10_BILEN',
+}
+
+export const RegularMatchTypeMap: { [key: string]: string } = {
+  $HIC: 'Hiç Bilmeyen',
+  $1_1_BILEN: '1+1 Bilen',
+  $2_1_BILEN: '2+1 Bilen',
+  $3_1_BILEN: '3+1 Bilen',
+  $4_1_BILEN: '4+1 Bilen',
+  $5_1_BILEN: '5+1 Bilen',
+  $3_BILEN: '3 Bilen',
+  $4_BILEN: '4 Bilen',
+  $5_BILEN: '5 Bilen',
+  $6_BILEN: '6 Bilen',
+  $7_BILEN: '7 Bilen',
+  $8_BILEN: '8 Bilen',
+  $9_BILEN: '9 Bilen',
+  $10_BILEN: '10 Bilen',
+};
