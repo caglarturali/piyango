@@ -2,7 +2,11 @@
  * HomeView component.
  */
 import React from 'react';
-import { DrawsItem, ProcessDraw } from '@caglarturali/piyango-common';
+import {
+  DrawsItem,
+  GameUtils,
+  ProcessDraw,
+} from '@caglarturali/piyango-common';
 import Grid from '@material-ui/core/Grid';
 import SectionHeader from '../../components/SectionHeader';
 import Container from '../../components/Container';
@@ -33,7 +37,7 @@ const HomeView: React.FunctionComponent<HomeViewProps> = ({ draws }) => {
       <Container>
         {draws.map(({ id, data }: DrawsItem) => (
           <Grid item xs={12} lg={6} key={`draw-display-${id}`}>
-            <DrawDisplay gameId={id} drawData={data} />
+            <DrawDisplay game={GameUtils.getGameById(id)} drawData={data} />
           </Grid>
         ))}
       </Container>
