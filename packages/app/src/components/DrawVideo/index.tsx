@@ -11,9 +11,9 @@ import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
 import Collapse from '@material-ui/core/Collapse';
 import Avatar from '@material-ui/core/Avatar';
-import IconButton from '@material-ui/core/IconButton';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import VideoIcon from '@material-ui/icons/Videocam';
+import PIconButton from '../PIconButton';
 import API from '../../services/API';
 import styles from './styles';
 
@@ -56,15 +56,13 @@ export const DrawVideo: React.FunctionComponent<DrawVideoProps> = ({
           </Avatar>
         }
         action={
-          <IconButton
-            className={clsx(classes.expand, {
-              [classes.expandOpen]: expanded,
-            })}
-            aria-label="göster/gizle"
-            onClick={() => setExpanded(!expanded)}
-          >
-            <ExpandMoreIcon />
-          </IconButton>
+          <PIconButton
+            title={title}
+            icon={ExpandMoreIcon}
+            disabled={false}
+            className={clsx('expand', { ['expandOpen']: expanded })}
+            handlers={{ onClick: () => setExpanded(!expanded) }}
+          />
         }
         title={title}
         subheader={subtitle}

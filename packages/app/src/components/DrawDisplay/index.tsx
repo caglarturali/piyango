@@ -88,7 +88,7 @@ const DrawDisplay: React.FunctionComponent<DrawDisplayProps> = ({
       title: 'Çekiliş Detayları',
       icon: ExpandMoreIcon,
       disabled: false,
-      className: clsx(classes.expand, { [classes.expandOpen]: expanded }),
+      className: clsx('expand', { ['expandOpen']: expanded }),
       handlers: {
         onClick: () => setExpanded(!expanded),
       },

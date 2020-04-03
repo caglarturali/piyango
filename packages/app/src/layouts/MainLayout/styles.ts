@@ -2,10 +2,27 @@
  * MainLayout styles.
  */
 import { Theme } from '@material-ui/core';
+import { orange } from '@material-ui/core/colors';
 
 export const drawerWidth = 256;
 
-export default ({ breakpoints, spacing, mixins }: Theme) => ({
+export default ({ breakpoints, spacing, mixins, transitions }: Theme) => ({
+  // Global styles
+  '@global': {
+    '.typed-cursor': {
+      color: orange.A400,
+    },
+    '.expand': {
+      transform: 'rotate(0deg)',
+      marginLeft: 'auto',
+      transition: transitions.create('transform', {
+        duration: transitions.duration.shortest,
+      }),
+    },
+    '.expandOpen': {
+      transform: 'rotate(180deg)',
+    },
+  },
   root: {
     display: 'flex',
   },

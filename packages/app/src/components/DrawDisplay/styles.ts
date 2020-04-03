@@ -4,13 +4,7 @@
 import { createStyles, Theme } from '@material-ui/core';
 import { orange } from '@material-ui/core/colors';
 
-export default ({
-  breakpoints,
-  palette,
-  spacing,
-  typography,
-  transitions,
-}: Theme) =>
+export default ({ breakpoints, palette, spacing, typography }: Theme) =>
   createStyles({
     root: {
       userSelect: 'none',
@@ -70,22 +64,7 @@ export default ({
         letterSpacing: '-0.2px',
       },
     },
-    '@global': {
-      '.typed-cursor': {
-        color: orange.A400,
-      },
-    },
     // Details area.
-    expand: {
-      transform: 'rotate(0deg)',
-      marginLeft: 'auto',
-      transition: transitions.create('transform', {
-        duration: transitions.duration.shortest,
-      }),
-    },
-    expandOpen: {
-      transform: 'rotate(180deg)',
-    },
     piyangoTopRow: {
       height: typography.pxToRem(36),
       verticalAlign: 'bottom',
