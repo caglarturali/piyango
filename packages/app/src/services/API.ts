@@ -28,4 +28,13 @@ export default class API {
     const res = await fetch(`${API_BASE}/draws/${gameId}/${drawDate}`);
     return (await res.json()) as DrawDataType;
   }
+
+  /**
+   * Returns url of the HLS stream of the draw.
+   * @param gameId Game ID
+   * @param drawDate Draw date
+   */
+  static getEmbedUrl(gameId: GameID, drawDate: DrawDate): string {
+    return `${API_BASE}/embed/${gameId}/${drawDate}`;
+  }
 }
