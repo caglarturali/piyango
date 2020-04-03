@@ -3,16 +3,13 @@
  */
 import { createStyles, Theme } from '@material-ui/core';
 
-export default (theme: Theme) =>
+export default ({ transitions }: Theme) =>
   createStyles({
-    root: {
-      display: 'flex',
-    },
     expand: {
       transform: 'rotate(0deg)',
       marginLeft: 'auto',
-      transition: theme.transitions.create('transform', {
-        duration: theme.transitions.duration.shortest,
+      transition: transitions.create('transform', {
+        duration: transitions.duration.shortest,
       }),
     },
     expandOpen: {
