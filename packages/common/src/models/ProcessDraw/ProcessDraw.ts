@@ -1,18 +1,20 @@
 import moment, { Moment } from 'moment';
-import { GameColumn, GameID } from '../Game';
+import { Game, GameColumn, GameID } from '../Game';
 import { RegularDrawData, RegularReportLine } from '../Regular';
 import { LotteryDrawData, LotteryReportLine } from '../Lottery';
 import { DrawDataType, LuckyProvince } from '../Draw';
 import { ReportLineType } from './ReportLineType';
 import { DATE_FORMAT_FRIENDLY, DATE_FORMAT_VIEW } from '../../constants';
-import { DrawUtils } from '../../utils';
+import { DrawUtils, GameUtils } from '../../utils';
 
 export class ProcessDraw<T extends DrawDataType> {
   private gameId: GameID;
+  private game: Game;
   private drawData: DrawDataType;
 
   constructor(gameId: GameID, drawData: T) {
     this.gameId = gameId;
+    this.game = GameUtils.getGameById(gameId);
     this.drawData = drawData;
   }
 
@@ -121,5 +123,29 @@ export class ProcessDraw<T extends DrawDataType> {
       if (devirSayisi) texts.push(`${devirSayisi}. Devir`);
     }
     return texts;
+  }
+
+  /**
+   * Returns the summary of the draw
+   * for to be used as clipboard text.
+   */
+  clipboard(): string {
+    const { id, name } = this.game;
+    const { cekilisTarihi } = this.drawData;
+
+    // Base text.
+    let text = `${name} - ${cekilisTarihi}: `;
+
+    const { main, plus } = this.winningNumbers();
+    if (id === GameID.piyango) {
+      text += main.join('');
+    } else {
+      text += main.map((n) => n.toString().padStart(2, '0')).join(' ');
+      if (plus) {
+        text += ' + ';
+        text += plus.map((n) => n.toString().padStart(2, '0')).join(' ');
+      }
+    }
+    return text;
   }
 }
