@@ -3,6 +3,7 @@
  */
 import React from 'react';
 import { makeStyles } from '@material-ui/core';
+import Box from '@material-ui/core/Box';
 import styles from './styles';
 
 const useStyles = makeStyles(styles);
@@ -18,7 +19,12 @@ const LuckyBall: React.FunctionComponent<LuckyBallProps> = ({
 }) => {
   const classes = useStyles();
   const numStr = pad ? num.toString().padStart(2, '0') : num.toString();
-  return <div className={classes.root}>{numStr}</div>;
+
+  return (
+    <Box className={classes.root} aria-label={numStr}>
+      {numStr}
+    </Box>
+  );
 };
 
 export default LuckyBall;
