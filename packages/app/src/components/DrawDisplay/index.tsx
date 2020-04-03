@@ -4,12 +4,7 @@
 import React, { useMemo, useState } from 'react';
 import Link from 'next/link';
 import clsx from 'clsx';
-import {
-  DrawDataType,
-  GameID,
-  GameUtils,
-  ProcessDraw,
-} from '@caglarturali/piyango-common';
+import { DrawDataType, Game, ProcessDraw } from '@caglarturali/piyango-common';
 import copy from 'copy-to-clipboard';
 import { makeStyles } from '@material-ui/core';
 import Box from '@material-ui/core/Box';
@@ -28,13 +23,13 @@ import { Segments } from '../../shared';
 const useStyles = makeStyles(styles);
 
 export interface DrawDisplayProps {
-  gameId: GameID;
+  game: Game;
   drawData: DrawDataType;
   isSummary?: boolean;
 }
 
 const DrawDisplay: React.FunctionComponent<DrawDisplayProps> = ({
-  gameId,
+  game,
   drawData,
   isSummary = true,
 }) => {
@@ -42,12 +37,9 @@ const DrawDisplay: React.FunctionComponent<DrawDisplayProps> = ({
 
   const [expanded, setExpanded] = useState(!isSummary);
 
-  // Get game object.
-  const game = GameUtils.getGameById(gameId);
-
   const processed = useMemo(() => {
-    return new ProcessDraw(gameId, drawData);
-  }, [gameId, drawData]);
+    return new ProcessDraw(game.id, drawData);
+  }, [game, drawData]);
 
   const actions: ActionItems[] = [
     [
@@ -93,7 +85,9 @@ const DrawDisplay: React.FunctionComponent<DrawDisplayProps> = ({
       />
       <Link
         href={`/[game_id]/${Segments.CEKILIS_SONUCLARI}/[draw_date]`}
-        as={`/${gameId}/${Segments.CEKILIS_SONUCLARI}/${processed.drawDateF()}`}
+        as={`/${game.id}/${
+          Segments.CEKILIS_SONUCLARI
+        }/${processed.drawDateF()}`}
       >
         <Box className={clsx({ [classes.pointer]: isSummary })}>
           <Numbers game={game} numbers={processed.winningNumbers()} />
@@ -107,7 +101,7 @@ const DrawDisplay: React.FunctionComponent<DrawDisplayProps> = ({
       />
       {!isSummary && (
         <Details
-          gameId={gameId}
+          gameId={game.id}
           expanded={expanded}
           report={processed.report()}
           drawData={drawData}
