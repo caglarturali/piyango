@@ -4,7 +4,7 @@ import { RegularDrawData, RegularReportLine } from '../Regular';
 import { LotteryDrawData, LotteryReportLine } from '../Lottery';
 import { DrawDataType, LuckyProvince } from '../Draw';
 import { ReportLineType } from './ReportLineType';
-import { DATE_FORMAT_FRIENDLY, DATE_FORMAT_VIEW } from '../../constants';
+import { DateFormat } from '../../constants';
 import { DrawUtils, GameUtils } from '../../utils';
 
 export class ProcessDraw<T extends DrawDataType> {
@@ -60,14 +60,14 @@ export class ProcessDraw<T extends DrawDataType> {
    * Returns draw date as a Moment object.
    */
   drawDate(): Moment {
-    return moment(this.drawData.cekilisTarihi, DATE_FORMAT_FRIENDLY);
+    return moment(this.drawData.cekilisTarihi, DateFormat.FRIENDLY);
   }
 
   /**
    * Returns formatted draw date.
    * @param format Format string. DD-MM-YYYY by default.
    */
-  drawDateF(format: string = DATE_FORMAT_VIEW): string {
+  drawDateF(format: string = DateFormat.URL): string {
     return this.drawDate().format(format);
   }
 

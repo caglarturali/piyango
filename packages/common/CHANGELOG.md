@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.0.0] - 2020-04-03
+
+## Added
+
+- DateUtils class
+- DateFormat enum
+
+## Removed
+
+- DATE_FORMAT constant
+- DATE_FORMAT_URL constant
+- DATE_FORMAT_FRIENDLY constant
+- DATE_FORMAT_SHORT constant
+- DATE_FORMAT_EMBED constant
+
 ## [2.4.0] - 2020-04-03
 
 ### Added

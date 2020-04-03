@@ -1,24 +1,25 @@
 /**
- * API date format.
+ * Date formats used throughout the project.
  */
-export const DATE_FORMAT = 'YYYYMMDD';
-
-/**
- * API date format in hyphenated string.
- */
-export const DATE_FORMAT_VIEW = 'DD-MM-YYYY';
-
-/**
- * API date format in human-readable form.
- */
-export const DATE_FORMAT_FRIENDLY = 'DD/MM/YYYY';
-
-/**
- * Date format used for drawhistory endpoint.
- */
-export const DATE_FORMAT_SHORT = 'MMDD';
-
-/**
- * Format string for embeddable stream resources.
- */
-export const DATE_FORMAT_EMBED = 'DD_MM_YYYY';
+export enum DateFormat {
+  /**
+   * API date format.
+   */
+  API = 'YYYYMMDD',
+  /**
+   * Date format in hyphenated string form.
+   */
+  URL = 'DD-MM-YYYY',
+  /**
+   * Date format in human-readable form.
+   */
+  FRIENDLY = 'DD/MM/YYYY',
+  /**
+   * Format string for embeddable stream resources.
+   */
+  EMBED = 'DD_MM_YYYY',
+  /**
+   * Date format used for drawhistory endpoint.
+   */
+  SHORT = 'MMDD',
+}
