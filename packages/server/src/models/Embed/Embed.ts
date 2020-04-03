@@ -1,8 +1,7 @@
 import fetch from 'node-fetch';
-import moment from 'moment';
 import {
-  DATE_FORMAT,
-  DATE_FORMAT_EMBED,
+  DateFormat,
+  DateUtils,
   DrawDate,
   Game,
   GameID,
@@ -29,8 +28,10 @@ export default class Embed {
     const gameStr = game.embedSlug || game.id;
 
     // Build stream id.
-    const dateStr = moment(this.drawDate, DATE_FORMAT).format(
-      DATE_FORMAT_EMBED,
+    const dateStr = DateUtils.convert(
+      this.drawDate,
+      DateFormat.API,
+      DateFormat.EMBED,
     );
     const streamId = `${gameStr}_${dateStr}_hls`;
 

@@ -1,8 +1,7 @@
 import moment from 'moment';
-import { DATE_FORMAT, GameID } from '@caglarturali/piyango-common';
+import { DateFormat, DateUtils, GameID } from '@caglarturali/piyango-common';
 import { getDrawDates } from '../drawdates';
 import { SortOrder } from '../../models/SortOrder';
-import DateUtils from '../../utils/DateUtils';
 
 test('should successfully get draw dates for given game', async () => {
   const limit = 10;
@@ -36,7 +35,7 @@ test('should successfully get draw dates for given game', async () => {
 test('should sort results in specified order', async () => {
   const { data } = await getDrawDates(GameID.onnumara, 2, 0, SortOrder.ASC);
   const [first, second] = data;
-  const firstMoment = moment(first, DATE_FORMAT).unix();
-  const secondMoment = moment(second, DATE_FORMAT).unix();
+  const firstMoment = moment(first, DateFormat.API).unix();
+  const secondMoment = moment(second, DateFormat.API).unix();
   expect(firstMoment).toBeLessThan(secondMoment);
 });

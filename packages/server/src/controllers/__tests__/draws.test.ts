@@ -1,7 +1,6 @@
-import moment from 'moment';
 import {
-  DATE_FORMAT,
-  DATE_FORMAT_FRIENDLY,
+  DateFormat,
+  DateUtils,
   GameID,
   GAMES,
   RegularDrawData,
@@ -61,7 +60,7 @@ test('should get draw details for given game and date', async () => {
   expect(data).toHaveLength(1);
   expect(drawDetails.cekilisTuru).toBe(RegularDrawType.SUPER_LOTO);
   expect(drawDetails.cekilisTarihi).toBe(
-    moment(dateStr, DATE_FORMAT).format(DATE_FORMAT_FRIENDLY),
+    DateUtils.convert(dateStr, DateFormat.API, DateFormat.FRIENDLY),
   );
 });
 

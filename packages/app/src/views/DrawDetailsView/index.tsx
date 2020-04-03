@@ -2,10 +2,9 @@
  * DrawDetailsView component.
  */
 import React from 'react';
-import moment from 'moment';
 import {
-  DATE_FORMAT,
-  DATE_FORMAT_FRIENDLY,
+  DateFormat,
+  DateUtils,
   DrawDataType,
   GameID,
   RegularDrawData,
@@ -25,14 +24,16 @@ const DrawDetailsView: React.FunctionComponent<DrawDetailsViewProps> = ({
   gameId,
   drawData,
 }) => {
-  const drawDate = moment(drawData.cekilisTarihi, DATE_FORMAT_FRIENDLY).format(
-    DATE_FORMAT,
+  const drawDate = DateUtils.convert(
+    drawData.cekilisTarihi,
+    DateFormat.FRIENDLY,
+    DateFormat.API,
   );
 
-  let subtitle = '';
+  let vidSubtitle = '';
   if (gameId !== GameID.piyango) {
     const { hafta } = drawData as RegularDrawData;
-    subtitle = `Çekiliş No: ${hafta}`;
+    vidSubtitle = `Çekiliş No: ${hafta}`;
   }
 
   return (
@@ -47,7 +48,7 @@ const DrawDetailsView: React.FunctionComponent<DrawDetailsViewProps> = ({
             gameId={gameId}
             drawDate={drawDate}
             title="Çekiliş Videosu"
-            subtitle={subtitle}
+            subtitle={vidSubtitle}
           />
         </Grid>
       </Container>

@@ -2,7 +2,7 @@
  * Draw history controller.
  */
 import momentTZ from 'moment-timezone';
-import { DATE_FORMAT, DrawDate, GameID } from '@caglarturali/piyango-common';
+import { DateFormat, DrawDate, GameID } from '@caglarturali/piyango-common';
 import ApiResponse from '../models/ApiResponse';
 import DrawHistory, { DrawHistoryData } from '../models/DrawHistory';
 
@@ -10,7 +10,7 @@ import DrawHistory, { DrawHistoryData } from '../models/DrawHistory';
  * Returns draw history of today.
  */
 export const getDrawHistoryOfToday = async () => {
-  const today = momentTZ().tz('Europe/Istanbul').format(DATE_FORMAT);
+  const today = momentTZ().tz('Europe/Istanbul').format(DateFormat.API);
   return await getDrawHistory(today);
 };
 

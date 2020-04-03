@@ -1,7 +1,6 @@
-import moment from 'moment';
 import {
-  DATE_FORMAT,
-  DATE_FORMAT_SHORT,
+  DateFormat,
+  DateUtils,
   DrawDate,
   GameID,
   GAMES,
@@ -53,7 +52,11 @@ export default class DrawHistory {
       draws: [],
     } as DrawHistoryData;
 
-    const refDate = moment(this.date, DATE_FORMAT).format(DATE_FORMAT_SHORT);
+    const refDate = DateUtils.convert(
+      this.date,
+      DateFormat.API,
+      DateFormat.SHORT,
+    );
 
     const drawDates = new DrawDates(gameId, -1);
     await drawDates.collectData();
@@ -64,7 +67,7 @@ export default class DrawHistory {
     }
 
     drawHistory.draws = drawDates.drawDates.filter((t) => {
-      return refDate === moment(t, DATE_FORMAT).format(DATE_FORMAT_SHORT);
+      return refDate === DateUtils.convert(t, DateFormat.API, DateFormat.SHORT);
     });
 
     return drawHistory;

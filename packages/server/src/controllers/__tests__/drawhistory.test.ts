@@ -1,6 +1,5 @@
-import { GameID, GAMES } from '@caglarturali/piyango-common';
+import { DateUtils, GameID, GAMES } from '@caglarturali/piyango-common';
 import { getDrawHistory } from '../drawhistory';
-import DateUtils from '../../utils/DateUtils';
 
 test('should get draw history for all games for given date', async () => {
   const dateStr = '20200101';

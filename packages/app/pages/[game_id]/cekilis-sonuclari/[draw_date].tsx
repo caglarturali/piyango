@@ -2,11 +2,10 @@
  * /:gameId/:cekilis-sonuclari/:drawDate
  */
 import React from 'react';
-import moment from 'moment';
 import { NextPage, NextPageContext } from 'next';
 import {
-  DATE_FORMAT,
-  DATE_FORMAT_VIEW,
+  DateFormat,
+  DateUtils,
   DrawDataType,
   GameID,
   GameUtils,
@@ -37,7 +36,11 @@ DrawDetailsPage.getInitialProps = async (context: NextPageContext) => {
   const { game_id, draw_date } = context.query;
 
   // Convert draw date string into standard form.
-  const drawDate = moment(draw_date, DATE_FORMAT_VIEW).format(DATE_FORMAT);
+  const drawDate = DateUtils.convert(
+    draw_date.toString(),
+    DateFormat.URL,
+    DateFormat.API,
+  );
   const gameId = game_id as GameID;
 
   const data = await API.getDrawDetails(gameId, drawDate);

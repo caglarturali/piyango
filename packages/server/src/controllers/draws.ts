@@ -2,6 +2,7 @@
  * Draws controller.
  */
 import {
+  DateUtils,
   DrawDataType,
   DrawDate,
   DrawsItem,
@@ -10,7 +11,6 @@ import {
 } from '@caglarturali/piyango-common';
 import ApiResponse from '../models/ApiResponse';
 import { getDrawDates } from './drawdates';
-import DateUtils from '../utils/DateUtils';
 import Draw from '../models/Draw';
 import conf from '../apiconfig';
 

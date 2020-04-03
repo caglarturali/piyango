@@ -4,7 +4,7 @@ import moment from 'moment';
 import fetch from 'node-fetch';
 import stripBom from 'strip-bom';
 import {
-  DATE_FORMAT,
+  DateFormat,
   DrawDate,
   DrawListing,
   GameID,
@@ -86,8 +86,8 @@ export default class DrawDates {
    */
   sortData() {
     this.drawDates.sort((a, b) => {
-      const aDate = moment(a, DATE_FORMAT).unix();
-      const bDate = moment(b, DATE_FORMAT).unix();
+      const aDate = moment(a, DateFormat.API).unix();
+      const bDate = moment(b, DateFormat.API).unix();
 
       return this.sort === SortOrder.ASC ? aDate - bDate : bDate - aDate;
     });

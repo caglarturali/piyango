@@ -2,6 +2,7 @@
  * Stats controller.
  */
 import {
+  DateUtils,
   GameID,
   ProcessDraw,
   RegularDrawData,
@@ -9,7 +10,6 @@ import {
 import ApiResponse from '../models/ApiResponse';
 import Stats from '../models/Stats';
 import { getDrawDates } from './drawdates';
-import DateUtils from '../utils/DateUtils';
 import { getDrawDetailsForDraw } from './draws';
 import { messages } from '../constants';
 

@@ -33,7 +33,7 @@ export const DrawVideo: React.FunctionComponent<DrawVideoProps> = ({
   subtitle = '',
 }) => {
   const classes = useStyles();
-  const [expanded, setExpanded] = React.useState(true);
+  const [expanded, setExpanded] = useState(true);
 
   const elementId = `embed-${gameId}-${drawDate}`;
 

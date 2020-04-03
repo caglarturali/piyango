@@ -1,10 +1,9 @@
 import fs from 'fs';
 import fetch from 'node-fetch';
-import moment from 'moment';
 import stripBom from 'strip-bom';
 import {
-  DATE_FORMAT,
-  DATE_FORMAT_FRIENDLY,
+  DateFormat,
+  DateUtils,
   DrawDataType,
   DrawDate,
   GameID,
@@ -76,8 +75,10 @@ export default class Draw {
            * Lottery.
            */
           const dateOriginal = json.cekilisTarihi;
-          const dateNew = moment(dateOriginal, DATE_FORMAT).format(
-            DATE_FORMAT_FRIENDLY,
+          const dateNew = DateUtils.convert(
+            dateOriginal,
+            DateFormat.API,
+            DateFormat.FRIENDLY,
           );
 
           // Append new fields.

@@ -4,10 +4,8 @@
 import React from 'react';
 import { MoneyUtils } from '@caglarturali/piyango-common';
 import { makeStyles } from '@material-ui/core';
-import Avatar from '@material-ui/core/Avatar';
 import Chip from '@material-ui/core/Chip';
 import Tooltip from '@material-ui/core/Tooltip';
-import Typography from '@material-ui/core/Typography';
 import styles from './styles';
 
 const useStyles = makeStyles(styles);
