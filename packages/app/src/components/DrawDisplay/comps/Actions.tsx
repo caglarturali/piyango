@@ -12,34 +12,25 @@ import styles from '../styles';
 
 const useStyles = makeStyles(styles);
 
-export interface ActionItemsMain {
-  left: PIconButtonProps[];
-  right: PIconButtonProps[];
-}
-
-export interface ActionItemsExtra {
-  video: PIconButtonProps;
-  expand: PIconButtonProps;
-}
+// Type alias.
+export type ActionItems = PIconButtonProps[];
 
 export interface ActionsProps {
   game: Game;
-  actionsMain: ActionItemsMain;
-  actionsExtra: ActionItemsExtra;
+  actions: ActionItems[];
   rollingTexts: string[];
   isSummary?: boolean;
 }
 
 const Actions: React.FunctionComponent<ActionsProps> = ({
   game,
-  actionsMain,
-  actionsExtra,
+  actions,
   rollingTexts,
   isSummary = true,
 }) => {
   const classes = useStyles();
 
-  const { left, right } = actionsMain;
+  const [left, right, extra] = actions;
 
   const renderActions = useCallback((items: PIconButtonProps[]) => {
     return items.map((item, i) => (
@@ -57,12 +48,12 @@ const Actions: React.FunctionComponent<ActionsProps> = ({
   return (
     <CardActions className={classes.actions} disableSpacing>
       <Grid container spacing={1} alignItems="center">
-        {isSummary ? renderActions(left) : renderAction(actionsExtra.video)}
+        {renderActions(left)}
         <Grid item xs className={classes.typed}>
           <RollingTexts game={game} rollingTexts={rollingTexts} />
         </Grid>
         {renderActions(right)}
-        {!isSummary && renderAction(actionsExtra.expand)}
+        {!isSummary && renderActions(extra)}
       </Grid>
     </CardActions>
   );

@@ -19,10 +19,9 @@ import CheckCouponIcon from '@material-ui/icons/PlaylistAddCheck';
 import CopyIcon from '@material-ui/icons/FileCopy';
 import styles from './styles';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import VideoIcon from '@material-ui/icons/Videocam';
 import Header from './comps/Header';
 import Numbers from './comps/Numbers';
-import Actions, { ActionItemsExtra, ActionItemsMain } from './comps/Actions';
+import Actions, { ActionItems } from './comps/Actions';
 import Details from './comps/Details';
 import { Segments } from '../../shared';
 
@@ -50,14 +49,14 @@ const DrawDisplay: React.FunctionComponent<DrawDisplayProps> = ({
     return new ProcessDraw(gameId, drawData);
   }, [gameId, drawData]);
 
-  const actionsMain: ActionItemsMain = {
-    left: [
+  const actions: ActionItems[] = [
+    [
       {
         title: 'Yorumlar',
         icon: CommentIcon,
       },
     ],
-    right: [
+    [
       {
         title: 'Kupon Kontrolü',
         icon: CheckCouponIcon,
@@ -73,22 +72,17 @@ const DrawDisplay: React.FunctionComponent<DrawDisplayProps> = ({
         },
       },
     ],
-  };
-
-  const actionsExtra: ActionItemsExtra = {
-    video: {
-      title: 'Çekiliş Videosu',
-      icon: VideoIcon,
-    },
-    expand: {
-      title: 'Çekiliş Detayları',
-      icon: ExpandMoreIcon,
-      className: clsx('expand', { ['expandOpen']: expanded }),
-      handlers: {
-        onClick: () => setExpanded(!expanded),
+    [
+      {
+        title: 'Çekiliş Detayları',
+        icon: ExpandMoreIcon,
+        className: clsx('expand', { ['expandOpen']: expanded }),
+        handlers: {
+          onClick: () => setExpanded(!expanded),
+        },
       },
-    },
-  };
+    ],
+  ];
 
   return (
     <Card elevation={0} className={classes.root}>
@@ -107,8 +101,7 @@ const DrawDisplay: React.FunctionComponent<DrawDisplayProps> = ({
       </Link>
       <Actions
         game={game}
-        actionsMain={actionsMain}
-        actionsExtra={actionsExtra}
+        actions={actions}
         rollingTexts={processed.rollingTexts()}
         isSummary={isSummary}
       />
