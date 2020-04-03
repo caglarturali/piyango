@@ -16,12 +16,12 @@ import DrawDisplay from '../../components/DrawDisplay';
 import SectionHeader from '../../components/SectionHeader';
 import { DrawVideo } from '../../components/DrawVideo';
 
-export interface DrawViewProps {
+export interface DrawDetailsViewProps {
   gameId: GameID;
   drawData: DrawDataType;
 }
 
-const DrawDetailsView: React.FunctionComponent<DrawViewProps> = ({
+const DrawDetailsView: React.FunctionComponent<DrawDetailsViewProps> = ({
   gameId,
   drawData,
 }) => {
