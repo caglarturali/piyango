@@ -2,7 +2,13 @@
  * DrawVideo component.
  */
 import React, { useEffect, useState } from 'react';
-import { DrawDate, GameID } from '@caglarturali/piyango-common';
+import {
+  DateFormat,
+  DateUtils,
+  DrawData,
+  GameID,
+  RegularDrawData,
+} from '@caglarturali/piyango-common';
 import clsx from 'clsx';
 import HLS from 'hls.js';
 import { makeStyles } from '@material-ui/core';
@@ -21,19 +27,29 @@ const useStyles = makeStyles(styles);
 
 export interface DrawVideoProps {
   gameId: GameID;
-  drawDate: DrawDate;
+  drawData: DrawData;
   title: string;
-  subtitle?: string;
 }
 
 export const DrawVideo: React.FunctionComponent<DrawVideoProps> = ({
   gameId,
-  drawDate,
+  drawData,
   title,
-  subtitle = '',
 }) => {
   const classes = useStyles();
   const [expanded, setExpanded] = useState(true);
+
+  const drawDate = DateUtils.convert(
+    drawData.cekilisTarihi,
+    DateFormat.FRIENDLY,
+    DateFormat.API,
+  );
+
+  let subtitle = '';
+  if (gameId !== GameID.piyango) {
+    const { hafta } = drawData as RegularDrawData;
+    subtitle = `Çekiliş No: ${hafta}`;
+  }
 
   const elementId = `embed-${gameId}-${drawDate}`;
 
@@ -45,7 +61,9 @@ export const DrawVideo: React.FunctionComponent<DrawVideoProps> = ({
     hls.on(HLS.Events.MANIFEST_PARSED, () => {
       player.pause();
     });
-  });
+
+    return () => hls.destroy();
+  }, [expanded]);
 
   return (
     <Card elevation={0}>

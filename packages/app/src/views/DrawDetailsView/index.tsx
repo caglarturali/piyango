@@ -2,13 +2,7 @@
  * DrawDetailsView component.
  */
 import React from 'react';
-import {
-  DateFormat,
-  DateUtils,
-  DrawDataType,
-  GameID,
-  RegularDrawData,
-} from '@caglarturali/piyango-common';
+import { DrawDataType, GameID } from '@caglarturali/piyango-common';
 import Grid from '@material-ui/core/Grid';
 import Container from '../../components/Container';
 import DrawDisplay from '../../components/DrawDisplay';
@@ -24,18 +18,6 @@ const DrawDetailsView: React.FunctionComponent<DrawDetailsViewProps> = ({
   gameId,
   drawData,
 }) => {
-  const drawDate = DateUtils.convert(
-    drawData.cekilisTarihi,
-    DateFormat.FRIENDLY,
-    DateFormat.API,
-  );
-
-  let vidSubtitle = '';
-  if (gameId !== GameID.piyango) {
-    const { hafta } = drawData as RegularDrawData;
-    vidSubtitle = `Çekiliş No: ${hafta}`;
-  }
-
   return (
     <>
       <SectionHeader title="Çekiliş Sonuçları" />
@@ -46,9 +28,8 @@ const DrawDetailsView: React.FunctionComponent<DrawDetailsViewProps> = ({
         <Grid item xs={12} lg={6}>
           <DrawVideo
             gameId={gameId}
-            drawDate={drawDate}
+            drawData={drawData}
             title="Çekiliş Videosu"
-            subtitle={vidSubtitle}
           />
         </Grid>
       </Container>
