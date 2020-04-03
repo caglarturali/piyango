@@ -6,6 +6,7 @@ dependencies:
   clsx: 1.1.0
   color: 3.1.2
   copy-to-clipboard: 3.3.1
+  disqus-react: 1.0.8_react-dom@16.13.1+react@16.13.1
   hls.js: 0.13.2
   isomorphic-unfetch: 3.0.0
   moment: 2.24.0
@@ -2137,6 +2138,16 @@ packages:
     dev: false
     resolution:
       integrity: sha512-kqag/Nl+f3GwyK25fhUMYj81BUOrZ9IuJsjIcDE5icNM9FJHAVm3VcUDxdLPoQtTuUylWm6ZIknYJwwaPxsUzg==
+  /disqus-react/1.0.8_react-dom@16.13.1+react@16.13.1:
+    dependencies:
+      react: 16.13.1
+      react-dom: 16.13.1_react@16.13.1
+    dev: false
+    peerDependencies:
+      react: ^15.6.1 || ^16.0.0
+      react-dom: ^15.6.1 || ^16.0.0
+    resolution:
+      integrity: sha512-fkDL6XVGteaxTwz8aN+n89iyMv1BPKKKO3v8YJCcNaJfhoKY/f6MSiqMqu1rNrbAkyxQ2VjF7C/2mPpPAElozg==
   /dom-helpers/5.1.4:
     dependencies:
       '@babel/runtime': 7.9.2
@@ -4836,6 +4847,7 @@ specifiers:
   clsx: ^1.1.0
   color: ^3.1.2
   copy-to-clipboard: ^3.3.1
+  disqus-react: ^1.0.8
   hls.js: ^0.13.2
   isomorphic-unfetch: ^3.0.0
   moment: ^2.24.0

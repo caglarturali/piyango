@@ -19,6 +19,7 @@ import Numbers from './comps/Numbers';
 import Actions, { ActionItems } from './comps/Actions';
 import Details from './comps/Details';
 import { Segments } from '../../shared';
+import Count from '../Disqussion/Count';
 
 const useStyles = makeStyles(styles);
 
@@ -93,6 +94,7 @@ const DrawDisplay: React.FunctionComponent<DrawDisplayProps> = ({
           <Numbers game={game} numbers={processed.winningNumbers()} />
         </Box>
       </Link>
+      {/* <Count game={game} drawData={drawData} /> */}
       <Actions
         game={game}
         actions={actions}
