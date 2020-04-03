@@ -59,7 +59,6 @@ export const DrawVideo: React.FunctionComponent<DrawVideoProps> = ({
           <PIconButton
             title={title}
             icon={ExpandMoreIcon}
-            disabled={false}
             className={clsx('expand', { ['expandOpen']: expanded })}
             handlers={{ onClick: () => setExpanded(!expanded) }}
           />

@@ -13,17 +13,17 @@ const useStyles = makeStyles(styles);
 export interface PIconButtonProps {
   title: string;
   icon: React.ElementType;
-  disabled: boolean;
   className?: string;
   handlers?: { [eventName: string]: (e: any) => void };
+  disabled?: boolean;
 }
 
 const PIconButton: React.FunctionComponent<PIconButtonProps> = ({
   title,
   icon: Icon,
-  disabled,
   className,
   handlers,
+  disabled = false,
 }) => {
   const classes = useStyles();
 

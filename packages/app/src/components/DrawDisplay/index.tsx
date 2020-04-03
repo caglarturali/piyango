@@ -55,19 +55,16 @@ const DrawDisplay: React.FunctionComponent<DrawDisplayProps> = ({
       {
         title: 'Yorumlar',
         icon: CommentIcon,
-        disabled: false,
       },
     ],
     right: [
       {
         title: 'Kupon Kontrolü',
         icon: CheckCouponIcon,
-        disabled: false,
       },
       {
         title: 'Panoya Kopyala',
         icon: CopyIcon,
-        disabled: false,
         handlers: {
           onClick: () => {
             copy(processed.clipboard());
@@ -82,12 +79,10 @@ const DrawDisplay: React.FunctionComponent<DrawDisplayProps> = ({
     video: {
       title: 'Çekiliş Videosu',
       icon: VideoIcon,
-      disabled: false,
     },
     expand: {
       title: 'Çekiliş Detayları',
       icon: ExpandMoreIcon,
-      disabled: false,
       className: clsx('expand', { ['expandOpen']: expanded }),
       handlers: {
         onClick: () => setExpanded(!expanded),
