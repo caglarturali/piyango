@@ -5,6 +5,7 @@ dependencies:
   '@material-ui/styles': 4.9.6_react-dom@16.13.1+react@16.13.1
   clsx: 1.1.0
   color: 3.1.2
+  copy-to-clipboard: 3.3.1
   isomorphic-unfetch: 3.0.0
   moment: 2.24.0
   next: 9.3.4_react-dom@16.13.1+react@16.13.1
@@ -14,18 +15,18 @@ dependencies:
   typed.js: 2.0.11
 lockfileVersion: 5.1
 packages:
-  /@ampproject/toolbox-core/2.1.0:
+  /@ampproject/toolbox-core/2.2.0:
     dependencies:
       cross-fetch: 3.0.4
     dev: false
     resolution:
-      integrity: sha512-8xwrkoaf515dsigSIytdeX1ZqMlHyza+0DXUr45NTv53uFQxiUIjGNv0VNaK+3YLTCPB0dOgQ9kNHqjDz5Ep2g==
+      integrity: sha512-g0NnZZqPJttIcdplIpiMDmOLewwvCWPSnFKvNdyYXN7vknRvR4krpV2qveuVgjnA+dSlDmtzuFapFCaWh4V7FQ==
   /@ampproject/toolbox-optimizer/2.0.1:
     dependencies:
-      '@ampproject/toolbox-core': 2.1.0
-      '@ampproject/toolbox-runtime-version': 2.1.0
-      '@ampproject/toolbox-script-csp': 2.1.0
-      '@ampproject/toolbox-validator-rules': 2.1.0
+      '@ampproject/toolbox-core': 2.2.0
+      '@ampproject/toolbox-runtime-version': 2.2.0
+      '@ampproject/toolbox-script-csp': 2.2.0
+      '@ampproject/toolbox-validator-rules': 2.2.0
       css: 2.2.4
       domhandler: 3.0.0
       domutils: 2.0.0
@@ -46,22 +47,22 @@ packages:
         optional: true
     resolution:
       integrity: sha512-zroXqrV7mY77+/6hV7kaaWxp4LA85V0B/2vg7WdF+FrwiO9Wior/lIW8UbpRek6INjw0VOp1ED73MmGJkwaDhA==
-  /@ampproject/toolbox-runtime-version/2.1.0:
+  /@ampproject/toolbox-runtime-version/2.2.0:
     dependencies:
-      '@ampproject/toolbox-core': 2.1.0
+      '@ampproject/toolbox-core': 2.2.0
     dev: false
     resolution:
-      integrity: sha512-2nQy9tT4uqQG/MqhmWrbC05hQxuX2g//CHbIBfA4kLOt/QlHiAqv4Yjqe3SAeCMEbhejnPj+rYs67JogrDYbKA==
-  /@ampproject/toolbox-script-csp/2.1.0:
+      integrity: sha512-kQRLMreDp1Wp9DotQzJ4k/ZKK6ZxtI6ce2JIvyH8Xfi6H4BQNu0Ht0agMgm51/OsMKyHD+dDIGEHKaKWIOiPLQ==
+  /@ampproject/toolbox-script-csp/2.2.0:
     dev: false
     resolution:
-      integrity: sha512-TfJjlA45yDTXHw0C58MpRTxufvcaU9Vp+m1Hmiehqvontfcqul712PflN2JHArJCSpUDo5yU0A7mWpGo+2wOpA==
-  /@ampproject/toolbox-validator-rules/2.1.0:
+      integrity: sha512-Z5AzbWFTlTMJg0z1/frMDmW6Gj+EbOw0dVdFYfdma4AJq4rNoxCQMVgVOjl4ryWNouJvK1RUA8o7sY1WmMx6eg==
+  /@ampproject/toolbox-validator-rules/2.2.0:
     dependencies:
       cross-fetch: 3.0.4
     dev: false
     resolution:
-      integrity: sha512-3RQeYpAJR8v+7hgH69gHp+v1RNhGaPb8eSwnzVBES8KybgDkWbE/mvYO95Q4PNkgWeYWK/QM5OyivLCtZanQ2Q==
+      integrity: sha512-R5VkDmhmNatq9SuuHaeA2Uno4O5K4YSh11o6A/5jJZ2EjilAcpuAKvZlRp9tjucPWHi+/z/n5PCJ8YUxzCzWaQ==
   /@babel/code-frame/7.8.3:
     dependencies:
       '@babel/highlight': 7.9.0
@@ -1640,7 +1641,7 @@ packages:
   /browserslist/4.11.1:
     dependencies:
       caniuse-lite: 1.0.30001038
-      electron-to-chromium: 1.3.394
+      electron-to-chromium: 1.3.395
       node-releases: 1.1.53
       pkg-up: 2.0.0
     dev: false
@@ -1650,7 +1651,7 @@ packages:
   /browserslist/4.8.3:
     dependencies:
       caniuse-lite: 1.0.30001038
-      electron-to-chromium: 1.3.394
+      electron-to-chromium: 1.3.395
       node-releases: 1.1.53
     dev: false
     hasBin: true
@@ -1935,6 +1936,12 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-Z29us8OZl8LuGsOpJP1hJHSPV40=
+  /copy-to-clipboard/3.3.1:
+    dependencies:
+      toggle-selection: 1.0.6
+    dev: false
+    resolution:
+      integrity: sha512-i13qo6kIHTTpCm8/Wup+0b1mVWETvu2kIMzKoK8FpkLkFxlt0znUAHcMzox+T8sPlqtZXq3CulEjQHsYiGFJUw==
   /core-js-compat/3.6.4:
     dependencies:
       browserslist: 4.11.1
@@ -2173,10 +2180,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-07z8uv2wMyS51kKhD1KsdXJg5WQ6t93RneqRxUHnskXVtlYYkLqM0gqStQZ3pj073g687jPCHrqNfCzawLYh5g==
-  /electron-to-chromium/1.3.394:
+  /electron-to-chromium/1.3.395:
     dev: false
     resolution:
-      integrity: sha512-AEbSKBF49P+GgEP34w0VdYWn9SiMHgWUJbOkPEE1WZMIpWXtvfT9N0sd4Lv4jjD6DeSFjRuzm6+btn/yCz6h2Q==
+      integrity: sha512-kdn2cX6hZXDdz/O2Q8tZscITlsSv1a/7bOq/fQs7QAJ9iaRlnhZPccarNhxZv1tXgmgwCnKp/1lJNYLOG8Dxiw==
   /elliptic/6.5.2:
     dependencies:
       bn.js: 4.11.8
@@ -4540,6 +4547,10 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha512-FWtleNAtZ/Ki2qtqej2CXTOayOH9bHDQF+Q48VpWyDXjbYxA4Yz8iDB31zXOBUlOHHKidDbqGVrTUvQMPmBGBw==
+  /toggle-selection/1.0.6:
+    dev: false
+    resolution:
+      integrity: sha1-bkWxJj8gF/oKzH2J14sVuL932jI=
   /traverse/0.6.6:
     dev: false
     resolution:
@@ -4796,12 +4807,13 @@ packages:
     resolution:
       integrity: sha512-a4UGQaWPH59mOXUYnAG2ewncQS4i4F43Tv3JoAM+s2VDAmS9NsK8GpDMLrCHPksFT7h3K6TOoUNn2pb7RoXx4g==
 specifiers:
-  '@caglarturali/piyango-common': ^2.3.2
+  '@caglarturali/piyango-common': ^2.4.0
   '@material-ui/core': ^4.9.8
   '@material-ui/icons': ^4.9.1
   '@material-ui/styles': ^4.9.6
   clsx: ^1.1.0
   color: ^3.1.2
+  copy-to-clipboard: ^3.3.1
   isomorphic-unfetch: ^3.0.0
   moment: ^2.24.0
   next: ^9.3.4

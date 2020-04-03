@@ -19,7 +19,7 @@ export interface ActionItem {
   icon: React.ElementType;
   disabled: boolean;
   className?: string;
-  handler?: () => void;
+  handlers?: { [eventName: string]: (e: any) => void };
 }
 
 export interface ActionItemsMain {
@@ -60,16 +60,16 @@ const Actions: React.FunctionComponent<ActionsProps> = ({
   }, []);
 
   const renderAction = useCallback(
-    ({ title, icon: Icon, disabled, className, handler }: ActionItem) => {
+    ({ title, icon: Icon, disabled, className, handlers }: ActionItem) => {
       return (
         <Tooltip title={title}>
           <Box>
             <IconButton
               disabled={disabled}
               className={className}
-              onClick={handler}
               color="default"
               aria-label={title}
+              {...handlers}
             >
               <Icon />
             </IconButton>

@@ -10,6 +10,7 @@ import {
   GameUtils,
   ProcessDraw,
 } from '@caglarturali/piyango-common';
+import copy from 'copy-to-clipboard';
 import { makeStyles } from '@material-ui/core';
 import Box from '@material-ui/core/Box';
 import Card from '@material-ui/core/Card';
@@ -67,6 +68,12 @@ const DrawDisplay: React.FunctionComponent<DrawDisplayProps> = ({
         title: 'Panoya Kopyala',
         icon: CopyIcon,
         disabled: false,
+        handlers: {
+          onClick: () => {
+            copy(processed.clipboard());
+            // TODO: Show snackbar
+          },
+        },
       },
     ],
   };
@@ -82,7 +89,9 @@ const DrawDisplay: React.FunctionComponent<DrawDisplayProps> = ({
       icon: ExpandMoreIcon,
       disabled: false,
       className: clsx(classes.expand, { [classes.expandOpen]: expanded }),
-      handler: () => setExpanded(!expanded),
+      handlers: {
+        onClick: () => setExpanded(!expanded),
+      },
     },
   };
 
