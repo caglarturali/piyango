@@ -11,7 +11,7 @@ import {
   GameID,
   GameUtils,
 } from '@caglarturali/piyango-common';
-import DrawView from '../../../src/views/DrawView';
+import DrawDetailsView from '../../../src/views/DrawDetailsView';
 import MainLayout from '../../../src/layouts/MainLayout';
 import API from '../../../src/services/API';
 
@@ -28,7 +28,7 @@ const DrawDetailsPage: NextPage<DrawDetailsPageProps> = ({
 
   return (
     <MainLayout contentTitle={game.name}>
-      <DrawView gameId={gameId} drawData={drawData} />
+      <DrawDetailsView gameId={gameId} drawData={drawData} />
     </MainLayout>
   );
 };
