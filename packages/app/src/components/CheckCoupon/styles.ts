@@ -41,6 +41,9 @@ export default ({ palette, spacing, typography }: Theme) =>
       fontSize: typography.pxToRem(15),
       color: palette.text.secondary,
     },
+    actions: {
+      color: palette.text.secondary,
+    },
     // Draw date panel styles
     dateForm: {
       display: 'flex',
@@ -50,5 +53,13 @@ export default ({ palette, spacing, typography }: Theme) =>
     formControl: {
       flex: 1,
       width: '100%',
+    },
+    // UserNumbers panel styles
+    pool: {
+      width: '100%',
+    },
+    poolTitle: {
+      marginTop: spacing(1.25),
+      marginBottom: spacing(1),
     },
   });

@@ -6,6 +6,7 @@ import { makeStyles } from '@material-ui/core';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import ExpansionPanelActions from '@material-ui/core/ExpansionPanelActions';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import styles from '../../styles';
@@ -18,6 +19,7 @@ export interface PanelProps {
   secondaryHeading?: string;
   expandedPanel: string;
   disabled?: boolean;
+  actions?: React.ReactElement;
   onPanelChange: (e: any) => void;
 }
 
@@ -28,6 +30,7 @@ const Panel: React.FunctionComponent<PanelProps> = ({
   expandedPanel,
   disabled = false,
   onPanelChange,
+  actions,
   children,
 }) => {
   const classes = useStyles();
@@ -63,6 +66,11 @@ const Panel: React.FunctionComponent<PanelProps> = ({
         </span>
       </ExpansionPanelSummary>
       <ExpansionPanelDetails>{children}</ExpansionPanelDetails>
+      {actions && (
+        <ExpansionPanelActions className={classes.actions}>
+          {actions}
+        </ExpansionPanelActions>
+      )}
     </ExpansionPanel>
   );
 };

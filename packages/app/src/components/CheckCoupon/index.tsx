@@ -3,8 +3,13 @@
  */
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core';
+import {
+  DrawDate,
+  Game,
+  GameColumn,
+  RegularGame,
+} from '@caglarturali/piyango-common';
 import CheckCouponLayout from './comps/Layout';
-import { DrawDate, Game, GameColumn } from '@caglarturali/piyango-common';
 import { DrawDatePanel, ReportPanel, UserNumbersPanel } from './comps/Panels';
 import styles from './styles';
 
@@ -55,6 +60,7 @@ const CheckCoupon: React.FunctionComponent<CheckCouponProps> = ({
         heading="Tahminleriniz"
         onPanelChange={setPanelExpanded}
         expandedPanel={panelExpanded}
+        game={game as RegularGame}
       />
       <ReportPanel
         id="report-panel"
