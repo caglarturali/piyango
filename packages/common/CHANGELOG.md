@@ -7,14 +7,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [4.0.0] - 2020-04-04
+
+### Added
+
+- Pool interface
+- *Keys types
+
+### Removed
+
+- Index definitons from GameColumn and Pool
+
 ## [3.0.0] - 2020-04-03
 
-## Added
+### Added
 
 - DateUtils class
 - DateFormat enum
 
-## Removed
+### Removed
 
 - DATE_FORMAT constant
 - DATE_FORMAT_URL constant
