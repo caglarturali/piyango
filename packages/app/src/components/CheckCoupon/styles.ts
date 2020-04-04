@@ -41,4 +41,14 @@ export default ({ palette, spacing, typography }: Theme) =>
       fontSize: typography.pxToRem(15),
       color: palette.text.secondary,
     },
+    // Draw date panel styles
+    dateForm: {
+      display: 'flex',
+      flexWrap: 'wrap',
+      width: '100%',
+    },
+    formControl: {
+      flex: 1,
+      width: '100%',
+    },
   });

@@ -18,7 +18,7 @@ export interface PanelProps {
   secondaryHeading?: string;
   expandedPanel: string;
   disabled?: boolean;
-  onChange: (e: any) => void;
+  onPanelChange: (e: any) => void;
 }
 
 const Panel: React.FunctionComponent<PanelProps> = ({
@@ -27,7 +27,7 @@ const Panel: React.FunctionComponent<PanelProps> = ({
   secondaryHeading,
   expandedPanel,
   disabled = false,
-  onChange,
+  onPanelChange,
   children,
 }) => {
   const classes = useStyles();
@@ -36,10 +36,10 @@ const Panel: React.FunctionComponent<PanelProps> = ({
 
   const handleChange = () => {
     if (expanded) {
-      onChange('');
+      onPanelChange('');
       return;
     }
-    onChange(id);
+    onPanelChange(id);
   };
 
   return (

@@ -1,11 +1,11 @@
 import fetch from 'isomorphic-unfetch';
-import { API_BASE } from '../shared';
 import {
   DrawDataType,
   DrawDate,
   DrawsItem,
   GameID,
 } from '@caglarturali/piyango-common';
+import { API_BASE } from '../shared';
 
 export default class API {
   /**
@@ -27,6 +27,15 @@ export default class API {
   ): Promise<DrawDataType> {
     const res = await fetch(`${API_BASE}/draws/${gameId}/${drawDate}`);
     return (await res.json()) as DrawDataType;
+  }
+
+  /**
+   * Returns draw dates for given game.
+   * @param gameId Game ID
+   */
+  static async getDrawDates(gameId: GameID): Promise<DrawDate[]> {
+    const res = await fetch(`${API_BASE}/drawdates/${gameId}`);
+    return (await res.json()) as DrawDate[];
   }
 
   /**

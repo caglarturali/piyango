@@ -3,15 +3,8 @@
  */
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core';
-import Button from '@material-ui/core/Button';
-import DialogContentText from '@material-ui/core/DialogContentText';
 import CheckCouponLayout from './comps/Layout';
 import { DrawDate, Game, GameColumn } from '@caglarturali/piyango-common';
-import ExpansionPanel from '@material-ui/core/ExpansionPanel';
-import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
-import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
-import Typography from '@material-ui/core/Typography';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { DrawDatePanel, ReportPanel, UserNumbersPanel } from './comps/Panels';
 import styles from './styles';
 
@@ -51,20 +44,23 @@ const CheckCoupon: React.FunctionComponent<CheckCouponProps> = ({
       <DrawDatePanel
         id="draw-date"
         heading="Çekiliş Tarihi"
-        secondaryHeading={drawDate}
-        onChange={setPanelExpanded}
+        onPanelChange={setPanelExpanded}
         expandedPanel={panelExpanded}
+        game={game}
+        selectedDate={drawDate}
+        onDateChange={setDrawDate}
       />
       <UserNumbersPanel
         id="user-numbers"
         heading="Tahminleriniz"
-        onChange={setPanelExpanded}
+        onPanelChange={setPanelExpanded}
         expandedPanel={panelExpanded}
       />
       <ReportPanel
         id="report-panel"
         heading="Rapor"
-        onChange={setPanelExpanded}
+        disabled={userNumbers.length === 0}
+        onPanelChange={setPanelExpanded}
         expandedPanel={panelExpanded}
       />
     </CheckCouponLayout>
