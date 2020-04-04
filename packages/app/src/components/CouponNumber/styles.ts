@@ -38,11 +38,11 @@ export default ({
       fontWeight: typography.fontWeightMedium,
       width: typography.pxToRem(24),
       margin: `${typography.pxToRem(6)} ${typography.pxToRem(3)}`,
-      padding: `${typography.pxToRem(6)} 0`,
+      padding: `${typography.pxToRem(4)} 0`,
       [breakpoints.down('xs')]: {
         fontSize: typography.pxToRem(18),
         width: typography.pxToRem(26),
-        padding: `${typography.pxToRem(8)} 0`,
+        padding: `${typography.pxToRem(6)} 0`,
       },
       [breakpoints.up('sm')]: {
         transition: transitions.create(['backgroundColor', 'color'], {
