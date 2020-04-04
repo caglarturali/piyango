@@ -25,7 +25,7 @@ class Count extends Component<CountProps & WithStyles, CountState> {
   observer?: MutationObserver;
   countRef?: CommentCount | null;
 
-  state = {
+  state: Readonly<CountState> = {
     loading: true,
     count: null,
   };
