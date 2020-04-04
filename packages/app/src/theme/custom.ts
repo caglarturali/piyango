@@ -11,6 +11,7 @@ const opts: ThemeOptions = {
     },
     typography: {
       cursive: "'Gugi', cursive",
+      condensed: "'Roboto Condensed', 'sans-serif'",
     },
   },
 };
