@@ -19,7 +19,7 @@ import Numbers from './comps/Numbers';
 import Actions, { ActionItems } from './comps/Actions';
 import Details from './comps/Details';
 import { Segments } from '../../shared';
-import Count from '../Disqussion/Count';
+import { withCount } from '../Disqussion/Count';
 
 const useStyles = makeStyles(styles);
 
@@ -46,17 +46,17 @@ const DrawDisplay: React.FunctionComponent<DrawDisplayProps> = ({
     [
       {
         title: 'Yorumlar',
-        icon: CommentIcon,
+        icon: withCount(CommentIcon)({ game, drawData }),
       },
     ],
     [
       {
         title: 'Kupon Kontrolü',
-        icon: CheckCouponIcon,
+        icon: <CheckCouponIcon />,
       },
       {
         title: 'Panoya Kopyala',
-        icon: CopyIcon,
+        icon: <CopyIcon />,
         handlers: {
           onClick: () => {
             copy(processed.clipboard());
@@ -68,7 +68,7 @@ const DrawDisplay: React.FunctionComponent<DrawDisplayProps> = ({
     [
       {
         title: 'Çekiliş Detayları',
-        icon: ExpandMoreIcon,
+        icon: <ExpandMoreIcon />,
         className: clsx('expand', { ['expandOpen']: expanded }),
         handlers: {
           onClick: () => setExpanded(!expanded),
@@ -94,7 +94,6 @@ const DrawDisplay: React.FunctionComponent<DrawDisplayProps> = ({
           <Numbers game={game} numbers={processed.winningNumbers()} />
         </Box>
       </Link>
-      {/* <Count game={game} drawData={drawData} /> */}
       <Actions
         game={game}
         actions={actions}

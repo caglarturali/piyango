@@ -12,7 +12,7 @@ const useStyles = makeStyles(styles);
 
 export interface PIconButtonProps {
   title: string;
-  icon: React.ElementType;
+  icon: React.ReactElement;
   className?: string;
   handlers?: { [eventName: string]: (e: any) => void };
   disabled?: boolean;
@@ -20,7 +20,7 @@ export interface PIconButtonProps {
 
 const PIconButton: React.FunctionComponent<PIconButtonProps> = ({
   title,
-  icon: Icon,
+  icon,
   className,
   handlers,
   disabled = false,
@@ -37,7 +37,7 @@ const PIconButton: React.FunctionComponent<PIconButtonProps> = ({
           aria-label={title}
           {...handlers}
         >
-          <Icon />
+          {icon}
         </IconButton>
       </Box>
     </Tooltip>

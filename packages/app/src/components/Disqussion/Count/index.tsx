@@ -6,10 +6,9 @@ import ReactDOM from 'react-dom';
 import { DrawDataType, Game } from '@caglarturali/piyango-common';
 import { withStyles, WithStyles } from '@material-ui/core';
 import Badge from '@material-ui/core/Badge';
-import ModeCommentIcon from '@material-ui/icons/ModeCommentOutlined';
 import { CommentCount } from 'disqus-react';
-import { disqus } from '../../../config';
 import { getDisqusConfig } from '../Disqus';
+import { disqus } from '../../../config';
 import styles from './styles';
 
 export interface CountProps {
@@ -69,7 +68,7 @@ class Count extends Component<CountProps & WithStyles, CountState> {
   };
 
   render() {
-    const { game, drawData, classes } = this.props;
+    const { game, drawData, classes, children } = this.props;
     const { loading, count } = this.state;
     const { shortname } = disqus;
 
@@ -83,7 +82,7 @@ class Count extends Component<CountProps & WithStyles, CountState> {
           />
         </span>
 
-        {!loading ? (
+        {!loading && (
           <Badge
             color="secondary"
             badgeContent={count}
@@ -91,14 +90,18 @@ class Count extends Component<CountProps & WithStyles, CountState> {
             showZero
             classes={{ badge: classes.badge }}
           >
-            <ModeCommentIcon />
+            {children}
           </Badge>
-        ) : (
-          <ModeCommentIcon />
         )}
       </Fragment>
     );
   }
 }
 
-export default withStyles(styles)(Count);
+export const DisqusCount = withStyles(styles)(Count);
+
+export const withCount = (Comp: React.ElementType) => (props: CountProps) => (
+  <DisqusCount {...props}>
+    <Comp />
+  </DisqusCount>
+);

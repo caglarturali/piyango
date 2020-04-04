@@ -9,7 +9,7 @@ export default ({ palette }: Theme) =>
       display: 'none',
     },
     badge: {
-      border: `2px solid ${palette.common.white}`,
+      border: `2px solid ${palette.background.paper}`,
       color: palette.common.white,
       top: '10%',
       right: 0,
