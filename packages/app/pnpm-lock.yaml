@@ -1,7 +1,7 @@
 dependencies:
   '@caglarturali/piyango-common': 'link:../common'
-  '@material-ui/core': 4.9.8_react-dom@16.13.1+react@16.13.1
-  '@material-ui/icons': 4.9.1_f6e950129319803d4a2bf17043cc5bb9
+  '@material-ui/core': 4.9.9_react-dom@16.13.1+react@16.13.1
+  '@material-ui/icons': 4.9.1_ebad70b039b21b6e5557d9f886c955cb
   '@material-ui/styles': 4.9.6_react-dom@16.13.1+react@16.13.1
   clsx: 1.1.0
   color: 3.1.2
@@ -1046,7 +1046,7 @@ packages:
     dev: false
     resolution:
       integrity: sha512-kBJtf7PH6aWwZ6fka3zQ0p6SBYzx4fl1LoZXE2RrnYST9Xljm7WfKJrU4g/Xr3Beg72MLrp1AWNUmuYJTL7Cow==
-  /@material-ui/core/4.9.8_react-dom@16.13.1+react@16.13.1:
+  /@material-ui/core/4.9.9_react-dom@16.13.1+react@16.13.1:
     dependencies:
       '@babel/runtime': 7.9.2
       '@material-ui/styles': 4.9.6_react-dom@16.13.1+react@16.13.1
@@ -1073,11 +1073,11 @@ packages:
       '@types/react':
         optional: true
     resolution:
-      integrity: sha512-4cslpG6oLoPWUfwPkX+hvbak4hAGiOfgXOu/UIYeeMrtsTEebC0Mirjoby7zhS4ny86YI3rXEFW6EZDmlj5n5w==
-  /@material-ui/icons/4.9.1_f6e950129319803d4a2bf17043cc5bb9:
+      integrity: sha512-Gp0UdJLxPEnkn7O0QpJ2/LOeIuT8nX9e6CjQFuLnOy10rUGjRsOZ2T170Y057xdUmw1VNE+0bvkkO6dOghxt4g==
+  /@material-ui/icons/4.9.1_ebad70b039b21b6e5557d9f886c955cb:
     dependencies:
       '@babel/runtime': 7.9.2
-      '@material-ui/core': 4.9.8_react-dom@16.13.1+react@16.13.1
+      '@material-ui/core': 4.9.9_react-dom@16.13.1+react@16.13.1
       react: 16.13.1
       react-dom: 16.13.1_react@16.13.1
     dev: false
@@ -1648,8 +1648,8 @@ packages:
       integrity: sha512-Z942RysHXmJrhqk88FmKBVq/v5tqmSkDz7p54G/MGyjMnCFFnC79XWNbg+Vta8W6Wb2qtSZTSxIGkJrRpCFEiA==
   /browserslist/4.11.1:
     dependencies:
-      caniuse-lite: 1.0.30001038
-      electron-to-chromium: 1.3.395
+      caniuse-lite: 1.0.30001039
+      electron-to-chromium: 1.3.397
       node-releases: 1.1.53
       pkg-up: 2.0.0
     dev: false
@@ -1658,8 +1658,8 @@ packages:
       integrity: sha512-DCTr3kDrKEYNw6Jb9HFxVLQNaue8z+0ZfRBRjmCunKDEXEBajKDj2Y+Uelg+Pi29OnvaSGwjOsnRyNEkXzHg5g==
   /browserslist/4.8.3:
     dependencies:
-      caniuse-lite: 1.0.30001038
-      electron-to-chromium: 1.3.395
+      caniuse-lite: 1.0.30001039
+      electron-to-chromium: 1.3.397
       node-releases: 1.1.53
     dev: false
     hasBin: true
@@ -1733,10 +1733,10 @@ packages:
       node: '>=6'
     resolution:
       integrity: sha512-L28STB170nwWS63UjtlEOE3dldQApaJXZkOI1uMFfzf3rRuPegHaHesyee+YxQ+W6SvRDQV6UrdOdRiR153wJg==
-  /caniuse-lite/1.0.30001038:
+  /caniuse-lite/1.0.30001039:
     dev: false
     resolution:
-      integrity: sha512-zii9quPo96XfOiRD4TrfYGs+QsGZpb2cGiMAzPjtf/hpFgB6zCPZgJb7I1+EATeMw/o+lG8FyRAnI+CWStHcaQ==
+      integrity: sha512-SezbWCTT34eyFoWHgx8UWso7YtvtM7oosmFoXbCkdC6qJzRfBTeTgE9REtKtiuKXuMwWTZEvdnFNGAyVMorv8Q==
   /chalk/1.1.3:
     dependencies:
       ansi-styles: 2.2.1
@@ -2034,13 +2034,13 @@ packages:
       webpack: ^4.0.0
     resolution:
       integrity: sha512-x9Y1vvHe5RR+4tzwFdWExPueK00uqFTCw7mZy+9aE/X1SKWOArm5luaOrtJ4d05IpOwJ6S86b/tVcIdhw1Bu4A==
-  /css-vendor/2.0.7:
+  /css-vendor/2.0.8:
     dependencies:
       '@babel/runtime': 7.9.2
       is-in-browser: 1.1.3
     dev: false
     resolution:
-      integrity: sha512-VS9Rjt79+p7M0WkPqcAza4Yq1ZHrsHrwf7hPL/bjQB+c1lwmAI+1FXxYTYt818D/50fFVflw0XKleiBN5RITkg==
+      integrity: sha512-x9Aq0XTInxrkuFeHKbYC7zWY8ai7qJ04Kxd9MnvbC1uO5DagxoHQjm4JvG+vCdXOoFtCjbL2XSZfxmoYa9uQVQ==
   /css/2.2.4:
     dependencies:
       inherits: 2.0.4
@@ -2198,10 +2198,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-07z8uv2wMyS51kKhD1KsdXJg5WQ6t93RneqRxUHnskXVtlYYkLqM0gqStQZ3pj073g687jPCHrqNfCzawLYh5g==
-  /electron-to-chromium/1.3.395:
+  /electron-to-chromium/1.3.397:
     dev: false
     resolution:
-      integrity: sha512-kdn2cX6hZXDdz/O2Q8tZscITlsSv1a/7bOq/fQs7QAJ9iaRlnhZPccarNhxZv1tXgmgwCnKp/1lJNYLOG8Dxiw==
+      integrity: sha512-zcUd1p/7yzTSdWkCTrqGvbnEOASy96d0RJL/lc5BDJoO23Z3G/VHd0yIPbguDU9n8QNUTCigLO7oEdtOb7fp2A==
   /elliptic/6.5.2:
     dependencies:
       bn.js: 4.11.8
@@ -3032,7 +3032,7 @@ packages:
   /jss-plugin-vendor-prefixer/10.1.1:
     dependencies:
       '@babel/runtime': 7.9.2
-      css-vendor: 2.0.7
+      css-vendor: 2.0.8
       jss: 10.1.1
     dev: false
     resolution:
@@ -4839,8 +4839,8 @@ packages:
     resolution:
       integrity: sha512-a4UGQaWPH59mOXUYnAG2ewncQS4i4F43Tv3JoAM+s2VDAmS9NsK8GpDMLrCHPksFT7h3K6TOoUNn2pb7RoXx4g==
 specifiers:
-  '@caglarturali/piyango-common': ^3.0.0
-  '@material-ui/core': ^4.9.8
+  '@caglarturali/piyango-common': ^4.0.0
+  '@material-ui/core': ^4.9.9
   '@material-ui/icons': ^4.9.1
   '@material-ui/styles': ^4.9.6
   '@types/hls.js': ^0.12.6

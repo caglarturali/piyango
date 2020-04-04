@@ -1,6 +1,6 @@
 devDependencies:
   '@types/color': 3.0.1
-  '@types/jest': 25.1.5
+  '@types/jest': 25.2.1
   '@types/lodash': 4.14.149
   '@types/moment-timezone': 0.5.13
   '@types/node': 13.11.0
@@ -477,13 +477,13 @@ packages:
     dev: true
     resolution:
       integrity: sha512-UpYjBi8xefVChsCoBpKShdxTllC9pwISirfoZsUa2AAdQg/Jd2KQGtSbw+ya7GPo7x/wAPlH6JBhKhAsXUEZNA==
-  /@types/jest/25.1.5:
+  /@types/jest/25.2.1:
     dependencies:
-      jest-diff: 25.1.0
-      pretty-format: 25.1.0
+      jest-diff: 25.2.6
+      pretty-format: 25.2.6
     dev: true
     resolution:
-      integrity: sha512-FBmb9YZHoEOH56Xo/PIYtfuyTL0IzJLM3Hy0Sqc82nn5eqqXgefKcl/eMgChM8eSGVfoDee8cdlj7K74T8a6Yg==
+      integrity: sha512-msra1bCaAeEdkSyA0CZ6gW1ukMIvZ5YoJkdXw/qhQdsuuDlFTcEUrUw8CLCPt2rVRUfXlClVvK2gvPs9IokZaA==
   /@types/lodash/4.14.149:
     dev: true
     resolution:
@@ -1043,7 +1043,7 @@ packages:
       node: '>=4.8'
     resolution:
       integrity: sha512-eTVLrBSt7fjbDygz805pMnstIs2VTBNkRm0qxZd+M7A5XDdxVRWO5MxGBXZhjY4cqLYLdtrGqRf8mBPmzwSpWQ==
-  /cross-spawn/7.0.1:
+  /cross-spawn/7.0.2:
     dependencies:
       path-key: 3.1.1
       shebang-command: 2.0.0
@@ -1052,7 +1052,7 @@ packages:
     engines:
       node: '>= 8'
     resolution:
-      integrity: sha512-u7v4o84SwFpD32Z8IIcPZ6z1/ie24O6RU3RbtL5Y316l3KuHVPx9ItBgWQ6VlfAFnRnTtMUrsQ9MUUTuEZjogg==
+      integrity: sha512-PD6G8QG3S4FK/XCGFbEQrDqO2AnMMsy0meR7lerlIOHAAbkuavGU/pOqprrlvfTNjvowivTeBsjebAL0NSoMxw==
   /cssom/0.3.8:
     dev: true
     resolution:
@@ -1272,7 +1272,7 @@ packages:
       integrity: sha512-adbxcyWV46qiHyvSp50TKt05tB4tK3HcmF7/nxfAdhnox83seTDbwnaqKO4sXRy7roHAIFqJP/Rw/AuEbX61LA==
   /execa/3.4.0:
     dependencies:
-      cross-spawn: 7.0.1
+      cross-spawn: 7.0.2
       get-stream: 5.1.0
       human-signals: 1.1.1
       is-stream: 2.0.0
@@ -1978,17 +1978,6 @@ packages:
       node: '>= 8.3'
     resolution:
       integrity: sha512-rIdPPXR6XUxi+7xO4CbmXXkE6YWprvlKc4kg1SrkCL2YV5m/8MkHstq9gBZJ19Qoa3iz/GP+0sTG/PcIwkFojg==
-  /jest-diff/25.1.0:
-    dependencies:
-      chalk: 3.0.0
-      diff-sequences: 25.2.6
-      jest-get-type: 25.2.6
-      pretty-format: 25.1.0
-    dev: true
-    engines:
-      node: '>= 8.3'
-    resolution:
-      integrity: sha512-nepXgajT+h017APJTreSieh4zCqnSHEJ1iT8HDlewu630lSJ4Kjjr9KNzm+kzGwwcpsDE6Snx1GJGzzsefaEHw==
   /jest-diff/25.2.6:
     dependencies:
       chalk: 3.0.0
@@ -3056,17 +3045,6 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-5xJQIPT8BraI7ZnaDwSbu5zLrB6vvi8hVV58yHQ+QK64qrY40dULy0HSRlQ2/2IdzeBpjhDkqdcFBnFeDEMVdg==
-  /pretty-format/25.1.0:
-    dependencies:
-      '@jest/types': 25.2.6
-      ansi-regex: 5.0.0
-      ansi-styles: 4.2.1
-      react-is: 16.13.1
-    dev: true
-    engines:
-      node: '>= 8.3'
-    resolution:
-      integrity: sha512-46zLRSGLd02Rp+Lhad9zzuNZ+swunitn8zIpfD2B4OPCRLXbM87RJT2aBLBWYOznNUML/2l/ReMyWNC80PJBUQ==
   /pretty-format/25.2.6:
     dependencies:
       '@jest/types': 25.2.6
@@ -4115,7 +4093,7 @@ packages:
       integrity: sha512-Ux4ygGWsu2c7isFWe8Yu1YluJmqVhxqK2cLXNQA5AcC3QfbGNpM7fu0Y8b/z16pXLnFxZYvWhd3fhBY9DLmC6Q==
 specifiers:
   '@types/color': ^3.0.1
-  '@types/jest': ^25.1.5
+  '@types/jest': ^25.2.1
   '@types/lodash': ^4.14.149
   '@types/moment-timezone': ^0.5.13
   '@types/node': ^13.11.0
