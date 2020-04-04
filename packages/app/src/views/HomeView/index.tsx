@@ -8,7 +8,7 @@ import {
   ProcessDraw,
 } from '@caglarturali/piyango-common';
 import Grid from '@material-ui/core/Grid';
-import SectionHeader from '../../components/SectionHeader';
+import SectionHeader from '../../layouts/SectionHeader';
 import Container from '../../components/Container';
 import DrawDisplay from '../../components/DrawDisplay';
 

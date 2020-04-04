@@ -4,9 +4,9 @@
 import React from 'react';
 import { DrawDataType, GameID, GameUtils } from '@caglarturali/piyango-common';
 import Grid from '@material-ui/core/Grid';
+import SectionHeader from '../../layouts/SectionHeader';
 import Container from '../../components/Container';
 import DrawDisplay from '../../components/DrawDisplay';
-import SectionHeader from '../../components/SectionHeader';
 import { DrawVideo } from '../../components/DrawVideo';
 import Comments from '../../components/Disqussion/Comments';
 
