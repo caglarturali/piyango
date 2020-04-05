@@ -1,3 +1,4 @@
+export * from './Check';
 export * from './Draw';
 export * from './Game';
 export * from './Lottery';
