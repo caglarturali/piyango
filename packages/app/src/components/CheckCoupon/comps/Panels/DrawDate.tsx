@@ -5,9 +5,9 @@ import React, { useEffect, useState } from 'react';
 import {
   DateFormat,
   DateUtils,
+  DrawDataType,
   DrawDate,
   Game,
-  DrawDataType,
   ProcessDraw,
 } from '@caglarturali/piyango-common';
 import { makeStyles } from '@material-ui/core';
