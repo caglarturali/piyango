@@ -7,7 +7,7 @@ import {
   GAMES,
 } from '@caglarturali/piyango-common';
 import fs from 'fs';
-import PathUtils from '../../utils/PathUtils';
+import { PathUtils } from '../../utils';
 import { NumFrequency } from './NumFrequency';
 
 /**
