@@ -7,6 +7,8 @@ import {
   DateUtils,
   DrawDate,
   Game,
+  DrawDataType,
+  ProcessDraw,
 } from '@caglarturali/piyango-common';
 import { makeStyles } from '@material-ui/core';
 import FormControl from '@material-ui/core/FormControl';
@@ -24,11 +26,12 @@ export interface DrawDatePanelProps {
   game: Game;
   selectedDate: DrawDate;
   onDateChange: (e: any) => void;
+  drawData?: DrawDataType;
 }
 
 export const DrawDatePanel: React.FunctionComponent<
   PanelProps & DrawDatePanelProps
-> = ({ game, selectedDate, onDateChange, ...props }) => {
+> = ({ game, selectedDate, onDateChange, drawData, ...props }) => {
   const classes = useStyles();
   const [drawDates, setDrawDates] = useState<DrawDate[]>([]);
 
@@ -44,6 +47,8 @@ export const DrawDatePanel: React.FunctionComponent<
   const dateFriendly = (date: DrawDate) => {
     return DateUtils.convert(date, DateFormat.API, DateFormat.FRIENDLY);
   };
+
+  const summary = drawData ? new ProcessDraw(game.id, drawData).summary() : '';
 
   return (
     <Panel {...props} secondaryHeading={dateFriendly(selectedDate)}>
@@ -62,9 +67,7 @@ export const DrawDatePanel: React.FunctionComponent<
               </MenuItem>
             ))}
           </Select>
-          <FormHelperText>
-            {/* Optional: show winning numbers */}
-          </FormHelperText>
+          <FormHelperText>{summary}</FormHelperText>
         </FormControl>
       </form>
     </Panel>
