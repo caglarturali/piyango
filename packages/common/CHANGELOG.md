@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [4.2.1] - 2020-04-05
+
+### Changed
+
+- Fix: export Random class
+
 ## [4.2.0] - 2020-04-05
 
 ### Added
