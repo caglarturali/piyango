@@ -126,17 +126,13 @@ export class ProcessDraw<T extends DrawDataType> {
   }
 
   /**
-   * Returns the summary of the draw
-   * for to be used as clipboard text.
+   * Returns the winning numbers as text.
    */
-  clipboard(): string {
-    const { id, name } = this.game;
-    const { cekilisTarihi } = this.drawData;
-
-    // Base text.
-    let text = `${name} - ${cekilisTarihi}: `;
-
+  summary(): string {
+    const { id } = this.game;
     const { main, plus } = this.winningNumbers();
+
+    let text = '';
     if (id === GameID.piyango) {
       text += main.join('');
     } else {
@@ -147,5 +143,15 @@ export class ProcessDraw<T extends DrawDataType> {
       }
     }
     return text;
+  }
+
+  /**
+   * Returns the summary of the draw
+   * for to be used as clipboard text.
+   */
+  clipboard(): string {
+    const { name } = this.game;
+    const { cekilisTarihi } = this.drawData;
+    return `${name} - ${cekilisTarihi}: ${this.summary()}`;
   }
 }
