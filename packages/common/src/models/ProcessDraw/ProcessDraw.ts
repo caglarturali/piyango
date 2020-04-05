@@ -130,19 +130,7 @@ export class ProcessDraw<T extends DrawDataType> {
    */
   summary(): string {
     const { id } = this.game;
-    const { main, plus } = this.winningNumbers();
-
-    let text = '';
-    if (id === GameID.piyango) {
-      text += main.join('');
-    } else {
-      text += main.map((n) => n.toString().padStart(2, '0')).join(' ');
-      if (plus) {
-        text += ' + ';
-        text += plus.map((n) => n.toString().padStart(2, '0')).join(' ');
-      }
-    }
-    return text;
+    return DrawUtils.stringifyColumn(id, this.winningNumbers());
   }
 
   /**

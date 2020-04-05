@@ -25,6 +25,27 @@ export class DrawUtils {
   }
 
   /**
+   * Stringfies the game column object.
+   * @param gameId Game ID
+   * @param column GameColumn
+   */
+  static stringifyColumn(gameId: GameID, column: GameColumn): string {
+    const { main, plus } = column;
+
+    let text = '';
+    if (gameId === GameID.piyango) {
+      text += main.join('');
+    } else {
+      text += main.map((n) => n.toString().padStart(2, '0')).join(' ');
+      if (plus) {
+        text += ' + ';
+        text += plus.map((n) => n.toString().padStart(2, '0')).join(' ');
+      }
+    }
+    return text;
+  }
+
+  /**
    * Returns the user-readable text corresponding to matchType.
    * @param matchType Match type
    */
