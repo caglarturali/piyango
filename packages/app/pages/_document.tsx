@@ -23,6 +23,10 @@ export default class MyDocument extends Document {
             href="https://fonts.googleapis.com/css?family=Gugi&display=swap"
             rel="stylesheet"
           />
+          <link
+            href="https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap"
+            rel="stylesheet"
+          />
           <link rel="icon" href="/icons/icon-192.png" />
         </Head>
         <body>

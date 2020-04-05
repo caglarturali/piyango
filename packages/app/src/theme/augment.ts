@@ -13,6 +13,7 @@ declare module '@material-ui/core/styles/createMuiTheme' {
       typography: {
         cursive: string;
         condensed: string;
+        monospace: string;
       };
     };
   }
@@ -30,6 +31,7 @@ declare module '@material-ui/core/styles/createMuiTheme' {
       typography?: {
         cursive?: string;
         condensed?: string;
+        monospace?: string;
       };
     };
   }
