@@ -12,12 +12,12 @@ import {
 import { makeStyles } from '@material-ui/core';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
 import AddIcon from '@material-ui/icons/Add';
 import CheckIcon from '@material-ui/icons/Check';
 import Panel, { PanelProps } from './Panel';
-import CouponNumber from '../../../CouponNumber';
+
 import styles from '../../styles';
+import Coupon from '../../../Coupon';
 
 const useStyles = makeStyles(styles);
 
@@ -38,6 +38,7 @@ export const UserNumbersPanel: React.FunctionComponent<
   ...props
 }) => {
   const classes = useStyles();
+
   const [userNumbers, setUserNumbers] = useState<GameColumn>({ main: [] });
 
   const handleNumberClick = (
@@ -70,14 +71,6 @@ export const UserNumbersPanel: React.FunctionComponent<
     setUserNumbers({ main: [] });
   };
 
-  const isNumberSelected = (num: number, poolKey: PoolKeys) => {
-    const numbers = userNumbers[poolKey];
-    if (numbers) {
-      return numbers.includes(num);
-    }
-    return false;
-  };
-
   const isOneColumnEntered = () => {
     const { main: mainPool, plus: plusPool } = game.pool;
     const { main: userMain, plus: userPlus } = userNumbers;
@@ -94,37 +87,6 @@ export const UserNumbersPanel: React.FunctionComponent<
     } else {
       return false;
     }
-  };
-
-  const renderPool = <
-    T extends NumbersPool,
-    K extends keyof (Pool | GameColumn)
-  >(
-    pool: T,
-    poolKey: K,
-  ) => {
-    const { select, from } = pool;
-    const selected = userNumbers[poolKey]?.length || 0;
-    const remainingText =
-      select - selected === 0
-        ? 'Seçim tamamlandı.'
-        : `Bu kümeden <strong>${select - selected}</strong> sayı seçin:`;
-    return (
-      <Box>
-        <Typography className={classes.poolTitle}>
-          <span dangerouslySetInnerHTML={{ __html: remainingText }} />
-        </Typography>
-
-        {Array.from({ length: from }, (_, k) => k + 1).map((num) => (
-          <CouponNumber
-            num={num}
-            key={`${game.id}-pool-${poolKey}-num-${num}`}
-            handleClick={() => handleNumberClick(num, poolKey, select)}
-            isSelected={isNumberSelected(num, poolKey)}
-          />
-        ))}
-      </Box>
-    );
   };
 
   // Panel actions
@@ -144,14 +106,13 @@ export const UserNumbersPanel: React.FunctionComponent<
     </>
   );
 
-  const { main, plus } = game.pool;
-
   return (
     <Panel {...props} actions={actions}>
-      <Box>
-        {renderPool(main, 'main')}
-        {plus && renderPool(plus, 'plus')}
-      </Box>
+      <Coupon
+        game={game}
+        userNumbers={userNumbers}
+        handleNumberClick={handleNumberClick}
+      />
     </Panel>
   );
 };

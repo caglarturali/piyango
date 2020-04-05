@@ -2,12 +2,12 @@
  * CheckCoupon component.
  */
 import React, { useEffect, useState } from 'react';
-import { makeStyles } from '@material-ui/core';
 import {
   DrawDataType,
   DrawDate,
   Game,
   GameColumn,
+  RegularDrawData,
   RegularGame,
 } from '@caglarturali/piyango-common';
 import CheckCouponLayout from './comps/Layout';
@@ -18,21 +18,31 @@ import {
   UserNumbersPanel,
 } from './comps/Panels';
 import API from '../../services/API';
-import styles from './styles';
-
-const useStyles = makeStyles(styles);
 
 export interface CheckCouponProps {
   game: Game;
   drawDate: DrawDate;
 }
 
+const testData: GameColumn[] = [
+  {
+    main: [2, 5, 6, 17, 22],
+    plus: [3],
+  },
+  {
+    main: [2, 15, 16, 17, 22],
+    plus: [4],
+  },
+  {
+    main: [2, 5, 16, 22, 33],
+    plus: [4],
+  },
+];
+
 const CheckCoupon: React.FunctionComponent<CheckCouponProps> = ({
   game,
   drawDate: drawDateProp,
 }) => {
-  const classes = useStyles();
-
   const [open, setOpen] = useState(true);
   const [panelExpanded, setPanelExpanded] = useState(PanelID.UserNumbers);
   const [drawDate, setDrawDate] = useState<DrawDate>(drawDateProp);
@@ -92,8 +102,8 @@ const CheckCoupon: React.FunctionComponent<CheckCouponProps> = ({
         disabled={userNumbers.length === 0}
         onPanelChange={setPanelExpanded}
         expandedPanel={panelExpanded}
-        game={game}
-        drawData={drawData}
+        game={game as RegularGame}
+        drawData={drawData as RegularDrawData}
         userNumbers={userNumbers}
       />
     </CheckCouponLayout>

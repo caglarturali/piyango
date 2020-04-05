@@ -3,7 +3,7 @@
  */
 import { createStyles, Theme } from '@material-ui/core';
 
-export default ({ palette, spacing, typography }: Theme) =>
+export default ({ custom, palette, spacing, typography }: Theme) =>
   createStyles({
     // Layout styles.
     appBarRoot: {
@@ -54,12 +54,5 @@ export default ({ palette, spacing, typography }: Theme) =>
       flex: 1,
       width: '100%',
     },
-    // UserNumbers panel styles
-    pool: {
-      width: '100%',
-    },
-    poolTitle: {
-      marginTop: spacing(1.25),
-      marginBottom: spacing(1),
-    },
+    // Report panel styles
   });
