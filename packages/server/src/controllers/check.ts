@@ -2,22 +2,20 @@
  * Check numbers controller.
  */
 import {
+  CheckResult,
   DrawDate,
   Game,
   GameID,
   GAMES,
+  ICheckNumbers,
+  LotteryCheck,
   LotteryDrawData,
   LotteryGame,
+  RegularCheck,
   RegularDrawData,
   RegularGame,
 } from '@caglarturali/piyango-common';
 import ApiResponse from '../models/ApiResponse';
-import {
-  CheckResult,
-  ICheckNumbers,
-  LotteryCheck,
-  RegularCheck,
-} from '../models/Check';
 import CheckBody from '../models/CheckBody';
 import { getDrawDetailsForDraw } from './draws';
 import { messages } from '../constants';

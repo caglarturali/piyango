@@ -27,28 +27,39 @@ export default class Random {
     const guesses: GameColumn[] = [];
 
     for (let i = 1; i <= this.colCount; i++) {
-      const col = {} as GameColumn;
+      const { main, plus } = this.game.pool;
 
-      // Loop over game's pools.
-      Object.keys(this.game.pool).forEach((pool) => {
-        const nums: number[] = [];
+      // Generate numbers.
+      const col = {
+        main: this.generateNumbers(main),
+      } as GameColumn;
 
-        const { from, select } = this.game.pool[pool] as NumbersPool;
-
-        // Create "pool" of numbers.
-        const numPool = Array.from({ length: from }, (_, k: number) => k + 1);
-
-        for (let j = 1; j <= select; j++) {
-          NumUtils.shuffleNumbers(numPool);
-          nums.push(numPool.pop() as number);
-        }
-        nums.sort((a, b) => a - b);
-
-        col[pool] = nums;
-      });
+      if (plus) {
+        col.plus = this.generateNumbers(plus);
+      }
 
       guesses.push(col);
     }
     return guesses;
+  }
+
+  /**
+   * Generates random numbers according to the given pool.
+   * @param pool Pool object
+   */
+  private generateNumbers(pool: NumbersPool): number[] {
+    const nums: number[] = [];
+    const { from, select } = pool;
+
+    // Create "pool" of numbers.
+    const numPool = Array.from({ length: from }, (_, k: number) => k + 1);
+
+    for (let j = 1; j <= select; j++) {
+      NumUtils.shuffleNumbers(numPool);
+      nums.push(numPool.pop() as number);
+    }
+
+    nums.sort((a, b) => a - b);
+    return nums;
   }
 }
