@@ -1,5 +1,6 @@
 import fetch from 'isomorphic-unfetch';
 import {
+  DateUtils,
   DrawDataType,
   DrawDate,
   DrawsItem,
@@ -12,7 +13,7 @@ export default class API {
    * Returns latest draws.
    */
   static async getLatestDraws(): Promise<DrawsItem[]> {
-    const res = await fetch(`${API_BASE}/draws`);
+    const res = await fetch(`${API_BASE}/api/draws`);
     return (await res.json()) as DrawsItem[];
   }
 
@@ -25,7 +26,12 @@ export default class API {
     gameId: GameID,
     drawDate: DrawDate,
   ): Promise<DrawDataType> {
-    const res = await fetch(`${API_BASE}/draws/${gameId}/${drawDate}`);
+    const subDir = DateUtils.isLessThan(drawDate, '20200101')
+      ? 'static'
+      : 'api';
+    const res = await fetch(
+      `${API_BASE}/${subDir}/draws/${gameId}/${drawDate}`,
+    );
     return (await res.json()) as DrawDataType;
   }
 
@@ -34,7 +40,7 @@ export default class API {
    * @param gameId Game ID
    */
   static async getDrawDates(gameId: GameID): Promise<DrawDate[]> {
-    const res = await fetch(`${API_BASE}/drawdates/${gameId}`);
+    const res = await fetch(`${API_BASE}/api/drawdates/${gameId}`);
     return (await res.json()) as DrawDate[];
   }
 
@@ -44,6 +50,6 @@ export default class API {
    * @param drawDate Draw date
    */
   static getEmbedUrl(gameId: GameID, drawDate: DrawDate): string {
-    return `${API_BASE}/embed/${gameId}/${drawDate}`;
+    return `${API_BASE}/api/embed/${gameId}/${drawDate}`;
   }
 }
