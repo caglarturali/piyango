@@ -9,12 +9,13 @@ import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpansionPanelActions from '@material-ui/core/ExpansionPanelActions';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { PanelID } from './';
 import styles from '../../styles';
 
 const useStyles = makeStyles(styles);
 
 export interface PanelProps {
-  id: string;
+  id: PanelID;
   heading: string;
   secondaryHeading?: string;
   expandedPanel: string;
@@ -39,7 +40,7 @@ const Panel: React.FunctionComponent<PanelProps> = ({
 
   const handleChange = () => {
     if (expanded) {
-      onPanelChange('');
+      onPanelChange(null);
       return;
     }
     onPanelChange(id);
