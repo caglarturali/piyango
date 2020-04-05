@@ -39,6 +39,10 @@ const CheckCoupon: React.FunctionComponent<CheckCouponProps> = ({
     setOpen(false);
   };
 
+  const handleAddUserNumbers = (column: GameColumn) => {
+    setUserNumbers([...userNumbers, column]);
+  };
+
   return (
     <CheckCouponLayout
       title={`${game.name} Kupon Kontrolü`}
@@ -61,6 +65,9 @@ const CheckCoupon: React.FunctionComponent<CheckCouponProps> = ({
         onPanelChange={setPanelExpanded}
         expandedPanel={panelExpanded}
         game={game as RegularGame}
+        onAddUserNumbers={handleAddUserNumbers}
+        isReportAvailable={userNumbers.length > 0}
+        onReportClick={() => setPanelExpanded('report-panel')}
       />
       <ReportPanel
         id="report-panel"
