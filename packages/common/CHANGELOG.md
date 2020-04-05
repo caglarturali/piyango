@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [4.2.0] - 2020-04-05
+
+### Added
+
+- Random and NumUtils classes added
+
 ## [4.1.0] - 2020-04-05
 
 ### Added
