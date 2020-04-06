@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [6.0.0] - 2020-04-06
+
+### Changed
+
+- Move ProcessDraw, Random and Check classes to package utils
+
 ## [5.1.1] - 2020-04-06
 
 ### Changed

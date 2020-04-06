@@ -1,4 +1,4 @@
-import { IReportLine } from '../ProcessDraw';
+import { IReportLine } from './';
 
 /**
  * Interface definiton of report lines for lottery games.

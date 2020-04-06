@@ -2,4 +2,3 @@ export * from './LotteryCategory';
 export * from './LotteryDrawData';
 export * from './LotteryGame';
 export * from './LotteryMatch';
-export * from './LotteryReportLine';
