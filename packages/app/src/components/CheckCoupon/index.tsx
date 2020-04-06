@@ -37,6 +37,22 @@ const testData: GameColumn[] = [
     main: [2, 5, 16, 22, 33],
     plus: [4],
   },
+  {
+    main: [2, 6, 16, 17, 22],
+    plus: [4],
+  },
+  {
+    main: [2, 14, 16, 22, 33],
+    plus: [4],
+  },
+  {
+    main: [2, 15, 16, 17, 22],
+    plus: [4],
+  },
+  {
+    main: [2, 5, 16, 22, 33],
+    plus: [4],
+  },
 ];
 
 const CheckCoupon: React.FunctionComponent<CheckCouponProps> = ({
@@ -47,7 +63,7 @@ const CheckCoupon: React.FunctionComponent<CheckCouponProps> = ({
   const [panelExpanded, setPanelExpanded] = useState(PanelID.UserNumbers);
   const [drawDate, setDrawDate] = useState<DrawDate>(drawDateProp);
   const [drawData, setDrawData] = useState<DrawDataType>();
-  const [userNumbers, setUserNumbers] = useState<GameColumn[]>(testData);
+  const [userNumbers, setUserNumbers] = useState<GameColumn[]>([]);
 
   useEffect(() => {
     const getData = async () => {
