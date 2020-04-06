@@ -2,7 +2,8 @@
  * HomeView component.
  */
 import React from 'react';
-import { DrawsItem, GameID, ProcessDraw } from '@caglarturali/piyango-common';
+import { DrawsItem, GameID } from '@caglarturali/piyango-common';
+import { ProcessDraw } from '@caglarturali/piyango-utils';
 import { GameUtils } from '@caglarturali/piyango-utils';
 import Grid from '@material-ui/core/Grid';
 import SectionHeader from '../../layouts/SectionHeader';

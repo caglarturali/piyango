@@ -4,7 +4,8 @@
 import React, { useMemo, useState } from 'react';
 import Link from 'next/link';
 import clsx from 'clsx';
-import { DrawDataType, Game, ProcessDraw } from '@caglarturali/piyango-common';
+import { DrawDataType, Game } from '@caglarturali/piyango-common';
+import { ProcessDraw } from '@caglarturali/piyango-utils';
 import copy from 'copy-to-clipboard';
 import { makeStyles } from '@material-ui/core';
 import Box from '@material-ui/core/Box';
