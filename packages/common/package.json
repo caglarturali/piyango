@@ -16,7 +16,7 @@
     "sloc": "node-sloc . -x node_modules,cjs,esm"
   },
   "dependencies": {
-    "@caglarturali/piyango-utils": "^0.1.0",
+    "@caglarturali/piyango-utils": "^0.2.0",
     "moment": "^2.24.0"
   },
   "devDependencies": {
