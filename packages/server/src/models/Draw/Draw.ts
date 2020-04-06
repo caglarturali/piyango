@@ -3,11 +3,11 @@ import fetch from 'node-fetch';
 import stripBom from 'strip-bom';
 import {
   DateFormat,
-  DateUtils,
   DrawDataType,
   DrawDate,
   GameID,
 } from '@caglarturali/piyango-common';
+import { DateUtils } from '@caglarturali/piyango-utils';
 import { messages, MPI_BASE } from '../../constants';
 import { PathUtils } from '../../utils';
 

@@ -1,11 +1,11 @@
 import {
-  DateUtils,
   DrawDate,
   Game,
   GameColumn,
   GameID,
   GAMES,
 } from '@caglarturali/piyango-common';
+import { DateUtils } from '@caglarturali/piyango-utils';
 import fs from 'fs';
 import { PathUtils } from '../../utils';
 import { NumFrequency } from './NumFrequency';

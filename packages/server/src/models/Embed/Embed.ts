@@ -1,12 +1,12 @@
 import fetch from 'node-fetch';
 import {
   DateFormat,
-  DateUtils,
   DrawDate,
   Game,
   GameID,
   GAMES,
 } from '@caglarturali/piyango-common';
+import { DateUtils } from '@caglarturali/piyango-utils';
 import { EmbedResponse } from '.';
 import { messages, STREAM_URL } from '../../constants';
 

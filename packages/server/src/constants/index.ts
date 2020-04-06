@@ -1,3 +1,3 @@
 export * from './messages';
-export * from './path';
+export * from './paths';
 export * from './urls';

@@ -1,10 +1,10 @@
 import {
   DateFormat,
-  DateUtils,
   DrawDate,
   GameID,
   GAMES,
 } from '@caglarturali/piyango-common';
+import { DateUtils } from '@caglarturali/piyango-utils';
 import { DrawHistoryData } from './DrawHistoryData';
 import { HistoryResponse } from '.';
 import DrawDates from '../DrawDates';

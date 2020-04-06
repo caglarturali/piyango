@@ -1,5 +1,6 @@
 import moment from 'moment';
-import { DateFormat, DateUtils, GameID } from '@caglarturali/piyango-common';
+import { DateFormat, GameID } from '@caglarturali/piyango-common';
+import { DateUtils } from '@caglarturali/piyango-utils';
 import { getDrawDates } from '../drawdates';
 import { SortOrder } from '../../models/SortOrder';
 

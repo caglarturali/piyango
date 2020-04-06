@@ -1,4 +1,5 @@
-import { DateUtils, GameID, GAMES } from '@caglarturali/piyango-common';
+import { GameID, GAMES } from '@caglarturali/piyango-common';
+import { DateUtils } from '@caglarturali/piyango-utils';
 import { SortOrder } from '../../src/models/SortOrder';
 import { messages } from '../../src/constants';
 import conf from '../../src/apiconfig';

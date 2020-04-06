@@ -1,11 +1,11 @@
 import {
   DateFormat,
-  DateUtils,
   GameID,
   GAMES,
   RegularDrawData,
   RegularDrawType,
 } from '@caglarturali/piyango-common';
+import { DateUtils } from '@caglarturali/piyango-utils';
 import {
   getDrawDetailsForDraw,
   getDrawDetailsForDraws,

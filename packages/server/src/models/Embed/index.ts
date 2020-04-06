@@ -1,4 +1,2 @@
-import Embed from './Embed';
-
-export default Embed;
+export { default } from './Embed';
 export * from './EmbedResponse';
