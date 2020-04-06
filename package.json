@@ -17,7 +17,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "pnpm run lint:fix",
-      "pre-push": "",
+      "pre-push": "pnpm test",
       "commit-msg": "echo $HUSKY_GIT_PARAMS"
     }
   },
