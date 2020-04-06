@@ -26,10 +26,9 @@ export class Random {
       const { main, plus } = this.game.pool;
 
       // Generate numbers.
-      const col =
-        {
-          main: this.generateNumbers(main),
-        } as GameColumn;
+      const col = {
+        main: this.generateNumbers(main),
+      } as GameColumn;
 
       if (plus) {
         col.plus = this.generateNumbers(plus);
