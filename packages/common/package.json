@@ -1,6 +1,6 @@
 {
   "name": "@caglarturali/piyango-common",
-  "version": "5.1.0",
+  "version": "5.1.1",
   "main": "cjs/index.js",
   "module": "esm/index.js",
   "types": "esm/index.d.ts",
