@@ -10,12 +10,13 @@
     "lint": "tslint -c tslint.json \"packages/**/*.ts\"",
     "lint:fix": "pnpm run lint -- --fix",
     "sync": "pnpm recursive run sync:commit --filter @caglarturali/piyango-server",
-    "loc": "pnpm recursive run sloc"
+    "loc": "pnpm recursive run sloc",
+    "update": "pnpm recursive update"
   },
   "husky": {
     "hooks": {
       "pre-commit": "pnpm run lint:fix",
-      "pre-push": "",
+      "pre-push": "pnpm test",
       "commit-msg": "echo $HUSKY_GIT_PARAMS"
     }
   },
