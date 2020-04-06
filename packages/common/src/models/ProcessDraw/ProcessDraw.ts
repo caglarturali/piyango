@@ -1,11 +1,11 @@
 import moment, { Moment } from 'moment';
+import { DrawUtils, GameUtils } from '@caglarturali/piyango-utils';
 import { Game, GameColumn, GameID } from '../Game';
 import { RegularDrawData, RegularReportLine } from '../Regular';
 import { LotteryDrawData, LotteryReportLine } from '../Lottery';
 import { DrawDataType, LuckyProvince } from '../Draw';
 import { ReportLineType } from './ReportLineType';
 import { DateFormat } from '../../constants';
-import { DrawUtils, GameUtils } from '../../utils';
 
 export class ProcessDraw<T extends DrawDataType> {
   private gameId: GameID;

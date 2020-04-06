@@ -1,7 +1,7 @@
+import { NumUtils } from '@caglarturali/piyango-utils';
 import { GameColumn, GameID, NumbersPool } from '../Game';
 import { RegularGame } from '../Regular';
 import { GAMES } from '../../constants';
-import { NumUtils } from '../../utils';
 
 export class Random {
   private game: RegularGame;
