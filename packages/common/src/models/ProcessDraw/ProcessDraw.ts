@@ -81,7 +81,7 @@ export class ProcessDraw<T extends DrawDataType> {
       report = sonuclar.map(
         ({ tip, ikramiye, numaralar }) =>
           ({
-            type: DrawUtils.matchTypeToString(tip),
+            type: '', // DrawUtils.matchTypeToString(tip),
             prize: ikramiye,
             winningNumbers: numaralar,
           } as LotteryReportLine),
@@ -91,7 +91,7 @@ export class ProcessDraw<T extends DrawDataType> {
       report = bilenKisiler.map(
         ({ tur, kisiBasinaDusenIkramiye, kisiSayisi }) =>
           ({
-            type: DrawUtils.matchTypeToString(tur),
+            type: '', // DrawUtils.matchTypeToString(tur),
             prize: kisiBasinaDusenIkramiye,
             winnersCount: kisiSayisi,
           } as RegularReportLine),
