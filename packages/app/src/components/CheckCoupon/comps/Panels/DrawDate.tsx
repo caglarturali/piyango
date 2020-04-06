@@ -4,12 +4,12 @@
 import React, { useEffect, useState } from 'react';
 import {
   DateFormat,
-  DateUtils,
   DrawDataType,
   DrawDate,
   Game,
   ProcessDraw,
 } from '@caglarturali/piyango-common';
+import { DateUtils } from '@caglarturali/piyango-utils';
 import { makeStyles } from '@material-ui/core';
 import FormControl from '@material-ui/core/FormControl';
 import FormHelperText from '@material-ui/core/FormHelperText';

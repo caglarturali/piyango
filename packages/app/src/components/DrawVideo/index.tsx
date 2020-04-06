@@ -4,11 +4,11 @@
 import React, { useEffect, useState } from 'react';
 import {
   DateFormat,
-  DateUtils,
   DrawData,
   GameID,
   RegularDrawData,
 } from '@caglarturali/piyango-common';
+import { DateUtils } from '@caglarturali/piyango-utils';
 import clsx from 'clsx';
 import HLS from 'hls.js';
 import { makeStyles } from '@material-ui/core';

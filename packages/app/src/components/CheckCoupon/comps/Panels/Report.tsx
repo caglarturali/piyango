@@ -5,11 +5,11 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core';
 import {
   GameColumn,
-  MoneyUtils,
   RegularCheck,
   RegularDrawData,
   RegularGame,
 } from '@caglarturali/piyango-common';
+import { MoneyUtils } from '@caglarturali/piyango-utils';
 import Panel, { PanelProps } from './Panel';
 import styles from '../../styles';
 import TicketView from '../../../TicketView';

@@ -2,11 +2,8 @@
  * TicketView component.
  */
 import React from 'react';
-import {
-  DrawUtils,
-  GameColumn,
-  RegularGame,
-} from '@caglarturali/piyango-common';
+import { GameColumn, RegularGame } from '@caglarturali/piyango-common';
+import { DrawUtils } from '@caglarturali/piyango-utils';
 import { makeStyles } from '@material-ui/core';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';

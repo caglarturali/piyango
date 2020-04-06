@@ -2,7 +2,8 @@
  * DrawDetailsView component.
  */
 import React from 'react';
-import { DrawDataType, GameID, GameUtils } from '@caglarturali/piyango-common';
+import { DrawDataType, GameID } from '@caglarturali/piyango-common';
+import { GameUtils } from '@caglarturali/piyango-utils';
 import Grid from '@material-ui/core/Grid';
 import SectionHeader from '../../layouts/SectionHeader';
 import Container from '../../components/Container';

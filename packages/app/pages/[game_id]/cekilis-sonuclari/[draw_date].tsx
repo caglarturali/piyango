@@ -3,13 +3,8 @@
  */
 import React from 'react';
 import { NextPage, NextPageContext } from 'next';
-import {
-  DateFormat,
-  DateUtils,
-  DrawDataType,
-  GameID,
-  GameUtils,
-} from '@caglarturali/piyango-common';
+import { DateFormat, DrawDataType, GameID } from '@caglarturali/piyango-common';
+import { DateUtils, GameUtils } from '@caglarturali/piyango-utils';
 import DrawDetailsView from '../../../src/views/DrawDetailsView';
 import MainLayout from '../../../src/layouts/MainLayout';
 import API from '../../../src/services/API';

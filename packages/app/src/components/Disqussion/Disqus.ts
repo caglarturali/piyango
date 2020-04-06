@@ -1,9 +1,5 @@
-import {
-  DateFormat,
-  DateUtils,
-  DrawDataType,
-  Game,
-} from '@caglarturali/piyango-common';
+import { DateFormat, DrawDataType, Game } from '@caglarturali/piyango-common';
+import { DateUtils } from '@caglarturali/piyango-utils';
 import { Segments } from '../../shared';
 import { disqus } from '../../config';
 

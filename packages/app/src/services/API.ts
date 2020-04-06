@@ -1,11 +1,11 @@
 import fetch from 'isomorphic-unfetch';
 import {
-  DateUtils,
   DrawDataType,
   DrawDate,
   DrawsItem,
   GameID,
 } from '@caglarturali/piyango-common';
+import { DateUtils } from '@caglarturali/piyango-utils';
 import { API_BASE } from '../shared';
 
 export default class API {

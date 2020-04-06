@@ -3,9 +3,10 @@
  */
 import React from 'react';
 import { NextPage, NextPageContext } from 'next';
-import { GameID, GameUtils } from '@caglarturali/piyango-common';
+import { GameID } from '@caglarturali/piyango-common';
+import { GameUtils } from '@caglarturali/piyango-utils';
 import MainLayout from '../../src/layouts/MainLayout';
-import SectionHeader from '../../src/components/SectionHeader';
+import SectionHeader from '../../src/layouts/SectionHeader';
 
 export interface GameHomeProps {
   gameId: GameID;

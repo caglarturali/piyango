@@ -2,7 +2,7 @@
  * JackpotChip component.
  */
 import React from 'react';
-import { MoneyUtils } from '@caglarturali/piyango-common';
+import { MoneyUtils } from '@caglarturali/piyango-utils';
 import { makeStyles } from '@material-ui/core';
 import Chip from '@material-ui/core/Chip';
 import Tooltip from '@material-ui/core/Tooltip';

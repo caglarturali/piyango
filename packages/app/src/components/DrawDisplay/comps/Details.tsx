@@ -6,11 +6,11 @@ import {
   DrawDataType,
   GameID,
   LotteryReportLine,
-  MoneyUtils,
   RegularDrawData,
   RegularReportLine,
   ReportLineType,
 } from '@caglarturali/piyango-common';
+import { MoneyUtils } from '@caglarturali/piyango-utils';
 import { makeStyles } from '@material-ui/core';
 import CardContent from '@material-ui/core/CardContent';
 import Collapse from '@material-ui/core/Collapse';
