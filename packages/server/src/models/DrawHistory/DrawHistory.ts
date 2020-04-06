@@ -20,9 +20,10 @@ export default class DrawHistory {
    * Returns draw history of the date for all games.
    */
   async historyForGames(): Promise<HistoryResponse> {
-    const result = {
-      history: [],
-    } as HistoryResponse;
+    const result =
+      {
+        history: [],
+      } as HistoryResponse;
 
     const results = await Promise.all(
       GAMES.map(async (game) => {
@@ -47,10 +48,11 @@ export default class DrawHistory {
    * @param gameId Game ID
    */
   async historyForGame(gameId: GameID): Promise<DrawHistoryData> {
-    const drawHistory = {
-      gameId,
-      draws: [],
-    } as DrawHistoryData;
+    const drawHistory =
+      {
+        gameId,
+        draws: [],
+      } as DrawHistoryData;
 
     const refDate = DateUtils.convert(
       this.date,

@@ -1,11 +1,18 @@
 dependencies:
-  '@caglarturali/piyango-common': 'link:../common'
+  '@caglarturali/piyango-common': 4.3.0
   moment: 2.24.0
 devDependencies:
   '@types/node': 13.11.0
   typescript: 3.8.3
 lockfileVersion: 5.1
 packages:
+  /@caglarturali/piyango-common/4.3.0:
+    dependencies:
+      moment: 2.24.0
+    dev: false
+    resolution:
+      integrity: sha512-c1EgCytY8OzCxaT+eeZbYb6nd5bjo0Fekk+jHyLbUgMP/VS2p2MHZiwPU9RTcALmeMLw63t6UIlCwFLXkPy9Jg==
+      tarball: download/@caglarturali/piyango-common/4.3.0/a92c2623e484ca0cdc9058fc2ba97f7f26c13b0c95db60fb73ba2be50d5b3d7a
   /@types/node/13.11.0:
     dev: true
     resolution:

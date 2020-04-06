@@ -1,5 +1,6 @@
 dependencies:
   '@caglarturali/piyango-common': 'link:../common'
+  '@caglarturali/piyango-utils': 'link:../utils'
   '@now/node': 1.5.0
   haikunator: 2.1.2
   lodash: 4.17.15
@@ -298,7 +299,8 @@ packages:
     resolution:
       integrity: sha512-Ux4ygGWsu2c7isFWe8Yu1YluJmqVhxqK2cLXNQA5AcC3QfbGNpM7fu0Y8b/z16pXLnFxZYvWhd3fhBY9DLmC6Q==
 specifiers:
-  '@caglarturali/piyango-common': ^4.3.0
+  '@caglarturali/piyango-common': ^5.0.0
+  '@caglarturali/piyango-utils': ^0.1.0
   '@now/node': ^1.5.0
   '@types/lodash': ^4.14.149
   '@types/markdown-it': ^0.0.9
