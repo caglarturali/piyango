@@ -22,7 +22,7 @@ packages:
     resolution:
       integrity: sha512-MYlEfn5VrLNsgudQTVJeNaQFUAI7DkhnOjdpAp4T+ku1TfQClewlbSuTVHiA+8skNBgaf02TL/kLOvig4y3G8w==
 specifiers:
-  '@caglarturali/piyango-common': ^5.1.1
+  '@caglarturali/piyango-common': ^6.0.0
   '@types/node': ^13.11.0
   moment: ^2.24.0
   typescript: ^3.8.3
