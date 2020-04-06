@@ -1,9 +1,10 @@
 import {
   GameColumn,
   GameID,
-  LotteryMatchTypeMap,
+  LotteryMatchMap,
+  MatchText,
   MatchType,
-  RegularMatchTypeMap,
+  RegularMatchMap,
 } from '@caglarturali/piyango-common';
 
 export class DrawUtils {
@@ -51,12 +52,12 @@ export class DrawUtils {
   }
 
   /**
-   * Returns the user-readable text corresponding to matchType.
+   * Returns MatchText equivalent of the matchType.
    * @param matchType Match type
    */
-  static matchTypeToString(matchType: MatchType): string {
-    if (matchType in RegularMatchTypeMap) return RegularMatchTypeMap[matchType];
-    if (matchType in LotteryMatchTypeMap) return LotteryMatchTypeMap[matchType];
-    return '';
+  static matchTypeToText(matchType: MatchType): MatchText {
+    if (matchType in RegularMatchMap) return RegularMatchMap[matchType];
+    if (matchType in LotteryMatchMap) return LotteryMatchMap[matchType];
+    return { long: '' };
   }
 }

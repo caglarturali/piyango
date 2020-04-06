@@ -1,6 +1,6 @@
 {
   "name": "@caglarturali/piyango-utils",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "main": "cjs/index.js",
   "module": "esm/index.js",
   "types": "esm/index.d.ts",
@@ -16,7 +16,7 @@
     "sloc": "node-sloc . -x node_modules,cjs,esm"
   },
   "dependencies": {
-    "@caglarturali/piyango-common": "^4.3.0",
+    "@caglarturali/piyango-common": "^5.1.1",
     "moment": "^2.24.0"
   },
   "devDependencies": {
