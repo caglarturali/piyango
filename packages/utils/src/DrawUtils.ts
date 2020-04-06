@@ -4,6 +4,7 @@ import {
   LotteryMatchMap,
   MatchText,
   MatchType,
+  RegularGame,
   RegularMatchMap,
 } from '@caglarturali/piyango-common';
 
@@ -59,5 +60,24 @@ export class DrawUtils {
     if (matchType in RegularMatchMap) return RegularMatchMap[matchType];
     if (matchType in LotteryMatchMap) return LotteryMatchMap[matchType];
     return { long: '' };
+  }
+
+  /**
+   * Splits columns array into ticket sized chunks.
+   * @param game Game
+   * @param columns User numbers
+   */
+  static convertColumnsToTickets(
+    game: RegularGame,
+    columns: GameColumn[],
+  ): GameColumn[][] {
+    const colsCopy = columns.slice();
+    const tickets: GameColumn[][] = [];
+
+    while (colsCopy.length) {
+      tickets.push(colsCopy.splice(0, game.columns));
+    }
+
+    return tickets;
   }
 }
