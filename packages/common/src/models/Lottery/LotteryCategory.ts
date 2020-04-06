@@ -1,8 +1,8 @@
-import { LotteryMatchType } from '.';
+import { LotteryMatch } from '.';
 
 export interface LotteryCategory {
   haneSayisi: number;
-  tip: LotteryMatchType;
+  tip: LotteryMatch;
   ikramiye: number;
   numaralar: string[];
 }

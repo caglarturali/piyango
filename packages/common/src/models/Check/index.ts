@@ -1,6 +1,4 @@
-import LotteryCheck from './LotteryCheck';
-import RegularCheck from './RegularCheck';
-
-export { LotteryCheck, RegularCheck };
+export { default as LotteryCheck } from './LotteryCheck';
+export { default as RegularCheck } from './RegularCheck';
 export * from './ICheckNumbers';
 export * from './CheckResult';

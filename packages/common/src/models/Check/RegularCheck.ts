@@ -1,7 +1,7 @@
 import { DrawUtils } from '@caglarturali/piyango-utils';
 import { GameColumn, GameID } from '../Game';
 import { ProcessDraw } from '../ProcessDraw';
-import { RegularDrawData, RegularGame, RegularMatchType } from '../Regular';
+import { RegularDrawData, RegularGame, RegularMatch } from '../Regular';
 import { CheckResult, ICheckNumbers } from '.';
 
 export default class RegularCheck implements ICheckNumbers {
@@ -113,7 +113,7 @@ export default class RegularCheck implements ICheckNumbers {
         case GameID.onnumara:
           if (match.main.length === 0) {
             // Override!
-            matchTypeStr = RegularMatchType.$HIC;
+            matchTypeStr = RegularMatch.$HIC;
           }
           break;
 
