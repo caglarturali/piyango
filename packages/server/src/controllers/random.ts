@@ -1,7 +1,8 @@
 /**
  * Random controller.
  */
-import { GameColumn, GameID, Random } from '@caglarturali/piyango-common';
+import { GameColumn, GameID } from '@caglarturali/piyango-common';
+import { Random } from '@caglarturali/piyango-utils';
 import ApiResponse from '../models/ApiResponse';
 import { messages } from '../constants';
 

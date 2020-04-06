@@ -1,12 +1,8 @@
 /**
  * Stats controller.
  */
-import {
-  GameID,
-  ProcessDraw,
-  RegularDrawData,
-} from '@caglarturali/piyango-common';
-import { DateUtils } from '@caglarturali/piyango-utils';
+import { GameID, RegularDrawData } from '@caglarturali/piyango-common';
+import { DateUtils, ProcessDraw } from '@caglarturali/piyango-utils';
 import ApiResponse from '../models/ApiResponse';
 import Stats from '../models/Stats';
 import { getDrawDates } from './drawdates';

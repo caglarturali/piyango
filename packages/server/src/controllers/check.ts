@@ -7,14 +7,16 @@ import {
   Game,
   GameID,
   GAMES,
-  ICheckNumbers,
-  LotteryCheck,
   LotteryDrawData,
   LotteryGame,
-  RegularCheck,
   RegularDrawData,
   RegularGame,
 } from '@caglarturali/piyango-common';
+import {
+  ICheckNumbers,
+  LotteryCheck,
+  RegularCheck,
+} from '@caglarturali/piyango-utils';
 import ApiResponse from '../models/ApiResponse';
 import CheckBody from '../models/CheckBody';
 import { getDrawDetailsForDraw } from './draws';
