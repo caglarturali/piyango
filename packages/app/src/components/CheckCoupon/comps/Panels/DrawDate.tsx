@@ -16,7 +16,7 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import Select from '@material-ui/core/Select';
 import Input from '@material-ui/core/Input';
 import MenuItem from '@material-ui/core/MenuItem';
-import Panel, { PanelProps } from './Panel';
+import Panel, { PanelProps } from '../Panel';
 import API from '../../../../services/API';
 import styles from '../../styles';
 

@@ -1,5 +1,4 @@
 dependencies:
-  '@caglarturali/piyango-utils': 'link:../utils'
   moment: 2.24.0
 devDependencies:
   '@types/node': 13.11.0
@@ -22,7 +21,6 @@ packages:
     resolution:
       integrity: sha512-MYlEfn5VrLNsgudQTVJeNaQFUAI7DkhnOjdpAp4T+ku1TfQClewlbSuTVHiA+8skNBgaf02TL/kLOvig4y3G8w==
 specifiers:
-  '@caglarturali/piyango-utils': ^0.3.0
   '@types/node': ^13.11.0
   moment: ^2.24.0
   typescript: ^3.8.3

@@ -23,11 +23,9 @@ export const getDisqusConfig = (game: Game, drawData: DrawDataType) => {
     DateFormat.URL,
   );
 
-  return (
-    {
-      url: `${base_url}/${game.id}/${Segments.CEKILIS_SONUCLARI}/${urlDate}`,
-      identifier: `${game.id}-${urlDate}-comments`,
-      title: `${game.name} ${urlDate} Tarihli Çekiliş`,
-    } as DisqusConfig
-  );
+  return {
+    url: `${base_url}/${game.id}/${Segments.CEKILIS_SONUCLARI}/${urlDate}`,
+    identifier: `${game.id}-${urlDate}-comments`,
+    title: `${game.name} ${urlDate} Tarihli Çekiliş`,
+  } as DisqusConfig;
 };

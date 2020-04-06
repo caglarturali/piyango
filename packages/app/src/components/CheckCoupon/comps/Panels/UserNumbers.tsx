@@ -14,7 +14,7 @@ import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import AddIcon from '@material-ui/icons/Add';
 import CheckIcon from '@material-ui/icons/Check';
-import Panel, { PanelProps } from './Panel';
+import Panel, { PanelProps } from '../Panel';
 
 import styles from '../../styles';
 import Coupon from '../../../Coupon';

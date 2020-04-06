@@ -10,9 +10,9 @@ import {
   RegularGame,
 } from '@caglarturali/piyango-common';
 import { MoneyUtils } from '@caglarturali/piyango-utils';
-import Panel, { PanelProps } from './Panel';
-import styles from '../../styles';
+import Panel, { PanelProps } from '../Panel';
 import TicketView from '../../../TicketView';
+import styles from '../../styles';
 
 const useStyles = makeStyles(styles);
 

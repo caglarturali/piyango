@@ -47,7 +47,7 @@ const CheckCoupon: React.FunctionComponent<CheckCouponProps> = ({
   const [panelExpanded, setPanelExpanded] = useState(PanelID.UserNumbers);
   const [drawDate, setDrawDate] = useState<DrawDate>(drawDateProp);
   const [drawData, setDrawData] = useState<DrawDataType>();
-  const [userNumbers, setUserNumbers] = useState<GameColumn[]>([]);
+  const [userNumbers, setUserNumbers] = useState<GameColumn[]>(testData);
 
   useEffect(() => {
     const getData = async () => {
