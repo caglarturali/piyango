@@ -116,8 +116,8 @@ export class ProcessDraw<T extends DrawDataType> {
     }
     const texts: string[] = [];
     if (this.gameId !== GameID.piyango) {
-      const { archived, devretti, devirSayisi } = this
-        .drawData as RegularDrawData;
+      const { archived, devretti, devirSayisi } =
+        this.drawData as RegularDrawData;
       if (archived) texts.push('[Arşiv Verisi]');
       if (devretti) texts.push('Devretti!');
       if (devirSayisi) texts.push(`${devirSayisi}. Devir`);
