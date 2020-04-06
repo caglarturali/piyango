@@ -2,10 +2,11 @@
  * TicketView component styles.
  */
 import { createStyles, Theme } from '@material-ui/core';
+import Color from 'color';
 
-export default ({ custom, spacing, typography }: Theme) =>
+export default ({ custom, palette, spacing, typography }: Theme) =>
   createStyles({
-    root: {
+    ticket: {
       fontFamily: custom.typography.monospace,
       fontSize: typography.pxToRem(20),
     },
@@ -23,9 +24,16 @@ export default ({ custom, spacing, typography }: Theme) =>
       fontFamily: custom.typography.monospace,
     },
     secondary: {
-      fontSize: typography.pxToRem(18),
+      color: Color.rgb(palette.text.primary).lighten(0.3).string(),
+      fontFamily: typography.fontFamily,
+      fontSize: typography.pxToRem(15),
       display: 'flex',
       justifyContent: 'space-between',
       width: '100%',
+    },
+    divider: {
+      borderBottom: `1px dashed ${palette.text.secondary}`,
+      borderTop: `1px dashed ${palette.text.secondary}`,
+      marginBottom: spacing(2),
     },
   });

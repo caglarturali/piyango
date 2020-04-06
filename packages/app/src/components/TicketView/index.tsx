@@ -13,29 +13,29 @@ const useStyles = makeStyles(styles);
 
 export interface TicketViewProps {
   game: RegularGame;
-  userNumbers: GameColumn[];
+  tickets: GameColumn[][];
   secondary?: React.ReactElement[];
 }
 
 const TicketView: React.FunctionComponent<TicketViewProps> = ({
   game,
-  userNumbers,
+  tickets,
   secondary = [],
 }) => {
   const classes = useStyles();
 
   const renderTicketLine = (
     col: GameColumn,
-    i: number,
+    index: number,
     secondLine?: React.ReactElement,
   ) => {
     const letters = 'ABCDEFGH';
     return (
-      <Grid item xs={12} key={`ticket-line-${i}`}>
+      <Grid item xs={12} key={`ticket-line-${index}`}>
         <Box className={classes.item}>
           <Box>
             <span color="primary" className={classes.colName}>
-              {letters[i % game.columns]}.
+              {letters[index % game.columns]}.
             </span>
           </Box>
           <Box className={classes.numbers}>
@@ -49,11 +49,18 @@ const TicketView: React.FunctionComponent<TicketViewProps> = ({
     );
   };
 
-  return (
-    <Grid className={classes.root}>
-      {userNumbers.map((col, i) => renderTicketLine(col, i, secondary[i]))}
-    </Grid>
-  );
+  const renderTicket = (columns: GameColumn[], index: number) => {
+    return (
+      <React.Fragment key={`ticket-${index}`}>
+        <Grid className={classes.ticket}>
+          {columns.map((col, j) => renderTicketLine(col, j, secondary[index]))}
+        </Grid>
+        <Box className={classes.divider} />
+      </React.Fragment>
+    );
+  };
+
+  return <Box>{tickets.map((ticket, i) => renderTicket(ticket, i))}</Box>;
 };
 
 export default TicketView;
