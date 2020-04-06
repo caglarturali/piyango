@@ -1,3 +1,4 @@
+import { DrawUtils } from '@caglarturali/piyango-utils';
 import { LotteryCategory, LotteryDrawData, LotteryGame } from '../Lottery';
 import { CheckResult, ICheckNumbers } from '.';
 
@@ -54,7 +55,7 @@ export default class LotteryCheck implements ICheckNumbers {
       // Check "teselli" first.
       if (teselli.numaralar.includes(num)) {
         result = {
-          type: teselli.tip,
+          type: DrawUtils.matchTypeToText(teselli.tip),
           digits: teselli.haneSayisi,
           prize: teselli.ikramiye,
         };
@@ -70,7 +71,7 @@ export default class LotteryCheck implements ICheckNumbers {
 
         if (category.numaralar.includes(numToCheck)) {
           result = {
-            type: category.tip,
+            type: DrawUtils.matchTypeToText(category.tip),
             digits: category.haneSayisi,
             prize: category.ikramiye,
           };

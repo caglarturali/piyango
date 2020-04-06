@@ -131,10 +131,20 @@ export default class RegularCheck implements ICheckNumbers {
       // Try to find a match.
       const winnerCat = bilenKisiler.find((w) => w.tur === matchTypeStr);
 
+      if (!winnerCat) {
+        this.results.push({
+          type: null,
+          match,
+          prize: 0,
+        });
+        return;
+      }
+
+      const { tur, kisiBasinaDusenIkramiye } = winnerCat;
       this.results.push({
-        type: winnerCat ? matchTypeStr : null,
+        type: DrawUtils.matchTypeToText(tur),
         match,
-        prize: winnerCat ? winnerCat.kisiBasinaDusenIkramiye : 0,
+        prize: kisiBasinaDusenIkramiye,
       });
     });
   }

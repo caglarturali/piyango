@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [5.1.1] - 2020-04-06
 
+### Changed
+
+- Convert CheckResult's type field to MatchText type
+
+## [5.1.1] - 2020-04-06
+
 ### Fixed
 
 - Export Match models
