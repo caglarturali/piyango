@@ -3,7 +3,7 @@
  */
 import React, { useState } from 'react';
 import {
-  GameColumn,
+  Column,
   NumbersPool,
   Pool,
   PoolKeys,
@@ -19,7 +19,7 @@ const useStyles = makeStyles(styles);
 
 export interface CouponProps {
   game: RegularGame;
-  userNumbers: GameColumn;
+  userNumbers: Column;
   handleNumberClick: (n: number, k: PoolKeys, m: number) => void;
 }
 
@@ -40,7 +40,7 @@ const Coupon: React.FunctionComponent<CouponProps> = ({
 
   const renderPool = <
     T extends NumbersPool,
-    K extends keyof (Pool | GameColumn)
+    K extends keyof (Pool | Column)
   >(
     pool: T,
     poolKey: K,

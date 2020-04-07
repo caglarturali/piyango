@@ -3,7 +3,7 @@
  */
 import React, { useState } from 'react';
 import {
-  GameColumn,
+  Column,
   NumbersPool,
   Pool,
   PoolKeys,
@@ -24,7 +24,7 @@ const useStyles = makeStyles(styles);
 export interface UserNumbersProps {
   game: RegularGame;
   isReportAvailable: boolean;
-  onAddUserNumbers: (c: GameColumn) => void;
+  onAddUserNumbers: (c: Column) => void;
   onReportClick: (e: any) => void;
 }
 
@@ -39,7 +39,7 @@ export const UserNumbersPanel: React.FunctionComponent<
 }) => {
   const classes = useStyles();
 
-  const [userNumbers, setUserNumbers] = useState<GameColumn>({ main: [] });
+  const [userNumbers, setUserNumbers] = useState<Column>({ main: [] });
 
   const handleNumberClick = (
     num: number,
@@ -66,7 +66,7 @@ export const UserNumbersPanel: React.FunctionComponent<
     });
   };
 
-  const handleAddGameColumn = () => {
+  const handleAddColumn = () => {
     onAddUserNumbers(userNumbers);
     setUserNumbers({ main: [] });
   };
@@ -94,7 +94,7 @@ export const UserNumbersPanel: React.FunctionComponent<
     <>
       <Button
         disabled={!isOneColumnEntered()}
-        onClick={() => handleAddGameColumn()}
+        onClick={() => handleAddColumn()}
       >
         <AddIcon />
         Kolon Ekle

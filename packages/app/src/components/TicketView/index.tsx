@@ -2,7 +2,7 @@
  * TicketView component.
  */
 import React from 'react';
-import { GameColumn, RegularGame } from '@caglarturali/piyango-common';
+import { Column, RegularGame, Ticket } from '@caglarturali/piyango-common';
 import { DrawUtils } from '@caglarturali/piyango-utils';
 import { makeStyles } from '@material-ui/core';
 import Box from '@material-ui/core/Box';
@@ -13,7 +13,7 @@ const useStyles = makeStyles(styles);
 
 export interface TicketViewProps {
   game: RegularGame;
-  tickets: GameColumn[][];
+  tickets: Ticket[];
   secondary?: React.ReactElement[];
 }
 
@@ -25,7 +25,7 @@ const TicketView: React.FunctionComponent<TicketViewProps> = ({
   const classes = useStyles();
 
   const renderTicketLine = (
-    col: GameColumn,
+    col: Column,
     index: number,
     secondLine?: React.ReactElement,
   ) => {
@@ -49,7 +49,7 @@ const TicketView: React.FunctionComponent<TicketViewProps> = ({
     );
   };
 
-  const renderTicket = (columns: GameColumn[], index: number) => {
+  const renderTicket = (columns: Column[], index: number) => {
     return (
       <React.Fragment key={`ticket-${index}`}>
         <Grid className={classes.ticket}>

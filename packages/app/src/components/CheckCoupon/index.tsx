@@ -6,7 +6,7 @@ import {
   DrawDataType,
   DrawDate,
   Game,
-  GameColumn,
+  Column,
   RegularDrawData,
   RegularGame,
 } from '@caglarturali/piyango-common';
@@ -24,7 +24,7 @@ export interface CheckCouponProps {
   drawDate: DrawDate;
 }
 
-const testData: GameColumn[] = [
+const testData: Column[] = [
   {
     main: [2, 5, 6, 17, 22],
     plus: [3],
@@ -63,7 +63,7 @@ const CheckCoupon: React.FunctionComponent<CheckCouponProps> = ({
   const [panelExpanded, setPanelExpanded] = useState(PanelID.UserNumbers);
   const [drawDate, setDrawDate] = useState<DrawDate>(drawDateProp);
   const [drawData, setDrawData] = useState<DrawDataType>();
-  const [userNumbers, setUserNumbers] = useState<GameColumn[]>([]);
+  const [userNumbers, setUserNumbers] = useState<Column[]>([]);
 
   useEffect(() => {
     const getData = async () => {
@@ -81,7 +81,7 @@ const CheckCoupon: React.FunctionComponent<CheckCouponProps> = ({
     setOpen(false);
   };
 
-  const handleAddUserNumbers = (column: GameColumn) => {
+  const handleAddUserNumbers = (column: Column) => {
     setUserNumbers([...userNumbers, column]);
   };
 

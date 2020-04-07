@@ -2,7 +2,7 @@
  * DrawDisplay->Numbers component.
  */
 import React from 'react';
-import { Game, GameColumn, GameID } from '@caglarturali/piyango-common';
+import { Game, Column, GameID } from '@caglarturali/piyango-common';
 import { makeStyles } from '@material-ui/core';
 import Box from '@material-ui/core/Box';
 import LuckyBall from '../../LuckyBall';
@@ -12,7 +12,7 @@ const useStyles = makeStyles(styles);
 
 export interface NumbersProps {
   game: Game;
-  numbers: GameColumn;
+  numbers: Column;
 }
 
 const Numbers: React.FunctionComponent<NumbersProps> = ({ game, numbers }) => {

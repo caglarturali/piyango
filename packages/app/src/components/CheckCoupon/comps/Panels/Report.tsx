@@ -4,15 +4,15 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core';
 import {
-  GameColumn,
+  Column,
   MatchText,
   RegularDrawData,
   RegularGame,
 } from '@caglarturali/piyango-common';
 import {
-  DrawUtils,
   MoneyUtils,
   RegularCheck,
+  TicketUtils,
 } from '@caglarturali/piyango-utils';
 import Panel, { PanelProps } from '../Panel';
 import TicketView from '../../../TicketView';
@@ -23,7 +23,7 @@ const useStyles = makeStyles(styles);
 export interface ReportPanelProps {
   game: RegularGame;
   drawData?: RegularDrawData;
-  userNumbers: GameColumn[];
+  userNumbers: Column[];
 }
 
 export const ReportPanel: React.FunctionComponent<
@@ -33,7 +33,7 @@ export const ReportPanel: React.FunctionComponent<
 
   if (!drawData) return null;
 
-  const check = RegularCheck.fromGameColumns(game, drawData, userNumbers);
+  const check = RegularCheck.fromColumns(game, drawData, userNumbers);
   check.validate();
   check.process();
   const { results } = check;
@@ -45,15 +45,11 @@ export const ReportPanel: React.FunctionComponent<
     </>
   ));
 
-  const tickets = DrawUtils.convertColumnsToTickets(game, userNumbers);
+  const tickets = new TicketUtils(game, userNumbers).tickets();
 
   return (
     <Panel {...props}>
-      <TicketView
-        game={game as RegularGame}
-        tickets={tickets}
-        secondary={secondary}
-      />
+      <TicketView game={game} tickets={tickets} secondary={secondary} />
     </Panel>
   );
 };
