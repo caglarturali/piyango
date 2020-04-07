@@ -3,10 +3,10 @@
  */
 import React, { useEffect, useState } from 'react';
 import {
+  Column,
   DrawDataType,
   DrawDate,
   Game,
-  Column,
   RegularDrawData,
   RegularGame,
 } from '@caglarturali/piyango-common';
@@ -90,6 +90,7 @@ const CheckCoupon: React.FunctionComponent<CheckCouponProps> = ({
       title={`${game.name} Kupon Kontrolü`}
       show={open}
       handleClose={handleClose}
+      // tslint:disable-next-line: no-empty
       handleReset={() => {}}
     >
       <DrawDatePanel

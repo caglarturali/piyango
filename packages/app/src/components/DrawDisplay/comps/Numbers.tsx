@@ -2,7 +2,7 @@
  * DrawDisplay->Numbers component.
  */
 import React from 'react';
-import { Game, Column, GameID } from '@caglarturali/piyango-common';
+import { Column, Game, GameID } from '@caglarturali/piyango-common';
 import { makeStyles } from '@material-ui/core';
 import Box from '@material-ui/core/Box';
 import LuckyBall from '../../LuckyBall';
