@@ -1,7 +1,7 @@
 import {
+  Column,
   DrawDate,
   Game,
-  Column,
   GameID,
   GAMES,
 } from '@caglarturali/piyango-common';
