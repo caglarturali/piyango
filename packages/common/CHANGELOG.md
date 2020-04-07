@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [7.0.0] - 2020-04-07
+
+### Changed
+
+- Ticket interface defined
+- GameColumn interface renamed as Column
+
 ## [6.0.0] - 2020-04-06
 
 ### Changed
