@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.4.0] - 2020-04-07
+
+### Changed
+
+- The return type of the TicketUtils.compareTicketAgainstDraw
+
 ## [1.3.0] - 2020-04-07
 
 ### Added

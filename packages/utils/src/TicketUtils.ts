@@ -59,10 +59,7 @@ export class TicketUtils {
     check.validate();
     check.process();
 
-    return {
-      ticket,
-      results: check.results,
-    };
+    return check.results;
   }
 
   /**
