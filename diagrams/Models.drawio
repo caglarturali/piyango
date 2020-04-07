@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2020-04-07T12:14:07.326Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36" etag="v3gDDZ0ZZi8uUhyICbcY" version="12.9.9" type="github">
+<mxfile host="app.diagrams.net" modified="2020-04-07T12:19:00.615Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36" etag="geqqtvTozQxFfhSSt4Uw" version="12.9.9" type="github">
   <diagram id="ZR-c0EtOotdM0c1bE8Ap" name="Game">
-    <mxGraphModel dx="816" dy="880" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+    <mxGraphModel dx="1385" dy="634" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -14,9 +14,6 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="jpqeoo7IKOBNPB-wmuDf-49" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="jpqeoo7IKOBNPB-wmuDf-48" target="jpqeoo7IKOBNPB-wmuDf-3" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="jpqeoo7IKOBNPB-wmuDf-67" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="jpqeoo7IKOBNPB-wmuDf-61" target="jpqeoo7IKOBNPB-wmuDf-55" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="jpqeoo7IKOBNPB-wmuDf-68" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="jpqeoo7IKOBNPB-wmuDf-62" target="jpqeoo7IKOBNPB-wmuDf-57" edge="1">
@@ -125,6 +122,9 @@
         </mxCell>
         <mxCell id="1gn5eM1r1Ge0eQXiPklT-11" value="+ plus?: number[]" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="1gn5eM1r1Ge0eQXiPklT-9">
           <mxGeometry y="52" width="140" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="1gn5eM1r1Ge0eQXiPklT-26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1.018;entryY=0.152;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="jpqeoo7IKOBNPB-wmuDf-55" target="jpqeoo7IKOBNPB-wmuDf-61">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
