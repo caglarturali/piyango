@@ -7,7 +7,7 @@
     "start:app": "pnpm recursive run dev --filter @caglarturali/piyango-app",
     "test": "jest",
     "majs": "majestic",
-    "lint": "tslint -c tslint.json \"packages/**/*.ts\"",
+    "lint": "tslint -c tslint.json \"packages/**/*.ts?\"",
     "lint:fix": "pnpm run lint -- --fix",
     "sync": "pnpm recursive run sync:commit --filter @caglarturali/piyango-server",
     "loc": "pnpm recursive run sloc",
