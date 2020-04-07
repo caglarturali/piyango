@@ -5,15 +5,10 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core';
 import {
   Column,
-  MatchText,
   RegularDrawData,
   RegularGame,
 } from '@caglarturali/piyango-common';
-import {
-  MoneyUtils,
-  RegularCheck,
-  TicketUtils,
-} from '@caglarturali/piyango-utils';
+import { TicketUtils } from '@caglarturali/piyango-utils';
 import Panel, { PanelProps } from '../Panel';
 import TicketView from '../../../TicketView';
 import styles from '../../styles';
@@ -33,23 +28,24 @@ export const ReportPanel: React.FunctionComponent<
 
   if (!drawData) return null;
 
-  const check = RegularCheck.fromColumns(game, drawData, userNumbers);
-  check.validate();
-  check.process();
-  const { results } = check;
+  const ticketUtils = new TicketUtils(game, userNumbers);
+  const tickets = ticketUtils.tickets();
+  const checkResults = ticketUtils.compareAgainstDraw(drawData);
 
-  const secondary = results.map(({ type, prize }) => (
-    <>
-      <span>{type ? (type as MatchText).short : ''}</span>
-      <span>{new MoneyUtils(prize).format(2, true)}</span>
-    </>
-  ));
-
-  const tickets = new TicketUtils(game, userNumbers).tickets();
+  console.log(checkResults);
 
   return (
     <Panel {...props}>
-      <TicketView game={game} tickets={tickets} secondary={secondary} />
+      <div>
+        {tickets.map((ticket, i) => (
+          <TicketView
+            game={game}
+            ticket={ticket}
+            results={checkResults[i]}
+            key={`${game.name}-ticket-${i}`}
+          />
+        ))}
+      </div>
     </Panel>
   );
 };
