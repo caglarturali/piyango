@@ -1,7 +1,7 @@
 /**
  * Random controller.
  */
-import { GameColumn, GameID } from '@caglarturali/piyango-common';
+import { Column, GameID } from '@caglarturali/piyango-common';
 import { Random } from '@caglarturali/piyango-utils';
 import ApiResponse from '../models/ApiResponse';
 import { messages } from '../constants';
@@ -12,7 +12,7 @@ import { messages } from '../constants';
  * @param columnCount Number of columns to be generated
  */
 export const generateRandomGuesses = (gameId: GameID, columnCount?: number) => {
-  const apiResponse = new ApiResponse<GameColumn>();
+  const apiResponse = new ApiResponse<Column>();
 
   if (gameId === GameID.piyango) {
     return apiResponse.setFailed(messages.notSupported(gameId));

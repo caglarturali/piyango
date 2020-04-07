@@ -1,7 +1,7 @@
 import {
   DrawDate,
   Game,
-  GameColumn,
+  Column,
   GameID,
   GAMES,
 } from '@caglarturali/piyango-common';
@@ -69,7 +69,7 @@ export default class Stats {
    * @param column Game column
    * @param drawDate Draw date string
    */
-  processColumn(column: GameColumn, drawDate: DrawDate) {
+  processColumn(column: Column, drawDate: DrawDate) {
     column.main.forEach((num) => this.processNumber(num, drawDate));
     if (this.gameId === GameID.sanstopu && column.plus) {
       column.plus.forEach((plus) => this.processNumber(plus, drawDate, true));
