@@ -84,25 +84,9 @@ export default class RegularCheck implements ICheckNumbers {
    * Compares user numbers againsts winningNumbers.
    */
   private checkMatches() {
-    this.userNumbers.forEach(({ main, plus }) => {
-      const numsMatch: Column = { main: [] };
-
-      main.forEach((num: number) => {
-        if (this.winningNumbers.main.includes(num)) {
-          numsMatch.main.push(num);
-        }
-      });
-
-      if (this.game.id === GameID.sanstopu) {
-        numsMatch.plus = [];
-        plus?.forEach((num: number) => {
-          if (this.winningNumbers.plus?.includes(num)) {
-            numsMatch.plus?.push(num);
-          }
-        });
-      }
-
-      this.matches.push(numsMatch);
+    this.matches = [];
+    this.userNumbers.forEach((col) => {
+      this.matches.push(RegularCheck.checkMatch(col, this.winningNumbers));
     });
   }
 
@@ -110,6 +94,7 @@ export default class RegularCheck implements ICheckNumbers {
    * Computes results and store them into "results" field.
    */
   private report() {
+    this.results = [];
     const { bilenKisiler } = this.drawData;
 
     this.matches.forEach((match) => {
@@ -153,5 +138,29 @@ export default class RegularCheck implements ICheckNumbers {
         prize: kisiBasinaDusenIkramiye,
       });
     });
+  }
+
+  /**
+   * Checks a single column against winning numbers.
+   * @param column Column of numbers
+   * @param winningNumbers Winning numbers
+   */
+  static checkMatch(column: Column, winningNumbers: Column) {
+    const numsMatch: Column = { main: [] };
+
+    const compare = (key: keyof Column) => {
+      column[key]?.forEach((num: number) => {
+        if (winningNumbers[key]?.includes(num)) {
+          numsMatch[key]?.push(num);
+        }
+      });
+    };
+
+    compare('main');
+    if (winningNumbers.plus) {
+      numsMatch.plus = [];
+      compare('plus');
+    }
+    return numsMatch;
   }
 }
