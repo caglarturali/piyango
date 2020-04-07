@@ -1,5 +1,5 @@
 import {
-  GameColumn,
+  Column,
   GameID,
   GAMES,
   NumbersPool,
@@ -21,10 +21,10 @@ export class Random {
 
   /**
    * Generates pseudo-random guesses.
-   * @returns Array of GameColumn objects
+   * @returns Array of Column objects
    */
-  generate(): GameColumn[] {
-    const guesses: GameColumn[] = [];
+  generate(): Column[] {
+    const guesses: Column[] = [];
 
     for (let i = 1; i <= this.colCount; i++) {
       const { main, plus } = this.game.pool;
@@ -32,7 +32,7 @@ export class Random {
       // Generate numbers.
       const col = {
         main: this.generateNumbers(main),
-      } as GameColumn;
+      } as Column;
 
       if (plus) {
         col.plus = this.generateNumbers(plus);

@@ -1,9 +1,9 @@
 import moment, { Moment } from 'moment';
 import {
+  Column,
   DateFormat,
   DrawDataType,
   Game,
-  GameColumn,
   GameID,
   LotteryDrawData,
   LotteryReportLine,
@@ -26,15 +26,15 @@ export class ProcessDraw<T extends DrawDataType> {
   }
 
   /**
-   * Returns winning numbers as GameColumn object.
+   * Returns winning numbers as Column object.
    */
-  winningNumbers(): GameColumn {
+  winningNumbers(): Column {
     if (this.gameId === GameID.piyango) {
       const {
         sonuclar: [jackpot],
       } = this.drawData as LotteryDrawData;
       const nums = jackpot.numaralar[0].split('').map((s) => parseInt(s, 10));
-      return { main: nums } as GameColumn;
+      return { main: nums } as Column;
     }
 
     const { rakamlar } = this.drawData as RegularDrawData;

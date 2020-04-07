@@ -1,6 +1,6 @@
 import {
   CheckResult,
-  GameColumn,
+  Column,
   GameID,
   RegularDrawData,
   RegularGame,
@@ -13,17 +13,17 @@ import { DrawUtils } from '../';
 export default class RegularCheck implements ICheckNumbers {
   private game: RegularGame;
   private drawData: RegularDrawData;
-  private userNumbers: GameColumn[];
-  private winningNumbers: GameColumn;
+  private userNumbers: Column[];
+  private winningNumbers: Column;
 
-  private matches: GameColumn[] = [];
+  private matches: Column[] = [];
   results: CheckResult[] = [];
 
   constructor(game: RegularGame, drawData: RegularDrawData, numbers: string[]) {
     this.game = game;
     this.drawData = drawData;
 
-    // Convert string of numbers to GameColumn objects.
+    // Convert string of numbers to Column objects.
     this.userNumbers = numbers.length
       ? numbers.map((numsStr) =>
           DrawUtils.convertNumbersToColumn(game.id, numsStr),
@@ -36,16 +36,16 @@ export default class RegularCheck implements ICheckNumbers {
   }
 
   /**
-   * Returns a new instance from GameColumn objects,
+   * Returns a new instance from Column objects,
    * instead of from numbers array.
    * @param game Game
    * @param drawData Regular draw data
-   * @param columns User numbers in GameColumn[] form
+   * @param columns User numbers in Column[] form
    */
-  static fromGameColumns(
+  static fromColumns(
     game: RegularGame,
     drawData: RegularDrawData,
-    columns: GameColumn[],
+    columns: Column[],
   ) {
     const instance = new this(game, drawData, []);
     instance.userNumbers = columns;
@@ -85,7 +85,7 @@ export default class RegularCheck implements ICheckNumbers {
    */
   private checkMatches() {
     this.userNumbers.forEach(({ main, plus }) => {
-      const numsMatch: GameColumn = { main: [] };
+      const numsMatch: Column = { main: [] };
 
       main.forEach((num: number) => {
         if (this.winningNumbers.main.includes(num)) {

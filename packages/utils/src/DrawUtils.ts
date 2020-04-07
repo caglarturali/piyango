@@ -1,21 +1,20 @@
 import {
-  GameColumn,
+  Column,
   GameID,
   LotteryMatchMap,
   MatchText,
   MatchType,
-  RegularGame,
   RegularMatchMap,
 } from '@caglarturali/piyango-common';
 
 export class DrawUtils {
   /**
-   * Converts number string into a GameColumn object.
+   * Converts number string into a Column object.
    * @param gameId Game Id
    * @param numsStr Numbers string
    */
-  static convertNumbersToColumn(gameId: GameID, numsStr: string): GameColumn {
-    const column: GameColumn = { main: [] };
+  static convertNumbersToColumn(gameId: GameID, numsStr: string): Column {
+    const column: Column = { main: [] };
 
     // Convert numbers string into array.
     const numsArray = numsStr.split(/#|-|\+|_|,/).map((n) => parseInt(n, 10));
@@ -34,9 +33,9 @@ export class DrawUtils {
   /**
    * Stringfies the game column object.
    * @param gameId Game ID
-   * @param column GameColumn
+   * @param column Column
    */
-  static stringifyColumn(gameId: GameID, column: GameColumn): string {
+  static stringifyColumn(gameId: GameID, column: Column): string {
     const { main, plus } = column;
 
     let text = '';
@@ -60,24 +59,5 @@ export class DrawUtils {
     if (matchType in RegularMatchMap) return RegularMatchMap[matchType];
     if (matchType in LotteryMatchMap) return LotteryMatchMap[matchType];
     return { long: '' };
-  }
-
-  /**
-   * Splits columns array into ticket sized chunks.
-   * @param game Game
-   * @param columns User numbers
-   */
-  static convertColumnsToTickets(
-    game: RegularGame,
-    columns: GameColumn[],
-  ): GameColumn[][] {
-    const colsCopy = columns.slice();
-    const tickets: GameColumn[][] = [];
-
-    while (colsCopy.length) {
-      tickets.push(colsCopy.splice(0, game.columns));
-    }
-
-    return tickets;
   }
 }

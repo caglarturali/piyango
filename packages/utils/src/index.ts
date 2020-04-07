@@ -6,3 +6,4 @@ export * from './MoneyUtils';
 export * from './NumUtils';
 export * from './ProcessDraw';
 export * from './Random';
+export * from './TicketUtils';
