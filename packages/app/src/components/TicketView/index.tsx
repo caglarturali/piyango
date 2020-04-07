@@ -26,16 +26,15 @@ const TicketView: React.FunctionComponent<TicketViewProps> = ({
 
   const renderTicketLine = (
     col: Column,
-    index: number,
+    colKey: string,
     secondLine?: React.ReactElement,
   ) => {
-    const letters = 'ABCDEFGH';
     return (
-      <Grid item xs={12} key={`ticket-line-${index}`}>
+      <Grid item xs={12} key={`ticket-line-${colKey}`}>
         <Box className={classes.item}>
           <Box>
             <span color="primary" className={classes.colName}>
-              {letters[index % game.columns]}.
+              {colKey}.
             </span>
           </Box>
           <Box className={classes.numbers}>
@@ -49,11 +48,14 @@ const TicketView: React.FunctionComponent<TicketViewProps> = ({
     );
   };
 
-  const renderTicket = (columns: Column[], index: number) => {
+  const renderTicket = ({ numbers }: Ticket, index: number) => {
     return (
       <React.Fragment key={`ticket-${index}`}>
         <Grid className={classes.ticket}>
-          {columns.map((col, j) => renderTicketLine(col, j, secondary[index]))}
+          {Object.keys(numbers).map((colKey) => {
+            const col = numbers[colKey];
+            return renderTicketLine(col, colKey, secondary[index]);
+          })}
         </Grid>
         <Box className={classes.divider} />
       </React.Fragment>

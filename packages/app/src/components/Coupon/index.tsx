@@ -38,10 +38,7 @@ const Coupon: React.FunctionComponent<CouponProps> = ({
     return false;
   };
 
-  const renderPool = <
-    T extends NumbersPool,
-    K extends keyof (Pool | Column)
-  >(
+  const renderPool = <T extends NumbersPool, K extends keyof (Pool | Column)>(
     pool: T,
     poolKey: K,
   ) => {

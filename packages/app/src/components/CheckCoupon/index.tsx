@@ -60,10 +60,10 @@ const CheckCoupon: React.FunctionComponent<CheckCouponProps> = ({
   drawDate: drawDateProp,
 }) => {
   const [open, setOpen] = useState(true);
-  const [panelExpanded, setPanelExpanded] = useState(PanelID.UserNumbers);
+  const [panelExpanded, setPanelExpanded] = useState(PanelID.Report);
   const [drawDate, setDrawDate] = useState<DrawDate>(drawDateProp);
   const [drawData, setDrawData] = useState<DrawDataType>();
-  const [userNumbers, setUserNumbers] = useState<Column[]>([]);
+  const [userNumbers, setUserNumbers] = useState<Column[]>(testData);
 
   useEffect(() => {
     const getData = async () => {
