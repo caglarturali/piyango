@@ -8,7 +8,7 @@ import { withStyles, WithStyles } from '@material-ui/core';
 import Badge from '@material-ui/core/Badge';
 import { CommentCount } from 'disqus-react';
 import { getDisqusConfig } from '../Disqus';
-import { disqus } from '../../../config';
+import { disqus } from '../../../configs';
 import styles from './styles';
 
 export interface CountProps {

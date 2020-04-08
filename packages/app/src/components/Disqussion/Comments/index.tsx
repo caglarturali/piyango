@@ -8,7 +8,7 @@ import Box from '@material-ui/core/Box';
 import Card from '@material-ui/core/Card';
 import { DiscussionEmbed } from 'disqus-react';
 import { getDisqusConfig } from '../Disqus';
-import { disqus } from '../../../config';
+import { disqus } from '../../../configs';
 import styles from './styles';
 
 const useStyles = makeStyles(styles);
