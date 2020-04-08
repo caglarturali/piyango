@@ -8,6 +8,7 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
 import IconButton from '@material-ui/core/IconButton';
 import Toolbar from '@material-ui/core/Toolbar';
+import Tooltip from '@material-ui/core/Tooltip';
 import Typography from '@material-ui/core/Typography';
 import CloseIcon from '@material-ui/icons/Close';
 import RefreshIcon from '@material-ui/icons/Refresh';
@@ -41,17 +42,25 @@ const CheckCouponLayout: React.FunctionComponent<CheckCouponLayoutProps> = ({
             {title}
           </Typography>
 
-          <IconButton
-            color="inherit"
-            onClick={handleReset}
-            aria-label="Sıfırla"
-          >
-            <RefreshIcon />
-          </IconButton>
+          <Tooltip title="Sıfırla">
+            <IconButton
+              color="inherit"
+              onClick={handleReset}
+              aria-label="Sıfırla"
+            >
+              <RefreshIcon />
+            </IconButton>
+          </Tooltip>
 
-          <IconButton color="inherit" onClick={handleClose} aria-label="Kapat">
-            <CloseIcon />
-          </IconButton>
+          <Tooltip title="Kapat">
+            <IconButton
+              color="inherit"
+              onClick={handleClose}
+              aria-label="Kapat"
+            >
+              <CloseIcon />
+            </IconButton>
+          </Tooltip>
         </Toolbar>
       </AppBar>
 

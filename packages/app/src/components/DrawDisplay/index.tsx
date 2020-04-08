@@ -4,7 +4,12 @@
 import React, { useMemo, useState } from 'react';
 import Link from 'next/link';
 import clsx from 'clsx';
-import { DrawDataType, Game } from '@caglarturali/piyango-common';
+import {
+  DateFormat,
+  DrawDataType,
+  Game,
+  GameID,
+} from '@caglarturali/piyango-common';
 import { ProcessDraw } from '@caglarturali/piyango-utils';
 import copy from 'copy-to-clipboard';
 import { makeStyles } from '@material-ui/core';
@@ -19,6 +24,7 @@ import Header from './comps/Header';
 import Numbers from './comps/Numbers';
 import Actions, { ActionItems } from './comps/Actions';
 import Details from './comps/Details';
+import CheckCoupon from '../CheckCoupon';
 import { Segments } from '../../shared';
 import { withCount } from '../Disqussion/Count';
 
@@ -38,6 +44,7 @@ const DrawDisplay: React.FunctionComponent<DrawDisplayProps> = ({
   const classes = useStyles();
 
   const [expanded, setExpanded] = useState(!isSummary);
+  const [showCheckCoupon, setShowCheckCoupon] = useState(false);
 
   const processed = useMemo(() => {
     return new ProcessDraw(game.id, drawData);
@@ -54,6 +61,13 @@ const DrawDisplay: React.FunctionComponent<DrawDisplayProps> = ({
       {
         title: 'Kupon Kontrolü',
         icon: <CheckCouponIcon />,
+        handlers: {
+          onClick: () => {
+            if (game.id !== GameID.piyango) {
+              setShowCheckCoupon(true);
+            }
+          },
+        },
       },
       {
         title: 'Panoya Kopyala',
@@ -101,12 +115,24 @@ const DrawDisplay: React.FunctionComponent<DrawDisplayProps> = ({
         rollingTexts={processed.rollingTexts()}
         isSummary={isSummary}
       />
+      {/* Details panel */}
       {!isSummary && (
         <Details
           gameId={game.id}
           expanded={expanded}
           report={processed.report()}
           drawData={drawData}
+        />
+      )}
+      {/* CheckCoupon comp */}
+      {showCheckCoupon && (
+        <CheckCoupon
+          show={showCheckCoupon}
+          game={game}
+          drawDate={processed.drawDateF(DateFormat.API)}
+          handleClose={() => {
+            setShowCheckCoupon(false);
+          }}
         />
       )}
     </Card>

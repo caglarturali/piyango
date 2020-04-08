@@ -32,7 +32,7 @@ export const ReportPanel: React.FunctionComponent<
   const tickets = ticketUtils.tickets();
   const checkResults = ticketUtils.compareAgainstDraw(drawData);
 
-  console.log(checkResults);
+  // console.log(checkResults);
 
   return (
     <Panel {...props}>

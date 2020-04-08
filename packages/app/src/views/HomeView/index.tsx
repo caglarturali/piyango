@@ -9,7 +9,6 @@ import Grid from '@material-ui/core/Grid';
 import SectionHeader from '../../layouts/SectionHeader';
 import Container from '../../components/Container';
 import DrawDisplay from '../../components/DrawDisplay';
-import CheckCoupon from '../../components/CheckCoupon';
 
 export interface HomeViewProps {
   draws: DrawsItem[];
@@ -40,11 +39,6 @@ const HomeView: React.FunctionComponent<HomeViewProps> = ({ draws }) => {
           </Grid>
         ))}
       </Container>
-      {/* Temporary! */}
-      <CheckCoupon
-        game={GameUtils.getGameById(GameID.sanstopu)}
-        drawDate="20200311"
-      />
     </>
   );
 };

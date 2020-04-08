@@ -20,8 +20,10 @@ import {
 import API from '../../services/API';
 
 export interface CheckCouponProps {
+  show: boolean;
   game: Game;
   drawDate: DrawDate;
+  handleClose: (e?: any) => void;
 }
 
 const testData: Column[] = [
@@ -56,14 +58,16 @@ const testData: Column[] = [
 ];
 
 const CheckCoupon: React.FunctionComponent<CheckCouponProps> = ({
+  show,
   game,
   drawDate: drawDateProp,
+  handleClose,
 }) => {
-  const [open, setOpen] = useState(true);
-  const [panelExpanded, setPanelExpanded] = useState(PanelID.Report);
+  const defaultPanel = PanelID.UserNumbers;
+  const [panelExpanded, setPanelExpanded] = useState(defaultPanel);
   const [drawDate, setDrawDate] = useState<DrawDate>(drawDateProp);
   const [drawData, setDrawData] = useState<DrawDataType>();
-  const [userNumbers, setUserNumbers] = useState<Column[]>(testData);
+  const [userNumbers, setUserNumbers] = useState<Column[]>([]);
 
   useEffect(() => {
     const getData = async () => {
@@ -73,25 +77,22 @@ const CheckCoupon: React.FunctionComponent<CheckCouponProps> = ({
     getData();
   }, [drawDate]);
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-
   const handleAddUserNumbers = (column: Column) => {
     setUserNumbers([...userNumbers, column]);
+  };
+
+  const handleReset = () => {
+    setPanelExpanded(defaultPanel);
+    setDrawDate(drawDateProp);
+    setUserNumbers([]);
   };
 
   return (
     <CheckCouponLayout
       title={`${game.name} Kupon Kontrolü`}
-      show={open}
-      handleClose={handleClose}
-      // tslint:disable-next-line: no-empty
-      handleReset={() => {}}
+      show={show}
+      handleClose={() => handleClose()}
+      handleReset={() => handleReset()}
     >
       <DrawDatePanel
         id={PanelID.DrawDate}
