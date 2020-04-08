@@ -300,7 +300,7 @@ packages:
       integrity: sha512-Ux4ygGWsu2c7isFWe8Yu1YluJmqVhxqK2cLXNQA5AcC3QfbGNpM7fu0Y8b/z16pXLnFxZYvWhd3fhBY9DLmC6Q==
 specifiers:
   '@caglarturali/piyango-common': ^7.0.0
-  '@caglarturali/piyango-utils': ^1.4.1
+  '@caglarturali/piyango-utils': ^1.4.2
   '@now/node': ^1.5.0
   '@types/lodash': ^4.14.149
   '@types/markdown-it': ^0.0.9
