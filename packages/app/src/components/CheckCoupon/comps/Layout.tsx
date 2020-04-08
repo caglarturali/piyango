@@ -35,7 +35,13 @@ const CheckCouponLayout: React.FunctionComponent<CheckCouponLayoutProps> = ({
   const fullScreen = useMediaQuery(theme.breakpoints.down('xs'));
 
   return (
-    <Dialog fullWidth fullScreen={fullScreen} open={show} onClose={handleClose}>
+    <Dialog
+      disableBackdropClick
+      fullWidth
+      fullScreen={fullScreen}
+      open={show}
+      onClose={handleClose}
+    >
       <AppBar classes={{ root: classes.appBarRoot }} className={classes.appBar}>
         <Toolbar classes={{ root: !fullScreen ? classes.toolbarRoot : '' }}>
           <Typography variant="body1" color="inherit" className={classes.flex}>
