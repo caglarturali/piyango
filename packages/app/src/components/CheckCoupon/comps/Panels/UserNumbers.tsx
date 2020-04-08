@@ -2,22 +2,14 @@
  * CheckCoupon->Panels->UserNumbers component.
  */
 import React, { useState } from 'react';
-import {
-  Column,
-  NumbersPool,
-  Pool,
-  PoolKeys,
-  RegularGame,
-} from '@caglarturali/piyango-common';
+import { Column, Pool, RegularGame } from '@caglarturali/piyango-common';
 import { makeStyles } from '@material-ui/core';
-import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import AddIcon from '@material-ui/icons/Add';
 import CheckIcon from '@material-ui/icons/Check';
 import Panel, { PanelProps } from '../Panel';
-
+import CouponDisplay from '../../../CouponDisplay';
 import styles from '../../styles';
-import Coupon from '../../../Coupon';
 
 const useStyles = makeStyles(styles);
 
@@ -43,7 +35,7 @@ export const UserNumbersPanel: React.FunctionComponent<
 
   const handleNumberClick = (
     num: number,
-    poolKey: PoolKeys,
+    poolKey: keyof Pool,
     selectMax: number,
   ) => {
     let numbers = userNumbers[poolKey];
@@ -108,7 +100,7 @@ export const UserNumbersPanel: React.FunctionComponent<
 
   return (
     <Panel {...props} actions={actions}>
-      <Coupon
+      <CouponDisplay
         game={game}
         userNumbers={userNumbers}
         handleNumberClick={handleNumberClick}

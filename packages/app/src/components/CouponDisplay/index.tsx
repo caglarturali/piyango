@@ -1,36 +1,35 @@
 /**
- * Coupon component.
+ * CouponDisplay component.
  */
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Column,
   NumbersPool,
   Pool,
-  PoolKeys,
   RegularGame,
 } from '@caglarturali/piyango-common';
 import { makeStyles } from '@material-ui/core';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
-import CouponNumber from '../CouponNumber';
+import CouponNumber from './comps/CouponNumber';
 import styles from './styles';
 
 const useStyles = makeStyles(styles);
 
-export interface CouponProps {
+export interface CouponDisplayProps {
   game: RegularGame;
   userNumbers: Column;
-  handleNumberClick: (n: number, k: PoolKeys, m: number) => void;
+  handleNumberClick: (n: number, k: keyof Pool, m: number) => void;
 }
 
-const Coupon: React.FunctionComponent<CouponProps> = ({
+const CouponDisplay: React.FunctionComponent<CouponDisplayProps> = ({
   game,
   userNumbers,
   handleNumberClick,
 }) => {
   const classes = useStyles();
 
-  const isNumberSelected = (num: number, poolKey: PoolKeys) => {
+  const isNumberSelected = (num: number, poolKey: keyof Column) => {
     const numbers = userNumbers[poolKey];
     if (numbers) {
       return numbers.includes(num);
@@ -76,4 +75,4 @@ const Coupon: React.FunctionComponent<CouponProps> = ({
   );
 };
 
-export default Coupon;
+export default CouponDisplay;

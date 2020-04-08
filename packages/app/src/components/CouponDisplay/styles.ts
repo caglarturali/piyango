@@ -1,5 +1,5 @@
 /**
- * Coupon component styles.
+ * CouponDisplay component styles.
  */
 import { createStyles, Theme } from '@material-ui/core';
 
