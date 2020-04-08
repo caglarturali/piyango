@@ -71,6 +71,10 @@ export class TicketUtils {
     const obj: { [key: string]: Column } = {};
     arr.forEach((col, i) => {
       const colName = TicketUtils.letters[i % game.columns];
+      // Sort numbers.
+      col.main.sort((a, b) => a - b);
+      if (col.plus) col.plus.sort((a, b) => a - b);
+      // Append to obj.
       obj[colName] = col;
     });
     return obj;
