@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.4.1] - 2020-04-08
+
+### Fixed
+
+- The `onnumara` case of the switch statement.
+
 ## [1.4.0] - 2020-04-07
 
 ### Changed

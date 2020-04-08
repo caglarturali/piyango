@@ -105,6 +105,8 @@ export default class RegularCheck implements ICheckNumbers {
           if (match.main.length === 0) {
             // Override!
             matchTypeStr = RegularMatch.$HIC;
+          } else {
+            matchTypeStr += `${match.main.length}_BILEN`;
           }
           break;
 
