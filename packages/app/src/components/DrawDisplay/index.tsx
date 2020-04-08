@@ -27,6 +27,8 @@ import Details from './comps/Details';
 import CheckCoupon from '../CheckCoupon';
 import { Segments } from '../../shared';
 import { withCount } from '../Disqussion/Count';
+import { PSnackbarProps } from '../PSnackbar';
+import PSnackbar from '../PSnackbar';
 
 const useStyles = makeStyles(styles);
 
@@ -45,6 +47,9 @@ const DrawDisplay: React.FunctionComponent<DrawDisplayProps> = ({
 
   const [expanded, setExpanded] = useState(!isSummary);
   const [showCheckCoupon, setShowCheckCoupon] = useState(false);
+  const [snackbar, setSnackbar] = useState<PSnackbarProps | undefined>(
+    undefined,
+  );
 
   const processed = useMemo(() => {
     return new ProcessDraw(game.id, drawData);
@@ -75,7 +80,11 @@ const DrawDisplay: React.FunctionComponent<DrawDisplayProps> = ({
         handlers: {
           onClick: () => {
             copy(processed.clipboard());
-            // TODO: Show snackbar
+            setSnackbar({
+              show: true,
+              message: 'Panoya kopyalandı.',
+              handleClose: () => setSnackbar(undefined),
+            });
           },
         },
       },
@@ -135,6 +144,8 @@ const DrawDisplay: React.FunctionComponent<DrawDisplayProps> = ({
           }}
         />
       )}
+      {/* Snackbar */}
+      {snackbar && <PSnackbar {...snackbar} />}
     </Card>
   );
 };

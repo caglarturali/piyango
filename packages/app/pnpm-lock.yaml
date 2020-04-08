@@ -3,6 +3,7 @@ dependencies:
   '@caglarturali/piyango-utils': 'link:../utils'
   '@material-ui/core': 4.9.9_react-dom@16.13.1+react@16.13.1
   '@material-ui/icons': 4.9.1_ebad70b039b21b6e5557d9f886c955cb
+  '@material-ui/lab': 4.0.0-alpha.48_ebad70b039b21b6e5557d9f886c955cb
   '@material-ui/styles': 4.9.6_react-dom@16.13.1+react@16.13.1
   clsx: 1.1.0
   color: 3.1.2
@@ -1094,6 +1095,29 @@ packages:
         optional: true
     resolution:
       integrity: sha512-GBitL3oBWO0hzBhvA9KxqcowRUsA0qzwKkURyC8nppnC3fw54KPKZ+d4V1Eeg/UnDRSzDaI9nGCdel/eh9AQMg==
+  /@material-ui/lab/4.0.0-alpha.48_ebad70b039b21b6e5557d9f886c955cb:
+    dependencies:
+      '@babel/runtime': 7.9.2
+      '@material-ui/core': 4.9.9_react-dom@16.13.1+react@16.13.1
+      '@material-ui/utils': 4.9.6_react-dom@16.13.1+react@16.13.1
+      clsx: 1.1.0
+      prop-types: 15.7.2
+      react: 16.13.1
+      react-dom: 16.13.1_react@16.13.1
+      react-is: 16.13.1
+    dev: false
+    engines:
+      node: '>=8.0.0'
+    peerDependencies:
+      '@material-ui/core': ^4.9.9
+      '@types/react': ^16.8.6
+      react: ^16.8.0
+      react-dom: ^16.8.0
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+    resolution:
+      integrity: sha512-iGuTGUvIR3LLkd4LPJRl1Sa92TKmoRa3B3p0I+IllAx+uK1h/aXr++6CnYmTS+gubWRQ8yWQVLRADVrPuLnvCA==
   /@material-ui/styles/4.9.6_react-dom@16.13.1+react@16.13.1:
     dependencies:
       '@babel/runtime': 7.9.2
@@ -4844,6 +4868,7 @@ specifiers:
   '@caglarturali/piyango-utils': ^1.4.1
   '@material-ui/core': ^4.9.9
   '@material-ui/icons': ^4.9.1
+  '@material-ui/lab': ^4.0.0-alpha.48
   '@material-ui/styles': ^4.9.6
   '@types/hls.js': ^0.12.6
   clsx: ^1.1.0
