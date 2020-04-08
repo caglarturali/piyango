@@ -19,12 +19,12 @@ const Numbers: React.FunctionComponent<NumbersProps> = ({ game, numbers }) => {
   const classes = useStyles();
   const { main, plus } = numbers;
 
-  const renderNumbers = (nums: number[], pool: string) => {
+  const renderNumbers = (nums: number[], poolKey: keyof Column) => {
     return nums.map((n, i) => (
       <LuckyBall
         num={n}
         pad={game.id !== GameID.piyango}
-        key={`${game.id}-${pool}-number-${n}-${i}`}
+        key={`${game.id}-${poolKey}-number-${n}-${i}`}
       />
     ));
   };
