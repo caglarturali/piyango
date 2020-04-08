@@ -1,5 +1,5 @@
 /**
- * TicketView component styles.
+ * TicketDisplay component styles.
  */
 import { createStyles, Theme } from '@material-ui/core';
 import Color from 'color';

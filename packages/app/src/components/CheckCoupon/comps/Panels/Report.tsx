@@ -10,7 +10,7 @@ import {
 } from '@caglarturali/piyango-common';
 import { TicketUtils } from '@caglarturali/piyango-utils';
 import Panel, { PanelProps } from '../Panel';
-import TicketView from '../../../TicketView';
+import TicketDisplay from '../../../TicketDisplay';
 import styles from '../../styles';
 
 const useStyles = makeStyles(styles);
@@ -38,7 +38,7 @@ export const ReportPanel: React.FunctionComponent<
     <Panel {...props}>
       <div>
         {tickets.map((ticket, i) => (
-          <TicketView
+          <TicketDisplay
             game={game}
             ticket={ticket}
             results={checkResults[i]}

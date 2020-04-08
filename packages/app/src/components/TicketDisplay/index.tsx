@@ -1,5 +1,5 @@
 /**
- * TicketView component.
+ * TicketDisplay component.
  */
 import React from 'react';
 import {
@@ -16,14 +16,14 @@ import styles from './styles';
 
 const useStyles = makeStyles(styles);
 
-export interface TicketViewProps {
+export interface TicketDisplayProps {
   game: RegularGame;
   ticket: Ticket;
   results?: CheckResult[];
   showDivider?: boolean;
 }
 
-const TicketView: React.FunctionComponent<TicketViewProps> = ({
+const TicketDisplay: React.FunctionComponent<TicketDisplayProps> = ({
   game,
   ticket,
   results,
@@ -84,4 +84,4 @@ const TicketView: React.FunctionComponent<TicketViewProps> = ({
   return <Box>{renderTicket(ticket)}</Box>;
 };
 
-export default TicketView;
+export default TicketDisplay;
