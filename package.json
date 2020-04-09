@@ -12,7 +12,7 @@
     "majs": "majestic",
     "lint": "tslint -c tslint.json \"packages/**/*.ts?\"",
     "lint:fix": "pnpm run lint -- --fix",
-    "sync": "pnpm recursive run sync:commit --filter @caglarturali/piyango-server",
+    "sync": "pnpm run sync:commit --filter @caglarturali/piyango-server",
     "loc": "pnpm recursive run sloc",
     "update": "pnpm recursive update",
     "rebuild": "pnpm recursive rebuild"
