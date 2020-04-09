@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
+    "test": "jest",
+    "test:watch": "pnpm test -- --watch",
     "develop": "next",
     "build": "next build",
     "start": "next start",

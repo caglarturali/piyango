@@ -8,9 +8,7 @@
     "install:server": "pnpm run bootstrap --filter @caglarturali/piyango-server",
     "start:server": "pnpm run develop --filter @caglarturali/piyango-server",
     "start:app": "pnpm run develop --filter @caglarturali/piyango-app",
-    "test": "jest",
-    "test:watch": "pnpm test -- --watch",
-    "majs": "majestic",
+    "test:all": "pnpm recursive run test",
     "lint": "tslint -c tslint.json \"packages/**/*.ts?\"",
     "lint:fix": "pnpm run lint -- --fix",
     "sync": "pnpm run sync:commit --filter @caglarturali/piyango-server",
@@ -21,7 +19,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "pnpm run lint:fix",
-      "pre-push": "pnpm test",
+      "pre-push": "pnpm run test:all",
       "commit-msg": "echo $HUSKY_GIT_PARAMS"
     }
   },
