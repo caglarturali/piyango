@@ -5,11 +5,12 @@
   "private": true,
   "repository": "git://github.com:caglarturali/piyango.git",
   "scripts": {
+    "develop": "now dev --listen 5000",
+    "bootstrap": "rm -rf node_modules && npm install",
     "test": "jest",
     "test:cov": "pnpm test -- --coverage",
     "test:watch": "pnpm test -- --watch",
     "majs": "majestic",
-    "prod": "now --prod",
     "rmtmp": "rm -rf /tmp/zeit-fun-*",
     "sync:draws": "ts-node scripts/syncDraws.ts",
     "sync:stats": "ts-node scripts/calcStats.ts",

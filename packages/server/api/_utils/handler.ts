@@ -2,6 +2,7 @@ import { NowRequest, NowResponse } from '@now/node';
 import { HTTPHeader, HTTPMethods } from '../../src/models/HTTP';
 import { getParamKit, QueryParam } from './helpers';
 import { messages } from '../../src/constants';
+import { app } from '../../src/configs';
 
 export type CallbackFunction = (params: any, body: any) => void;
 
@@ -17,6 +18,14 @@ export const handler = (req: NowRequest, res: NowResponse) => (
   allowedHeader?: HTTPHeader,
 ) => {
   const { method, query, body, headers } = req;
+
+  // Set cors header.
+  res.setHeader(
+    'Access-Control-Allow-Origin',
+    process.env.NODE_ENV === 'production'
+      ? app.origin.production
+      : app.origin.development,
+  );
 
   switch (method) {
     case allowedMethod: {
