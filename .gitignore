@@ -35,4 +35,3 @@ lerna-debug.log*
 # misc
 .DS_Store
 .env*
-package-lock.json
