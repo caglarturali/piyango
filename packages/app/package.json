@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "next",
+    "develop": "next",
     "build": "next build",
     "start": "next start",
     "sloc": "node-sloc . -x node_modules,.next"
