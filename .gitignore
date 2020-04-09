@@ -12,6 +12,7 @@ node_modules
 coverage
 output
 *.lcov
+__snapshots__
 
 # production
 build

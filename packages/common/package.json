@@ -11,7 +11,6 @@
     "build": "pnpm run build:cjs && pnpm run build:esm",
     "build:cjs": "tsc -p tsconfig.build.json --module commonjs --outDir cjs",
     "build:esm": "tsc -p tsconfig.build.json --module esnext --outDir esm",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "prepack": "pnpm run build",
     "sloc": "node-sloc . -x node_modules,cjs,esm"
   },
