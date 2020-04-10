@@ -1,15 +1,6 @@
 devDependencies:
-  '@types/color': 3.0.1
   '@types/jest': 25.2.1
-  '@types/lodash': 4.14.149
-  '@types/moment-timezone': 0.5.13
   '@types/node': 13.11.0
-  '@types/prop-types': 15.7.3
-  '@types/react': 16.9.32
-  '@types/react-dom': 16.9.6
-  '@types/testing-library__jest-dom': 5.0.3
-  '@types/testing-library__react': 10.0.1
-  '@types/testing-library__user-event': 4.1.1
   chalk: 3.0.0
   concurrently: 5.1.0
   husky: 4.2.3
@@ -520,22 +511,10 @@ packages:
     dev: true
     resolution:
       integrity: sha512-74fNdUGrWsgIB/V9kTO5FGHPWYY6Eqn+3Z7L6Hc4e/BxjYV7puvBqp5HwsVYYfLm6iURYBNCx4Ut37OF9yitCw==
-  /@types/color-convert/1.9.0:
-    dependencies:
-      '@types/color-name': 1.1.1
-    dev: true
-    resolution:
-      integrity: sha512-OKGEfULrvSL2VRbkl/gnjjgbbF7ycIlpSsX7Nkab4MOWi5XxmgBYvuiQ7lcCFY5cPDz7MUNaKgxte2VRmtr4Fg==
   /@types/color-name/1.1.1:
     dev: true
     resolution:
       integrity: sha512-rr+OQyAjxze7GgWrSaJwydHStIhHq2lvY3BOC2Mj7KnzI7XK0Uw1TOOdI9lDoajEbSWLiYgoo4f1R51erQfhPQ==
-  /@types/color/3.0.1:
-    dependencies:
-      '@types/color-convert': 1.9.0
-    dev: true
-    resolution:
-      integrity: sha512-oeUWVaAwI+xINDUx+3F2vJkl/vVB03VChFF/Gl3iQCdbcakjuoJyMOba+3BXRtnBhxZ7uBYqQBi9EpLnvSoztA==
   /@types/istanbul-lib-coverage/2.0.1:
     dev: true
     resolution:
@@ -560,16 +539,6 @@ packages:
     dev: true
     resolution:
       integrity: sha512-msra1bCaAeEdkSyA0CZ6gW1ukMIvZ5YoJkdXw/qhQdsuuDlFTcEUrUw8CLCPt2rVRUfXlClVvK2gvPs9IokZaA==
-  /@types/lodash/4.14.149:
-    dev: true
-    resolution:
-      integrity: sha512-ijGqzZt/b7BfzcK9vTrS6MFljQRPn5BFWOx8oE0GYxribu6uV+aA9zZuXI1zc/etK9E8nrgdoF2+LgUw7+9tJQ==
-  /@types/moment-timezone/0.5.13:
-    dependencies:
-      moment: 2.24.0
-    dev: true
-    resolution:
-      integrity: sha512-SWk1qM8DRssS5YR9L4eEX7WUhK/wc96aIr4nMa6p0kTk9YhGGOJjECVhIdPEj13fvJw72Xun69gScXSZ/UmcPg==
   /@types/node/13.11.0:
     dev: true
     resolution:
@@ -582,51 +551,10 @@ packages:
     dev: true
     resolution:
       integrity: sha512-5qOlnZscTn4xxM5MeGXAMOsIOIKIbh9e85zJWfBRVPlRMEVawzoPhINYbRGkBZCI8LxvBe7tJCdWiarA99OZfQ==
-  /@types/prop-types/15.7.3:
-    dev: true
-    resolution:
-      integrity: sha512-KfRL3PuHmqQLOG+2tGpRO26Ctg+Cq1E01D2DMriKEATHgWLfeNDmq9e29Q9WIky0dQ3NPkd1mzYH8Lm936Z9qw==
-  /@types/react-dom/16.9.6:
-    dependencies:
-      '@types/react': 16.9.32
-    dev: true
-    resolution:
-      integrity: sha512-S6ihtlPMDotrlCJE9ST1fRmYrQNNwfgL61UB4I1W7M6kPulUKx9fXAleW5zpdIjUQ4fTaaog8uERezjsGUj9HQ==
-  /@types/react/16.9.32:
-    dependencies:
-      '@types/prop-types': 15.7.3
-      csstype: 2.6.10
-    dev: true
-    resolution:
-      integrity: sha512-fmejdp0CTH00mOJmxUPPbWCEBWPvRIL4m8r0qD+BSDUqmutPyGQCHifzMpMzdvZwROdEdL78IuZItntFWgPXHQ==
   /@types/stack-utils/1.0.1:
     dev: true
     resolution:
       integrity: sha512-l42BggppR6zLmpfU6fq9HEa2oGPEI8yrSPL3GITjfRInppYFahObbIQOQK3UGxEnyQpltZLaPe75046NOZQikw==
-  /@types/testing-library__dom/7.0.1:
-    dependencies:
-      pretty-format: 25.3.0
-    dev: true
-    resolution:
-      integrity: sha512-WokGRksRJb3Dla6h02/0/NNHTkjsj4S8aJZiwMj/5/UL8VZ1iCe3H8SHzfpmBeH8Vp4SPRT8iC2o9kYULFhDIw==
-  /@types/testing-library__jest-dom/5.0.3:
-    dependencies:
-      '@types/jest': 25.2.1
-    dev: true
-    resolution:
-      integrity: sha512-NdbKc6yseg6uq4UJFwimPws0iwsGugVbPoOTP2EH+PJMJKiZsoSg5F2H3XYweOyytftCOuIMuXifBUrF9CSvaQ==
-  /@types/testing-library__react/10.0.1:
-    dependencies:
-      '@types/react-dom': 16.9.6
-      '@types/testing-library__dom': 7.0.1
-      pretty-format: 25.3.0
-    dev: true
-    resolution:
-      integrity: sha512-RbDwmActAckbujLZeVO/daSfdL1pnjVqas25UueOkAY5r7vriavWf0Zqg7ghXMHa8ycD/kLkv8QOj31LmSYwww==
-  /@types/testing-library__user-event/4.1.1:
-    dev: true
-    resolution:
-      integrity: sha512-CIpTxvHwoLEe88deUttZ724SE28hX/x3zAdJIQLoltnngl//akeEKFB5DeNqBOWu7ZCEHFiTqRBMKuswXJqYqg==
   /@types/yargs-parser/15.0.0:
     dev: true
     resolution:
@@ -1211,10 +1139,6 @@ packages:
       node: '>=8'
     resolution:
       integrity: sha512-sEb3XFPx3jNnCAMtqrXPDeSgQr+jojtCeNf8cvMNMh1cG970+lljssvQDzPq6lmmJu2Vhqood/gtEomBiHOGnA==
-  /csstype/2.6.10:
-    dev: true
-    resolution:
-      integrity: sha512-D34BqZU4cIlMCY93rZHbrq9pjTAQJ3U8S8rfBqjwHxkGPThWFjzZDQpgMJY0QViLxth6ZKYiwFBo14RdN44U/w==
   /dashdash/1.14.1:
     dependencies:
       assert-plus: 1.0.0
@@ -2799,10 +2723,6 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==
-  /moment/2.24.0:
-    dev: true
-    resolution:
-      integrity: sha512-bV7f+6l2QigeBBZSM/6yTNq4P2fNpSWj/0e7jQcy87A8e7o2nAfP/34/2ky5Vw4B9S446EtIhodAzkFCcR4dQg==
   /ms/2.0.0:
     dev: true
     resolution:
@@ -4325,17 +4245,8 @@ packages:
     resolution:
       integrity: sha512-Ux4ygGWsu2c7isFWe8Yu1YluJmqVhxqK2cLXNQA5AcC3QfbGNpM7fu0Y8b/z16pXLnFxZYvWhd3fhBY9DLmC6Q==
 specifiers:
-  '@types/color': ^3.0.1
   '@types/jest': ^25.2.1
-  '@types/lodash': ^4.14.149
-  '@types/moment-timezone': ^0.5.13
   '@types/node': ^13.11.0
-  '@types/prop-types': ^15.7.3
-  '@types/react': ^16.9.32
-  '@types/react-dom': ^16.9.6
-  '@types/testing-library__jest-dom': ^5.0.3
-  '@types/testing-library__react': ^10.0.1
-  '@types/testing-library__user-event': ^4.1.1
   chalk: ^3.0.0
   concurrently: ^5.1.0
   husky: ^4.2.3
