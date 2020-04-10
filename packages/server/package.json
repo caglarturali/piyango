@@ -11,6 +11,7 @@
     "test:cov": "pnpm test -- --coverage",
     "test:watch": "pnpm test -- --watch",
     "majs": "majestic",
+    "prod": "now --prod",
     "rmtmp": "rm -rf /tmp/zeit-fun-*",
     "sync:draws": "ts-node scripts/syncDraws.ts",
     "sync:stats": "ts-node scripts/calcStats.ts",

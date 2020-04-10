@@ -9,6 +9,8 @@
     "start:server": "pnpm run develop --filter @caglarturali/piyango-server",
     "start:app": "pnpm run develop --filter @caglarturali/piyango-app",
     "test:all": "pnpm recursive run test",
+    "prod:server": "pnpm run test:all && pnpm run prod --filter @caglarturali/piyango-server",
+    "prod:app": "pnpm run test:all && pnpm run prod --filter @caglarturali/piyango-app",
     "lint": "tslint -c tslint.json \"packages/**/*.ts?\"",
     "lint:fix": "pnpm run lint -- --fix",
     "sync": "pnpm run sync:commit --filter @caglarturali/piyango-server",

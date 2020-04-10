@@ -8,6 +8,7 @@
     "develop": "next",
     "build": "next build",
     "start": "next start",
+    "prod": "now --prod",
     "sloc": "node-sloc . -x node_modules,.next"
   },
   "keywords": [],
