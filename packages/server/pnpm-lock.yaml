@@ -1,5 +1,5 @@
 dependencies:
-  '@caglarturali/piyango-common': 'link:../common'
+  '@caglarturali/piyango-common': 7.0.0
   '@caglarturali/piyango-utils': 'link:../utils'
   '@now/node': 1.5.0
   haikunator: 2.1.2
@@ -20,6 +20,13 @@ devDependencies:
   typescript: 3.8.3
 lockfileVersion: 5.1
 packages:
+  /@caglarturali/piyango-common/7.0.0:
+    dependencies:
+      moment: 2.24.0
+    dev: false
+    resolution:
+      integrity: sha512-eHOipIWFxlrrYjohXaO4Q2nPsy48P98R/oMQbwAHOfbOgMx1cTADttli/e14ERdryekc8r9tQ1xN1LxEPcu0JA==
+      tarball: download/@caglarturali/piyango-common/7.0.0/8429e3ac2f0b8b81bdabdff9886d961eae6472d5c41c9aafd5005c95cb0cd7cb
   /@now/node/1.5.0:
     dependencies:
       '@types/node': 13.11.0
@@ -300,7 +307,7 @@ packages:
       integrity: sha512-Ux4ygGWsu2c7isFWe8Yu1YluJmqVhxqK2cLXNQA5AcC3QfbGNpM7fu0Y8b/z16pXLnFxZYvWhd3fhBY9DLmC6Q==
 specifiers:
   '@caglarturali/piyango-common': ^7.0.0
-  '@caglarturali/piyango-utils': ^1.4.2
+  '@caglarturali/piyango-utils': ^1.5.0
   '@now/node': ^1.5.0
   '@types/lodash': ^4.14.149
   '@types/markdown-it': ^0.0.9
