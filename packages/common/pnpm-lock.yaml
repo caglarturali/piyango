@@ -1,15 +1,15 @@
 dependencies:
   moment: 2.24.0
 devDependencies:
-  '@types/node': 13.11.0
+  '@types/node': 13.11.1
   rimraf: 3.0.2
   typescript: 3.8.3
 lockfileVersion: 5.1
 packages:
-  /@types/node/13.11.0:
+  /@types/node/13.11.1:
     dev: true
     resolution:
-      integrity: sha512-uM4mnmsIIPK/yeO+42F2RQhGUIs39K2RFmugcJANppXe6J1nvH87PvzPZYpza7Xhhs8Yn9yIAVdLZ84z61+0xQ==
+      integrity: sha512-eWQGP3qtxwL8FGneRrC5DwrJLGN4/dH1clNTuLfN81HCrxVtxRjygDTUoZJ5ASlDEeo0ppYFQjQIlXhtXpOn6g==
   /balanced-match/1.0.0:
     dev: true
     resolution:
@@ -92,7 +92,7 @@ packages:
     resolution:
       integrity: sha1-tSQ9jz7BqjXxNkYFvA0QNuMKtp8=
 specifiers:
-  '@types/node': ^13.11.0
+  '@types/node': ^13.11.1
   moment: ^2.24.0
   rimraf: ^3.0.2
   typescript: ^3.8.3
