@@ -1,20 +1,20 @@
 import {
-  Column,
   GameID,
   LotteryMatchMap,
   MatchText,
   MatchType,
   RegularMatchMap,
+  Selection,
 } from '@caglarturali/piyango-common';
 
 export class DrawUtils {
   /**
-   * Converts number string into a Column object.
+   * Converts number string into a Selection object.
    * @param gameId Game Id
    * @param numsStr Numbers string
    */
-  static convertNumbersToColumn(gameId: GameID, numsStr: string): Column {
-    const column: Column = { main: [] };
+  static convertNumbersToSelection(gameId: GameID, numsStr: string): Selection {
+    const column: Selection = { main: [] };
 
     // Convert numbers string into array.
     const numsArray = numsStr.split(/#|-|\+|_|,/).map((n) => parseInt(n, 10));
@@ -31,12 +31,12 @@ export class DrawUtils {
   }
 
   /**
-   * Stringfies the game column object.
+   * Stringfies the selection object.
    * @param gameId Game ID
-   * @param column Column
+   * @param selection Selection
    */
-  static stringifyColumn(gameId: GameID, column: Column): string {
-    const { main, plus } = column;
+  static stringifySelection(gameId: GameID, selection: Selection): string {
+    const { main, plus } = selection;
 
     let text = '';
     if (gameId === GameID.piyango) {

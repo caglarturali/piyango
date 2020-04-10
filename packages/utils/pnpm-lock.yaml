@@ -93,7 +93,7 @@ packages:
     resolution:
       integrity: sha1-tSQ9jz7BqjXxNkYFvA0QNuMKtp8=
 specifiers:
-  '@caglarturali/piyango-common': ^7.0.0
+  '@caglarturali/piyango-common': ^8.0.0
   '@types/node': ^13.11.0
   moment: ^2.24.0
   rimraf: ^3.0.2

@@ -1,11 +1,11 @@
 import {
-  Column,
   GameID,
   GAMES,
   NumbersPool,
   RegularGame,
+  Selection,
 } from '@caglarturali/piyango-common';
-import { NumUtils } from './';
+import { NumUtils } from './NumUtils';
 
 export class Random {
   private game: RegularGame;
@@ -21,10 +21,10 @@ export class Random {
 
   /**
    * Generates pseudo-random guesses.
-   * @returns Array of Column objects
+   * @returns Array of Selection objects
    */
-  generate(): Column[] {
-    const guesses: Column[] = [];
+  generate(): Selection[] {
+    const guesses: Selection[] = [];
 
     for (let i = 1; i <= this.colCount; i++) {
       const { main, plus } = this.game.pool;
@@ -32,7 +32,7 @@ export class Random {
       // Generate numbers.
       const col = {
         main: this.generateNumbers(main),
-      } as Column;
+      } as Selection;
 
       if (plus) {
         col.plus = this.generateNumbers(plus);

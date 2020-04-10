@@ -1,6 +1,5 @@
 import moment, { Moment } from 'moment';
 import {
-  Column,
   DateFormat,
   DrawDataType,
   Game,
@@ -11,6 +10,7 @@ import {
   RegularDrawData,
   RegularReportLine,
   ReportLineType,
+  Selection,
 } from '@caglarturali/piyango-common';
 import { DrawUtils, GameUtils } from './';
 
@@ -26,19 +26,19 @@ export class ProcessDraw<T extends DrawDataType> {
   }
 
   /**
-   * Returns winning numbers as Column object.
+   * Returns winning numbers as Selection object.
    */
-  winningNumbers(): Column {
+  winningNumbers(): Selection {
     if (this.gameId === GameID.piyango) {
       const {
         sonuclar: [jackpot],
       } = this.drawData as LotteryDrawData;
       const nums = jackpot.numaralar[0].split('').map((s) => parseInt(s, 10));
-      return { main: nums } as Column;
+      return { main: nums } as Selection;
     }
 
     const { rakamlar } = this.drawData as RegularDrawData;
-    return DrawUtils.convertNumbersToColumn(this.gameId, rakamlar);
+    return DrawUtils.convertNumbersToSelection(this.gameId, rakamlar);
   }
 
   /**
@@ -137,7 +137,7 @@ export class ProcessDraw<T extends DrawDataType> {
    */
   summary(): string {
     const { id } = this.game;
-    return DrawUtils.stringifyColumn(id, this.winningNumbers());
+    return DrawUtils.stringifySelection(id, this.winningNumbers());
   }
 
   /**

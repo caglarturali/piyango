@@ -1,7 +1,8 @@
 import {
-  Column,
+  DrawDate,
   RegularDrawData,
   RegularGame,
+  Selection,
   Ticket,
 } from '@caglarturali/piyango-common';
 import { RegularCheck } from './Check';
@@ -9,31 +10,32 @@ import { RegularCheck } from './Check';
 export class TicketUtils {
   private static readonly letters = 'ABCDEFGH';
   private game: RegularGame;
-  private cols: Column[];
+  private drawDate: DrawDate;
+  private numbers: Selection[];
 
-  constructor(game: RegularGame, columns: Column[]) {
+  constructor(game: RegularGame, drawDate: DrawDate, numbers: Selection[]) {
     this.game = game;
-    this.cols = columns;
+    this.drawDate = drawDate;
+    this.numbers = numbers;
   }
 
   /**
-   * Returns Columns as tickets.
+   * Returns Selections as tickets.
    */
   tickets(): Ticket[] {
-    const colsCopy = this.cols.slice();
-    const chunks: Column[][] = [];
+    const { game, drawDate } = this;
+    const numsCopy = this.numbers.slice();
+    const tickets: Ticket[] = [];
 
-    while (colsCopy.length) {
-      chunks.push(colsCopy.splice(0, this.game.columns));
+    while (numsCopy.length) {
+      tickets.push({
+        game,
+        drawDate,
+        numbers: numsCopy.splice(0, this.game.columns),
+      });
     }
 
-    return chunks.map(
-      (chunk) =>
-        ({
-          game: this.game,
-          numbers: TicketUtils.arrayToObjectMap(this.game, chunk),
-        } as Ticket),
-    );
+    return tickets;
   }
 
   /**
@@ -48,49 +50,30 @@ export class TicketUtils {
   }
 
   /**
+   * Returns corresponding column key for given
+   * selection index.
+   * @param game Game
+   * @param index Selection index.
+   */
+  static columnKey(game: RegularGame, index: number): string {
+    return TicketUtils.letters[index % game.columns];
+  }
+
+  /**
    * Compares single ticket against given draw data.
    * @param ticket Ticket
    * @param drawData Regular draw data
    */
   static compareTicketAgainstDraw(ticket: Ticket, drawData: RegularDrawData) {
     const { game, numbers } = ticket;
-    const cols = TicketUtils.objectToArrayMap(numbers);
-    const check = RegularCheck.fromColumns(game as RegularGame, drawData, cols);
+    const check = RegularCheck.fromSelections(
+      game as RegularGame,
+      drawData,
+      numbers,
+    );
     check.validate();
     check.process();
 
     return check.results;
-  }
-
-  /**
-   * Converts Columns array into string indexed object.
-   * @param game Regular game object
-   * @param arr Array of Column objects
-   */
-  static arrayToObjectMap(game: RegularGame, arr: Column[]) {
-    const obj: { [key: string]: Column } = {};
-    arr.forEach((col, i) => {
-      const colName = TicketUtils.letters[i % game.columns];
-      // Sort numbers.
-      col.main.sort((a, b) => a - b);
-      if (col.plus) col.plus.sort((a, b) => a - b);
-      // Append to obj.
-      obj[colName] = col;
-    });
-    return obj;
-  }
-
-  /**
-   * Converts string indexed object into Columns array.
-   * @param obj Object of Columns
-   */
-  static objectToArrayMap(obj: { [colName: string]: Column }) {
-    const cols: Column[] = [];
-    for (const colName in obj) {
-      if (obj.hasOwnProperty(colName)) {
-        cols.push(obj[colName]);
-      }
-    }
-    return cols;
   }
 }

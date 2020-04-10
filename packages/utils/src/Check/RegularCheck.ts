@@ -1,10 +1,10 @@
 import {
   CheckResult,
-  Column,
   GameID,
   RegularDrawData,
   RegularGame,
   RegularMatch,
+  Selection,
 } from '@caglarturali/piyango-common';
 import { ProcessDraw } from '../ProcessDraw';
 import { ICheckNumbers } from '.';
@@ -13,20 +13,20 @@ import { DrawUtils } from '../';
 export default class RegularCheck implements ICheckNumbers {
   private game: RegularGame;
   private drawData: RegularDrawData;
-  private userNumbers: Column[];
-  private winningNumbers: Column;
+  private userNumbers: Selection[];
+  private winningNumbers: Selection;
 
-  private matches: Column[] = [];
+  private matches: Selection[] = [];
   results: CheckResult[] = [];
 
   constructor(game: RegularGame, drawData: RegularDrawData, numbers: string[]) {
     this.game = game;
     this.drawData = drawData;
 
-    // Convert string of numbers to Column objects.
+    // Convert string of numbers to Selection objects.
     this.userNumbers = numbers.length
       ? numbers.map((numsStr) =>
-          DrawUtils.convertNumbersToColumn(game.id, numsStr),
+          DrawUtils.convertNumbersToSelection(game.id, numsStr),
         )
       : [];
     this.winningNumbers = new ProcessDraw<RegularDrawData>(
@@ -36,19 +36,19 @@ export default class RegularCheck implements ICheckNumbers {
   }
 
   /**
-   * Returns a new instance from Column objects,
+   * Returns a new instance from Selection objects,
    * instead of from numbers array.
    * @param game Game
    * @param drawData Regular draw data
-   * @param columns User numbers in Column[] form
+   * @param selections User numbers in Selection[] form
    */
-  static fromColumns(
+  static fromSelections(
     game: RegularGame,
     drawData: RegularDrawData,
-    columns: Column[],
+    selections: Selection[],
   ) {
     const instance = new this(game, drawData, []);
-    instance.userNumbers = columns;
+    instance.userNumbers = selections;
     return instance;
   }
 
@@ -143,15 +143,15 @@ export default class RegularCheck implements ICheckNumbers {
   }
 
   /**
-   * Checks a single column against winning numbers.
-   * @param column Column of numbers
+   * Checks a single selection against winning numbers.
+   * @param selection Selection of numbers
    * @param winningNumbers Winning numbers
    */
-  static checkMatch(column: Column, winningNumbers: Column) {
-    const numsMatch: Column = { main: [] };
+  static checkMatch(selection: Selection, winningNumbers: Selection) {
+    const numsMatch: Selection = { main: [] };
 
-    const compare = (key: keyof Column) => {
-      column[key]?.forEach((num: number) => {
+    const compare = (key: keyof Selection) => {
+      selection[key]?.forEach((num: number) => {
         if (winningNumbers[key]?.includes(num)) {
           numsMatch[key]?.push(num);
         }
