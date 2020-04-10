@@ -68,7 +68,14 @@ const DrawDisplay: React.FunctionComponent<DrawDisplayProps> = ({
         icon: <CheckCouponIcon />,
         handlers: {
           onClick: () => {
-            if (game.id !== GameID.piyango) {
+            if (game.id === GameID.piyango) {
+              setSnackbar({
+                show: true,
+                message: 'Bu özellik henüz kullanılamıyor.',
+                severity: 'info',
+                handleClose: () => setSnackbar(undefined),
+              });
+            } else {
               setShowCheckCoupon(true);
             }
           },
