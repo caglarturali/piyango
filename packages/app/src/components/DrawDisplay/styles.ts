@@ -15,24 +15,31 @@ export default ({ breakpoints, palette, spacing, typography }: Theme) =>
     // Header.
     header: {
       display: 'flex',
-      alignItems: 'center',
+      alignItems: 'flex-start',
       justifyContent: 'space-between',
       padding: spacing(2),
       paddingBottom: 0,
+    },
+    signature: {
+      display: 'flex',
+      flexDirection: 'column',
+      '&>*': {
+        display: 'inline-block',
+        padding: 0,
+        margin: 0,
+      },
     },
     drawDate: {
       color: palette.primary.dark,
       fontSize: typography.pxToRem(13),
       fontWeight: typography.fontWeightMedium,
       letterSpacing: '-0.2px',
-      padding: 0,
     },
     gameName: {
       color: palette.text.primary,
       fontSize: typography.pxToRem(20),
       fontWeight: typography.fontWeightMedium,
       letterSpacing: '-0.3px',
-      padding: 0,
     },
     // Numbers area.
     numbers: {

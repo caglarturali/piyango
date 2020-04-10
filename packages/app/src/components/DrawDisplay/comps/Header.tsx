@@ -26,11 +26,9 @@ const Header: React.FunctionComponent<HeaderProps> = ({
 
   return (
     <Box className={classes.header}>
-      <Box>
-        <Typography className={classes.drawDate} component="span">
-          {drawDate}
-        </Typography>
-        <Typography className={classes.gameName}>{game.name}</Typography>
+      <Box className={classes.signature}>
+        <span className={classes.drawDate}>{drawDate}</span>
+        <span className={classes.gameName}>{game.name}</span>
       </Box>
       <JackpotChip
         tooltip="Büyük İkramiye"
