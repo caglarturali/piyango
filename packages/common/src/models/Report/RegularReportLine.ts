@@ -1,4 +1,4 @@
-import { IReportLine } from './';
+import { IReportLine } from './IReportLine';
 
 /**
  * Interface definiton of report lines for regular games.

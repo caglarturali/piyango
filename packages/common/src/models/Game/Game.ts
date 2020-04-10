@@ -1,4 +1,4 @@
-import { GameID } from '.';
+import { GameID } from './GameID';
 
 /**
  * Base game definiton.

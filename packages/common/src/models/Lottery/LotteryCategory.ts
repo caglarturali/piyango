@@ -1,4 +1,4 @@
-import { LotteryMatch } from '.';
+import { LotteryMatch } from './LotteryMatch';
 
 export interface LotteryCategory {
   haneSayisi: number;

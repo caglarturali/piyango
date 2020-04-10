@@ -1,4 +1,4 @@
-import { LuckyProvince } from '.';
+import { LuckyProvince } from './LuckyProvince';
 
 /**
  * Base interface definiton for draw data.

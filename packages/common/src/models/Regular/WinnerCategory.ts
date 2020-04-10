@@ -1,4 +1,4 @@
-import { RegularMatch } from './';
+import { RegularMatch } from './RegularMatch';
 
 export interface WinnerCategory {
   oid: string;

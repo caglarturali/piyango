@@ -1,5 +1,5 @@
 import { DrawData } from '../Draw';
-import { LotteryCategory } from './';
+import { LotteryCategory } from './LotteryCategory';
 
 /**
  * LotteryDraw interface.

@@ -1,3 +1,4 @@
+export * from './GameDrawDate';
 export * from './RegularDrawData';
 export * from './RegularDrawType';
 export * from './RegularGame';

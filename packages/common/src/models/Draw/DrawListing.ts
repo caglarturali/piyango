@@ -1,4 +1,4 @@
-import { DrawDate } from './';
+import { DrawDate } from './DrawDate';
 
 /**
  * Interface that defines the response object

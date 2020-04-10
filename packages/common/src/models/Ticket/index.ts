@@ -1,2 +1,2 @@
-export * from './Column';
+export * from './Selection';
 export * from './Ticket';

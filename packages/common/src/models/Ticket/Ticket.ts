@@ -1,9 +1,9 @@
-import { Column } from './Column';
 import { Game } from '../Game';
+import { DrawDate } from '../Draw';
+import { Selection } from './Selection';
 
 export interface Ticket {
   game: Game;
-  numbers: {
-    [colName: string]: Column;
-  };
+  drawDate: DrawDate;
+  numbers: Selection[];
 }

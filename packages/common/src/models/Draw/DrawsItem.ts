@@ -1,5 +1,5 @@
 import { GameID } from '../Game';
-import { DrawDataType } from './';
+import { DrawDataType } from './DrawDataType';
 
 /**
  * Interface defines the items

@@ -1,4 +1,5 @@
-import { Game, GameDrawDate, Pool } from '../Game';
+import { Game, Pool } from '../Game';
+import { GameDrawDate } from './GameDrawDate';
 
 /**
  * RegularGame interface.

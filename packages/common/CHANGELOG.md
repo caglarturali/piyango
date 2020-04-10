@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [8.0.0] - 2020-04-07
+
+### Removed
+
+- Column model
+
+### Added
+
+- Selection model defined in place of Column.
+- Ticket model redefined.
+
 ## [7.0.0] - 2020-04-07
 
 ### Changed

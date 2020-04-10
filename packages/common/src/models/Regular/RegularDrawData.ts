@@ -1,5 +1,6 @@
 import { DrawData } from '../Draw';
-import { RegularDrawType, WinnerCategory } from './';
+import { RegularDrawType } from './RegularDrawType';
+import { WinnerCategory } from './WinnerCategory';
 
 export interface RegularDrawData extends DrawData {
   archived?: boolean;

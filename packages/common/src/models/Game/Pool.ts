@@ -4,5 +4,3 @@ export interface Pool {
   main: NumbersPool;
   plus?: NumbersPool;
 }
-
-export type PoolKeys = keyof Pool;
