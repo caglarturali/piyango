@@ -2,7 +2,7 @@
  * DrawDisplay->Numbers component.
  */
 import React from 'react';
-import { Column, Game, GameID } from '@caglarturali/piyango-common';
+import { Game, GameID, Selection } from '@caglarturali/piyango-common';
 import { makeStyles } from '@material-ui/core';
 import Box from '@material-ui/core/Box';
 import LuckyBall from '../../LuckyBall';
@@ -12,19 +12,19 @@ const useStyles = makeStyles(styles);
 
 export interface NumbersProps {
   game: Game;
-  numbers: Column;
+  numbers: Selection;
 }
 
 const Numbers: React.FunctionComponent<NumbersProps> = ({ game, numbers }) => {
   const classes = useStyles();
   const { main, plus } = numbers;
 
-  const renderNumbers = (nums: number[], poolKey: keyof Column) => {
+  const renderNumbers = (nums: number[], key: keyof Selection) => {
     return nums.map((n, i) => (
       <LuckyBall
         num={n}
         pad={game.id !== GameID.piyango}
-        key={`${game.id}-${poolKey}-number-${n}-${i}`}
+        key={`${game.id}-${key}-number-${n}-${i}`}
       />
     ));
   };

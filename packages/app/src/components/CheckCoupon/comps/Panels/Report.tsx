@@ -4,9 +4,9 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core';
 import {
-  Column,
   RegularDrawData,
   RegularGame,
+  Selection,
 } from '@caglarturali/piyango-common';
 import { TicketUtils } from '@caglarturali/piyango-utils';
 import Panel, { PanelProps } from '../Panel';
@@ -18,7 +18,7 @@ const useStyles = makeStyles(styles);
 export interface ReportPanelProps {
   game: RegularGame;
   drawData?: RegularDrawData;
-  userNumbers: Column[];
+  userNumbers: Selection[];
 }
 
 export const ReportPanel: React.FunctionComponent<
@@ -28,7 +28,7 @@ export const ReportPanel: React.FunctionComponent<
 
   if (!drawData) return null;
 
-  const ticketUtils = new TicketUtils(game, userNumbers);
+  const ticketUtils = new TicketUtils(game, '', userNumbers);
   const tickets = ticketUtils.tickets();
   const checkResults = ticketUtils.compareAgainstDraw(drawData);
 

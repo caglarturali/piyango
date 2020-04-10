@@ -19,7 +19,7 @@ dependencies:
   typed.js: 2.0.11
 devDependencies:
   '@babel/core': 7.9.0
-  '@testing-library/jest-dom': 5.4.0
+  '@testing-library/jest-dom': 5.5.0
   '@testing-library/react': 10.0.2_react-dom@16.13.1+react@16.13.1
   '@testing-library/user-event': 10.0.1
   '@types/color': 3.0.1
@@ -1052,7 +1052,7 @@ packages:
       '@babel/plugin-transform-unicode-regex': 7.8.3_@babel+core@7.7.2
       '@babel/types': 7.7.4
       browserslist: 4.8.3
-      core-js-compat: 3.6.4
+      core-js-compat: 3.6.5
       invariant: 2.2.4
       js-levenshtein: 1.1.6
       semver: 5.7.1
@@ -1099,7 +1099,7 @@ packages:
       integrity: sha512-1B4HthAelaLGfNRyrWqJtBEjXX1ulThCrLQ5B2VOtEAznWFIFXFJahgXImqppy66lx/Oh+cOSCQdJzZqh2Jh5g==
   /@babel/runtime-corejs3/7.9.2:
     dependencies:
-      core-js-pure: 3.6.4
+      core-js-pure: 3.6.5
       regenerator-runtime: 0.13.5
     dev: true
     resolution:
@@ -1387,7 +1387,7 @@ packages:
       node: '>=10'
     resolution:
       integrity: sha512-xIGoHlQ2ZiEL1dJIFKNmLDypzYF+4OJTTASRctl/aoIDaS5y/pRVHRigoqvPUV11mdJoR71IIgi/6UviMgyz4g==
-  /@testing-library/jest-dom/5.4.0:
+  /@testing-library/jest-dom/5.5.0:
     dependencies:
       '@babel/runtime': 7.9.2
       '@types/testing-library__jest-dom': 5.0.3
@@ -1404,7 +1404,7 @@ packages:
       npm: '>=6'
       yarn: '>=1'
     resolution:
-      integrity: sha512-dsXGGNiZhZVrBgQ7lxznZmzKvJ3DfhmTH7jkgfyDCjgyGbviLrGVWLQO6rXYfootU81mw96HaYH2L7DthJEC7A==
+      integrity: sha512-7sWHrpxG4Yd8TmryI7Rtbx8Ff4mbs3ASye3oshQIuHvsCR+QHgr7rTR/PfeXvOmwUwR36wSTTAvrLKsPmr6VEQ==
   /@testing-library/react/10.0.2_react-dom@16.13.1+react@16.13.1:
     dependencies:
       '@babel/runtime': 7.9.2
@@ -1514,17 +1514,10 @@ packages:
       integrity: sha512-S6ihtlPMDotrlCJE9ST1fRmYrQNNwfgL61UB4I1W7M6kPulUKx9fXAleW5zpdIjUQ4fTaaog8uERezjsGUj9HQ==
   /@types/react-transition-group/4.2.4:
     dependencies:
-      '@types/react': 16.9.32
+      '@types/react': 16.9.34
     dev: false
     resolution:
       integrity: sha512-8DMUaDqh0S70TjkqU0DxOu80tFUiiaS9rxkWip/nb7gtvAsbqOXm02UCmR8zdcjWujgeYPiPNTVpVpKzUDotwA==
-  /@types/react/16.9.32:
-    dependencies:
-      '@types/prop-types': 15.7.3
-      csstype: 2.6.10
-    dev: false
-    resolution:
-      integrity: sha512-fmejdp0CTH00mOJmxUPPbWCEBWPvRIL4m8r0qD+BSDUqmutPyGQCHifzMpMzdvZwROdEdL78IuZItntFWgPXHQ==
   /@types/react/16.9.34:
     dependencies:
       '@types/prop-types': 15.7.3
@@ -2107,8 +2100,8 @@ packages:
       integrity: sha512-Z942RysHXmJrhqk88FmKBVq/v5tqmSkDz7p54G/MGyjMnCFFnC79XWNbg+Vta8W6Wb2qtSZTSxIGkJrRpCFEiA==
   /browserslist/4.11.1:
     dependencies:
-      caniuse-lite: 1.0.30001039
-      electron-to-chromium: 1.3.398
+      caniuse-lite: 1.0.30001040
+      electron-to-chromium: 1.3.402
       node-releases: 1.1.53
       pkg-up: 2.0.0
     dev: false
@@ -2117,8 +2110,8 @@ packages:
       integrity: sha512-DCTr3kDrKEYNw6Jb9HFxVLQNaue8z+0ZfRBRjmCunKDEXEBajKDj2Y+Uelg+Pi29OnvaSGwjOsnRyNEkXzHg5g==
   /browserslist/4.8.3:
     dependencies:
-      caniuse-lite: 1.0.30001039
-      electron-to-chromium: 1.3.398
+      caniuse-lite: 1.0.30001040
+      electron-to-chromium: 1.3.402
       node-releases: 1.1.53
     dev: false
     hasBin: true
@@ -2196,10 +2189,10 @@ packages:
       node: '>=6'
     resolution:
       integrity: sha512-L28STB170nwWS63UjtlEOE3dldQApaJXZkOI1uMFfzf3rRuPegHaHesyee+YxQ+W6SvRDQV6UrdOdRiR153wJg==
-  /caniuse-lite/1.0.30001039:
+  /caniuse-lite/1.0.30001040:
     dev: false
     resolution:
-      integrity: sha512-SezbWCTT34eyFoWHgx8UWso7YtvtM7oosmFoXbCkdC6qJzRfBTeTgE9REtKtiuKXuMwWTZEvdnFNGAyVMorv8Q==
+      integrity: sha512-Ep0tEPeI5wCvmJNrXjE3etgfI+lkl1fTDU6Y3ZH1mhrjkPlVI9W4pcKbMo+BQLpEWKVYYp2EmYaRsqpPC3k7lQ==
   /capture-exit/2.0.0:
     dependencies:
       rsvp: 4.8.5
@@ -2432,18 +2425,18 @@ packages:
     dev: false
     resolution:
       integrity: sha512-i13qo6kIHTTpCm8/Wup+0b1mVWETvu2kIMzKoK8FpkLkFxlt0znUAHcMzox+T8sPlqtZXq3CulEjQHsYiGFJUw==
-  /core-js-compat/3.6.4:
+  /core-js-compat/3.6.5:
     dependencies:
       browserslist: 4.11.1
       semver: 7.0.0
     dev: false
     resolution:
-      integrity: sha512-zAa3IZPvsJ0slViBQ2z+vgyyTuhd3MFn1rBQjZSKVEgB0UMYhUkCj9jJUVPgGTGqWvsBVmfnruXgTcNyTlEiSA==
-  /core-js-pure/3.6.4:
+      integrity: sha512-7ItTKOhOZbznhXAQ2g/slGg1PJV5zDO/WdkTwi7UEOJmkvsE32PWvx6mKtDjiMpjnR2CNf6BAD6sSxIlv7ptng==
+  /core-js-pure/3.6.5:
     dev: true
     requiresBuild: true
     resolution:
-      integrity: sha512-epIhRLkXdgv32xIUFaaAry2wdxZYBi6bgM7cB136dzzXXa+dFyRLTZeLUJxnd8ShrmyVXBub63n2NHo2JAt8Cw==
+      integrity: sha512-lacdXOimsiD0QyNf9BC/mxivNJ/ybBGJXQFKzRekp1WTHoVUWsUHEn+2T8GJAzzIhyOuXA+gOxCVN3l+5PLPUA==
   /core-util-is/1.0.2:
     dev: false
     resolution:
@@ -2703,10 +2696,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-07z8uv2wMyS51kKhD1KsdXJg5WQ6t93RneqRxUHnskXVtlYYkLqM0gqStQZ3pj073g687jPCHrqNfCzawLYh5g==
-  /electron-to-chromium/1.3.398:
+  /electron-to-chromium/1.3.402:
     dev: false
     resolution:
-      integrity: sha512-BJjxuWLKFbM5axH3vES7HKMQgAknq9PZHBkMK/rEXUQG9i1Iw5R+6hGkm6GtsQSANjSUrh/a6m32nzCNDNo/+w==
+      integrity: sha512-gaCDfX7IUH0s3JmBiHCDPrvVcdnTTP1r4WLJc2dHkYYbLmXZ2XHiJCcGQ9Balf91aKTvuCKCyu2JjJYRykoI1w==
   /elliptic/6.5.2:
     dependencies:
       bn.js: 4.11.8
@@ -5693,7 +5686,7 @@ specifiers:
   '@material-ui/icons': ^4.9.1
   '@material-ui/lab': ^4.0.0-alpha.48
   '@material-ui/styles': ^4.9.6
-  '@testing-library/jest-dom': ^5.4.0
+  '@testing-library/jest-dom': ^5.5.0
   '@testing-library/react': ^10.0.2
   '@testing-library/user-event': ^10.0.1
   '@types/color': ^3.0.1

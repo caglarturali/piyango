@@ -3,12 +3,12 @@
  */
 import React, { useEffect, useState } from 'react';
 import {
-  Column,
   DrawDataType,
   DrawDate,
   Game,
   RegularDrawData,
   RegularGame,
+  Selection,
 } from '@caglarturali/piyango-common';
 import CheckCouponLayout from './comps/Layout';
 import {
@@ -26,7 +26,7 @@ export interface CheckCouponProps {
   handleClose: (e?: any) => void;
 }
 
-const testData: Column[] = [
+const testData: Selection[] = [
   {
     main: [2, 5, 6, 17, 22],
     plus: [3],
@@ -67,7 +67,7 @@ const CheckCoupon: React.FunctionComponent<CheckCouponProps> = ({
   const [panelExpanded, setPanelExpanded] = useState(defaultPanel);
   const [drawDate, setDrawDate] = useState<DrawDate>(drawDateProp);
   const [drawData, setDrawData] = useState<DrawDataType>();
-  const [userNumbers, setUserNumbers] = useState<Column[]>([]);
+  const [userNumbers, setUserNumbers] = useState<Selection[]>([]);
 
   useEffect(() => {
     const getData = async () => {
@@ -77,8 +77,8 @@ const CheckCoupon: React.FunctionComponent<CheckCouponProps> = ({
     getData();
   }, [drawDate]);
 
-  const handleAddUserNumbers = (column: Column) => {
-    setUserNumbers([...userNumbers, column]);
+  const handleAddUserNumbers = (numbers: Selection) => {
+    setUserNumbers([...userNumbers, numbers]);
   };
 
   const handleReset = () => {

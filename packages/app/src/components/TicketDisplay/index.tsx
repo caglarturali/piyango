@@ -4,11 +4,15 @@
 import React from 'react';
 import {
   CheckResult,
-  Column,
   RegularGame,
+  Selection,
   Ticket,
 } from '@caglarturali/piyango-common';
-import { DrawUtils, MoneyUtils } from '@caglarturali/piyango-utils';
+import {
+  DrawUtils,
+  MoneyUtils,
+  TicketUtils,
+} from '@caglarturali/piyango-utils';
 import { makeStyles } from '@material-ui/core';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
@@ -32,7 +36,7 @@ const TicketDisplay: React.FunctionComponent<TicketDisplayProps> = ({
   const classes = useStyles();
 
   const renderTicketLine = (
-    col: Column,
+    col: Selection,
     colKey: string,
     result?: CheckResult,
   ) => {
@@ -58,7 +62,7 @@ const TicketDisplay: React.FunctionComponent<TicketDisplayProps> = ({
             </span>
           </Box>
           <Box className={classes.numbers}>
-            <span>{DrawUtils.stringifyColumn(game.id, col)}</span>
+            <span>{DrawUtils.stringifySelection(game.id, col)}</span>
             <span className={classes.secondary}>{resultLine()}</span>
           </Box>
         </Box>
@@ -70,10 +74,10 @@ const TicketDisplay: React.FunctionComponent<TicketDisplayProps> = ({
     return (
       <>
         <Grid className={classes.ticket}>
-          {Object.keys(numbers).map((colKey, i) => {
-            const col = numbers[colKey];
+          {numbers.map((sel, i) => {
+            const colKey = TicketUtils.columnKey(game, i);
             const res = results ? results[i] : undefined;
-            return renderTicketLine(col, colKey, res);
+            return renderTicketLine(sel, colKey, res);
           })}
         </Grid>
         {showDivider && <Box className={classes.divider} />}

@@ -2,7 +2,7 @@
  * CheckCoupon->Panels->UserNumbers component.
  */
 import React, { useState } from 'react';
-import { Column, Pool, RegularGame } from '@caglarturali/piyango-common';
+import { Pool, RegularGame, Selection } from '@caglarturali/piyango-common';
 import { makeStyles } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import AddIcon from '@material-ui/icons/Add';
@@ -16,7 +16,7 @@ const useStyles = makeStyles(styles);
 export interface UserNumbersProps {
   game: RegularGame;
   isReportAvailable: boolean;
-  onAddUserNumbers: (c: Column) => void;
+  onAddUserNumbers: (c: Selection) => void;
   onReportClick: (e: any) => void;
 }
 
@@ -31,7 +31,7 @@ export const UserNumbersPanel: React.FunctionComponent<
 }) => {
   const classes = useStyles();
 
-  const [userNumbers, setUserNumbers] = useState<Column>({ main: [] });
+  const [userNumbers, setUserNumbers] = useState<Selection>({ main: [] });
 
   const handleNumberClick = (
     num: number,
@@ -58,12 +58,12 @@ export const UserNumbersPanel: React.FunctionComponent<
     });
   };
 
-  const handleAddColumn = () => {
+  const handleAddSelection = () => {
     onAddUserNumbers(userNumbers);
     setUserNumbers({ main: [] });
   };
 
-  const isOneColumnEntered = () => {
+  const isOneSelectionEntered = () => {
     const { main: mainPool, plus: plusPool } = game.pool;
     const { main: userMain, plus: userPlus } = userNumbers;
 
@@ -85,8 +85,8 @@ export const UserNumbersPanel: React.FunctionComponent<
   const actions = (
     <>
       <Button
-        disabled={!isOneColumnEntered()}
-        onClick={() => handleAddColumn()}
+        disabled={!isOneSelectionEntered()}
+        onClick={() => handleAddSelection()}
       >
         <AddIcon />
         Kolon Ekle

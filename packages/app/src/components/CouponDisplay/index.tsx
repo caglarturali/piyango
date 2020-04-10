@@ -3,10 +3,10 @@
  */
 import React from 'react';
 import {
-  Column,
   NumbersPool,
   Pool,
   RegularGame,
+  Selection,
 } from '@caglarturali/piyango-common';
 import { makeStyles } from '@material-ui/core';
 import Box from '@material-ui/core/Box';
@@ -18,7 +18,7 @@ const useStyles = makeStyles(styles);
 
 export interface CouponDisplayProps {
   game: RegularGame;
-  userNumbers: Column;
+  userNumbers: Selection;
   handleNumberClick: (n: number, k: keyof Pool, m: number) => void;
 }
 
@@ -29,7 +29,7 @@ const CouponDisplay: React.FunctionComponent<CouponDisplayProps> = ({
 }) => {
   const classes = useStyles();
 
-  const isNumberSelected = (num: number, poolKey: keyof Column) => {
+  const isNumberSelected = (num: number, poolKey: keyof Selection) => {
     const numbers = userNumbers[poolKey];
     if (numbers) {
       return numbers.includes(num);
@@ -37,7 +37,10 @@ const CouponDisplay: React.FunctionComponent<CouponDisplayProps> = ({
     return false;
   };
 
-  const renderPool = <T extends NumbersPool, K extends keyof (Pool | Column)>(
+  const renderPool = <
+    T extends NumbersPool,
+    K extends keyof (Pool | Selection)
+  >(
     pool: T,
     poolKey: K,
   ) => {
