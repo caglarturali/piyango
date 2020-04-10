@@ -69,7 +69,7 @@ const calculateStatsForGame = async (gameId: GameID) => {
       gameId,
       drawDetails,
     ).winningNumbers();
-    stats.processColumn(nums, drawDate);
+    stats.processSelection(nums, drawDate);
   });
 
   return stats;
