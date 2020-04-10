@@ -74,7 +74,7 @@ export const checkNumbers = async (
     );
 
     if (!check.validate()) {
-      return apiResponse.setFailed(messages.invalidColumn(), 400);
+      return apiResponse.setFailed(messages.invalidSelection(), 400);
     }
   }
 

@@ -1,5 +1,5 @@
 dependencies:
-  '@caglarturali/piyango-common': 7.0.0
+  '@caglarturali/piyango-common': 'link:../common'
   '@caglarturali/piyango-utils': 'link:../utils'
   '@now/node': 1.5.0
   haikunator: 2.1.2
@@ -13,23 +13,16 @@ devDependencies:
   '@types/lodash': 4.14.149
   '@types/markdown-it': 0.0.9
   '@types/moment-timezone': 0.5.13
-  '@types/node': 13.11.0
+  '@types/node': 13.11.1
   '@types/node-fetch': 2.5.5
   chalk: 3.0.0
   ts-node: 8.8.2_typescript@3.8.3
   typescript: 3.8.3
 lockfileVersion: 5.1
 packages:
-  /@caglarturali/piyango-common/7.0.0:
-    dependencies:
-      moment: 2.24.0
-    dev: false
-    resolution:
-      integrity: sha512-eHOipIWFxlrrYjohXaO4Q2nPsy48P98R/oMQbwAHOfbOgMx1cTADttli/e14ERdryekc8r9tQ1xN1LxEPcu0JA==
-      tarball: download/@caglarturali/piyango-common/7.0.0/8429e3ac2f0b8b81bdabdff9886d961eae6472d5c41c9aafd5005c95cb0cd7cb
   /@now/node/1.5.0:
     dependencies:
-      '@types/node': 13.11.0
+      '@types/node': 13.11.1
     dev: false
     resolution:
       integrity: sha512-0MChNIBHsViTMPDsifTveWmMpUSUbVQYAHg9Qa8p7uF7pkfBAghyCGHSKHJVg3zxx0vVE4z+rYgaRS6xvF8qMA==
@@ -59,14 +52,14 @@ packages:
       integrity: sha512-SWk1qM8DRssS5YR9L4eEX7WUhK/wc96aIr4nMa6p0kTk9YhGGOJjECVhIdPEj13fvJw72Xun69gScXSZ/UmcPg==
   /@types/node-fetch/2.5.5:
     dependencies:
-      '@types/node': 13.11.0
+      '@types/node': 13.11.1
       form-data: 3.0.0
     dev: true
     resolution:
       integrity: sha512-IWwjsyYjGw+em3xTvWVQi5MgYKbRs0du57klfTaZkv/B24AEQ/p/IopNeqIYNy3EsfHOpg8ieQSDomPcsYMHpA==
-  /@types/node/13.11.0:
+  /@types/node/13.11.1:
     resolution:
-      integrity: sha512-uM4mnmsIIPK/yeO+42F2RQhGUIs39K2RFmugcJANppXe6J1nvH87PvzPZYpza7Xhhs8Yn9yIAVdLZ84z61+0xQ==
+      integrity: sha512-eWQGP3qtxwL8FGneRrC5DwrJLGN4/dH1clNTuLfN81HCrxVtxRjygDTUoZJ5ASlDEeo0ppYFQjQIlXhtXpOn6g==
   /@types/random-seed/0.3.3:
     dev: false
     resolution:
@@ -306,13 +299,13 @@ packages:
     resolution:
       integrity: sha512-Ux4ygGWsu2c7isFWe8Yu1YluJmqVhxqK2cLXNQA5AcC3QfbGNpM7fu0Y8b/z16pXLnFxZYvWhd3fhBY9DLmC6Q==
 specifiers:
-  '@caglarturali/piyango-common': ^7.0.0
+  '@caglarturali/piyango-common': ^8.0.0
   '@caglarturali/piyango-utils': ^1.5.0
   '@now/node': ^1.5.0
   '@types/lodash': ^4.14.149
   '@types/markdown-it': ^0.0.9
   '@types/moment-timezone': ^0.5.13
-  '@types/node': ^13.11.0
+  '@types/node': ^13.11.1
   '@types/node-fetch': ^2.5.5
   chalk: ^3.0.0
   haikunator: ^2.1.2

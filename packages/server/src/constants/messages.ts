@@ -12,7 +12,7 @@ export const messages = {
   invalidNumber: (v?: any) => buildMsg('Number is not valid', v),
   invalidSort: (v?: any) => buildMsg('Sorting order is not valid', v),
   invalidTicket: () => buildMsg('Invalid ticket number'),
-  invalidColumn: () => buildMsg('Incorrect column size'),
+  invalidSelection: () => buildMsg('Incorrect column size'),
   missingHeader: (v: any) => buildMsg('Missing header', v),
   notAllowedMethod: (v: any) => buildMsg('Method not allowed', v),
 };

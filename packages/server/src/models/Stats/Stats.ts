@@ -1,9 +1,9 @@
 import {
-  Column,
   DrawDate,
   Game,
   GameID,
   GAMES,
+  Selection,
 } from '@caglarturali/piyango-common';
 import { DateUtils } from '@caglarturali/piyango-utils';
 import fs from 'fs';
@@ -66,13 +66,15 @@ export default class Stats {
 
   /**
    * Processes a column of numbers.
-   * @param column Game column
+   * @param selection Game column
    * @param drawDate Draw date string
    */
-  processColumn(column: Column, drawDate: DrawDate) {
-    column.main.forEach((num) => this.processNumber(num, drawDate));
-    if (this.gameId === GameID.sanstopu && column.plus) {
-      column.plus.forEach((plus) => this.processNumber(plus, drawDate, true));
+  processSelection(selection: Selection, drawDate: DrawDate) {
+    selection.main.forEach((num) => this.processNumber(num, drawDate));
+    if (this.gameId === GameID.sanstopu && selection.plus) {
+      selection.plus.forEach((plus) =>
+        this.processNumber(plus, drawDate, true),
+      );
     }
   }
 
