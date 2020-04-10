@@ -42,7 +42,6 @@ export default ({
       [breakpoints.down('xs')]: {
         fontSize: typography.pxToRem(18),
         width: typography.pxToRem(26),
-        padding: `${typography.pxToRem(6)} 0`,
       },
       [breakpoints.up('sm')]: {
         transition: transitions.create(['backgroundColor', 'color'], {
