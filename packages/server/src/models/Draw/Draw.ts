@@ -8,7 +8,6 @@ import {
 } from '@caglarturali/piyango-common';
 import { DateUtils } from '@caglarturali/piyango-utils';
 import { messages, MPI_BASE } from '../../constants';
-import { PathUtils } from '../../utils';
 import db from '../../db';
 
 interface PromiseResult {
@@ -38,27 +37,26 @@ export default class Draw {
    * @param drawDate Draw date
    * @returns Draw instance.
    */
-  static fromFile(gameId: GameID, drawDate: DrawDate): Promise<Draw> {
+  static fromFile(gameId: GameID, drawDate: DrawDate): Draw {
     const draw = new this(gameId, drawDate);
-    return new Promise((resolve, _reject) => {
-      // Load db.
-      db[gameId].findOne(
-        {
-          cekilisTarihi: DateUtils.convert(
-            drawDate,
-            DateFormat.API,
-            DateFormat.FRIENDLY,
-          ),
-        },
-        (_err, doc) => {
-          if (doc) {
-            draw.drawData = doc;
-            return resolve(draw);
-          }
-        },
-      );
-      resolve(draw);
-    });
+
+    // Find record.
+    const record = db[gameId]
+      .get('draws')
+      .find({
+        cekilisTarihi: DateUtils.convert(
+          drawDate,
+          DateFormat.API,
+          DateFormat.FRIENDLY,
+        ),
+      })
+      .value();
+
+    if (record) {
+      draw.drawData = record;
+    }
+
+    return draw;
   }
 
   /**

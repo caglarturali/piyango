@@ -18,20 +18,22 @@ const syncDrawsForGame = (gameId: GameID): Promise<any> => {
     printMsg(`Syncing draws for ${gameId}`);
 
     // Checks DB for draw record.
-    const isDrawFound = (drawDate: DrawDate, index: number): boolean => {
-      db[gameId].findOne(
-        {
+    const isDrawFound = async (
+      drawDate: DrawDate,
+      index: number,
+    ): Promise<boolean> => {
+      const result = db[gameId]
+        .get('draws')
+        .find({
           cekilisTarihi: DateUtils.convert(
             drawDate,
             DateFormat.API,
             DateFormat.FRIENDLY,
           ),
-        },
-        (_err, doc) => {
-          if (doc) return true;
-          return false;
-        },
-      );
+        })
+        .value();
+
+      if (result) return true;
       return false;
     };
 
@@ -67,16 +69,14 @@ const syncDrawsForGame = (gameId: GameID): Promise<any> => {
 
       if (drawDetails) {
         // Insert data to db.
-        db[gameId].insert(drawDetails, (err, _docs) => {
-          if (err) {
-            printMsg(err.message, MessageType.ERROR);
-            return;
-          }
+        const result = db[gameId].get('draws').push(drawDetails).write();
+
+        if (result.length) {
           printMsg(
             `Record added for: ${gameId}-${drawDate}`,
             MessageType.SUCCESS,
           );
-        });
+        }
       }
     });
 

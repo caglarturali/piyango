@@ -42,7 +42,7 @@ export const getDrawDetailsForDraw = async (
   /**
    * Return static data or fetch it from the web service.
    */
-  const draw = await Draw.fromFile(gameId, drawDate);
+  const draw = Draw.fromFile(gameId, drawDate);
   if (!draw.drawData) {
     await draw.fetchData();
   }

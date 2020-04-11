@@ -3,7 +3,6 @@ import fetch from 'node-fetch';
 import stripBom from 'strip-bom';
 import {
   DateFormat,
-  DrawDataType,
   DrawDate,
   DrawListing,
   GameID,
@@ -65,28 +64,19 @@ export default class DrawDates {
     }
 
     // Append static data.
-    return new Promise<DrawDataType[]>((resolve, _reject) => {
-      db[this.gameId].find({}, (err, docs) => {
-        if (docs.length) {
-          resolve(docs);
-        }
-      });
-    })
-      .then((docs: DrawDataType[]) => {
-        docs.forEach(({ cekilisTarihi }) => {
-          const drawDate = DateUtils.convert(
-            cekilisTarihi,
-            DateFormat.FRIENDLY,
-            DateFormat.API,
-          );
-          if (!this.drawDates.includes(drawDate)) {
-            this.drawDates.push(drawDate);
-          }
-        });
-      })
-      .finally(() => {
-        this.sortData();
-      });
+    const records = db[this.gameId].get('draws').value();
+    records.forEach(({ cekilisTarihi }) => {
+      const drawDate = DateUtils.convert(
+        cekilisTarihi,
+        DateFormat.FRIENDLY,
+        DateFormat.API,
+      );
+      if (!this.drawDates.includes(drawDate)) {
+        this.drawDates.push(drawDate);
+      }
+    });
+
+    this.sortData();
   }
 
   /**
