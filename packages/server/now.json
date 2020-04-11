@@ -20,18 +20,6 @@
       "src": "/api/(.*)",
       "headers": { "Cache-Control": "max-age=0, s-maxage=3600" },
       "continue": true
-    },
-    {
-      "src": "/static/draws.*",
-      "headers": {
-        "Cache-Control": "max-age=31536000",
-        "Content-Type": "application/json"
-      },
-      "continue": true
-    },
-    {
-      "src": "/static/draws/(?<gameid>[^/]+)/(?<date>[0-9]{8})$",
-      "dest": "/static/draws/$gameid/$date.json"
     }
   ]
 }

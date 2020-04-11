@@ -31,6 +31,7 @@
     "markdown-it": "^10.0.0",
     "moment": "^2.24.0",
     "moment-timezone": "^0.5.28",
+    "nedb": "^1.8.0",
     "node-fetch": "^2.6.0",
     "strip-bom": "^4.0.0"
   },
@@ -38,6 +39,7 @@
     "@types/lodash": "^4.14.149",
     "@types/markdown-it": "^0.0.9",
     "@types/moment-timezone": "^0.5.13",
+    "@types/nedb": "^1.8.9",
     "@types/node": "^13.11.1",
     "@types/node-fetch": "^2.5.5",
     "chalk": "^3.0.0",

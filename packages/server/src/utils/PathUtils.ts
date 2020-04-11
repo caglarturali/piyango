@@ -14,6 +14,14 @@ export class PathUtils {
   }
 
   /**
+   * Builds DB path for given game id.
+   * @param gameId Game ID
+   */
+  static drawsDbPath(gameId: GameID): string {
+    return path.join(DRAWS_DIR_PATH, `${gameId}.db`);
+  }
+
+  /**
    * Builds "statistics" resource path for given game.
    * @param gameId Game ID
    */

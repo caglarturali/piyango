@@ -1,6 +1,6 @@
-import fs from 'fs';
 import fetch from 'node-fetch';
 import stripBom from 'strip-bom';
+import Datastore from 'nedb';
 import {
   DateFormat,
   DrawDataType,
@@ -40,12 +40,23 @@ export default class Draw {
    */
   static fromFile(gameId: GameID, drawDate: DrawDate): Draw {
     const draw = new this(gameId, drawDate);
-    const resPath = PathUtils.drawResourcePath(gameId, drawDate);
-
-    if (fs.existsSync(resPath)) {
-      const drawData = JSON.parse(fs.readFileSync(resPath).toString());
-      draw.drawData = drawData;
-    }
+    // Load db.
+    const db = new Datastore<DrawDataType>({
+      filename: PathUtils.drawsDbPath(gameId),
+      autoload: true,
+    });
+    db.findOne(
+      {
+        cekilisTarihi: DateUtils.convert(
+          drawDate,
+          DateFormat.API,
+          DateFormat.FRIENDLY,
+        ),
+      },
+      (_err, doc) => {
+        draw.drawData = doc;
+      },
+    );
     return draw;
   }
 

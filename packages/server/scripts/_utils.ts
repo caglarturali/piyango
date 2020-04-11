@@ -12,10 +12,12 @@ export enum MessageType {
  * Prints beautified text.
  * @param text Raw text
  * @param msgType Message type
+ * @param inset Prepend message with a tab
  */
 export const printMsg = (
   text: string,
   msgType: MessageType = MessageType.NORMAL,
+  inset: boolean = false,
 ) => {
   // tslint:disable: no-console
   let msg: string;
@@ -36,7 +38,7 @@ export const printMsg = (
       msg = chalk.red(text);
       break;
   }
-  console.log(`--> ${msg}`);
+  console.log(`${inset ? '\t' : ''}--> ${msg}`);
   // tslint:enable: no-console
 };
 

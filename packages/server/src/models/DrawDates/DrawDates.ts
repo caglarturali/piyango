@@ -1,17 +1,19 @@
-import fs from 'fs';
-import path from 'path';
+import Datastore from 'nedb';
 import moment from 'moment';
 import fetch from 'node-fetch';
 import stripBom from 'strip-bom';
 import {
   DateFormat,
+  DrawDataType,
   DrawDate,
   DrawListing,
   GameID,
 } from '@caglarturali/piyango-common';
-import { DRAWS_DIR_PATH, messages, MPI_BASE } from '../../constants';
+import { messages, MPI_BASE } from '../../constants';
 import { SortOrder } from '../SortOrder';
 import { api } from '../../configs';
+import { PathUtils } from '../../utils';
+import { DateUtils } from '@caglarturali/piyango-utils';
 
 export default class DrawDates {
   private gameId: GameID;
@@ -64,21 +66,33 @@ export default class DrawDates {
     }
 
     // Append static data.
-    fs.readdirSync(path.join(DRAWS_DIR_PATH, this.gameId)).forEach(
-      (fullName) => {
-        // Build full path and file name (without extension).
-        const fullPath = path.join(DRAWS_DIR_PATH, this.gameId, fullName);
-        const extension = path.extname(fullPath);
-        const fileName = path.basename(fullPath, extension);
+    return new Promise<DrawDataType[]>((resolve, _reject) => {
+      const db = new Datastore<DrawDataType>({
+        filename: PathUtils.drawsDbPath(this.gameId),
+        autoload: true,
+      });
 
-        // Add record if not already found.
-        if (!this.drawDates.includes(fileName) && extension === '.json') {
-          this.drawDates.push(fileName);
+      db.find({}, (err, docs) => {
+        if (docs.length) {
+          resolve(docs);
         }
-      },
-    );
-
-    this.sortData();
+      });
+    })
+      .then((docs: DrawDataType[]) => {
+        docs.forEach(({ cekilisTarihi }) => {
+          const drawDate = DateUtils.convert(
+            cekilisTarihi,
+            DateFormat.FRIENDLY,
+            DateFormat.API,
+          );
+          if (!this.drawDates.includes(drawDate)) {
+            this.drawDates.push(drawDate);
+          }
+        });
+      })
+      .finally(() => {
+        this.sortData();
+      });
   }
 
   /**

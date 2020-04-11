@@ -7,12 +7,14 @@ dependencies:
   markdown-it: 10.0.0
   moment: 2.24.0
   moment-timezone: 0.5.28
+  nedb: 1.8.0
   node-fetch: 2.6.0
   strip-bom: 4.0.0
 devDependencies:
   '@types/lodash': 4.14.149
   '@types/markdown-it': 0.0.9
   '@types/moment-timezone': 0.5.13
+  '@types/nedb': 1.8.9
   '@types/node': 13.11.1
   '@types/node-fetch': 2.5.5
   chalk: 3.0.0
@@ -50,6 +52,12 @@ packages:
     dev: true
     resolution:
       integrity: sha512-SWk1qM8DRssS5YR9L4eEX7WUhK/wc96aIr4nMa6p0kTk9YhGGOJjECVhIdPEj13fvJw72Xun69gScXSZ/UmcPg==
+  /@types/nedb/1.8.9:
+    dependencies:
+      '@types/node': 13.11.1
+    dev: true
+    resolution:
+      integrity: sha512-w9Tl3DQCkdT0Ghes+PKhe+3/pZppBXuFFpSCjPJbb2KE3DjYmUpEyCYzjrAYlT9Y1TndnbbnChzkax2h/JorVQ==
   /@types/node-fetch/2.5.5:
     dependencies:
       '@types/node': 13.11.1
@@ -83,10 +91,20 @@ packages:
     dev: false
     resolution:
       integrity: sha512-o5Roy6tNG4SL/FOkCAN6RzjiakZS25RLYFrcMttJqbdd8BWrnA+fGz57iN5Pb06pvBGvl5gQ0B48dJlslXvoTg==
+  /async/0.2.10:
+    dev: false
+    resolution:
+      integrity: sha1-trvgsGdLnXGXCMo43owjfLUmw9E=
   /asynckit/0.4.0:
     dev: true
     resolution:
       integrity: sha1-x57Zf380y48robyXkLzDZkdLS3k=
+  /binary-search-tree/0.2.5:
+    dependencies:
+      underscore: 1.4.4
+    dev: false
+    resolution:
+      integrity: sha1-fbs7IQ/coIJFDa0jNMMErzm9x4Q=
   /buffer-from/1.1.1:
     dev: true
     resolution:
@@ -160,16 +178,32 @@ packages:
       node: '>=8'
     resolution:
       integrity: sha512-EykJT/Q1KjTWctppgIAgfSO0tKVuZUjhgMr17kqTumMl6Afv3EISleU7qZUzoXDFTAHTDC4NOoG/ZxU3EvlMPQ==
+  /immediate/3.0.6:
+    dev: false
+    resolution:
+      integrity: sha1-nbHb0Pr43m++D13V5Wu2BigN5ps=
   /json-stringify-safe/5.0.1:
     dev: false
     resolution:
       integrity: sha1-Epai1Y/UXxmg9s4B1lcB4sc1tus=
+  /lie/3.1.1:
+    dependencies:
+      immediate: 3.0.6
+    dev: false
+    resolution:
+      integrity: sha1-mkNrLMd0bKWd56QfpGmz77dr2H4=
   /linkify-it/2.2.0:
     dependencies:
       uc.micro: 1.0.6
     dev: false
     resolution:
       integrity: sha512-GnAl/knGn+i1U/wjBz3akz2stz+HrHLsxMwHQGofCDfPvlf+gDKN58UtfmUquTY4/MXeE2x7k19KQmeoZi94Iw==
+  /localforage/1.7.3:
+    dependencies:
+      lie: 3.1.1
+    dev: false
+    resolution:
+      integrity: sha512-1TulyYfc4udS7ECSBT2vwJksWbkwwTX8BzeUIiq8Y07Riy7bDAAnxDaPU/tWyOVmQAcWJIEIFP9lPfBGqVoPgQ==
   /lodash.defaults/4.2.0:
     dev: false
     resolution:
@@ -211,6 +245,17 @@ packages:
       node: '>= 0.6'
     resolution:
       integrity: sha512-01paPWYgLrkqAyrlDorC1uDwl2p3qZT7yl806vW7DvDoxwXi46jsjFbg+WdwotBIk6/MbEhO/dh5aZ5sNj/dWQ==
+  /minimist/1.2.5:
+    dev: false
+    resolution:
+      integrity: sha512-FM9nNUYrRBAELZQT3xeZQ7fmMOBg6nWNmJKTcgsJeaLstP/UODVpGsr5OhXhhXg6f+qtJ8uiZ+PUxkDWcgIXLw==
+  /mkdirp/0.5.5:
+    dependencies:
+      minimist: 1.2.5
+    dev: false
+    hasBin: true
+    resolution:
+      integrity: sha512-NKmAlESf6jMGym1++R0Ra7wvhV+wFW63FaSOFPwRahvea0gMUcGUhVeAg/0BC0wiv9ih5NYPB1Wn1UEI1/L+xQ==
   /moment-timezone/0.5.28:
     dependencies:
       moment: 2.24.0
@@ -220,6 +265,16 @@ packages:
   /moment/2.24.0:
     resolution:
       integrity: sha512-bV7f+6l2QigeBBZSM/6yTNq4P2fNpSWj/0e7jQcy87A8e7o2nAfP/34/2ky5Vw4B9S446EtIhodAzkFCcR4dQg==
+  /nedb/1.8.0:
+    dependencies:
+      async: 0.2.10
+      binary-search-tree: 0.2.5
+      localforage: 1.7.3
+      mkdirp: 0.5.5
+      underscore: 1.4.4
+    dev: false
+    resolution:
+      integrity: sha1-DjUCzYLABNU1WkPJ5VV3vXvZHYg=
   /node-fetch/2.6.0:
     dev: false
     engines:
@@ -292,6 +347,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-8Y75pvTYkLJW2hWQHXxoqRgV7qb9B+9vFEtidML+7koHUFapnVJAZ6cKs+Qjz5Aw3aZWHMC6u0wJE3At+nSGwA==
+  /underscore/1.4.4:
+    dev: false
+    resolution:
+      integrity: sha1-YaajIBBiKvoHljvzJSA88SI51gQ=
   /yn/3.1.1:
     dev: true
     engines:
@@ -305,6 +364,7 @@ specifiers:
   '@types/lodash': ^4.14.149
   '@types/markdown-it': ^0.0.9
   '@types/moment-timezone': ^0.5.13
+  '@types/nedb': ^1.8.9
   '@types/node': ^13.11.1
   '@types/node-fetch': ^2.5.5
   chalk: ^3.0.0
@@ -313,6 +373,7 @@ specifiers:
   markdown-it: ^10.0.0
   moment: ^2.24.0
   moment-timezone: ^0.5.28
+  nedb: ^1.8.0
   node-fetch: ^2.6.0
   strip-bom: ^4.0.0
   ts-node: ^8.8.2
