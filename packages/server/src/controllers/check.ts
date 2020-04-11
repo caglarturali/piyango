@@ -80,9 +80,5 @@ export const checkNumbers = async (
 
   check.process();
 
-  check.results.forEach((checkRes) => {
-    apiResponse.addData(checkRes);
-  });
-
-  return apiResponse;
+  return apiResponse.setData(check.results);
 };

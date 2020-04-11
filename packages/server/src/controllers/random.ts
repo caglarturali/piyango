@@ -19,7 +19,5 @@ export const generateRandomGuesses = (gameId: GameID, columnCount?: number) => {
   }
 
   const random = new Random(gameId, columnCount);
-  apiResponse.data = random.generate();
-
-  return apiResponse;
+  return apiResponse.setData(random.generate());
 };

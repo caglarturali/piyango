@@ -28,7 +28,5 @@ export const getDrawDates = async (
     return apiResponse.setFailed(drawDates.error);
   }
 
-  apiResponse.data = drawDates.paginateData();
-
-  return apiResponse;
+  return apiResponse.setData(drawDates.paginateData());
 };

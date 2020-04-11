@@ -2,7 +2,7 @@ import { GameID, GAMES } from '@caglarturali/piyango-common';
 import { DateUtils } from '@caglarturali/piyango-utils';
 import { SortOrder } from '../../src/models/SortOrder';
 import { messages } from '../../src/constants';
-import conf from '../../src/apiconfig';
+import { api } from '../../src/configs';
 
 /**
  * Supported query parameters.
@@ -46,8 +46,8 @@ export const getParamKit = (param: QueryParam): ParamKit => {
         parser: (val: any) => val.toString(),
         validator: (val: any) => {
           const valStr = val.toString();
-          if (valStr.includes(conf.delimiter)) {
-            for (const date of valStr.split(conf.delimiter)) {
+          if (valStr.includes(api.delimiter)) {
+            for (const date of valStr.split(api.delimiter)) {
               if (!DateUtils.isDateValid(date)) return false;
             }
             return true;

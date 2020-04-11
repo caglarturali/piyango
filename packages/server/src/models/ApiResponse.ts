@@ -6,8 +6,8 @@ import Response from './Response';
  */
 export default class ApiResponse<T> implements Response {
   statusCode: number;
-  data: T[];
   error?: string;
+  data: T[];
 
   /**
    * Creates an API response object.
@@ -25,6 +25,16 @@ export default class ApiResponse<T> implements Response {
    */
   addData(data: T) {
     this.data.push(data);
+    return this;
+  }
+
+  /**
+   * Populates data field with given items.
+   * @param items Items to be added
+   * @returns ApiResponse instance.
+   */
+  setData(items: T[]) {
+    this.data = items;
     return this;
   }
 

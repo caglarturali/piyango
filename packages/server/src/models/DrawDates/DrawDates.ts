@@ -11,7 +11,7 @@ import {
 } from '@caglarturali/piyango-common';
 import { DRAWS_DIR_PATH, messages, MPI_BASE } from '../../constants';
 import { SortOrder } from '../SortOrder';
-import conf from '../../apiconfig';
+import { api } from '../../configs';
 
 export default class DrawDates {
   private gameId: GameID;
@@ -31,9 +31,9 @@ export default class DrawDates {
    */
   constructor(gameId: GameID, limit?: number, skip?: number, sort?: SortOrder) {
     this.gameId = gameId;
-    this.limit = Math.max(limit || conf.drawdates.limit, -1);
-    this.skip = Math.abs(skip || conf.drawdates.skip);
-    this.sort = sort || conf.drawdates.sort;
+    this.limit = Math.max(limit || api.drawdates.limit, -1);
+    this.skip = Math.abs(skip || api.drawdates.skip);
+    this.sort = sort || api.drawdates.sort;
   }
 
   /**

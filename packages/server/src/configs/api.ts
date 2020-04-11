@@ -1,9 +1,9 @@
-import { SortOrder } from './models/SortOrder';
+import { SortOrder } from '../models/SortOrder';
 
 /**
  * Base configuration for endpoints.
  */
-export default {
+export const api = {
   drawdates: {
     limit: 25,
     skip: 0,

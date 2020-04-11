@@ -37,7 +37,7 @@ export const getDrawHistory = async (date: DrawDate, gameId?: GameID) => {
      */
     const { error, history } = await drawHistory.historyForGames();
     if (error) return apiResponse.setFailed(error);
-    apiResponse.data = history;
+    apiResponse.setData(history);
   }
 
   return apiResponse;

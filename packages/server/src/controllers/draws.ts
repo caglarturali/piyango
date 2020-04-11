@@ -12,7 +12,7 @@ import { DateUtils } from '@caglarturali/piyango-utils';
 import ApiResponse from '../models/ApiResponse';
 import { getDrawDates } from './drawdates';
 import Draw from '../models/Draw';
-import conf from '../apiconfig';
+import { api } from '../configs';
 
 /**
  * Central point for draw detail fetching functionality.
@@ -20,8 +20,8 @@ import conf from '../apiconfig';
  * @param drawDate Draw date(s) string. Could be a comma separated list.
  */
 export const getDrawDetails = async (gameId: GameID, drawDate: string) => {
-  if (drawDate.includes(conf.delimiter)) {
-    const drawDates = drawDate.split(conf.delimiter);
+  if (drawDate.includes(api.delimiter)) {
+    const drawDates = drawDate.split(api.delimiter);
     return await getDrawDetailsForDraws(gameId, drawDates);
   } else {
     return await getDrawDetailsForDraw(gameId, drawDate);
@@ -101,9 +101,7 @@ export const getDrawDetailsForLatestDraws = async () => {
     }),
   );
 
-  results.forEach((data) => {
-    apiResponse.addData(data);
-  });
+  apiResponse.setData(results);
 
   if (apiResponse.hasData()) {
     apiResponse.sortData((a, b) => {
