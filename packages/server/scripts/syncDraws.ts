@@ -1,15 +1,13 @@
-import Datastore from 'nedb';
 import {
   DateFormat,
-  DrawDataType,
   DrawDate,
   GameID,
   GAMES,
 } from '@caglarturali/piyango-common';
-import { PathUtils } from '../src/utils';
 import { MessageType, printMsg } from './_utils';
 import { getDrawDates, getDrawDetailsForDraw } from '../src/controllers';
 import { DateUtils } from '@caglarturali/piyango-utils';
+import db from '../src/db';
 
 /**
  * Syncs draws for given game.
@@ -19,15 +17,9 @@ const syncDrawsForGame = (gameId: GameID): Promise<any> => {
   return new Promise(async (resolve, _reject) => {
     printMsg(`Syncing draws for ${gameId}`);
 
-    // Create DB object for game.
-    const db = new Datastore<DrawDataType>({
-      filename: PathUtils.drawsDbPath(gameId),
-      autoload: true,
-    });
-
     // Checks DB for draw record.
     const isDrawFound = (drawDate: DrawDate, index: number): boolean => {
-      db.findOne(
+      db[gameId].findOne(
         {
           cekilisTarihi: DateUtils.convert(
             drawDate,
@@ -75,7 +67,7 @@ const syncDrawsForGame = (gameId: GameID): Promise<any> => {
 
       if (drawDetails) {
         // Insert data to db.
-        db.insert(drawDetails, (err, _docs) => {
+        db[gameId].insert(drawDetails, (err, _docs) => {
           if (err) {
             printMsg(err.message, MessageType.ERROR);
             return;

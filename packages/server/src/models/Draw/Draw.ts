@@ -1,6 +1,5 @@
 import fetch from 'node-fetch';
 import stripBom from 'strip-bom';
-import Datastore from 'nedb';
 import {
   DateFormat,
   DrawDataType,
@@ -10,6 +9,7 @@ import {
 import { DateUtils } from '@caglarturali/piyango-utils';
 import { messages, MPI_BASE } from '../../constants';
 import { PathUtils } from '../../utils';
+import db from '../../db';
 
 interface PromiseResult {
   data?: any;
@@ -38,26 +38,27 @@ export default class Draw {
    * @param drawDate Draw date
    * @returns Draw instance.
    */
-  static fromFile(gameId: GameID, drawDate: DrawDate): Draw {
+  static fromFile(gameId: GameID, drawDate: DrawDate): Promise<Draw> {
     const draw = new this(gameId, drawDate);
-    // Load db.
-    const db = new Datastore<DrawDataType>({
-      filename: PathUtils.drawsDbPath(gameId),
-      autoload: true,
+    return new Promise((resolve, _reject) => {
+      // Load db.
+      db[gameId].findOne(
+        {
+          cekilisTarihi: DateUtils.convert(
+            drawDate,
+            DateFormat.API,
+            DateFormat.FRIENDLY,
+          ),
+        },
+        (_err, doc) => {
+          if (doc) {
+            draw.drawData = doc;
+            return resolve(draw);
+          }
+        },
+      );
+      resolve(draw);
     });
-    db.findOne(
-      {
-        cekilisTarihi: DateUtils.convert(
-          drawDate,
-          DateFormat.API,
-          DateFormat.FRIENDLY,
-        ),
-      },
-      (_err, doc) => {
-        draw.drawData = doc;
-      },
-    );
-    return draw;
   }
 
   /**

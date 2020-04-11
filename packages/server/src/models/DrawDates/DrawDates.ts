@@ -1,4 +1,3 @@
-import Datastore from 'nedb';
 import moment from 'moment';
 import fetch from 'node-fetch';
 import stripBom from 'strip-bom';
@@ -12,8 +11,8 @@ import {
 import { messages, MPI_BASE } from '../../constants';
 import { SortOrder } from '../SortOrder';
 import { api } from '../../configs';
-import { PathUtils } from '../../utils';
 import { DateUtils } from '@caglarturali/piyango-utils';
+import db from '../../db';
 
 export default class DrawDates {
   private gameId: GameID;
@@ -67,12 +66,7 @@ export default class DrawDates {
 
     // Append static data.
     return new Promise<DrawDataType[]>((resolve, _reject) => {
-      const db = new Datastore<DrawDataType>({
-        filename: PathUtils.drawsDbPath(this.gameId),
-        autoload: true,
-      });
-
-      db.find({}, (err, docs) => {
+      db[this.gameId].find({}, (err, docs) => {
         if (docs.length) {
           resolve(docs);
         }
