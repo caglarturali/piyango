@@ -10,7 +10,7 @@
     <title>Piyango API</title>
     <link
       rel="shortcut icon"
-      href="https://piyango.online/images/icons/icon-192.png"
+      href="https://piyango.online/icons/icon-192.png"
       type="image/png"
     />
     <style>
@@ -27,7 +27,7 @@
     <div class="container">
       <h1>
         <img
-          src="https://piyango.online/images/icons/icon-192.png"
+          src="https://piyango.online/icons/icon-192.png"
           alt="Logo"
           width="32"
           height="32"
@@ -588,8 +588,59 @@
             </li>
           </ul>
         </li>
-      </ul>
-      <ul>
+        <li>
+          <h3>Comments</h3>
+          <p>Get the Disqus comments count for given draw.</p>
+          <p>
+            <code
+              >GET
+              https://dev.piyango.online/api/comments/:gameId/:drawDate</code
+            >
+          </p>
+          <ul>
+            <li>
+              <h4>URL Parameters</h4>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Key</th>
+                    <th>Type</th>
+                    <th>Required</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>gameId</td>
+                    <td>Enum</td>
+                    <td>Yes</td>
+                    <td>
+                      A unique value used to identify games. Should be one of
+                      the following: <code>sayisal</code>,
+                      <code>sanstopu</code>, <code>onnumara</code>,
+                      <code>superloto</code>, <code>piyango</code>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>drawDate</td>
+                    <td>Date</td>
+                    <td>Yes</td>
+                    <td>
+                      The date of the draw in <code>YYYYMMDD</code> format.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <h4>Example Requests</h4>
+              <p>
+                <a
+                  href="https://dev.piyango.online/api/comments/sayisal/20200311"
+                  >https://dev.piyango.online/api/comments/sayisal/20200311</a
+                >
+              </p>
+            </li>
+          </ul>
+        </li>
         <li>
           <h3>Server Time</h3>
           <p>

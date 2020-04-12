@@ -1,4 +1,4 @@
-# <img src="https://piyango.online/images/icons/icon-192.png" alt="Logo" width="32" height="32" /> Piyango API
+# <img src="https://piyango.online/icons/icon-192.png" alt="Logo" width="32" height="32" /> Piyango API
 
 File-based proxy server for Turkey's national lottery games.
 
@@ -196,7 +196,24 @@ The following is a list of the types of data used within the Piyango API:
 
     https://dev.piyango.online/api/embed/sayisal/20200314
 
-- ### Server Time
+* ### Comments
+
+  Get the Disqus comments count for given draw.
+
+  `GET https://dev.piyango.online/api/comments/:gameId/:drawDate`
+
+  - #### URL Parameters
+
+    | Key      | Type | Required | Description                                                                                                                      |
+    | -------- | ---- | -------- | -------------------------------------------------------------------------------------------------------------------------------- |
+    | gameId   | Enum | Yes      | A unique value used to identify games. Should be one of the following: `sayisal`, `sanstopu`, `onnumara`, `superloto`, `piyango` |
+    | drawDate | Date | Yes      | The date of the draw in `YYYYMMDD` format.                                                                                       |
+
+    #### Example Requests
+
+    https://dev.piyango.online/api/comments/sayisal/20200311
+
+* ### Server Time
 
   Get the time of the server as a [moment object](https://momentjs.com/docs/#/displaying/as-object/).
 

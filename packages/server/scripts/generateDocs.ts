@@ -41,7 +41,7 @@ const generateHtml = (body: string) => {
     <title>Piyango API</title>
     <link
       rel="shortcut icon"
-      href="https://piyango.online/images/icons/icon-192.png"
+      href="https://piyango.online/icons/icon-192.png"
       type="image/png"
     />
     <style>
