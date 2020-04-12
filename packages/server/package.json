@@ -17,7 +17,7 @@
     "sync:stats": "ts-node scripts/calcStats.ts",
     "sync:commit": "ts-node scripts/syncAndCommit.ts",
     "docs": "ts-node scripts/generateDocs.ts && prettier --write index.html",
-    "sloc": "node-sloc . -x node_modules,.now -i json"
+    "sloc": "node-sloc . -x node_modules,.now -i db"
   },
   "keywords": [],
   "author": "",
