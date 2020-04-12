@@ -18,10 +18,7 @@ const syncDrawsForGame = (gameId: GameID): Promise<any> => {
     printMsg(`Syncing draws for ${gameId}`);
 
     // Checks DB for draw record.
-    const isDrawFound = async (
-      drawDate: DrawDate,
-      index: number,
-    ): Promise<boolean> => {
+    const isDrawFound = (drawDate: DrawDate, index?: number): boolean => {
       const result = db[gameId]
         .get('draws')
         .find({
@@ -42,17 +39,19 @@ const syncDrawsForGame = (gameId: GameID): Promise<any> => {
 
     printMsg(`Fetching draw details for ${gameId}`);
     const drawDetailsResults = await Promise.all(
-      drawDates.filter(isDrawFound).map(async (drawDate) => {
-        const {
-          error,
-          data: [drawDetails],
-        } = await getDrawDetailsForDraw(gameId, drawDate);
-        return {
-          drawDate,
-          drawDetails,
-          error,
-        };
-      }),
+      drawDates
+        .filter((d) => !isDrawFound(d))
+        .map(async (drawDate) => {
+          const {
+            error,
+            data: [drawDetails],
+          } = await getDrawDetailsForDraw(gameId, drawDate);
+          return {
+            drawDate,
+            drawDetails,
+            error,
+          };
+        }),
     );
 
     if (drawDetailsResults.length === 0) {
@@ -73,7 +72,7 @@ const syncDrawsForGame = (gameId: GameID): Promise<any> => {
 
         if (result.length) {
           printMsg(
-            `Record added for: ${gameId}-${drawDate}`,
+            `Record added for: ${gameId} - ${drawDate}`,
             MessageType.SUCCESS,
           );
         }
