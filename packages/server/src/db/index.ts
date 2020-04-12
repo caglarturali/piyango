@@ -14,7 +14,7 @@ const db: { [key: string]: LowdbSync<Schema> } = {};
 // Initialize db.
 GAMES.forEach(({ id }) => {
   const adapter = new FileSync<Schema>(
-    path.join(__dirname, 'draws', `${id}.db`),
+    path.join(__dirname, 'data', `${id}.db`),
   );
 
   const lowDb = lowdb(adapter);
