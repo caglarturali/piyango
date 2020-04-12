@@ -1,5 +1,6 @@
 export * from './root';
 export * from './check';
+export * from './comments';
 export * from './drawdates';
 export * from './drawhistory';
 export * from './draws';

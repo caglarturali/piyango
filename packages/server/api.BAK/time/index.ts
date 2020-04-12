@@ -3,7 +3,7 @@
  */
 import { NowRequest, NowResponse } from '@now/node';
 import { getCurrentTime } from '../../src/controllers';
-import { handler } from '../_utils';
+import { handler } from '../../api/_utils';
 
 export default (req: NowRequest, res: NowResponse) => {
   handler(req, res)('GET', () => {
