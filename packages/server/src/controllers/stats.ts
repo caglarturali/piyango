@@ -21,7 +21,7 @@ export const getStatsForGame = async (gameId: GameID) => {
   }
 
   // Start with static data.
-  const stats = Stats.fromFile(gameId);
+  const stats = Stats.fromDB(gameId);
 
   // Get all draw dates for the game.
   const { error, data: drawDates } = await getDrawDates(gameId, -1);

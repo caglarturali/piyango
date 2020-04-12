@@ -1,15 +1,12 @@
 import path from 'path';
 import lowdb, { LowdbSync } from 'lowdb';
 import FileSync from 'lowdb/adapters/FileSync';
-import {
-  DrawDataType,
-  GAMES,
-  NumFrequency,
-} from '@caglarturali/piyango-common';
+import { DrawDataType, GameID, GAMES } from '@caglarturali/piyango-common';
+import { IStats } from '../models/Stats/IStats';
 
 type Schema = {
   draws: DrawDataType[];
-  stats: NumFrequency[];
+  stats: IStats | null;
 };
 
 const db: { [key: string]: LowdbSync<Schema> } = {};
@@ -24,7 +21,16 @@ GAMES.forEach(({ id }) => {
 
   if (!lowDb.has('draws').value()) {
     lowDb
-      .defaults<Schema>({ draws: [], stats: [] })
+      .defaults<Schema>({
+        draws: [],
+        stats:
+          id !== GameID.piyango
+            ? {
+                lastDraw: '',
+                numbers: {},
+              }
+            : null,
+      })
       .write();
   }
 

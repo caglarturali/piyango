@@ -1,20 +1,19 @@
 import {
   DrawDate,
-  Game,
   GameID,
-  GAMES,
   NumFrequency,
+  RegularGame,
   Selection,
 } from '@caglarturali/piyango-common';
-import { DateUtils } from '@caglarturali/piyango-utils';
-import fs from 'fs';
-import { PathUtils } from '../../utils';
+import { DateUtils, GameUtils } from '@caglarturali/piyango-utils';
+import { IStats } from './IStats';
+import db from '../../db';
 
 /**
  * Statistics class that represents
  * a frequency report of numbers of a game.
  */
-export default class Stats {
+export default class Stats implements IStats {
   private gameId: GameID;
 
   lastDraw: DrawDate = '';
@@ -25,8 +24,8 @@ export default class Stats {
   constructor(gameId: GameID) {
     this.gameId = gameId;
 
-    const game = GAMES.find((g) => g.id === gameId) as Game;
-    const { main, plus } = game.pool;
+    const game = GameUtils.getGameById(gameId);
+    const { main, plus } = (game as RegularGame).pool;
     // Create entries for all numbers.
     for (let i = 1; i <= main.from; i++) {
       const numStr = this.numToStr(i);
@@ -49,13 +48,10 @@ export default class Stats {
    * that have already been created.
    * @param gameId Game ID
    */
-  static fromFile(gameId: GameID): Stats {
+  static fromDB(gameId: GameID): Stats {
     const stats = new Stats(gameId);
 
-    const filePath = PathUtils.statsResourcePath(gameId);
-    const { lastDraw = '', numbers = {} } = JSON.parse(
-      fs.readFileSync(filePath).toString(),
-    );
+    const { lastDraw, numbers } = db[gameId].get('stats').value();
 
     // Hydrate the instance.
     stats.lastDraw = lastDraw;
@@ -84,7 +80,11 @@ export default class Stats {
    * @param drawDate Draw date string
    * @param isPlus If the number is belong to 'plus' pool or not
    */
-  processNumber(num: number, drawDate: DrawDate, isPlus: boolean = false) {
+  private processNumber(
+    num: number,
+    drawDate: DrawDate,
+    isPlus: boolean = false,
+  ) {
     const numStr = this.numToStr(num, isPlus);
 
     const { freq, last } = this.numbers[numStr];
@@ -111,7 +111,7 @@ export default class Stats {
    * @param num Number
    * @param isPlus Is plus or not
    */
-  numToStr(num: number, isPlus: boolean = false): string {
+  private numToStr(num: number, isPlus: boolean = false): string {
     let numStr = Number(num).toString().padStart(2, '0');
 
     // Prepend with plus if necessary.
@@ -129,11 +129,10 @@ export default class Stats {
   }
 
   /**
-   * Writes the report into the disk.
+   * Writes the report into the db.
    */
   writeToDisk() {
-    const report = this.report();
-    const filePath = PathUtils.statsResourcePath(this.gameId);
-    fs.writeFileSync(filePath, report);
+    const { lastDraw, numbers } = this;
+    db[this.gameId].set('stats', { lastDraw, numbers }).write();
   }
 }
