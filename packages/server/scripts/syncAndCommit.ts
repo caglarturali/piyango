@@ -7,7 +7,7 @@ const msg = 'SYNC: ' + (process.argv[2] || new Date().toLocaleString());
 const commands = [
   'npm run sync:draws',
   'npm run sync:stats',
-  'git add static/',
+  'git add src/db/data/',
 ];
 
 execCommandsAndCommit(commands, msg);
