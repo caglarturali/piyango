@@ -3,12 +3,12 @@ import {
   Game,
   GameID,
   GAMES,
+  NumFrequency,
   Selection,
 } from '@caglarturali/piyango-common';
 import { DateUtils } from '@caglarturali/piyango-utils';
 import fs from 'fs';
 import { PathUtils } from '../../utils';
-import { NumFrequency } from './NumFrequency';
 
 /**
  * Statistics class that represents

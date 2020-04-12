@@ -1,8 +1,11 @@
 import path from 'path';
 import lowdb, { LowdbSync } from 'lowdb';
 import FileSync from 'lowdb/adapters/FileSync';
-import { DrawDataType, GAMES } from '@caglarturali/piyango-common';
-import { NumFrequency } from '../models/Stats/NumFrequency';
+import {
+  DrawDataType,
+  GAMES,
+  NumFrequency,
+} from '@caglarturali/piyango-common';
 
 type Schema = {
   draws: DrawDataType[];
