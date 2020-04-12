@@ -5,8 +5,11 @@ import React, { useEffect, useState } from 'react';
 import { DrawDate, Game } from '@caglarturali/piyango-common';
 import { makeStyles } from '@material-ui/core';
 import Badge from '@material-ui/core/Badge';
-import styles from './styles';
+import { CommentCount } from 'disqus-react';
+import { disqus } from '../../../configs';
+import { getDisqusConfig } from '../Disqus';
 import API from '../../../services/API';
+import styles from './styles';
 
 const useStyles = makeStyles(styles);
 
@@ -28,24 +31,34 @@ export const Count: React.FunctionComponent<CountProps> = ({
   useEffect(() => {
     const getData = async () => {
       const commentCount = await API.getCommentsCount(game.id, drawDate);
-      setCount(commentCount);
+      if (commentCount > 0) setCount(commentCount);
       setLoading(false);
     };
     getData();
   }, []);
 
-  return loading ? (
-    <>{children}</>
-  ) : (
-    <Badge
-      color="secondary"
-      badgeContent={count}
-      max={999}
-      showZero
-      classes={{ badge: classes.badge }}
-    >
-      {children}
-    </Badge>
+  return (
+    <>
+      <span className={classes.originalCount}>
+        <CommentCount
+          config={getDisqusConfig(game, drawDate)}
+          shortname={disqus.shortname}
+        />
+      </span>
+      {loading ? (
+        <>{children}</>
+      ) : (
+        <Badge
+          color="secondary"
+          badgeContent={count}
+          max={999}
+          showZero
+          classes={{ badge: classes.badge }}
+        >
+          {children}
+        </Badge>
+      )}
+    </>
   );
 };
 
