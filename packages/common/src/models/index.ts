@@ -5,4 +5,5 @@ export * from './Lottery';
 export * from './Match';
 export * from './Regular';
 export * from './Report';
+export * from './Stats';
 export * from './Ticket';
