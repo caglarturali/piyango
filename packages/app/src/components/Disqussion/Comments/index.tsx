@@ -2,7 +2,7 @@
  * DisqusComments Component.
  */
 import React from 'react';
-import { DrawDataType, Game } from '@caglarturali/piyango-common';
+import { DrawDate, Game } from '@caglarturali/piyango-common';
 import { makeStyles } from '@material-ui/core';
 import Box from '@material-ui/core/Box';
 import Card from '@material-ui/core/Card';
@@ -15,12 +15,12 @@ const useStyles = makeStyles(styles);
 
 export interface CommentsProps {
   game: Game;
-  drawData: DrawDataType;
+  drawDate: DrawDate;
 }
 
 const Comments: React.FunctionComponent<CommentsProps> = ({
   game,
-  drawData,
+  drawDate,
 }) => {
   const classes = useStyles();
   const { shortname } = disqus;
@@ -30,7 +30,7 @@ const Comments: React.FunctionComponent<CommentsProps> = ({
       <Box className={classes.content}>
         <DiscussionEmbed
           shortname={shortname}
-          config={getDisqusConfig(game, drawData)}
+          config={getDisqusConfig(game, drawDate)}
         />
       </Box>
     </Card>

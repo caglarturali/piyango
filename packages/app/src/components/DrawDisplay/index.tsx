@@ -59,7 +59,10 @@ const DrawDisplay: React.FunctionComponent<DrawDisplayProps> = ({
     [
       {
         title: 'Yorumlar',
-        icon: withCount(CommentIcon)({ game, drawData }),
+        icon: withCount(CommentIcon)({
+          game,
+          drawDate: processed.drawDateF(DateFormat.API),
+        }),
       },
     ],
     [

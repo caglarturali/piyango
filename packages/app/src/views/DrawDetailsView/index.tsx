@@ -2,8 +2,8 @@
  * DrawDetailsView component.
  */
 import React from 'react';
-import { DrawDataType, GameID } from '@caglarturali/piyango-common';
-import { GameUtils } from '@caglarturali/piyango-utils';
+import { DateFormat, DrawDataType, GameID } from '@caglarturali/piyango-common';
+import { DateUtils, GameUtils } from '@caglarturali/piyango-utils';
 import Grid from '@material-ui/core/Grid';
 import SectionHeader from '../../layouts/SectionHeader';
 import Container from '../../components/Container';
@@ -21,6 +21,11 @@ const DrawDetailsView: React.FunctionComponent<DrawDetailsViewProps> = ({
   drawData,
 }) => {
   const game = GameUtils.getGameById(gameId);
+  const drawDate = DateUtils.convert(
+    drawData.cekilisTarihi,
+    DateFormat.FRIENDLY,
+    DateFormat.URL,
+  );
 
   return (
     <>
@@ -40,7 +45,7 @@ const DrawDetailsView: React.FunctionComponent<DrawDetailsViewProps> = ({
       <SectionHeader title="Yorumlar" />
       <Container>
         <Grid item xs={12} lg={6}>
-          <Comments game={game} drawData={drawData} />
+          <Comments game={game} drawDate={drawDate} />
         </Grid>
       </Container>
     </>

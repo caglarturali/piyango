@@ -1,4 +1,4 @@
-import { DateFormat, DrawDataType, Game } from '@caglarturali/piyango-common';
+import { DateFormat, DrawDate, Game } from '@caglarturali/piyango-common';
 import { DateUtils } from '@caglarturali/piyango-utils';
 import { Segments } from '../../shared';
 import { disqus } from '../../configs';
@@ -12,20 +12,19 @@ export interface DisqusConfig {
 /**
  * Returns Disqus config.
  * @param game Game object
- * @param drawData Draw Data
+ * @param drawDate Draw date
  */
-export const getDisqusConfig = (game: Game, drawData: DrawDataType) => {
+export const getDisqusConfig = (game: Game, drawDate: DrawDate) => {
   const { base_url } = disqus;
-
-  const urlDate = DateUtils.convert(
-    drawData.cekilisTarihi,
-    DateFormat.FRIENDLY,
+  const drawDateUrl = DateUtils.convert(
+    drawDate,
+    DateFormat.API,
     DateFormat.URL,
   );
 
   return {
-    url: `${base_url}/${game.id}/${Segments.CEKILIS_SONUCLARI}/${urlDate}`,
-    identifier: `${game.id}-${urlDate}-comments`,
-    title: `${game.name} ${urlDate} Tarihli Çekiliş`,
+    url: `${base_url}/${game.id}/${Segments.CEKILIS_SONUCLARI}/${drawDateUrl}`,
+    identifier: `${game.id}-${drawDateUrl}-comments`,
+    title: `${game.name} ${drawDateUrl} Tarihli Çekiliş`,
   } as DisqusConfig;
 };

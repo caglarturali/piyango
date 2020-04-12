@@ -39,6 +39,19 @@ export default class API {
   }
 
   /**
+   * Returns Disqus comments count for given draw.
+   * @param gameId Game ID
+   * @param drawDate Draw date
+   */
+  static async getCommentsCount(
+    gameId: GameID,
+    drawDate: DrawDate,
+  ): Promise<number> {
+    const res = await fetch(`${API_BASE}/comments/${gameId}/${drawDate}`);
+    return (await res.json()) as number;
+  }
+
+  /**
    * Returns url of the HLS stream of the draw.
    * @param gameId Game ID
    * @param drawDate Draw date
