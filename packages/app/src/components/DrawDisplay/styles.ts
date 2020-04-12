@@ -55,6 +55,10 @@ export default ({ breakpoints, palette, spacing, typography }: Theme) =>
       fontWeight: typography.fontWeightMedium,
       paddingLeft: spacing(1),
       paddingRight: spacing(1),
+      [breakpoints.down('xs')]: {
+        paddingLeft: spacing(0.5),
+        paddingRight: spacing(0.5),
+      },
     },
     // Actions area.
     actions: {
