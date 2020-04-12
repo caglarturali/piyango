@@ -1,13 +1,13 @@
 /**
- * Root.
+ * /time
  */
 import { NowRequest, NowResponse } from '@now/node';
-import { getRootMessage } from '../src/controllers';
-import { handler } from '../api/_utils';
+import { getCurrentTime } from '../../../src/controllers';
+import { handler } from '../../_utils';
 
 export default (req: NowRequest, res: NowResponse) => {
   handler(req, res)('GET', () => {
-    const response = getRootMessage();
+    const response = getCurrentTime();
     res.status(response.statusCode).json(response.toResponse());
   });
 };
