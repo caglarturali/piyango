@@ -14,20 +14,20 @@ export class DrawUtils {
    * @param numsStr Numbers string
    */
   static convertNumbersToSelection(gameId: GameID, numsStr: string): Selection {
-    const column: Selection = { main: [] };
+    const sel: Selection = { main: [] };
 
     // Convert numbers string into array.
     const numsArray = numsStr.split(/#|-|\+|_|,/).map((n) => parseInt(n, 10));
 
     if (gameId === GameID.sanstopu) {
       const plus = numsArray.pop();
-      column.plus = plus ? [plus] : undefined;
+      sel.plus = plus ? [plus] : undefined;
     }
 
     // Make sure there are no duplicate numbers and sort them.
-    column.main = Array.from(new Set(numsArray)).sort((a, b) => a - b);
+    sel.main = Array.from(new Set(numsArray)).sort((a, b) => a - b);
 
-    return column;
+    return sel;
   }
 
   /**
