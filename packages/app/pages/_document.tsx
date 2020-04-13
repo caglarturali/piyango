@@ -13,6 +13,11 @@ export default class MyDocument extends Document {
             name="viewport"
             content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"
           />
+          <link rel="icon" href="/icons/icon-192.png" />
+          <link rel="shortcut icon" href="/icons/icon-192.png" />
+          {/* manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/ */}
+          <link rel="manifest" href="/manifest.json" />
           {/* PWA primary color */}
           <meta name="theme-color" content={theme.palette.primary.main} />
           <link
@@ -27,7 +32,6 @@ export default class MyDocument extends Document {
             href="https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap"
             rel="stylesheet"
           />
-          <link rel="icon" href="/icons/icon-192.png" />
         </Head>
         <body>
           <Main />
