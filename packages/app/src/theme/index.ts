@@ -25,9 +25,9 @@ export const overrides = (theme: Theme): ThemeOptions['overrides'] => ({
   MuiExpansionPanel: MuiExpansionPanel(theme),
 });
 
-export const config = {
+export const config: ThemeOptions = {
   typography,
   palette,
   shape,
   custom,
-} as ThemeOptions;
+};
