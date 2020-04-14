@@ -18,6 +18,7 @@ import Card from '@material-ui/core/Card';
 import CommentIcon from '@material-ui/icons/ModeCommentOutlined';
 import CheckCouponIcon from '@material-ui/icons/PlaylistAddCheck';
 import CopyIcon from '@material-ui/icons/FileCopy';
+import VideoIcon from '@material-ui/icons/Videocam';
 import styles from './styles';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Header from './comps/Header';
@@ -55,59 +56,86 @@ const DrawDisplay: React.FunctionComponent<DrawDisplayProps> = ({
     return new ProcessDraw(game.id, drawData);
   }, [game, drawData]);
 
-  const actions: ActionItems[] = [
+  const handleVideoClick = () => {
+    const slug = game.embedSlug || game.id;
+    const drawDate = processed.drawDateF(DateFormat.API);
+    const videoUrl = `http://millipiyango.mediatriple.net/?gamenamedate=${slug}_${drawDate}`;
+    const width = 720;
+    const height = 405;
+
+    window.open(
+      videoUrl,
+      `video_window_${Date.now()}`,
+      `toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=${width}, height=${height}`,
+    );
+  };
+
+  const actions: ActionItems[][] = [
     [
-      {
-        title: 'Yorumlar',
-        icon: withCount(CommentIcon)({
-          game,
-          drawDate: processed.drawDateF(DateFormat.API),
-        }),
-      },
-    ],
-    [
-      {
-        title: 'Kupon Kontrolü',
-        icon: <CheckCouponIcon />,
-        handlers: {
-          onClick: () => {
-            if (game.id === GameID.piyango) {
+      [
+        {
+          title: 'Yorumlar',
+          icon: withCount(CommentIcon)({
+            game,
+            drawDate: processed.drawDateF(DateFormat.API),
+          }),
+        },
+      ],
+      [
+        {
+          title: 'Kupon Kontrolü',
+          icon: <CheckCouponIcon />,
+          handlers: {
+            onClick: () => {
+              if (game.id === GameID.piyango) {
+                setSnackbar({
+                  show: true,
+                  message: 'Bu özellik henüz kullanılamıyor.',
+                  severity: 'info',
+                  handleClose: () => setSnackbar(undefined),
+                });
+              } else {
+                setShowCheckCoupon(true);
+              }
+            },
+          },
+        },
+        {
+          title: 'Panoya Kopyala',
+          icon: <CopyIcon />,
+          handlers: {
+            onClick: () => {
+              copy(processed.clipboard());
               setSnackbar({
                 show: true,
-                message: 'Bu özellik henüz kullanılamıyor.',
-                severity: 'info',
+                message: 'Panoya kopyalandı.',
                 handleClose: () => setSnackbar(undefined),
               });
-            } else {
-              setShowCheckCoupon(true);
-            }
+            },
           },
         },
-      },
-      {
-        title: 'Panoya Kopyala',
-        icon: <CopyIcon />,
-        handlers: {
-          onClick: () => {
-            copy(processed.clipboard());
-            setSnackbar({
-              show: true,
-              message: 'Panoya kopyalandı.',
-              handleClose: () => setSnackbar(undefined),
-            });
-          },
-        },
-      },
+      ],
     ],
     [
-      {
-        title: 'Çekiliş Detayları',
-        icon: <ExpandMoreIcon />,
-        className: clsx('expand', { ['expandOpen']: expanded }),
-        handlers: {
-          onClick: () => setExpanded(!expanded),
+      [
+        {
+          title: 'Çekiliş Videosu',
+          icon: <VideoIcon />,
+          handlers: {
+            onClick: () => handleVideoClick(),
+          },
         },
-      },
+      ],
+      [
+        {
+          title: 'Çekiliş Detayları',
+          icon: <ExpandMoreIcon />,
+          className: clsx('expand', { ['expandOpen']: expanded }),
+          handlers: {
+            onClick: () => setExpanded(!expanded),
+          },
+        },
+      ],
     ],
   ];
 

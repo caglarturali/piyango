@@ -8,8 +8,8 @@ import Grid from '@material-ui/core/Grid';
 import SectionHeader from '../../layouts/SectionHeader';
 import Container from '../../components/Container';
 import DrawDisplay from '../../components/DrawDisplay';
-import { DrawVideo } from '../../components/DrawVideo';
 import Comments from '../../components/Disqussion/Comments';
+// import { DrawVideo } from '../../components/DrawVideo';
 
 export interface DrawDetailsViewProps {
   gameId: GameID;
@@ -34,13 +34,13 @@ const DrawDetailsView: React.FunctionComponent<DrawDetailsViewProps> = ({
         <Grid item xs={12} lg={6}>
           <DrawDisplay game={game} drawData={drawData} isSummary={false} />
         </Grid>
-        <Grid item xs={12} lg={6}>
+        {/* <Grid item xs={12} lg={6}>
           <DrawVideo
             gameId={gameId}
             drawData={drawData}
             title="Çekiliş Videosu"
           />
-        </Grid>
+        </Grid> */}
       </Container>
       <SectionHeader title="Yorumlar" />
       <Container>

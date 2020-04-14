@@ -17,7 +17,7 @@ export type ActionItems = PIconButtonProps[];
 
 export interface ActionsProps {
   game: Game;
-  actions: ActionItems[];
+  actions: ActionItems[][];
   rollingTexts: string[];
   isSummary?: boolean;
 }
@@ -30,7 +30,9 @@ const Actions: React.FunctionComponent<ActionsProps> = ({
 }) => {
   const classes = useStyles();
 
-  const [left, right, extra] = actions;
+  const [main, full] = actions;
+  const [mainLeft, mainRight] = main;
+  const [fullLeft, fullRight] = full;
 
   const renderActions = useCallback((items: PIconButtonProps[]) => {
     return items.map((item, i) => (
@@ -48,12 +50,12 @@ const Actions: React.FunctionComponent<ActionsProps> = ({
   return (
     <CardActions className={classes.actions} disableSpacing>
       <Grid container spacing={1} alignItems="center">
-        {renderActions(left)}
+        {!isSummary ? renderActions(fullLeft) : renderActions(mainLeft)}
         <Grid item xs className={classes.typed}>
           <RollingTexts game={game} rollingTexts={rollingTexts} />
         </Grid>
-        {renderActions(right)}
-        {!isSummary && renderActions(extra)}
+        {renderActions(mainRight)}
+        {!isSummary && renderActions(fullRight)}
       </Grid>
     </CardActions>
   );
