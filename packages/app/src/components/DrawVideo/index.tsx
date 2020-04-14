@@ -8,7 +8,7 @@ import {
   GameID,
   RegularDrawData,
 } from '@caglarturali/piyango-common';
-import { DateUtils } from '@caglarturali/piyango-utils';
+import { DateUtils, GameUtils } from '@caglarturali/piyango-utils';
 import clsx from 'clsx';
 import HLS from 'hls.js';
 import { makeStyles } from '@material-ui/core';
@@ -40,11 +40,17 @@ export const DrawVideo: React.FunctionComponent<DrawVideoProps> = ({
   const classes = useStyles();
   const [expanded, setExpanded] = useState(true);
 
+  const game = GameUtils.getGameById(gameId);
   const drawDate = DateUtils.convert(
     drawData.cekilisTarihi,
     DateFormat.FRIENDLY,
     DateFormat.API,
   );
+
+  const getEmbedUrl = () => {
+    const slug = game.embedSlug || game.id;
+    return `http://millipiyango.mediatriple.net/?gamenamedate=${slug}_${drawDate}`;
+  };
 
   let subtitle = '';
   if (gameId !== GameID.piyango) {
@@ -89,12 +95,18 @@ export const DrawVideo: React.FunctionComponent<DrawVideoProps> = ({
       />
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent classes={{ root: classes.content }}>
-          <video
+          <iframe
+            src={getEmbedUrl()}
+            className={classes.video}
+            allowFullScreen={true}
+            frameBorder={0}
+          ></iframe>
+          {/* <video
             className={classes.video}
             controls
             autoPlay={false}
             id={elementId}
-          />
+          /> */}
         </CardContent>
       </Collapse>
     </Card>
