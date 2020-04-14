@@ -16,7 +16,7 @@ devDependencies:
   '@types/markdown-it': 0.0.9
   '@types/moment-timezone': 0.5.13
   '@types/node': 13.11.1
-  '@types/node-fetch': 2.5.5
+  '@types/node-fetch': 2.5.6
   chalk: 3.0.0
   ts-node: 8.8.2_typescript@3.8.3
   typescript: 3.8.3
@@ -58,13 +58,13 @@ packages:
     dev: true
     resolution:
       integrity: sha512-SWk1qM8DRssS5YR9L4eEX7WUhK/wc96aIr4nMa6p0kTk9YhGGOJjECVhIdPEj13fvJw72Xun69gScXSZ/UmcPg==
-  /@types/node-fetch/2.5.5:
+  /@types/node-fetch/2.5.6:
     dependencies:
       '@types/node': 13.11.1
       form-data: 3.0.0
     dev: true
     resolution:
-      integrity: sha512-IWwjsyYjGw+em3xTvWVQi5MgYKbRs0du57klfTaZkv/B24AEQ/p/IopNeqIYNy3EsfHOpg8ieQSDomPcsYMHpA==
+      integrity: sha512-2w0NTwMWF1d3NJMK0Uiq2UNN8htVCyOWOD0jIPjPgC5Ph/YP4dVhs9YxxcMcuLuwAslz0dVEcZQUaqkLs3IzOQ==
   /@types/node/13.11.1:
     resolution:
       integrity: sha512-eWQGP3qtxwL8FGneRrC5DwrJLGN4/dH1clNTuLfN81HCrxVtxRjygDTUoZJ5ASlDEeo0ppYFQjQIlXhtXpOn6g==
@@ -339,7 +339,7 @@ packages:
     resolution:
       integrity: sha512-Ux4ygGWsu2c7isFWe8Yu1YluJmqVhxqK2cLXNQA5AcC3QfbGNpM7fu0Y8b/z16pXLnFxZYvWhd3fhBY9DLmC6Q==
 specifiers:
-  '@caglarturali/piyango-common': ^8.0.0
+  '@caglarturali/piyango-common': ^8.1.0
   '@caglarturali/piyango-utils': ^1.5.0
   '@now/node': ^1.5.0
   '@types/lodash': ^4.14.149
@@ -347,7 +347,7 @@ specifiers:
   '@types/markdown-it': ^0.0.9
   '@types/moment-timezone': ^0.5.13
   '@types/node': ^13.11.1
-  '@types/node-fetch': ^2.5.5
+  '@types/node-fetch': ^2.5.6
   chalk: ^3.0.0
   haikunator: ^2.1.2
   lodash: ^4.17.15
