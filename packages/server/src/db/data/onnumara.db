@@ -51870,10 +51870,83 @@
       "buyukIkramiye": 189423.9,
       "buyukIkrKazananIlIlceler": null,
       "_id": "zzyyzL2bKultSb46"
+    },
+    {
+      "oid": "3z8x9jk8ytl5m200",
+      "hafta": 923,
+      "buyukIkramiyeKazananIl": "",
+      "cekilisTarihi": "13/04/2020",
+      "cekilisTuru": "ON_NUMARA",
+      "rakamlar": "09#33#31#67#37#23#19#21#22#07#75#70#38#32#50#51#42#18#24#43#49#48",
+      "rakamlarNumaraSirasi": "07 - 09 - 18 - 19 - 21 - 22 - 23 - 24 - 31 - 32 - 33 - 37 - 38 - 42 - 43 - 48 - 49 - 50 - 51 - 67 - 70 - 75",
+      "devretti": false,
+      "devirSayisi": 0,
+      "bilenKisiler": [
+        {
+          "oid": "3zbc7dk8ytl5lx05",
+          "kisiBasinaDusenIkramiye": 3.35,
+          "kisiSayisi": 157363,
+          "tur": "$HIC"
+        },
+        {
+          "oid": "3zbc7dk8ytl5lx04",
+          "kisiBasinaDusenIkramiye": 4.1,
+          "kisiSayisi": 103508,
+          "tur": "$6_BILEN"
+        },
+        {
+          "oid": "3zbc7dk8ytl5lx03",
+          "kisiBasinaDusenIkramiye": 22.6,
+          "kisiSayisi": 17529,
+          "tur": "$7_BILEN"
+        },
+        {
+          "oid": "3zbc7dk8ytl5lx02",
+          "kisiBasinaDusenIkramiye": 155,
+          "kisiSayisi": 1801,
+          "tur": "$8_BILEN"
+        },
+        {
+          "oid": "3zbc7dk8ytl5lx01",
+          "kisiBasinaDusenIkramiye": 2905.85,
+          "kisiSayisi": 96,
+          "tur": "$9_BILEN"
+        },
+        {
+          "oid": "3zbc7dk8ytl5lx00",
+          "kisiBasinaDusenIkramiye": 209178.1,
+          "kisiSayisi": 2,
+          "tur": "$10_BILEN"
+        }
+      ],
+      "buyukIkrKazananIlIlceler": [
+        {
+          "il": "09",
+          "ilView": "AYDIN",
+          "ilce": "00909",
+          "ilceView": "SÖKE"
+        },
+        {
+          "il": "43",
+          "ilView": "KÜTAHYA",
+          "ilce": "04300",
+          "ilceView": "MERKEZ"
+        }
+      ],
+      "kibrisHasilati": 45,
+      "devirTutari": 0.07,
+      "kolonSayisi": 5078749,
+      "kdv": 774717.56,
+      "toplamHasilat": 5078749,
+      "hasilat": 4304031.44,
+      "sov": 430403.14,
+      "ikramiyeEH": 3873628.3000000003,
+      "buyukIkramiye": 418351.86,
+      "haftayaDevredenTutar": 0
     }
   ],
   "stats": {
-    "lastDraw": "20200406",
+    "lastDraw": "20200413",
     "numbers": {
       "10": {
         "freq": 251,
@@ -51908,32 +51981,32 @@
         "last": "20200302"
       },
       "18": {
-        "freq": 263,
-        "last": "20200323"
+        "freq": 264,
+        "last": "20200413"
       },
       "19": {
-        "freq": 264,
-        "last": "20200309"
+        "freq": 265,
+        "last": "20200413"
       },
       "20": {
         "freq": 229,
         "last": "20200406"
       },
       "21": {
-        "freq": 258,
-        "last": "20200224"
+        "freq": 259,
+        "last": "20200413"
       },
       "22": {
-        "freq": 253,
-        "last": "20200323"
+        "freq": 254,
+        "last": "20200413"
       },
       "23": {
-        "freq": 272,
-        "last": "20200323"
+        "freq": 273,
+        "last": "20200413"
       },
       "24": {
-        "freq": 255,
-        "last": "20200323"
+        "freq": 256,
+        "last": "20200413"
       },
       "25": {
         "freq": 236,
@@ -51960,16 +52033,16 @@
         "last": "20200406"
       },
       "31": {
-        "freq": 240,
-        "last": "20200309"
+        "freq": 241,
+        "last": "20200413"
       },
       "32": {
-        "freq": 253,
-        "last": "20200330"
+        "freq": 254,
+        "last": "20200413"
       },
       "33": {
-        "freq": 263,
-        "last": "20200406"
+        "freq": 264,
+        "last": "20200413"
       },
       "34": {
         "freq": 270,
@@ -51984,12 +52057,12 @@
         "last": "20200210"
       },
       "37": {
-        "freq": 259,
-        "last": "20200330"
+        "freq": 260,
+        "last": "20200413"
       },
       "38": {
-        "freq": 251,
-        "last": "20200323"
+        "freq": 252,
+        "last": "20200413"
       },
       "39": {
         "freq": 250,
@@ -52004,12 +52077,12 @@
         "last": "20200210"
       },
       "42": {
-        "freq": 276,
-        "last": "20200302"
+        "freq": 277,
+        "last": "20200413"
       },
       "43": {
-        "freq": 242,
-        "last": "20200224"
+        "freq": 243,
+        "last": "20200413"
       },
       "44": {
         "freq": 258,
@@ -52028,20 +52101,20 @@
         "last": "20200316"
       },
       "48": {
-        "freq": 256,
-        "last": "20200217"
+        "freq": 257,
+        "last": "20200413"
       },
       "49": {
-        "freq": 243,
-        "last": "20200406"
+        "freq": 244,
+        "last": "20200413"
       },
       "50": {
-        "freq": 268,
-        "last": "20200323"
+        "freq": 269,
+        "last": "20200413"
       },
       "51": {
-        "freq": 261,
-        "last": "20200330"
+        "freq": 262,
+        "last": "20200413"
       },
       "52": {
         "freq": 240,
@@ -52104,8 +52177,8 @@
         "last": "20200309"
       },
       "67": {
-        "freq": 233,
-        "last": "20200316"
+        "freq": 234,
+        "last": "20200413"
       },
       "68": {
         "freq": 267,
@@ -52116,8 +52189,8 @@
         "last": "20200330"
       },
       "70": {
-        "freq": 236,
-        "last": "20200309"
+        "freq": 237,
+        "last": "20200413"
       },
       "71": {
         "freq": 273,
@@ -52136,8 +52209,8 @@
         "last": "20200406"
       },
       "75": {
-        "freq": 247,
-        "last": "20200330"
+        "freq": 248,
+        "last": "20200413"
       },
       "76": {
         "freq": 243,
@@ -52184,16 +52257,16 @@
         "last": "20200309"
       },
       "07": {
-        "freq": 272,
-        "last": "20200406"
+        "freq": 273,
+        "last": "20200413"
       },
       "08": {
         "freq": 243,
         "last": "20200406"
       },
       "09": {
-        "freq": 227,
-        "last": "20191209"
+        "freq": 228,
+        "last": "20200413"
       }
     }
   }
