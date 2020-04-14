@@ -1,12 +1,18 @@
 dependencies:
   '@caglarturali/piyango-common': 'link:../common'
+  lodash: 4.17.15
   moment: 2.24.0
 devDependencies:
+  '@types/lodash': 4.14.149
   '@types/node': 13.11.1
   rimraf: 3.0.2
   typescript: 3.8.3
 lockfileVersion: 5.1
 packages:
+  /@types/lodash/4.14.149:
+    dev: true
+    resolution:
+      integrity: sha512-ijGqzZt/b7BfzcK9vTrS6MFljQRPn5BFWOx8oE0GYxribu6uV+aA9zZuXI1zc/etK9E8nrgdoF2+LgUw7+9tJQ==
   /@types/node/13.11.1:
     dev: true
     resolution:
@@ -52,6 +58,10 @@ packages:
     dev: true
     resolution:
       integrity: sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==
+  /lodash/4.17.15:
+    dev: false
+    resolution:
+      integrity: sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
   /minimatch/3.0.4:
     dependencies:
       brace-expansion: 1.1.11
@@ -94,7 +104,9 @@ packages:
       integrity: sha1-tSQ9jz7BqjXxNkYFvA0QNuMKtp8=
 specifiers:
   '@caglarturali/piyango-common': ^8.0.0
+  '@types/lodash': ^4.14.149
   '@types/node': ^13.11.1
+  lodash: ^4.17.15
   moment: ^2.24.0
   rimraf: ^3.0.2
   typescript: ^3.8.3

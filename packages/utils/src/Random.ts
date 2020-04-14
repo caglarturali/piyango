@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import {
   GameID,
   GAMES,
@@ -5,7 +6,6 @@ import {
   RegularGame,
   Selection,
 } from '@caglarturali/piyango-common';
-import { NumUtils } from './NumUtils';
 
 export class Random {
   private game: RegularGame;
@@ -30,15 +30,15 @@ export class Random {
       const { main, plus } = this.game.pool;
 
       // Generate numbers.
-      const col = {
+      const sel = {
         main: this.generateNumbers(main),
       } as Selection;
 
       if (plus) {
-        col.plus = this.generateNumbers(plus);
+        sel.plus = this.generateNumbers(plus);
       }
 
-      guesses.push(col);
+      guesses.push(sel);
     }
     return guesses;
   }
@@ -52,10 +52,10 @@ export class Random {
     const { from, select } = pool;
 
     // Create "pool" of numbers.
-    const numPool = Array.from({ length: from }, (_, k: number) => k + 1);
+    let numPool = _.range(1, from + 1);
 
     for (let j = 1; j <= select; j++) {
-      NumUtils.shuffleNumbers(numPool);
+      numPool = _.shuffle(numPool);
       nums.push(numPool.pop() as number);
     }
 
