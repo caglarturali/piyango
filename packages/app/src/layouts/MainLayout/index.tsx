@@ -12,6 +12,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import styles from './styles';
 import DocumentHead from '../DocumentHead';
+import PSnackbar from '../../components/PSnackbar';
 import MainMenu from './MainMenu';
 
 const useStyles = makeStyles(styles);
@@ -60,6 +61,7 @@ const MainLayout: React.FunctionComponent<MainLayoutProps> = ({
       <main className={classes.content}>
         <div className={classes.toolbar} />
         <div>{children}</div>
+        <PSnackbar />
       </main>
     </div>
   );

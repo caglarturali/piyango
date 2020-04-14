@@ -28,8 +28,8 @@ import Details from './comps/Details';
 import CheckCoupon from '../CheckCoupon';
 import { Segments } from '../../shared';
 import { withCount } from '../Disqussion/Count';
-import { PSnackbarProps } from '../PSnackbar';
-import PSnackbar from '../PSnackbar';
+import { useGlobalDispatch } from '../../contexts/global';
+import { showSnackbar } from '../../store/global';
 
 const useStyles = makeStyles(styles);
 
@@ -45,12 +45,10 @@ const DrawDisplay: React.FunctionComponent<DrawDisplayProps> = ({
   isSummary = true,
 }) => {
   const classes = useStyles();
+  const dispatch = useGlobalDispatch();
 
   const [expanded, setExpanded] = useState(!isSummary);
   const [showCheckCoupon, setShowCheckCoupon] = useState(false);
-  const [snackbar, setSnackbar] = useState<PSnackbarProps | undefined>(
-    undefined,
-  );
 
   const processed = useMemo(() => {
     return new ProcessDraw(game.id, drawData);
@@ -88,12 +86,13 @@ const DrawDisplay: React.FunctionComponent<DrawDisplayProps> = ({
           handlers: {
             onClick: () => {
               if (game.id === GameID.piyango) {
-                setSnackbar({
-                  show: true,
-                  message: 'Bu özellik henüz kullanılamıyor.',
-                  severity: 'info',
-                  handleClose: () => setSnackbar(undefined),
-                });
+                dispatch(
+                  showSnackbar({
+                    show: true,
+                    message: 'Bu özellik henüz kullanılamıyor.',
+                    severity: 'info',
+                  }),
+                );
               } else {
                 setShowCheckCoupon(true);
               }
@@ -106,11 +105,12 @@ const DrawDisplay: React.FunctionComponent<DrawDisplayProps> = ({
           handlers: {
             onClick: () => {
               copy(processed.clipboard());
-              setSnackbar({
-                show: true,
-                message: 'Panoya kopyalandı.',
-                handleClose: () => setSnackbar(undefined),
-              });
+              dispatch(
+                showSnackbar({
+                  show: true,
+                  message: 'Panoya kopyalandı.',
+                }),
+              );
             },
           },
         },
@@ -182,8 +182,6 @@ const DrawDisplay: React.FunctionComponent<DrawDisplayProps> = ({
           }}
         />
       )}
-      {/* Snackbar */}
-      {snackbar && <PSnackbar {...snackbar} />}
     </Card>
   );
 };

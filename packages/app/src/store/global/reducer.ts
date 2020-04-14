@@ -14,6 +14,12 @@ export const reducer: Reducer<GlobalState, GlobalAction> = (
         theme: theme || state.theme,
       };
 
+    case ActionType.ShowSnackbar:
+      const { snackbar } = action.payload;
+      return {
+        ...state,
+        snackbar,
+      };
     default:
       return state;
   }

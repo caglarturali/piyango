@@ -9,6 +9,8 @@ import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import styles from './styles';
 import Alert from '../Alert';
+import { useGlobalDispatch, useGlobalState } from '../../contexts';
+import { showSnackbar } from '../../store/global';
 
 const useStyles = makeStyles(styles);
 
@@ -16,16 +18,20 @@ export interface PSnackbarProps {
   show: boolean;
   message: string;
   severity?: Color;
-  handleClose: (event?: React.SyntheticEvent, reason?: string) => void;
 }
 
-const PSnackbar: React.FunctionComponent<PSnackbarProps & AlertProps> = ({
-  show,
-  message,
-  severity = 'success',
-  handleClose,
-  ...props
-}) => {
+const PSnackbar: React.FunctionComponent<AlertProps> = ({ ...props }) => {
+  const { snackbar } = useGlobalState();
+  const dispatch = useGlobalDispatch();
+
+  if (!snackbar) return null;
+
+  const { show, message, severity } = snackbar;
+
+  const handleClose = () => {
+    dispatch(showSnackbar({ show: false, message: '' }));
+  };
+
   return (
     <Snackbar
       open={show}
@@ -46,7 +52,7 @@ const PSnackbar: React.FunctionComponent<PSnackbarProps & AlertProps> = ({
         </IconButton>
       }
     >
-      <Alert onClose={handleClose} severity={severity} {...props}>
+      <Alert onClose={handleClose} severity={severity || 'success'} {...props}>
         {message}
       </Alert>
     </Snackbar>
