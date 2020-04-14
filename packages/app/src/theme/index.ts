@@ -1,4 +1,4 @@
-import { createMuiTheme } from '@material-ui/core/styles';
+import { Theme } from '@material-ui/core/styles';
 
 // Base config
 import typography from './typography';
@@ -15,22 +15,19 @@ import MuiListItemIcon from './overrides/MuiListItemIcon';
 import MuiAvatar from './overrides/MuiAvatar';
 import MuiExpansionPanel from './overrides/MuiExpansionPanel';
 
-const theme = createMuiTheme({
+export const overrides = (theme: Theme) => ({
+  MuiDrawer: MuiDrawer(theme),
+  MuiDivider: MuiDivider(theme),
+  MuiListItemText: MuiListItemText(theme),
+  MuiListItemIcon: MuiListItemIcon(theme),
+  MuiAvatar: MuiAvatar(theme),
+  MuiCard: MuiCard(theme),
+  MuiExpansionPanel: MuiExpansionPanel(theme),
+});
+
+export const config = {
   typography,
   palette,
   shape,
   custom,
-});
-
-export default {
-  ...theme,
-  overrides: {
-    MuiDrawer: MuiDrawer(theme),
-    MuiDivider: MuiDivider(theme),
-    MuiListItemText: MuiListItemText(theme),
-    MuiListItemIcon: MuiListItemIcon(theme),
-    MuiAvatar: MuiAvatar(theme),
-    MuiCard: MuiCard(theme),
-    MuiExpansionPanel: MuiExpansionPanel(theme),
-  },
 };

@@ -8,8 +8,12 @@ import {
 
 type Dispatch = (action: GlobalAction) => void;
 
-const GlobalStateContext = createContext<GlobalState | undefined>(undefined);
-const GlobalDispatchContext = createContext<Dispatch | undefined>(undefined);
+export const GlobalStateContext = createContext<GlobalState | undefined>(
+  undefined,
+);
+export const GlobalDispatchContext = createContext<Dispatch | undefined>(
+  undefined,
+);
 
 export const GlobalProvider: React.FC = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
