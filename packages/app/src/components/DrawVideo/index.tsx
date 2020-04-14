@@ -21,7 +21,6 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import VideoIcon from '@material-ui/icons/Videocam';
 import PIconButton from '../PIconButton';
 import API from '../../services/API';
-import { app } from '../../configs';
 import styles from './styles';
 
 const useStyles = makeStyles(styles);
@@ -57,9 +56,7 @@ export const DrawVideo: React.FunctionComponent<DrawVideoProps> = ({
   useEffect(() => {
     const player = document.getElementById(elementId) as HTMLVideoElement;
     const hls = new HLS();
-    const proxyUrl = app.videoProxy[process.env.NODE_ENV];
-    const videoUrl = API.getEmbedUrl(gameId, drawDate);
-    hls.loadSource(`${proxyUrl}${videoUrl}`);
+    hls.loadSource(API.getEmbedUrl(gameId, drawDate));
     hls.attachMedia(player);
     hls.on(HLS.Events.MANIFEST_PARSED, () => {
       player.pause();
