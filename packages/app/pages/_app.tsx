@@ -2,7 +2,11 @@ import React from 'react';
 import App, { AppProps } from 'next/app';
 import { createMuiTheme, Theme, ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import { GlobalProvider, GlobalStateContext } from '../src/contexts';
+import {
+  DrawsProvider,
+  GlobalProvider,
+  GlobalStateContext,
+} from '../src/contexts';
 import { config, overrides } from '../src/theme';
 
 class MyApp extends App {
@@ -45,7 +49,9 @@ class MyApp extends App {
 const withProvider = (props: AppProps) => {
   return (
     <GlobalProvider>
-      <MyApp {...props} />
+      <DrawsProvider>
+        <MyApp {...props} />
+      </DrawsProvider>
     </GlobalProvider>
   );
 };

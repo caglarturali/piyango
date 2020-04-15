@@ -15,7 +15,7 @@ import DocumentHead from '../DocumentHead';
 import MainMenu from './MainMenu';
 import PSnackbar from '../../components/PSnackbar';
 import CheckCoupon from '../../components/CheckCoupon';
-import { DrawsProvider, useDrawsState, useGlobalState } from '../../contexts';
+import { useDrawsState, useGlobalState } from '../../contexts';
 
 const useStyles = makeStyles(styles);
 
@@ -78,14 +78,4 @@ MainLayout.propTypes = {
   contentTitle: PropTypes.string.isRequired,
 };
 
-const withProvider = (Comp: React.FC<MainLayoutProps>) => (
-  props: MainLayoutProps,
-) => {
-  return (
-    <DrawsProvider>
-      <Comp {...props} />
-    </DrawsProvider>
-  );
-};
-
-export default withProvider(MainLayout);
+export default MainLayout;
