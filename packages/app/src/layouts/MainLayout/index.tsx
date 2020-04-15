@@ -14,6 +14,7 @@ import styles from './styles';
 import DocumentHead from '../DocumentHead';
 import PSnackbar from '../../components/PSnackbar';
 import MainMenu from './MainMenu';
+import { DrawsProvider } from '../../contexts/draws';
 
 const useStyles = makeStyles(styles);
 
@@ -35,35 +36,37 @@ const MainLayout: React.FunctionComponent<MainLayoutProps> = ({
   };
 
   return (
-    <div className={classes.root}>
-      <DocumentHead title={pageTitle} />
-      <CssBaseline />
-      <AppBar position="fixed" className={classes.appBar}>
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="start"
-            onClick={handleDrawerToggle}
-            className={classes.menuButton}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" noWrap>
-            {contentTitle}
-          </Typography>
-        </Toolbar>
-      </AppBar>
-      <MainMenu
-        mobileOpen={mobileOpen}
-        handleDrawerToggle={handleDrawerToggle}
-      />
-      <main className={classes.content}>
-        <div className={classes.toolbar} />
-        <div>{children}</div>
-        <PSnackbar />
-      </main>
-    </div>
+    <DrawsProvider>
+      <div className={classes.root}>
+        <DocumentHead title={pageTitle} />
+        <CssBaseline />
+        <AppBar position="fixed" className={classes.appBar}>
+          <Toolbar>
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              edge="start"
+              onClick={handleDrawerToggle}
+              className={classes.menuButton}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Typography variant="h6" noWrap>
+              {contentTitle}
+            </Typography>
+          </Toolbar>
+        </AppBar>
+        <MainMenu
+          mobileOpen={mobileOpen}
+          handleDrawerToggle={handleDrawerToggle}
+        />
+        <main className={classes.content}>
+          <div className={classes.toolbar} />
+          <div>{children}</div>
+          <PSnackbar />
+        </main>
+      </div>
+    </DrawsProvider>
   );
 };
 

@@ -8,10 +8,7 @@ export interface GlobalState {
 
 export interface GlobalAction {
   type: ActionType['global'];
-  payload: {
-    theme?: GlobalState['theme'];
-    snackbar?: PSnackbarProps;
-  };
+  payload: Partial<GlobalState>;
 }
 
 export const initialState: GlobalState = {

@@ -28,7 +28,11 @@ import Details from './comps/Details';
 import CheckCoupon from '../CheckCoupon';
 import { Segments } from '../../shared';
 import { withCount } from '../Disqussion/Count';
-import { useGlobalDispatch } from '../../contexts/global';
+import {
+  useDrawsDispatch,
+  useDrawsState,
+  useGlobalDispatch,
+} from '../../contexts';
 
 const useStyles = makeStyles(styles);
 
@@ -45,17 +49,19 @@ const DrawDisplay: React.FunctionComponent<DrawDisplayProps> = ({
 }) => {
   const classes = useStyles();
   const dispatch = useGlobalDispatch();
+  const { checkcoupon } = useDrawsState();
+  const drawsDispatch = useDrawsDispatch();
 
   const [expanded, setExpanded] = useState(!isSummary);
-  const [showCheckCoupon, setShowCheckCoupon] = useState(false);
 
   const processed = useMemo(() => {
     return new ProcessDraw(game.id, drawData);
   }, [game, drawData]);
 
+  const drawDate = processed.drawDateF(DateFormat.API);
+
   const handleVideoClick = () => {
     const slug = game.embedSlug || game.id;
-    const drawDate = processed.drawDateF(DateFormat.API);
     const videoUrl = `http://millipiyango.mediatriple.net/?gamenamedate=${slug}_${drawDate}`;
     const width = 720;
     const height = 405;
@@ -74,7 +80,7 @@ const DrawDisplay: React.FunctionComponent<DrawDisplayProps> = ({
           title: 'Yorumlar',
           icon: withCount(CommentIcon)({
             game,
-            drawDate: processed.drawDateF(DateFormat.API),
+            drawDate,
           }),
         },
       ],
@@ -96,7 +102,16 @@ const DrawDisplay: React.FunctionComponent<DrawDisplayProps> = ({
                   },
                 });
               } else {
-                setShowCheckCoupon(true);
+                drawsDispatch({
+                  type: 'showcheckcoupon',
+                  payload: {
+                    checkcoupon: {
+                      show: true,
+                      game,
+                      drawDate,
+                    },
+                  },
+                });
               }
             },
           },
@@ -177,16 +192,7 @@ const DrawDisplay: React.FunctionComponent<DrawDisplayProps> = ({
         />
       )}
       {/* CheckCoupon comp */}
-      {showCheckCoupon && (
-        <CheckCoupon
-          show={showCheckCoupon}
-          game={game}
-          drawDate={processed.drawDateF(DateFormat.API)}
-          handleClose={() => {
-            setShowCheckCoupon(false);
-          }}
-        />
-      )}
+      {checkcoupon && <CheckCoupon {...checkcoupon} />}
     </Card>
   );
 };

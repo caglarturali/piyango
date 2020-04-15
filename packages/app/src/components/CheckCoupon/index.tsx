@@ -17,13 +17,13 @@ import {
   ReportPanel,
   UserNumbersPanel,
 } from './comps/Panels';
+import { useDrawsDispatch } from '../../contexts';
 import API from '../../services/API';
 
 export interface CheckCouponProps {
   show: boolean;
   game: Game;
   drawDate: DrawDate;
-  handleClose: (e?: any) => void;
 }
 
 const testData: Selection[] = [
@@ -61,13 +61,14 @@ const CheckCoupon: React.FunctionComponent<CheckCouponProps> = ({
   show,
   game,
   drawDate: drawDateProp,
-  handleClose,
 }) => {
   const defaultPanel = PanelID.UserNumbers;
   const [panelExpanded, setPanelExpanded] = useState(defaultPanel);
   const [drawDate, setDrawDate] = useState<DrawDate>(drawDateProp);
   const [drawData, setDrawData] = useState<DrawDataType>();
   const [userNumbers, setUserNumbers] = useState<Selection[]>([]);
+
+  const dispatch = useDrawsDispatch();
 
   useEffect(() => {
     const getData = async () => {
@@ -79,6 +80,15 @@ const CheckCoupon: React.FunctionComponent<CheckCouponProps> = ({
 
   const handleAddUserNumbers = (numbers: Selection) => {
     setUserNumbers([...userNumbers, numbers]);
+  };
+
+  const handleClose = () => {
+    dispatch({
+      type: 'showcheckcoupon',
+      payload: {
+        checkcoupon: undefined,
+      },
+    });
   };
 
   const handleReset = () => {
