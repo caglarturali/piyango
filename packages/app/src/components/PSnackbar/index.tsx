@@ -10,7 +10,6 @@ import CloseIcon from '@material-ui/icons/Close';
 import styles from './styles';
 import Alert from '../Alert';
 import { useGlobalDispatch, useGlobalState } from '../../contexts';
-import { showSnackbar } from '../../store/global';
 
 const useStyles = makeStyles(styles);
 
@@ -29,7 +28,10 @@ const PSnackbar: React.FunctionComponent<AlertProps> = ({ ...props }) => {
   const { show, message, severity } = snackbar;
 
   const handleClose = () => {
-    dispatch(showSnackbar({ show: false, message: '' }));
+    dispatch({
+      type: 'showsnackbar',
+      payload: { snackbar: { show: false, message: '' } },
+    });
   };
 
   return (

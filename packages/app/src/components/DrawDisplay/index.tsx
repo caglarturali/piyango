@@ -29,7 +29,6 @@ import CheckCoupon from '../CheckCoupon';
 import { Segments } from '../../shared';
 import { withCount } from '../Disqussion/Count';
 import { useGlobalDispatch } from '../../contexts/global';
-import { showSnackbar } from '../../store/global';
 
 const useStyles = makeStyles(styles);
 
@@ -86,13 +85,16 @@ const DrawDisplay: React.FunctionComponent<DrawDisplayProps> = ({
           handlers: {
             onClick: () => {
               if (game.id === GameID.piyango) {
-                dispatch(
-                  showSnackbar({
-                    show: true,
-                    message: 'Bu özellik henüz kullanılamıyor.',
-                    severity: 'info',
-                  }),
-                );
+                dispatch({
+                  type: 'showsnackbar',
+                  payload: {
+                    snackbar: {
+                      show: true,
+                      message: 'Bu özellik henüz kullanılamıyor.',
+                      severity: 'info',
+                    },
+                  },
+                });
               } else {
                 setShowCheckCoupon(true);
               }
@@ -105,12 +107,15 @@ const DrawDisplay: React.FunctionComponent<DrawDisplayProps> = ({
           handlers: {
             onClick: () => {
               copy(processed.clipboard());
-              dispatch(
-                showSnackbar({
-                  show: true,
-                  message: 'Panoya kopyalandı.',
-                }),
-              );
+              dispatch({
+                type: 'showsnackbar',
+                payload: {
+                  snackbar: {
+                    show: true,
+                    message: 'Panoya kopyalandı.',
+                  },
+                },
+              });
             },
           },
         },

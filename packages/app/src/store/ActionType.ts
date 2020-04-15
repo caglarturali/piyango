@@ -1,4 +1,3 @@
-export enum ActionType {
-  SetTheme = 'SetTheme',
-  ShowSnackbar = 'ShowSnackbar',
+export interface ActionType {
+  global: 'settheme' | 'showsnackbar';
 }

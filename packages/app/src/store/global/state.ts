@@ -1,12 +1,13 @@
-import { IAction } from '../IAction';
 import { PSnackbarProps } from '../../components/PSnackbar';
+import { ActionType } from '../ActionType';
 
 export interface GlobalState {
   theme: 'dark' | 'light';
   snackbar?: PSnackbarProps;
 }
 
-export interface GlobalAction extends IAction {
+export interface GlobalAction {
+  type: ActionType['global'];
   payload: {
     theme?: GlobalState['theme'];
     snackbar?: PSnackbarProps;
