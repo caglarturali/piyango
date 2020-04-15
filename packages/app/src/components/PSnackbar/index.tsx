@@ -54,7 +54,7 @@ const PSnackbar: React.FunctionComponent<PSnackbarProps & AlertProps> = ({
         </IconButton>
       }
     >
-      <Alert onClose={handleClose} severity={severity || 'success'} {...props}>
+      <Alert onClose={handleClose} severity={severity} {...props}>
         {message}
       </Alert>
     </Snackbar>
