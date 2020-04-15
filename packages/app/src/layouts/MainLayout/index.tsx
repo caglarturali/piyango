@@ -12,10 +12,10 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import styles from './styles';
 import DocumentHead from '../DocumentHead';
-import PSnackbar from '../../components/PSnackbar';
 import MainMenu from './MainMenu';
+import PSnackbar from '../../components/PSnackbar';
 import CheckCoupon from '../../components/CheckCoupon';
-import { DrawsProvider, useDrawsState } from '../../contexts';
+import { DrawsProvider, useDrawsState, useGlobalState } from '../../contexts';
 
 const useStyles = makeStyles(styles);
 
@@ -31,6 +31,7 @@ const MainLayout: React.FunctionComponent<MainLayoutProps> = ({
 }) => {
   const classes = useStyles();
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const { snackbar } = useGlobalState();
   const { checkcoupon } = useDrawsState();
 
   const handleDrawerToggle = () => {
@@ -65,7 +66,7 @@ const MainLayout: React.FunctionComponent<MainLayoutProps> = ({
         <div className={classes.toolbar} />
         <div>{children}</div>
         {/* Conditional components */}
-        <PSnackbar />
+        {snackbar && <PSnackbar {...snackbar} />}
         {checkcoupon && <CheckCoupon {...checkcoupon} />}
       </main>
     </div>

@@ -9,7 +9,7 @@ import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import styles from './styles';
 import Alert from '../Alert';
-import { useGlobalDispatch, useGlobalState } from '../../contexts';
+import { useGlobalDispatch } from '../../contexts';
 
 const useStyles = makeStyles(styles);
 
@@ -19,18 +19,18 @@ export interface PSnackbarProps {
   severity?: Color;
 }
 
-const PSnackbar: React.FunctionComponent<AlertProps> = ({ ...props }) => {
-  const { snackbar } = useGlobalState();
+const PSnackbar: React.FunctionComponent<PSnackbarProps & AlertProps> = ({
+  show,
+  message,
+  severity = 'success',
+  ...props
+}) => {
   const dispatch = useGlobalDispatch();
-
-  if (!snackbar) return null;
-
-  const { show, message, severity } = snackbar;
 
   const handleClose = () => {
     dispatch({
       type: 'showsnackbar',
-      payload: { snackbar: { show: false, message: '' } },
+      payload: { snackbar: undefined },
     });
   };
 
