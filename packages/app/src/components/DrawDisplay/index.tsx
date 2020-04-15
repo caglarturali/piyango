@@ -25,14 +25,9 @@ import Header from './comps/Header';
 import Numbers from './comps/Numbers';
 import Actions, { ActionItems } from './comps/Actions';
 import Details from './comps/Details';
-import CheckCoupon from '../CheckCoupon';
 import { Segments } from '../../shared';
 import { withCount } from '../Disqussion/Count';
-import {
-  useDrawsDispatch,
-  useDrawsState,
-  useGlobalDispatch,
-} from '../../contexts';
+import { useDrawsDispatch, useGlobalDispatch } from '../../contexts';
 
 const useStyles = makeStyles(styles);
 
@@ -49,7 +44,6 @@ const DrawDisplay: React.FunctionComponent<DrawDisplayProps> = ({
 }) => {
   const classes = useStyles();
   const dispatch = useGlobalDispatch();
-  const { checkcoupon } = useDrawsState();
   const drawsDispatch = useDrawsDispatch();
 
   const [expanded, setExpanded] = useState(!isSummary);
@@ -191,8 +185,6 @@ const DrawDisplay: React.FunctionComponent<DrawDisplayProps> = ({
           drawData={drawData}
         />
       )}
-      {/* CheckCoupon comp */}
-      {checkcoupon && <CheckCoupon {...checkcoupon} />}
     </Card>
   );
 };
