@@ -6,14 +6,14 @@ export const reducer: Reducer<GlobalState, GlobalAction> = (
   action,
 ) => {
   switch (action.type) {
-    case 'settheme':
+    case 'setTheme':
       const { theme } = action.payload;
       return {
         ...state,
         theme: theme || state.theme,
       };
 
-    case 'showsnackbar':
+    case 'showSnackbar':
       const { snackbar } = action.payload;
       return {
         ...state,

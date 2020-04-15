@@ -1,4 +1,4 @@
 export interface ActionType {
-  global: 'settheme' | 'showsnackbar';
-  draws: 'showcheckcoupon';
+  global: 'setTheme' | 'showSnackbar';
+  draws: 'showCheckCoupon';
 }

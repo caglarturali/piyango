@@ -84,7 +84,7 @@ const CheckCoupon: React.FunctionComponent<CheckCouponProps> = ({
 
   const handleClose = () => {
     dispatch({
-      type: 'showcheckcoupon',
+      type: 'showCheckCoupon',
       payload: {
         checkcoupon: undefined,
       },

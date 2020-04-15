@@ -6,7 +6,7 @@ export const reducer: Reducer<DrawsState, DrawsAction> = (
   action,
 ) => {
   switch (action.type) {
-    case 'showcheckcoupon':
+    case 'showCheckCoupon':
       const { checkcoupon } = action.payload;
       return {
         ...state,

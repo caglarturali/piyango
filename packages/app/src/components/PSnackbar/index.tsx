@@ -29,7 +29,7 @@ const PSnackbar: React.FunctionComponent<PSnackbarProps & AlertProps> = ({
 
   const handleClose = () => {
     dispatch({
-      type: 'showsnackbar',
+      type: 'showSnackbar',
       payload: { snackbar: undefined },
     });
   };

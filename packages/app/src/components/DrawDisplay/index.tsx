@@ -86,7 +86,7 @@ const DrawDisplay: React.FunctionComponent<DrawDisplayProps> = ({
             onClick: () => {
               if (game.id === GameID.piyango) {
                 dispatch({
-                  type: 'showsnackbar',
+                  type: 'showSnackbar',
                   payload: {
                     snackbar: {
                       show: true,
@@ -97,7 +97,7 @@ const DrawDisplay: React.FunctionComponent<DrawDisplayProps> = ({
                 });
               } else {
                 drawsDispatch({
-                  type: 'showcheckcoupon',
+                  type: 'showCheckCoupon',
                   payload: {
                     checkcoupon: {
                       show: true,
@@ -117,7 +117,7 @@ const DrawDisplay: React.FunctionComponent<DrawDisplayProps> = ({
             onClick: () => {
               copy(processed.clipboard());
               dispatch({
-                type: 'showsnackbar',
+                type: 'showSnackbar',
                 payload: {
                   snackbar: {
                     show: true,
