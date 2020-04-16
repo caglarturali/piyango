@@ -65931,14 +65931,105 @@
       "buyukIkramiye": 612325.4,
       "buyukIkrKazananIlIlceler": null,
       "_id": "zvG3WCZbJIz4HD60"
+    },
+    {
+      "oid": "3z8x9jk91n4u8t00",
+      "hafta": 983,
+      "buyukIkramiyeKazananIl": "",
+      "cekilisTarihi": "15/04/2020",
+      "cekilisTuru": "SANS_TOPU",
+      "rakamlar": "07#10#34#16#29#07",
+      "rakamlarNumaraSirasi": "07 - 10 - 16 - 29 - 34 - <b>07</b>",
+      "devretti": false,
+      "devirSayisi": 0,
+      "bilenKisiler": [
+        {
+          "oid": "3zbc7dk91n4u8n07",
+          "kisiBasinaDusenIkramiye": 3.05,
+          "kisiSayisi": 178030,
+          "tur": "$1_1_BILEN"
+        },
+        {
+          "oid": "3zbc7dk91n4u8n06",
+          "kisiBasinaDusenIkramiye": 4.75,
+          "kisiSayisi": 59240,
+          "tur": "$2_1_BILEN"
+        },
+        {
+          "oid": "3zbc7dk91n4u8n05",
+          "kisiBasinaDusenIkramiye": 4.4,
+          "kisiSayisi": 64110,
+          "tur": "$3_BILEN"
+        },
+        {
+          "oid": "3zbc7dk91n4u8n04",
+          "kisiBasinaDusenIkramiye": 18.4,
+          "kisiSayisi": 7147,
+          "tur": "$3_1_BILEN"
+        },
+        {
+          "oid": "3zbc7dk91n4u8n03",
+          "kisiBasinaDusenIkramiye": 47.7,
+          "kisiSayisi": 2278,
+          "tur": "$4_BILEN"
+        },
+        {
+          "oid": "3zbc7dk91n4u8n02",
+          "kisiBasinaDusenIkramiye": 304.05,
+          "kisiSayisi": 286,
+          "tur": "$4_1_BILEN"
+        },
+        {
+          "oid": "3zbc7dk91n4u8n01",
+          "kisiBasinaDusenIkramiye": 3430.2,
+          "kisiSayisi": 19,
+          "tur": "$5_BILEN"
+        },
+        {
+          "oid": "3zbc7dk91n4u8n00",
+          "kisiBasinaDusenIkramiye": 224452.6,
+          "kisiSayisi": 3,
+          "tur": "$5_1_BILEN"
+        }
+      ],
+      "buyukIkrKazananIlIlceler": [
+        {
+          "il": "28",
+          "ilView": "GİRESUN",
+          "ilce": "02800",
+          "ilceView": "MERKEZ"
+        },
+        {
+          "il": "33",
+          "ilView": "MERSİN",
+          "ilce": "03313",
+          "ilceView": "YENİŞEHİR"
+        },
+        {
+          "il": "72",
+          "ilView": "BATMAN",
+          "ilce": "07200",
+          "ilceView": "MERKEZ"
+        }
+      ],
+      "kibrisHasilati": 19,
+      "devirTutari": 0.01,
+      "kolonSayisi": 4746483,
+      "kdv": 724036.88,
+      "toplamHasilat": 4746483,
+      "hasilat": 4022446.12,
+      "sov": 402244.61,
+      "ikramiyeEH": 3620201.5100000002,
+      "buyukIkramiye": 673357.48,
+      "haftayaDevredenTutar": 0.11
     }
   ],
   "stats": {
-    "lastDraw": "20200408",
+    "lastDraw": "20200415",
     "numbers": {
       "10": {
-        "freq": 144,
-        "last": "20191030"
+        "freq": 145,
+        "last": "20200415"
       },
       "11": {
         "freq": 144,
@@ -65961,8 +66052,8 @@
         "last": "20191002"
       },
       "16": {
-        "freq": 133,
-        "last": "20200318"
+        "freq": 134,
+        "last": "20200415"
       },
       "17": {
         "freq": 151,
@@ -66013,8 +66104,8 @@
         "last": "20200304"
       },
       "29": {
-        "freq": 171,
-        "last": "20200212"
+        "freq": 172,
+        "last": "20200415"
       },
       "30": {
         "freq": 132,
@@ -66033,8 +66124,8 @@
         "last": "20200401"
       },
       "34": {
-        "freq": 128,
-        "last": "20200311"
+        "freq": 129,
+        "last": "20200415"
       },
       "01": {
         "freq": 142,
@@ -66061,8 +66152,8 @@
         "last": "20200311"
       },
       "07": {
-        "freq": 140,
-        "last": "20200101"
+        "freq": 141,
+        "last": "20200415"
       },
       "08": {
         "freq": 142,
@@ -66097,8 +66188,8 @@
         "last": "20200226"
       },
       "+07": {
-        "freq": 63,
-        "last": "20190904"
+        "freq": 64,
+        "last": "20200415"
       },
       "+08": {
         "freq": 61,

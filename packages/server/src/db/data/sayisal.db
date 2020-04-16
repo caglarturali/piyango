@@ -56151,10 +56151,58 @@
       "ikramiyeEH": 2200705.93,
       "buyukIkramiye": 528169.42,
       "haftayaDevredenTutar": 1333406.5
+    },
+    {
+      "oid": "3z8x9jk91n8np500",
+      "hafta": 1314,
+      "buyukIkramiyeKazananIl": "",
+      "cekilisTarihi": "15/04/2020",
+      "cekilisTuru": "SAYISAL_LOTO",
+      "rakamlar": "26#34#09#46#44#49",
+      "rakamlarNumaraSirasi": "09 - 26 - 34 - 44 - 46 - 49",
+      "devretti": true,
+      "devirSayisi": 3,
+      "bilenKisiler": [
+        {
+          "oid": "3zbc7dk91n8np003",
+          "kisiBasinaDusenIkramiye": 13.25,
+          "kisiSayisi": 60801,
+          "tur": "$3_BILEN"
+        },
+        {
+          "oid": "3zbc7dk91n8np002",
+          "kisiBasinaDusenIkramiye": 92.75,
+          "kisiSayisi": 3285,
+          "tur": "$4_BILEN"
+        },
+        {
+          "oid": "3zbc7dk91n8np001",
+          "kisiBasinaDusenIkramiye": 7211.05,
+          "kisiSayisi": 56,
+          "tur": "$5_BILEN"
+        },
+        {
+          "oid": "3zbc7dk91n8np000",
+          "kisiBasinaDusenIkramiye": 2342817.18,
+          "kisiSayisi": 0,
+          "tur": "$6_BILEN"
+        }
+      ],
+      "buyukIkrKazananIlIlceler": [],
+      "kibrisHasilati": 70.5,
+      "devirTutari": 1333406.5,
+      "kolonSayisi": 3676240,
+      "kdv": 841162.81,
+      "toplamHasilat": 5514360,
+      "hasilat": 4673197.19,
+      "sov": 467319.72,
+      "ikramiyeEH": 4205877.470000001,
+      "buyukIkramiye": 1009410.59,
+      "haftayaDevredenTutar": 2342817.18
     }
   ],
   "stats": {
-    "lastDraw": "20200411",
+    "lastDraw": "20200415",
     "numbers": {
       "10": {
         "freq": 153,
@@ -56221,8 +56269,8 @@
         "last": "20200411"
       },
       "26": {
-        "freq": 173,
-        "last": "20200229"
+        "freq": 174,
+        "last": "20200415"
       },
       "27": {
         "freq": 162,
@@ -56253,8 +56301,8 @@
         "last": "20200314"
       },
       "34": {
-        "freq": 157,
-        "last": "20200311"
+        "freq": 158,
+        "last": "20200415"
       },
       "35": {
         "freq": 150,
@@ -56293,16 +56341,16 @@
         "last": "20200311"
       },
       "44": {
-        "freq": 153,
-        "last": "20200328"
+        "freq": 154,
+        "last": "20200415"
       },
       "45": {
         "freq": 141,
         "last": "20200222"
       },
       "46": {
-        "freq": 167,
-        "last": "20200408"
+        "freq": 168,
+        "last": "20200415"
       },
       "47": {
         "freq": 167,
@@ -56313,8 +56361,8 @@
         "last": "20200411"
       },
       "49": {
-        "freq": 154,
-        "last": "20200404"
+        "freq": 155,
+        "last": "20200415"
       },
       "01": {
         "freq": 178,
@@ -56349,8 +56397,8 @@
         "last": "20200325"
       },
       "09": {
-        "freq": 167,
-        "last": "20200212"
+        "freq": 168,
+        "last": "20200415"
       }
     }
   }
