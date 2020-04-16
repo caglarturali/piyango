@@ -1,5 +1,5 @@
 /**
- * HomeView component styles.
+ * Home view styles.
  */
 import { createStyles, Theme } from '@material-ui/core';
 

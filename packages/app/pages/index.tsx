@@ -4,8 +4,8 @@
 import React from 'react';
 import { GetServerSideProps, NextPage } from 'next';
 import { DrawsItem } from '@caglarturali/piyango-common';
-import MainLayout from '../src/layouts/MainLayout';
-import HomeView from '../src/views/HomeView';
+import Main from '../src/layouts/Main';
+import Home from '../src/views/Home';
 import API from '../src/services/API';
 
 export interface HomePageProps {
@@ -14,9 +14,9 @@ export interface HomePageProps {
 
 const HomePage: NextPage<HomePageProps> = ({ data }) => {
   return (
-    <MainLayout contentTitle="Ana Sayfa">
-      <HomeView draws={data} />
-    </MainLayout>
+    <Main contentTitle="Ana Sayfa">
+      <Home draws={data} />
+    </Main>
   );
 };
 

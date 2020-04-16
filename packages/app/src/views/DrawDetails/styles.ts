@@ -1,5 +1,5 @@
 /**
- * DrawDetailsView component styles.
+ * DrawDetails view styles.
  */
 import { createStyles, Theme } from '@material-ui/core';
 

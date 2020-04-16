@@ -1,22 +1,22 @@
 /**
- * DrawDetailsView component.
+ * DrawDetails view.
  */
 import React from 'react';
 import { DateFormat, DrawDataType, GameID } from '@caglarturali/piyango-common';
 import { DateUtils, GameUtils } from '@caglarturali/piyango-utils';
 import Grid from '@material-ui/core/Grid';
-import SectionHeader from '../../layouts/SectionHeader';
+import SectionHeader from '../../layouts/components/SectionHeader';
 import Container from '../../components/Container';
 import DrawDisplay from '../../components/DrawDisplay';
 import Comments from '../../components/Disqussion/Comments';
 // import { DrawVideo } from '../../components/DrawVideo';
 
-export interface DrawDetailsViewProps {
+export interface DrawDetailsProps {
   gameId: GameID;
   drawData: DrawDataType;
 }
 
-const DrawDetailsView: React.FunctionComponent<DrawDetailsViewProps> = ({
+const DrawDetails: React.FunctionComponent<DrawDetailsProps> = ({
   gameId,
   drawData,
 }) => {
@@ -52,4 +52,4 @@ const DrawDetailsView: React.FunctionComponent<DrawDetailsViewProps> = ({
   );
 };
 
-export default DrawDetailsView;
+export default DrawDetails;

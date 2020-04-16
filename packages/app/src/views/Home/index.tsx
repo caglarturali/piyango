@@ -1,20 +1,20 @@
 /**
- * HomeView component.
+ * Home view.
  */
 import React from 'react';
-import { DrawsItem, GameID } from '@caglarturali/piyango-common';
+import { DrawsItem } from '@caglarturali/piyango-common';
 import { ProcessDraw } from '@caglarturali/piyango-utils';
 import { GameUtils } from '@caglarturali/piyango-utils';
 import Grid from '@material-ui/core/Grid';
-import SectionHeader from '../../layouts/SectionHeader';
+import SectionHeader from '../../layouts/components/SectionHeader';
 import Container from '../../components/Container';
 import DrawDisplay from '../../components/DrawDisplay';
 
-export interface HomeViewProps {
+export interface HomeProps {
   draws: DrawsItem[];
 }
 
-const HomeView: React.FunctionComponent<HomeViewProps> = ({ draws }) => {
+const Home: React.FunctionComponent<HomeProps> = ({ draws }) => {
   // Sort draws in desc order.
   draws.sort((a, b) => {
     const prdA = new ProcessDraw(a.id, a.data);
@@ -43,4 +43,4 @@ const HomeView: React.FunctionComponent<HomeViewProps> = ({ draws }) => {
   );
 };
 
-export default HomeView;
+export default Home;

@@ -13,7 +13,7 @@ export interface SectionHeaderProps {
   lg?: any;
 }
 
-const SectionHeader: React.FunctionComponent<SectionHeaderProps> = ({
+const SectionHeader: React.FC<SectionHeaderProps> = ({
   title,
   lg,
   children,

@@ -5,8 +5,8 @@ import React from 'react';
 import { NextPage, NextPageContext } from 'next';
 import { DateFormat, DrawDataType, GameID } from '@caglarturali/piyango-common';
 import { DateUtils, GameUtils } from '@caglarturali/piyango-utils';
-import DrawDetailsView from '../../../src/views/DrawDetailsView';
-import MainLayout from '../../../src/layouts/MainLayout';
+import DrawDetails from '../../../src/views/DrawDetails';
+import Main from '../../../src/layouts/Main';
 import API from '../../../src/services/API';
 
 export interface DrawDetailsPageProps {
@@ -21,9 +21,9 @@ const DrawDetailsPage: NextPage<DrawDetailsPageProps> = ({
   const game = GameUtils.getGameById(gameId);
 
   return (
-    <MainLayout contentTitle={game.name}>
-      <DrawDetailsView gameId={gameId} drawData={drawData} />
-    </MainLayout>
+    <Main contentTitle={game.name}>
+      <DrawDetails gameId={gameId} drawData={drawData} />
+    </Main>
   );
 };
 

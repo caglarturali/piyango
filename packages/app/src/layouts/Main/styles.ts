@@ -1,5 +1,5 @@
 /**
- * MainLayout styles.
+ * Main layout styles.
  */
 import { Theme } from '@material-ui/core';
 import { orange } from '@material-ui/core/colors';

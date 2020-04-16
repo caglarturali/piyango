@@ -23,7 +23,7 @@ export interface MainMenuProps {
   handleDrawerToggle: () => any;
 }
 
-const MainMenu: React.FunctionComponent<MainMenuProps> = ({
+const MainMenu: React.FC<MainMenuProps> = ({
   mobileOpen,
   handleDrawerToggle,
 }) => {

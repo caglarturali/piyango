@@ -9,9 +9,7 @@ export interface DocumentHeadProps {
   title?: string;
 }
 
-const DocumentHead: React.FunctionComponent<DocumentHeadProps> = ({
-  title,
-}) => {
+const DocumentHead: React.FC<DocumentHeadProps> = ({ title }) => {
   return (
     <Head>
       <title>{title}</title>

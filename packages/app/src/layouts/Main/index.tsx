@@ -1,5 +1,5 @@
 /**
- * MainLayout component.
+ * Main layout component.
  */
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -11,24 +11,20 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import styles from './styles';
-import DocumentHead from '../DocumentHead';
-import MainMenu from './MainMenu';
+import DocumentHead from '../components/DocumentHead';
+import MainMenu from './components/MainMenu';
 import PSnackbar from '../../components/PSnackbar';
 import CheckCoupon from '../../components/CheckCoupon';
 import { useDrawsState, useGlobalState } from '../../contexts';
 
 const useStyles = makeStyles(styles);
 
-export interface MainLayoutProps {
+export interface MainProps {
   pageTitle?: string;
   contentTitle: string;
 }
 
-const MainLayout: React.FunctionComponent<MainLayoutProps> = ({
-  pageTitle,
-  contentTitle,
-  children,
-}) => {
+const Main: React.FC<MainProps> = ({ pageTitle, contentTitle, children }) => {
   const classes = useStyles();
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const { snackbar } = useGlobalState();
@@ -73,9 +69,9 @@ const MainLayout: React.FunctionComponent<MainLayoutProps> = ({
   );
 };
 
-MainLayout.propTypes = {
+Main.propTypes = {
   pageTitle: PropTypes.string,
   contentTitle: PropTypes.string.isRequired,
 };
 
-export default MainLayout;
+export default Main;
