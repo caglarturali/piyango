@@ -14,7 +14,6 @@ export default ({ custom, palette, spacing, typography }: Theme) =>
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      paddingLeft: spacing(2),
       textDecoration: 'none',
     },
   });
