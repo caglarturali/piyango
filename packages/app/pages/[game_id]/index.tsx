@@ -5,8 +5,8 @@ import React from 'react';
 import { NextPage, NextPageContext } from 'next';
 import { GameID } from '@caglarturali/piyango-common';
 import { GameUtils } from '@caglarturali/piyango-utils';
-import MainLayout from '../../src/layouts/MainLayout';
-import SectionHeader from '../../src/layouts/SectionHeader';
+import Main from '../../src/layouts/Main';
+import SectionHeader from '../../src/layouts/components/SectionHeader';
 
 export interface GameHomeProps {
   gameId: GameID;
@@ -16,9 +16,9 @@ const GameHome: NextPage<GameHomeProps> = ({ gameId }) => {
   const game = GameUtils.getGameById(gameId);
 
   return (
-    <MainLayout contentTitle={game.name}>
+    <Main contentTitle={game.name}>
       <SectionHeader title="Seçenekler" />
-    </MainLayout>
+    </Main>
   );
 };
 

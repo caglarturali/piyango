@@ -3,16 +3,14 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import AppBar from '@material-ui/core/AppBar';
+import clsx from 'clsx';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
+import { useMediaQuery } from '@material-ui/core';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
 import styles from './styles';
 import DocumentHead from '../components/DocumentHead';
-import MainMenu from './components/MainMenu';
+import Topbar from './components/Topbar';
+import Sidebar from './components/Sidebar';
 import PSnackbar from '../../components/PSnackbar';
 import CheckCoupon from '../../components/CheckCoupon';
 import { useDrawsState, useGlobalState } from '../../contexts';
@@ -25,41 +23,31 @@ export interface MainProps {
 }
 
 const Main: React.FC<MainProps> = ({ pageTitle, contentTitle, children }) => {
+  const theme = useTheme();
   const classes = useStyles();
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const { snackbar } = useGlobalState();
   const { checkcoupon } = useDrawsState();
+
+  const isDesktop = useMediaQuery(theme.breakpoints.up('md'), {
+    defaultMatches: true,
+  });
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
 
   return (
-    <div className={classes.root}>
+    <div className={clsx(classes.root, { [classes.shiftContent]: isDesktop })}>
       <DocumentHead title={pageTitle} />
       <CssBaseline />
-      <AppBar position="fixed" className={classes.appBar}>
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="start"
-            onClick={handleDrawerToggle}
-            className={classes.menuButton}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" noWrap>
-            {contentTitle}
-          </Typography>
-        </Toolbar>
-      </AppBar>
-      <MainMenu
-        mobileOpen={mobileOpen}
-        handleDrawerToggle={handleDrawerToggle}
+      <Topbar contentTitle={contentTitle} onMenuClick={handleDrawerToggle} />
+      <Sidebar
+        open={mobileOpen}
+        onClose={handleDrawerToggle}
+        variant={isDesktop ? 'permanent' : 'temporary'}
       />
       <main className={classes.content}>
-        <div className={classes.toolbar} />
         <div>{children}</div>
         {/* Conditional components */}
         {snackbar && <PSnackbar {...snackbar} />}

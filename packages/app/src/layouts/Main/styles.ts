@@ -6,7 +6,7 @@ import { orange } from '@material-ui/core/colors';
 
 export const drawerWidth = 256;
 
-export default ({ breakpoints, spacing, mixins, transitions }: Theme) => ({
+export default ({ breakpoints, transitions }: Theme) => ({
   // Global styles
   '@global': {
     '.typed-cursor': {
@@ -25,21 +25,15 @@ export default ({ breakpoints, spacing, mixins, transitions }: Theme) => ({
   },
   root: {
     display: 'flex',
-  },
-  appBar: {
+    paddingTop: 56,
+    height: '100%',
     [breakpoints.up('sm')]: {
-      width: `calc(100% - ${drawerWidth}px)`,
-      marginLeft: drawerWidth,
+      paddingTop: 64,
     },
   },
-  menuButton: {
-    marginRight: spacing(2),
-    [breakpoints.up('sm')]: {
-      display: 'none',
-    },
+  shiftContent: {
+    paddingLeft: drawerWidth,
   },
-  // necessary for content to be below app bar
-  toolbar: mixins.toolbar,
   content: {
     flexGrow: 1,
   },

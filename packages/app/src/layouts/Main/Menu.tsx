@@ -4,7 +4,7 @@
 import { GAMES } from '@caglarturali/piyango-common';
 import HomeIcon from '@material-ui/icons/Home';
 import FaceIcon from '@material-ui/icons/Face';
-import GameIcon from '../../../../icons/GameIcon';
+import GameIcon from '../../icons/GameIcon';
 
 export interface MenuCategory {
   title?: string;
