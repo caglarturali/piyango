@@ -31,6 +31,7 @@ const Sidebar: React.FC<SidebarProps> = ({ open, variant, onDrawerToggle }) => {
       open={open}
       onOpen={onDrawerToggle}
       onClose={onDrawerToggle}
+      disableBackdropTransition
       classes={{
         paper: classes.drawer,
       }}
