@@ -45,7 +45,7 @@ const Main: React.FC<MainProps> = ({ pageTitle, contentTitle, children }) => {
       <Topbar contentTitle={contentTitle} onMenuClick={handleDrawerToggle} />
       <Sidebar
         open={mobileOpen}
-        onClose={handleDrawerToggle}
+        onDrawerToggle={handleDrawerToggle}
         variant={isDesktop ? 'permanent' : 'temporary'}
       />
       <main className={classes.content}>
