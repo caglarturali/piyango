@@ -11,6 +11,7 @@ import styles from './styles';
 import DocumentHead from '../components/DocumentHead';
 import Topbar from './components/Topbar';
 import Sidebar from './components/Sidebar';
+import Footer from './components/Footer';
 import PSnackbar from '../../components/PSnackbar';
 import CheckCoupon from '../../components/CheckCoupon';
 import { useDrawsState, useGlobalState } from '../../contexts';
@@ -49,6 +50,7 @@ const Main: React.FC<MainProps> = ({ pageTitle, contentTitle, children }) => {
       />
       <main className={classes.content}>
         <div>{children}</div>
+        <Footer />
         {/* Conditional components */}
         {snackbar && <PSnackbar {...snackbar} />}
         {checkcoupon && <CheckCoupon {...checkcoupon} />}
