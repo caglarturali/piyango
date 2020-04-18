@@ -2,8 +2,9 @@
  * MuiExpansionPanel override.
  */
 import { Theme } from '@material-ui/core';
+import { borderColor } from '../helpers';
 
-export default ({ custom }: Theme) => ({
+export default ({ palette }: Theme) => ({
   root: {
     // borderTop: `1px solid ${custom.palette.border}`,
     // borderBottom: `1px solid ${custom.palette.border}`,
@@ -12,7 +13,7 @@ export default ({ custom }: Theme) => ({
     },
   },
   expanded: {
-    borderTop: `1px solid ${custom.palette.border}`,
-    borderBottom: `1px solid ${custom.palette.border}`,
+    borderTop: `1px solid ${borderColor(palette)}`,
+    borderBottom: `1px solid ${borderColor(palette)}`,
   },
 });
