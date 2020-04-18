@@ -13,7 +13,7 @@ import Topbar from './components/Topbar';
 import Sidebar from './components/Sidebar';
 import Footer from './components/Footer';
 import PSnackbar from '../../components/PSnackbar';
-import CheckCoupon from '../../components/CheckCoupon';
+import CheckCoupon from '../../containers/CheckCoupon';
 import { useDrawsState, useGlobalState } from '../../contexts';
 
 const useStyles = makeStyles(styles);
