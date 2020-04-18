@@ -6,7 +6,7 @@ import { Game } from '@caglarturali/piyango-common';
 import { makeStyles } from '@material-ui/core';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
-import JackpotChip from '../../JackpotChip';
+import JackpotChip from '../../../components/JackpotChip';
 import styles from '../styles';
 
 const useStyles = makeStyles(styles);

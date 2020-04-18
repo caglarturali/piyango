@@ -7,8 +7,8 @@ import { DateUtils, GameUtils } from '@caglarturali/piyango-utils';
 import Grid from '@material-ui/core/Grid';
 import SectionHeader from '../../layouts/components/SectionHeader';
 import Container from '../../components/Container';
-import DrawDisplay from '../../components/DrawDisplay';
-import Comments from '../../components/Disqussion/Comments';
+import DrawDisplay from '../../containers/DrawDisplay';
+import { Comments } from '../../containers/Disqussion';
 // import { DrawVideo } from '../../components/DrawVideo';
 
 export interface DrawDetailsProps {

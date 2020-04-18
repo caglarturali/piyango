@@ -9,10 +9,15 @@ import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpansionPanelActions from '@material-ui/core/ExpansionPanelActions';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { PanelID } from './Panels';
 import styles from '../styles';
 
 const useStyles = makeStyles(styles);
+
+export enum PanelID {
+  DrawDate = 'DrawDate',
+  Report = 'Report',
+  UserNumbers = 'UserNumbers',
+}
 
 export interface PanelProps {
   id: PanelID;

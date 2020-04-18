@@ -7,7 +7,7 @@ import { makeStyles } from '@material-ui/core';
 import CardActions from '@material-ui/core/CardActions';
 import Grid from '@material-ui/core/Grid';
 import RollingTexts from './RollingTexts';
-import PIconButton, { PIconButtonProps } from '../../PIconButton';
+import PIconButton, { PIconButtonProps } from '../../../components/PIconButton';
 import styles from '../styles';
 
 const useStyles = makeStyles(styles);

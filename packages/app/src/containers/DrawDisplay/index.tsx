@@ -21,12 +21,10 @@ import CopyIcon from '@material-ui/icons/FileCopy';
 import VideoIcon from '@material-ui/icons/Videocam';
 import styles from './styles';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import Header from './comps/Header';
-import Numbers from './comps/Numbers';
-import Actions, { ActionItems } from './comps/Actions';
-import Details from './comps/Details';
+import { Actions, Details, Header, Numbers } from './components';
+import { ActionItems } from './components/Actions';
 import { Segments } from '../../shared';
-import { withCount } from '../Disqussion/Count';
+import { withCount } from '../Disqussion';
 import { useDrawsDispatch, useGlobalDispatch } from '../../contexts';
 
 const useStyles = makeStyles(styles);

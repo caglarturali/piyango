@@ -10,13 +10,13 @@ import {
   RegularGame,
   Selection,
 } from '@caglarturali/piyango-common';
-import CheckCouponLayout from './comps/Layout';
 import {
   DrawDatePanel,
+  Layout,
   PanelID,
   ReportPanel,
   UserNumbersPanel,
-} from './comps/Panels';
+} from './components';
 import { useDrawsDispatch } from '../../contexts';
 import API from '../../services/API';
 
@@ -98,7 +98,7 @@ const CheckCoupon: React.FunctionComponent<CheckCouponProps> = ({
   };
 
   return (
-    <CheckCouponLayout
+    <Layout
       title={`${game.name} Kupon Kontrolü`}
       show={show}
       handleClose={() => handleClose()}
@@ -134,7 +134,7 @@ const CheckCoupon: React.FunctionComponent<CheckCouponProps> = ({
         drawData={drawData as RegularDrawData}
         userNumbers={userNumbers}
       />
-    </CheckCouponLayout>
+    </Layout>
   );
 };
 

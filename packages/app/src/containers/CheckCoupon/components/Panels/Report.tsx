@@ -10,7 +10,7 @@ import {
 } from '@caglarturali/piyango-common';
 import { TicketUtils } from '@caglarturali/piyango-utils';
 import Panel, { PanelProps } from '../Panel';
-import TicketDisplay from '../../../TicketDisplay';
+import TicketDisplay from '../../../../components/TicketDisplay';
 import styles from '../../styles';
 
 const useStyles = makeStyles(styles);

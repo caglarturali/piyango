@@ -11,7 +11,7 @@ import {
 import { makeStyles } from '@material-ui/core';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
-import CouponNumber from './comps/CouponNumber';
+import CouponNumber from './components/CouponNumber';
 import styles from './styles';
 
 const useStyles = makeStyles(styles);

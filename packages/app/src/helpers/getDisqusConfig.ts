@@ -1,13 +1,8 @@
-import { DateFormat, DrawDate, Game } from '@caglarturali/piyango-common';
 import { DateUtils } from '@caglarturali/piyango-utils';
-import { Segments } from '../../shared';
-import { disqus } from '../../configs';
-
-export interface DisqusConfig {
-  url: string;
-  identifier: string;
-  title: string;
-}
+import { DateFormat, DrawDate, Game } from '@caglarturali/piyango-common';
+import { DisqusConfig } from '../models/DisqusConfig';
+import { Segments } from '../shared';
+import { disqus } from '../configs';
 
 /**
  * Returns Disqus config.

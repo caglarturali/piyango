@@ -6,9 +6,9 @@ import { DrawDate, Game } from '@caglarturali/piyango-common';
 import { makeStyles } from '@material-ui/core';
 import Badge from '@material-ui/core/Badge';
 import { CommentCount } from 'disqus-react';
-import { disqus } from '../../../configs';
-import { getDisqusConfig } from '../Disqus';
-import API from '../../../services/API';
+import { disqus } from '../../../../configs';
+import { getDisqusConfig } from '../../../../helpers';
+import API from '../../../../services/API';
 import styles from './styles';
 
 const useStyles = makeStyles(styles);
@@ -67,3 +67,5 @@ export const withCount = (Comp: React.ElementType) => (props: CountProps) => (
     <Comp />
   </Count>
 );
+
+export default Count;
