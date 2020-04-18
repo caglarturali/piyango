@@ -39,7 +39,7 @@ const Main: React.FC<MainProps> = ({ pageTitle, contentTitle, children }) => {
   };
 
   return (
-    <div className={clsx(classes.root, { [classes.shiftContent]: isDesktop })}>
+    <div className={clsx(classes.root)}>
       <DocumentHead title={pageTitle} />
       <CssBaseline />
       <Topbar contentTitle={contentTitle} onMenuClick={handleDrawerToggle} />

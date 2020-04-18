@@ -7,12 +7,13 @@ import { drawerWidth } from '../../styles';
 export default ({ breakpoints, palette, spacing }: Theme) =>
   createStyles({
     drawer: {
-      width: drawerWidth,
-      [breakpoints.up('sm')]: {
+      [breakpoints.up('md')]: {
         flexShrink: 0,
-        // width: `calc(100% - ${drawerWidth}px)`,
-        // marginLeft: drawerWidth,
+        width: drawerWidth,
       },
+    },
+    drawerPaper: {
+      width: drawerWidth,
       [breakpoints.up('md')]: {
         marginTop: 64,
         height: 'calc(100% - 64px)',

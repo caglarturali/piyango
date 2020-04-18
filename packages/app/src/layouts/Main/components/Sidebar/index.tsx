@@ -25,24 +25,26 @@ const Sidebar: React.FC<SidebarProps> = ({ open, variant, onDrawerToggle }) => {
   const classes = useStyles();
 
   return (
-    <SwipeableDrawer
-      variant={variant}
-      anchor={theme.direction === 'rtl' ? 'right' : 'left'}
-      open={open}
-      onOpen={onDrawerToggle}
-      onClose={onDrawerToggle}
-      disableBackdropTransition
-      classes={{
-        paper: classes.drawer,
-      }}
-      ModalProps={{
-        keepMounted: true, // Better open performance on mobile.
-      }}
-    >
-      <div className={clsx(classes.root)}>
-        <SidebarNav menuItems={Menu} />
-      </div>
-    </SwipeableDrawer>
+    <div className={classes.drawer}>
+      <SwipeableDrawer
+        variant={variant}
+        anchor={theme.direction === 'rtl' ? 'right' : 'left'}
+        open={open}
+        onOpen={onDrawerToggle}
+        onClose={onDrawerToggle}
+        disableBackdropTransition
+        classes={{
+          paper: classes.drawerPaper,
+        }}
+        ModalProps={{
+          keepMounted: true, // Better open performance on mobile.
+        }}
+      >
+        <div className={clsx(classes.root)}>
+          <SidebarNav menuItems={Menu} />
+        </div>
+      </SwipeableDrawer>
+    </div>
   );
 };
 

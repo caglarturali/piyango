@@ -31,9 +31,6 @@ export default ({ breakpoints, transitions }: Theme) => ({
       paddingTop: 64,
     },
   },
-  shiftContent: {
-    paddingLeft: drawerWidth,
-  },
   content: {
     flexGrow: 1,
   },
