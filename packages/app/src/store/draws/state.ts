@@ -1,6 +1,6 @@
 import { DrawDataType, GameID } from '@caglarturali/piyango-common';
 import { ActionType } from '../ActionType';
-import { CheckCouponProps } from '../../components/CheckCoupon';
+import { CheckCouponProps } from '../../containers/CheckCoupon';
 
 export interface DrawsState {
   draws: { [key in GameID]?: DrawDataType[] };
