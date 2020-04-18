@@ -3,4 +3,7 @@
  */
 import { app } from '../configs';
 
-export const API_BASE = app.apiUrl[process.env.NODE_ENV];
+const { production, development } = app.apiUrl;
+
+export const API_BASE =
+  process.env.NODE_ENV === 'production' ? production : development;
