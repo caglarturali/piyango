@@ -30,7 +30,7 @@ export default ({ breakpoints, palette, spacing, typography }: Theme) =>
       },
     },
     drawDate: {
-      color: palette.primary.dark,
+      color: palette.secondary.main,
       fontSize: typography.pxToRem(13),
       fontWeight: typography.fontWeightMedium,
       letterSpacing: '-0.2px',

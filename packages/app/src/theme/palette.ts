@@ -1,11 +1,13 @@
 import { ThemeOptions } from '@material-ui/core';
-import { orange, red } from '@material-ui/core/colors';
+import { red } from '@material-ui/core/colors';
 
 const opts: ThemeOptions['palette'] = {
   primary: {
-    main: '#006CA0',
+    main: '#35495e',
   },
-  secondary: orange,
+  secondary: {
+    main: '#d35400',
+  },
   error: red,
 };
 

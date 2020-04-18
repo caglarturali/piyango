@@ -18,7 +18,7 @@ export default class MyDocument extends Document {
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/ */}
           <link rel="manifest" href="/manifest.json" />
           {/* PWA primary color */}
-          <meta name="theme-color" content="006CA0" />
+          <meta name="theme-color" content="35495E" />
           <link
             rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Condensed:300,400,700&display=swap"

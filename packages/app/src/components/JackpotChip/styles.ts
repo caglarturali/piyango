@@ -13,8 +13,8 @@ export default ({ palette, spacing, typography }: Theme) =>
       paddingLeft: spacing(0.5),
     },
     chipOutlined: {
-      color: palette.primary.dark,
-      borderColor: palette.primary.dark,
+      color: palette.secondary.light,
+      borderColor: palette.secondary.light,
     },
     chip: {
       fontWeight: typography.fontWeightMedium,

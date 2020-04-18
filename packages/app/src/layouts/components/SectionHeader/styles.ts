@@ -2,15 +2,16 @@
  * SectionHeader component styles.
  */
 import { createStyles, Theme } from '@material-ui/core';
+import { borderColor } from '../../../theme/helpers';
 
-export default ({ custom, palette, typography, spacing }: Theme) =>
+export default ({ palette, typography, spacing }: Theme) =>
   createStyles({
     root: {
       display: 'flex',
       alignItems: 'flex-end',
       justifyContent: 'space-between',
       background: palette.background.default,
-      borderBottom: `1px solid ${custom.palette.border}`,
+      borderBottom: `1px solid ${borderColor(palette)}`,
       color: palette.text.secondary,
       fontFamily: typography.fontFamily,
       fontSize: typography.pxToRem(13),
