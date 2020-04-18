@@ -1,6 +1,8 @@
+export type EnvKeys = 'development' | 'production' | 'test';
+
 export const app: {
   baseUrl: string;
-  apiUrl: { [key in NodeJS.ProcessEnv['NODE_ENV']]: string };
+  apiUrl: { [key in EnvKeys]: string };
 } = {
   baseUrl: 'https://piyango.online',
   apiUrl: {
