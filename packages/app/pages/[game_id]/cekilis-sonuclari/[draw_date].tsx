@@ -32,7 +32,7 @@ DrawDetailsPage.getInitialProps = async (context: NextPageContext) => {
 
   // Convert draw date string into standard form.
   const drawDate = DateUtils.convert(
-    draw_date.toString(),
+    draw_date as string,
     DateFormat.URL,
     DateFormat.API,
   );
