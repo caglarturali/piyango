@@ -12,6 +12,7 @@ import MuiListItemText from './overrides/MuiListItemText';
 import MuiListItemIcon from './overrides/MuiListItemIcon';
 import MuiAvatar from './overrides/MuiAvatar';
 import MuiExpansionPanel from './overrides/MuiExpansionPanel';
+import MuiToolbar from './overrides/MuiToolbar';
 
 export const overrides = (theme: Theme): ThemeOptions['overrides'] => ({
   MuiListItemText: MuiListItemText(theme),
@@ -19,6 +20,8 @@ export const overrides = (theme: Theme): ThemeOptions['overrides'] => ({
   MuiAvatar: MuiAvatar(theme),
   MuiCard: MuiCard(theme),
   MuiExpansionPanel: MuiExpansionPanel(theme),
+  MuiToolbar: MuiToolbar(theme),
+  MuiAppBar: MuiToolbar(theme), // Using MuiToolbar override!
 });
 
 export const config: ThemeOptions = {

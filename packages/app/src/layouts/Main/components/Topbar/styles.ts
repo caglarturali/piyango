@@ -2,17 +2,12 @@
  * Topbar component styles.
  */
 import { createStyles, Theme } from '@material-ui/core';
-import { toolbarColor } from '../../../../theme/helpers';
 
 export default ({ breakpoints, palette, mixins, spacing }: Theme) =>
   createStyles({
     toolbar: {
       // necessary for content to be below app bar
       ...mixins.toolbar,
-      backgroundColor: toolbarColor(
-        palette,
-        mixins.toolbar.backgroundColor as string,
-      ),
       '&>*': {
         position: 'absolute',
       },

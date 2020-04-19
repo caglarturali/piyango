@@ -42,7 +42,7 @@ const CheckCouponLayout: React.FunctionComponent<CheckCouponLayoutProps> = ({
       open={show}
       onClose={handleClose}
     >
-      <AppBar classes={{ root: classes.appBarRoot }} className={classes.appBar}>
+      <AppBar color="default" className={classes.appBar}>
         <Toolbar classes={{ root: !fullScreen ? classes.toolbarRoot : '' }}>
           <Typography variant="body1" color="inherit" className={classes.flex}>
             {title}

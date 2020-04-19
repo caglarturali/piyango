@@ -6,12 +6,6 @@ import { createStyles, Theme } from '@material-ui/core';
 export default ({ custom, palette, spacing, typography }: Theme) =>
   createStyles({
     // Layout styles.
-    appBarRoot: {
-      background: palette.primary.dark,
-      display: 'flex',
-      justifyContent: 'center',
-      height: '60px',
-    },
     appBar: {
       position: 'relative',
       userSelect: 'none',
