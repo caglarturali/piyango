@@ -56199,14 +56199,62 @@
       "ikramiyeEH": 4205877.470000001,
       "buyukIkramiye": 1009410.59,
       "haftayaDevredenTutar": 2342817.18
+    },
+    {
+      "oid": "3z8x9jk95xgbv300",
+      "hafta": 1315,
+      "buyukIkramiyeKazananIl": "",
+      "cekilisTarihi": "18/04/2020",
+      "cekilisTuru": "SAYISAL_LOTO",
+      "rakamlar": "38#10#45#04#39#19",
+      "rakamlarNumaraSirasi": "04 - 10 - 19 - 38 - 39 - 45",
+      "devretti": true,
+      "devirSayisi": 4,
+      "bilenKisiler": [
+        {
+          "oid": "3zbc7dk95xgbuy03",
+          "kisiBasinaDusenIkramiye": 13.4,
+          "kisiSayisi": 71021,
+          "tur": "$3_BILEN"
+        },
+        {
+          "oid": "3zbc7dk95xgbuy02",
+          "kisiBasinaDusenIkramiye": 95.2,
+          "kisiSayisi": 3786,
+          "tur": "$4_BILEN"
+        },
+        {
+          "oid": "3zbc7dk95xgbuy01",
+          "kisiBasinaDusenIkramiye": 7122.4,
+          "kisiSayisi": 67,
+          "tur": "$5_BILEN"
+        },
+        {
+          "oid": "3zbc7dk95xgbuy00",
+          "kisiBasinaDusenIkramiye": 3535695.0700000003,
+          "kisiSayisi": 0,
+          "tur": "$6_BILEN"
+        }
+      ],
+      "buyukIkrKazananIlIlceler": [],
+      "kibrisHasilati": 0,
+      "devirTutari": 2342817.18,
+      "kolonSayisi": 4344421,
+      "kdv": 994062.43,
+      "toplamHasilat": 6516631.5,
+      "hasilat": 5522569.07,
+      "sov": 552256.91,
+      "ikramiyeEH": 4970312.16,
+      "buyukIkramiye": 1192874.92,
+      "haftayaDevredenTutar": 3535695.07
     }
   ],
   "stats": {
-    "lastDraw": "20200415",
+    "lastDraw": "20200418",
     "numbers": {
       "10": {
-        "freq": 153,
-        "last": "20200401"
+        "freq": 154,
+        "last": "20200418"
       },
       "11": {
         "freq": 157,
@@ -56241,8 +56289,8 @@
         "last": "20200222"
       },
       "19": {
-        "freq": 160,
-        "last": "20200408"
+        "freq": 161,
+        "last": "20200418"
       },
       "20": {
         "freq": 164,
@@ -56317,12 +56365,12 @@
         "last": "20200328"
       },
       "38": {
-        "freq": 182,
-        "last": "20200226"
+        "freq": 183,
+        "last": "20200418"
       },
       "39": {
-        "freq": 162,
-        "last": "20200325"
+        "freq": 163,
+        "last": "20200418"
       },
       "40": {
         "freq": 174,
@@ -56345,8 +56393,8 @@
         "last": "20200415"
       },
       "45": {
-        "freq": 141,
-        "last": "20200222"
+        "freq": 142,
+        "last": "20200418"
       },
       "46": {
         "freq": 168,
@@ -56377,8 +56425,8 @@
         "last": "20200226"
       },
       "04": {
-        "freq": 156,
-        "last": "20200401"
+        "freq": 157,
+        "last": "20200418"
       },
       "05": {
         "freq": 168,
