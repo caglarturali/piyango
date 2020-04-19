@@ -21,8 +21,8 @@ const ballColor = (
   if (type === 'dark') {
     return {
       background: gradient(
-        Color.rgb(color1).darken(0.35).string(),
-        Color.rgb(color2).darken(0.35).string(),
+        Color.rgb(color1).darken(0.3).string(),
+        Color.rgb(color2).darken(0.3).string(),
       ),
       color: Color.rgb(textColor).darken(0.1).string(),
     };
