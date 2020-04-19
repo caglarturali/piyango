@@ -40,7 +40,7 @@ const ThemeWrapper: React.FC<AppProps> = (appProps) => {
       ...config,
       palette: {
         ...config.palette,
-        type: prefersDarkMode ? 'dark' : 'light',
+        type: prefersDarkMode ? 'dark' : themePref,
       },
     });
     t.overrides = overrides(t);

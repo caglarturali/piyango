@@ -17,7 +17,7 @@ const Footer: React.FC = () => {
     <footer className={classes.root}>
       <Typography variant="body2">
         &copy;{' '}
-        <Link component="a" href={app.baseUrl} target="_blank">
+        <Link component="a" href={app.baseUrl}>
           Piyango.online
         </Link>{' '}
         {new Date().getFullYear()}

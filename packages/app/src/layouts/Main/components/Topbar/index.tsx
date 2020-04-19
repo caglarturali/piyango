@@ -23,23 +23,20 @@ const Topbar: React.FC<TopbarProps> = ({ contentTitle, onMenuClick }) => {
 
   return (
     <AppBar elevation={0}>
-      <div className={classes.flexGrow}>
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="start"
-            onClick={onMenuClick}
-            className={classes.menuButton}
-          >
-            <MenuIcon />
-          </IconButton>
-          {/* <Typography component="h6">{contentTitle}</Typography> */}
-          <div className={classes.content}>
-            <Logo />
-          </div>
-        </Toolbar>
-      </div>
+      <Toolbar classes={{ root: classes.toolbar }}>
+        <IconButton
+          color="inherit"
+          aria-label="open drawer"
+          edge="start"
+          onClick={onMenuClick}
+          className={classes.menuButton}
+        >
+          <MenuIcon />
+        </IconButton>
+        <div className={classes.content}>
+          <Logo />
+        </div>
+      </Toolbar>
     </AppBar>
   );
 };

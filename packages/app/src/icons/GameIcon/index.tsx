@@ -11,7 +11,7 @@ export interface GameIconProps {
   content: string;
 }
 
-const GameIcon: React.FunctionComponent<GameIconProps> = ({ content }) => {
+const GameIcon: React.FC<GameIconProps> = ({ content }) => {
   const classes = useStyles();
 
   return (

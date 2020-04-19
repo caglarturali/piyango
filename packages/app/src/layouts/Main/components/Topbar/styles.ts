@@ -2,22 +2,32 @@
  * Topbar component styles.
  */
 import { createStyles, Theme } from '@material-ui/core';
+import { toolbarColor } from '../../../../theme/helpers';
 
-export default ({ breakpoints, mixins, spacing }: Theme) =>
+export default ({ breakpoints, palette, mixins, spacing }: Theme) =>
   createStyles({
+    toolbar: {
+      // necessary for content to be below app bar
+      ...mixins.toolbar,
+      backgroundColor: toolbarColor(
+        palette,
+        mixins.toolbar.backgroundColor as string,
+      ),
+      '&>*': {
+        position: 'absolute',
+      },
+    },
     menuButton: {
       marginRight: spacing(2),
       [breakpoints.up('md')]: {
         display: 'none',
       },
-    },
-    // necessary for content to be below app bar
-    toolbar: mixins.toolbar,
-    flexGrow: {
-      flexGrow: 1,
+      zIndex: 1000,
     },
     content: {
+      left: 0,
+      display: 'flex',
       justifyContent: 'center',
-      width: `calc(100% - 64px)`,
+      width: '100%',
     },
   });

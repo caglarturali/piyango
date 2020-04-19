@@ -8,7 +8,7 @@ import styles from './styles';
 
 const useStyles = makeStyles(styles);
 
-const Logo: React.FunctionComponent = () => {
+const Logo: React.FC = () => {
   const classes = useStyles();
 
   return (

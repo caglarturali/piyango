@@ -3,6 +3,11 @@
  */
 import { createStyles, Theme } from '@material-ui/core';
 
+const chipColor = (palette: Theme['palette']) => {
+  const { secondary, type } = palette;
+  return secondary[type === 'dark' ? 'light' : 'dark'];
+};
+
 export default ({ palette, spacing, typography }: Theme) =>
   createStyles({
     currency: {
@@ -13,8 +18,8 @@ export default ({ palette, spacing, typography }: Theme) =>
       paddingLeft: spacing(0.5),
     },
     chipOutlined: {
-      color: palette.secondary.light,
-      borderColor: palette.secondary.light,
+      color: chipColor(palette),
+      borderColor: palette.secondary.main,
     },
     chip: {
       fontWeight: typography.fontWeightMedium,
