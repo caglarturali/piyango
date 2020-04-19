@@ -24,7 +24,7 @@ const DrawDetails: React.FunctionComponent<DrawDetailsProps> = ({
   const drawDate = DateUtils.convert(
     drawData.cekilisTarihi,
     DateFormat.FRIENDLY,
-    DateFormat.URL,
+    DateFormat.API,
   );
 
   return (
